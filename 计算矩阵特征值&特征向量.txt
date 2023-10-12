@@ -1,0 +1,84 @@
+﻿import numpy as np
+import Matrix
+
+
+def tril_indices(n, k=0, m=None):
+    if m is None:
+        m = n
+    if n < 1 or k <= -n or m < 1:
+        return [], []
+    _indices = [[x, y] for y in range(n) for x in range(y + k + 1) if x < m]
+    return [y[1] for y in _indices], [x[0] for x in _indices]
+
+
+def hypot(a, b):
+    return (a ** 2 + b ** 2) ** 0.5
+
+
+def identity(n):
+    return Matrix.Matrix([[1.0 if a == b else 0.0 for a in range(n)] for b in range(n)])
+
+
+def qr(matrix):
+    r = matrix.rows
+    c = matrix.cols
+    Q = identity(r).data
+    R = [[float(item) for item in line] for line in matrix.data]
+    rows, cols = tril_indices(r, -1, c)
+    for row, col in zip(rows, cols):
+        if R[row][col] != 0:
+            _r = hypot(R[col][col], R[row][col])
+            c = R[col][col] / _r
+            s = -R[row][col] / _r
+            G = identity(r).data
+            G[col][col] = c
+            G[row][row] = c
+            G[row][col] = s
+            G[col][row] = -s
+            G = Matrix.Matrix(G)
+            Q = Matrix.Matrix(Q)
+            R = Matrix.Matrix(R)
+            Q = Q.inner(G).data
+            R = (G @ R).data
+    return Matrix.Matrix([[item for item in line] for line in Q]), Matrix.Matrix(
+        [[item for item in line] for line in R])
+
+
+# QR迭代求特征值特征向量
+def eig(matrix):
+    # QR迭代(尽量让它多迭代几次，以至于AK收敛为上三角)
+    _qr = []
+    n = matrix.rows
+    Q = identity(n)
+    for i in range(100):
+        # A = QR
+        _qr = qr(matrix)
+        # 将Q右边累乘
+        Q = Q @ _qr[0]
+        # A1 = RQ
+        matrix = _qr[1] @ _qr[0]
+    AK = (_qr[0] @ _qr[1]).data
+    # 把e取出
+    e = Matrix.Matrix([[AK[i][i] for i in range(n)]])
+    return e, Q
+
+
+A = [
+    [1, 2, 3, 4],
+    [2, 3, 4, 5],
+    [6, 7, 8, 9],
+    [7, 8, 9, 0]
+]
+e, Q = eig(Matrix.Matrix(A))
+print(e)
+print()
+print(Q)
+print()
+
+np.set_printoptions(precision=4, suppress=True)
+m = np.array(A)
+e, Q = np.linalg.eig(m)
+print()
+print(e)
+print()
+print(Q)
