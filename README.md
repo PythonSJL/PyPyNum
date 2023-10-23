@@ -1,7 +1,7 @@
-# Module of Mathematics
+# PyPyNum
 
 #### 介绍
-DIY数学模块，类似于numpy、scipy等 ------ QQ 2261748025 （Py𝙿𝚢𝚝𝚑𝚘𝚗-水晶兰）
+DIY数学库，类似于numpy、scipy等 ------ QQ 2261748025 （Py𝙿𝚢𝚝𝚑𝚘𝚗-水晶兰）
 
 #### 软件架构
 软件架构说明
