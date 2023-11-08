@@ -1,7 +1,7 @@
 # PyPyNum
 
 ----PyPyNum----
-Version -> 0.1
+Version -> 0.2
 Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
 
 #### 介绍
