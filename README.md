@@ -7,17 +7,9 @@ Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
 #### 介绍
 DIY数学库，类似于numpy、scipy等 ------ QQ 2261748025 （Py𝙿𝚢𝚝𝚑𝚘𝚗-水晶兰）
 
-#### 软件架构
-软件架构说明
-
-
 #### 安装教程
 
 1.  下载即可使用
-
-#### 使用说明
-
-1.  暂无说明
 
 #### 参与贡献
 
@@ -25,7 +17,6 @@ DIY数学库，类似于numpy、scipy等 ------ QQ 2261748025 （Py𝙿𝚢𝚝�
 2.  新建 Feat_xxx 分支
 3.  提交代码
 4.  新建 Pull Request
-
 
 #### 特技
 
