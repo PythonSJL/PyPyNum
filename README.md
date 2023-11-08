@@ -5,11 +5,13 @@ Version -> 0.2
 Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
 
 #### 介绍
-DIY数学库，类似于numpy、scipy等 ------ QQ 2261748025 （Py𝙿𝚢𝚝𝚑𝚘𝚗-水晶兰）
+1.  DIY数学库，类似于numpy、scipy等，专为PyPy解释器制作
+2.  不定期更新版本，增加更多实用功能
+3.  如需联系，QQ 2261748025 （Py𝙿𝚢𝚝𝚑𝚘𝚗-水晶兰）
 
 #### 安装教程
 
-1.  下载即可使用
+1.  下载即可使用，无需其他依赖项
 
 #### 参与贡献
 
