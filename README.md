@@ -1,8 +1,8 @@
 # PyPyNum
 
-----PyPyNum----
-Version -> 0.2
-Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
+#### ----PyPyNum----
+#### Version = 0.3
+#### Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
 
 #### 介绍
 1.  DIY数学库，类似于numpy、scipy等，专为PyPy解释器制作
