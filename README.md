@@ -9,6 +9,7 @@
 2.  不定期更新版本，增加更多实用功能
 3.  如需联系，QQ 2261748025 （Py𝙿𝚢𝚝𝚑𝚘𝚗-水晶兰）
 
+#### 基本结构
 ```
 PyPyNum
     Geometry
@@ -162,8 +163,6 @@ PyPyNum
             frange(start: int | float, stop: int | float, step: float = 1.0) -> list
             linspace(start: int | float, stop: int | float, number: int) -> list
 ```
-
-![pypynum](pypynum.png)
 
 #### 安装教程
 
