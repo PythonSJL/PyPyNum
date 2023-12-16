@@ -11,12 +11,17 @@
 
 #### 基本结构
 ```
-目录暂未更新
 PyPyNum
     Geometry
         CLASSES
+            Circle
             Line
+            Point
+            Polygon
+            Quadrilateral
             Triangle
+        FUNCTIONS
+            distance(g1: <built-in function any>, g2: <built-in function any>, error: int | float = 0) -> float
     Matrix
         CLASSES
             Matrix
