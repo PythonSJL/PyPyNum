@@ -1,6 +1,6 @@
 # PyPyNum
 
-## Version -> 0.8
+## Version -> 0.9
 ### Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
 
 #### 介绍
@@ -153,6 +153,13 @@ PyPyNum
             tanh(x: int | float) -> int | float
             var(numbers: list | tuple) -> int | float | complex
             zeta(alpha: int | float) -> float
+    plotting
+        FUNCTIONS
+            background(right: int | float = 5, left: int | float = -5, top: int | float = 5, bottom: int | float = -5, complexity: int | float = 5, ratio: int | float = 3, merge: bool = False) -> list | str
+    binary(function, right: int | float = 5, left: int | float = -5, top: int | float = 5, bottom: int | float = -5, complexity: int | float = 5, ratio: int | float = 3, error=0, compare='==', merge: bool = True, basic: list = None, character: str = '.', data: bool = False) -> list | str
+            c_unary(function, start: int | float, end: int | float, interval: int | float = 5, projection: str = 'ri', right: int | float = 5, left: int | float = -5, top: int | float = 5, bottom: int | float = -5, complexity: int | float = 5, ratio: int | float = 3, merge: bool = True, basic: list = None, character: str = '.', data: bool = False) -> list | str
+            change(data: list | str) -> list | str
+            unary(function, right: int | float = 5, left: int | float = -5, top: int | float = 5, bottom: int | float = -5, complexity: int | float = 5, ratio: int | float = 3, merge: bool = True, basic: list = None, character: str = '.', data: bool = False) -> list | str
     regression
         FUNCTIONS
             covariance_matrix(_x, _y)
