@@ -162,12 +162,10 @@ PyPyNum
             unary(function, right: int | float = 5, left: int | float = -5, top: int | float = 5, bottom: int | float = -5, complexity: int | float = 5, ratio: int | float = 3, merge: bool = True, basic: list = None, character: str = '.', data: bool = False) -> list | str
     regression
         FUNCTIONS
-            covariance_matrix(_x, _y)
+            __covariance_matrix(_x, _y)
             linear_regression(x_values, y_values)
-            mean(numbers)
             parabolic_regression(x, y)
-            solve_equations(a1, b1, c1, a2, b2, c2)
-            variance(numbers)
+            __solve_equations(a1, b1, c1, a2, b2, c2)
     tools
         FUNCTIONS
             classify(array: list | tuple) -> dict
