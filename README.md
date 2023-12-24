@@ -399,12 +399,12 @@ f(x) = -0.214285714 * x ** 2 + 2.357142857 * x + 1.971428571
 ```
 
 #### 安装教程
-####Installation Tutorial
+#### Installation Tutorial
 1.  下载即可使用，无需其他依赖项
 1.  Download and use without any other dependencies
 
 #### 参与贡献
-####Participate in contributions
+#### Participate in contributions
 1.  Fork 本仓库
 1.  Fork warehouse
 2.  新建 Feat_xxx 分支
@@ -415,7 +415,7 @@ f(x) = -0.214285714 * x ** 2 + 2.357142857 * x + 1.971428571
 4.  Create a new Pull Request
 
 #### 特技
-####Stunts
+#### Stunts
 1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
 1.  Use Readme\_ XXX. MD to support different languages, such as Readme\_ En.md, Readme\_ Zh.md
 2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
