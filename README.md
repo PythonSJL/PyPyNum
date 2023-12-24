@@ -4,13 +4,20 @@
 ### Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
 
 #### 介绍
+#### Introduction
 1.  DIY数学库，类似于numpy、scipy等，专为PyPy解释器制作
+1.  DIY math library, similar to numpy, scipy, etc., specifically designed for PyPy interpreters
 2.  不定期更新版本，增加更多实用功能
+2.  Update versions periodically to add more practical features
 3.  如需联系，QQ 2261748025 （Py𝙿𝚢𝚝𝚑𝚘𝚗-水晶兰）
+3.  If you need to contact, QQ 2261748025 (Py𝙿𝚢𝚝𝚑𝚘𝚗-水晶兰)
 
 #### 基本结构
+#### Basic structure
 ```
 PyPyNum
+    test
+        [A Code Test File]
     Geometry
         CLASSES
             Circle
@@ -175,6 +182,7 @@ PyPyNum
 ```
 
 #### 代码测试
+#### Code testing
 ```
 
 >>> from pypynum import Geometry, Matrix, Quaternion, Tensor, constants, equations, mathematics, regression, plotting, tools
@@ -391,21 +399,32 @@ f(x) = -0.214285714 * x ** 2 + 2.357142857 * x + 1.971428571
 ```
 
 #### 安装教程
-
+####Installation Tutorial
 1.  下载即可使用，无需其他依赖项
+1.  Download and use without any other dependencies
 
 #### 参与贡献
-
+####Participate in contributions
 1.  Fork 本仓库
+1.  Fork warehouse
 2.  新建 Feat_xxx 分支
+2.  Create a new Feature_ Xxx branch
 3.  提交代码
+3.  Submit code
 4.  新建 Pull Request
+4.  Create a new Pull Request
 
 #### 特技
-
+####Stunts
 1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
+1.  Use Readme\_ XXX. MD to support different languages, such as Readme\_ En.md, Readme\_ Zh.md
 2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
+2.  Gitee Official Blog [blog. Gitee. com]（ https://blog.gitee.com ）
 3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
+3.  You can[ https://gitee.com/explore ]（ https://gitee.com/explore ）This address is for learning about excellent open source projects on Gitee
 4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
+4.  [GVP]（ https://gitee.com/gvp ）The full name is Gitee's most valuable open source project, which is comprehensively evaluated as an excellent open source project
 5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
+5.  Gitee Official User Manual[ https://gitee.com/help ]（ https://gitee.com/help ）
 6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+6.  The cover character of Gitee is a column used to showcase the style of Gitee members[ https://gitee.com/gitee-stars/ ]（ https://gitee.com/gitee-stars/ ）
