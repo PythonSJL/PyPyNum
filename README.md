@@ -174,6 +174,222 @@ PyPyNum
             linspace(start: int | float, stop: int | float, number: int) -> list
 ```
 
+#### 代码测试
+```
+
+>>> from pypynum import Geometry, Matrix, Quaternion, Tensor, constants, equations, mathematics, regression, plotting, tools
+
+...
+
+>>> triangle = Geometry.Triangle((0, 0), (2, 2), (3, 0))
+>>> print(triangle.perimeter())
+>>> print(triangle.area())
+>>> print(triangle.centroid())
+
+8.06449510224598
+3.0
+(1.6666666666666667, 0.6666666666666666)
+
+>>> m0 = Matrix.mat([[1, 2], [3, 4]])
+>>> m1 = Matrix.mat([[5, 6], [7, 8]])
+>>> print(m0)
+>>> print(m1)
+>>> print(m0 + m1)
+>>> print(m0 @ m1)
+>>> print(m0.inv())
+>>> print(m1.rank())
+
+[[1 2]
+ [3 4]]
+[[5 6]
+ [7 8]]
+[[ 6  8]
+ [10 12]]
+[[19 22]
+ [43 50]]
+[[-2.0  1.0]
+ [ 1.5 -0.5]]
+2
+
+>>> q0 = Quaternion.quat(1, 2, 3, 4)
+>>> q1 = Quaternion.quat(5, 6, 7, 8)
+>>> print(q0)
+>>> print(q1)
+>>> print(q0 + q1)
+>>> print(q0 * q1)
+>>> print(q0.inverse())
+>>> print(q1.conjugate())
+
+(1+2i+3j+4k)
+(5+6i+7j+8k)
+(6+8i+10j+12k)
+(-60+12i+30j+24k)
+(0.18257418583505536+-0.3651483716701107i+-0.5477225575051661j+-0.7302967433402214k)
+(5+-6i+-7j+-8k)
+
+>>> t0 = Tensor.ten([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
+>>> t1 = Tensor.ten([[[9, 10], [11, 12]], [[13, 14], [15, 16]]])
+>>> print(t0)
+>>> print(t1)
+>>> print(t0 + t1)
+>>> print(t0 @ t1)
+
+[[[1 2]
+  [3 4]]
+
+ [[5 6]
+  [7 8]]]
+[[[ 9 10]
+  [11 12]]
+
+ [[13 14]
+  [15 16]]]
+[[[10 12]
+  [14 16]]
+
+ [[18 20]
+  [22 24]]]
+[[[ 31  34]
+  [ 71  78]]
+
+ [[155 166]
+  [211 226]]]
+
+>>> print(constants.TB)
+>>> print(constants.e)
+>>> print(constants.h)
+>>> print(constants.phi)
+>>> print(constants.pi)
+>>> print(constants.tera)
+
+1099511627776
+2.718281828459045
+6.62607015e-34
+1.618033988749895
+3.141592653589793
+1000000000000.0
+
+>>> p = [1, -2, -3, 4]
+>>> m = [
+    [
+        [1, 2, 3],
+        [6, 10, 12],
+        [7, 16, 9]
+    ],
+    [-1, -2, -3]
+]
+>>> print(equations.pe(p))
+>>> print(equations.mles(*m))
+
+[2.561552812809, -1.561552812809, 1.0]
+[1.666666666667, -0.666666666667, -0.444444444444]
+
+>>> print(mathematics.cot(constants.pi / 3))
+>>> print(mathematics.gamma(1.5))
+>>> print(mathematics.pi(1, 10, lambda x: x ** 2))
+>>> print(mathematics.product([2, 3, 5, 7, 11, 13, 17, 19, 23, 29]))
+>>> print(mathematics.sigma(1, 10, lambda x: x ** 2))
+>>> print(mathematics.var([2, 3, 5, 7, 11, 13, 17, 19, 23, 29]))
+
+0.577350269189626
+0.886226925452758
+13168189440000
+6469693230
+385
+73.29
+
+>>> print(regression.linear_regression(range(5), [2, 4, 6, 7, 8]))
+>>> print(regression.parabolic_regression(range(5), [2, 4, 6, 7, 8]))
+
+f(x) = 1.5 * x + 2.4
+[1.5, 2.4]
+f(x) = -0.214285714 * x ** 2 + 2.357142857 * x + 1.971428571
+[-0.214285714, 2.357142857, 1.971428571]
+
+>>> plt = plotting.unary(lambda x: x ** 2, top=10, bottom=0, character="+")
+>>> print(plt)
+>>> print(plotting.binary(lambda x, y: x ** 2 + y ** 2 - 10, right=10, left=0, compare="<=", basic=plotting.change(plt)))
+>>> print(plotting.c_unary(lambda x: x ** x, start=-10, end=10, interval=100, right=2, left=-2, top=2, bottom=-2, complexity=20, character="-"))
+
+  1.00e+01|         +                               +         
+          |                                                   
+          |          +                             +          
+          |                                                   
+          |           +                           +           
+          |            +                         +            
+          |                                                   
+          |             +                       +             
+  5.00e+00|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+          |              +                     +              
+          |               +                   +               
+          |                +                 +                
+          |                 +               +                 
+          |                  +             +                  
+          |                   +           +                   
+          |                    +         +                    
+          |                     +++   +++                     
+  0.00e+00|________________________+++________________________
+           -5.00e+00             0.00e+00             5.00e+00
+  1.00e+01|         +                               +         
+          |                                                   
+          |          +                             +          
+          |                                                   
+          |.........  +                           +           
+          |.............                         +            
+          |..............                                     
+          |................                     +             
+  5.00e+00|................_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+          |................                    +              
+          |................                   +               
+          |..............  +                 +                
+          |.............    +               +                 
+          |.........         +             +                  
+          |                   +           +                   
+          |                    +         +                    
+          |                     +++   +++                     
+  0.00e+00|________________________+++________________________
+           -5.00e+00             0.00e+00             5.00e+00
+  2.00e+00|                                                                                 
+          |                                                                                 
+          |                                                                                 
+          |                                                                                 
+          |                                                                                 
+          |                                                                                 
+          |                                                                                 
+          |                                                                                 
+          |                                                                                 
+          |                                -------                                          
+          |                          ------       -----                                     
+          |                       ----                 --                                   
+          |                     ---                     --                                  
+  0.00e+00|_ _ _ _ _ _ _ _ _ _ --_ _ _ _ _ _ _ _ _-- _ _-- _ _ _ ---------------------------
+          |                   --                  -------               ---                 
+          |                   -                                           --                
+          |                   -                                            -                
+          |                   --                                           -                
+          |                    --                                         -                 
+          |                      --                                      -                  
+          |                       ---                                 ---                   
+          |                          ----                         ----                      
+          |                             --------            -------                         
+          |                                     ------------                                
+          |                                                                                 
+          |                                                                                 
+          |                                                                                 
+ -2.00e+00|_________________________________________________________________________________
+           -2.00e+00                            0.00e+00                            2.00e+00
+
+>>> print(tools.classify([1, 2.3, 4 + 5j, "string", list, True, 3.14, False, tuple, tools]))
+>>> print(tools.deduplicate(["Python", 6, "NumPy", int, "PyPyNum", 9, "pypynum", "NumPy", 6, True]))
+>>> print(tools.frange(0, 3, 0.4))
+>>> print(tools.linspace(0, 2.8, 8))
+
+{<class 'int'>: [1], <class 'float'>: [2.3, 3.14], <class 'complex'>: [(4+5j)], <class 'str'>: ['string'], <class 'type'>: [<class 'list'>, <class 'tuple'>], <class 'bool'>: [True, False], <class 'module'>: [<module 'pypynum.tools' from 'F:\\PyPyproject\\PyPyproject1\\pypynum\\tools.py'>]}
+['Python', 6, 'NumPy', <class 'int'>, 'PyPyNum', 9, 'pypynum', True]
+[0.0, 0.4, 0.8, 1.2000000000000002, 1.6, 2.0, 2.4000000000000004, 2.8000000000000003]
+[0.0, 0.39999999999999997, 0.7999999999999999, 1.2, 1.5999999999999999, 1.9999999999999998, 2.4, 2.8]
+```
+
 #### 安装教程
 
 1.  下载即可使用，无需其他依赖项
