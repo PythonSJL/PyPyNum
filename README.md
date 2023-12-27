@@ -1,8 +1,8 @@
 # PyPyNum
 
-## Version -> 1.0.1
+## Version -> 1.0.2
 ### PyPI -> https://pypi.org/project/PyPyNum/
-### Gitee -> https://gitee.com/PythonSJL/PyPyNum
+### Gitee -> https://gitee.com/PythonSJL/PyPyNum 
 
 #### 介绍
 #### Introduction
@@ -12,6 +12,43 @@
 2.  Update versions periodically to add more practical features
 3.  如需联系，QQ 2261748025 （Py𝙿𝚢𝚝𝚑𝚘𝚗-水晶兰）
 3.  If you need to contact, QQ 2261748025 (Py𝙿𝚢𝚝𝚑𝚘𝚗-水晶兰)
+
+#### PyPyNum的Zen
+#### The Zen of PyPyNum
+```
+    The Zen of PyPyNum, by Shen Jiayi
+
+This is a math package written purely in Python.
+
+...(Do you want to see the entire content?
+Then enter "from pypynum import this" on your
+Python interpreter and run it!)
+
+                                December 27, 2023
+```
+
+#### 与上一个版本相比新增功能
+#### New features compared to the previous version
+```
+Symbolics (符号计算)
+    FUNCTIONS
+        interpreter(expr: str) -> list
+    DATA
+        basic = '%()*+-./0123456789'
+        english = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+        greek = 'ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟ∏ΡΣΤΥΦΧΨΩβγδεζηθικλμνξοπρστυφχψω'
+        operators = ['**', '*', '//', '/', '%', '+', '-']
+        valid = '%()*+-./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcd...yzΑΒΓΔΕΖΗΘ...'
+
+(More features need to be added)
+```
+
+#### 下一个版本预期新增功能
+#### Expected new features in the next version
+```
+[Vector module]
+```
+
 
 #### 基本结构
 #### Basic structure
@@ -51,6 +88,15 @@ PyPyNum
             change(data: Euler | Quaternion) -> Quaternion | Euler
             euler(yaw: int | float = 0, pitch: int | float = 0, roll: int | float = 0) -> Euler
             quat(w: int | float = 0, x: int | float = 0, y: int | float = 0, z: int | float = 0) -> Quaternion
+    Symbolics
+        FUNCTIONS
+            interpreter(expr: str) -> list
+        DATA
+            basic = '%()*+-./0123456789'
+            english = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+            greek = 'ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟ∏ΡΣΤΥΦΧΨΩβγδεζηθικλμνξοπρστυφχψω'
+            operators = ['**', '*', '//', '/', '%', '+', '-']
+            valid = '%()*+-./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcd...yzΑΒΓΔΕΖΗΘ...'
     Tensor
         CLASSES
             Tensor
@@ -185,8 +231,7 @@ PyPyNum
 #### 代码测试
 #### Code testing
 ```
-
->>> from pypynum import Geometry, Matrix, Quaternion, Tensor, constants, equations, mathematics, regression, plotting, tools
+>>> from pypynum import Geometry, Matrix, Quaternion, Symbolics, Tensor, constants, equations, mathematics, regression, plotting, tools
 
 ...
 
@@ -235,6 +280,16 @@ PyPyNum
 (-60+12i+30j+24k)
 (0.18257418583505536+-0.3651483716701107i+-0.5477225575051661j+-0.7302967433402214k)
 (5+-6i+-7j+-8k)
+
+>>> print(Symbolics.basic)
+>>> print(Symbolics.english)
+>>> print(Symbolics.greek)
+>>> print(Symbolics.interpreter("-(10+a-(3.14+b0)*(-5))**(-ζn1-2.718/mΣ99)//9"))
+
+%()*+-./0123456789
+ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟ∏ΡΣΤΥΦΧΨΩβγδεζηθικλμνξοπρστυφχψω
+[['10', '+', 'a', '-', ['3.14', '+', 'b0'], '*', '-5'], '**', ['-ζn1', '-', '2.718', '/', 'mΣ99'], '//', '9']
 
 >>> t0 = Tensor.ten([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
 >>> t1 = Tensor.ten([[[9, 10], [11, 12]], [[13, 14], [15, 16]]])
@@ -397,35 +452,20 @@ f(x) = -0.214285714 * x ** 2 + 2.357142857 * x + 1.971428571
 ['Python', 6, 'NumPy', <class 'int'>, 'PyPyNum', 9, 'pypynum', True]
 [0.0, 0.4, 0.8, 1.2000000000000002, 1.6, 2.0, 2.4000000000000004, 2.8000000000000003]
 [0.0, 0.39999999999999997, 0.7999999999999999, 1.2, 1.5999999999999999, 1.9999999999999998, 2.4, 2.8]
+
+提示：
+
+测试已成功通过并结束。
+
+这些测试只是这个包功能的一部分。
+
+更多的功能需要自己探索和尝试！
+
+Tip:
+
+The test has been successfully passed and ended.
+
+These tests are only part of the functionality of this package.
+
+More features need to be explored and tried by yourself!
 ```
-
-#### 安装教程
-#### Installation Tutorial
-1.  下载即可使用，无需其他依赖项
-1.  Download and use without any other dependencies
-
-#### 参与贡献
-#### Participate in contributions
-1.  Fork 本仓库
-1.  Fork warehouse
-2.  新建 Feat_xxx 分支
-2.  Create a new Feature_ Xxx branch
-3.  提交代码
-3.  Submit code
-4.  新建 Pull Request
-4.  Create a new Pull Request
-
-#### 特技
-#### Stunts
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-1.  Use Readme\_ XXX. MD to support different languages, such as Readme\_ En.md, Readme\_ Zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-2.  Gitee Official Blog [blog. Gitee. com]（ https://blog.gitee.com ）
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-3.  You can[ https://gitee.com/explore ]（ https://gitee.com/explore ）This address is for learning about excellent open source projects on Gitee
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-4.  [GVP]（ https://gitee.com/gvp ）The full name is Gitee's most valuable open source project, which is comprehensively evaluated as an excellent open source project
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-5.  Gitee Official User Manual[ https://gitee.com/help ]（ https://gitee.com/help ）
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
-6.  The cover character of Gitee is a column used to showcase the style of Gitee members[ https://gitee.com/gitee-stars/ ]（ https://gitee.com/gitee-stars/ ）
