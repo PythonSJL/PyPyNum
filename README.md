@@ -1,6 +1,6 @@
 # PyPyNum
 
-## Version -> 1.0.2
+## Version -> 1.0.3
 ### PyPI -> https://pypi.org/project/PyPyNum/
 ### Gitee -> https://gitee.com/PythonSJL/PyPyNum 
 
@@ -30,15 +30,12 @@ Python interpreter and run it!)
 #### 与上一个版本相比新增功能
 #### New features compared to the previous version
 ```
-Symbolics (符号计算)
+Vector
+    CLASSES
+        Vector
     FUNCTIONS
-        interpreter(expr: str) -> list
-    DATA
-        basic = '%()*+-./0123456789'
-        english = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
-        greek = 'ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟ∏ΡΣΤΥΦΧΨΩβγδεζηθικλμνξοπρστυφχψω'
-        operators = ['**', '*', '//', '/', '%', '+', '-']
-        valid = '%()*+-./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcd...yzΑΒΓΔΕΖΗΘ...'
+        same(length, value=0)
+        vec(data)
 
 (More features need to be added)
 ```
@@ -46,7 +43,7 @@ Symbolics (符号计算)
 #### 下一个版本预期新增功能
 #### Expected new features in the next version
 ```
-[Vector module]
+[Rectify and optimize the code]
 ```
 
 
@@ -56,6 +53,8 @@ Symbolics (符号计算)
 PyPyNum
     test
         [A Code Test File]
+    this
+        [The Zen of PyPyNum]
     Geometry
         CLASSES
             Circle
@@ -106,6 +105,12 @@ PyPyNum
             ten(data)
             tensor_and_number(tensor, operator, number)
             tolist(_nested_list)
+    Vector
+        CLASSES
+            Vector
+        FUNCTIONS
+            same(length, value=0)
+            vec(data)
     constants
         DATA
             AMU = 1.6605402e-27
@@ -231,7 +236,7 @@ PyPyNum
 #### 代码测试
 #### Code testing
 ```
->>> from pypynum import Geometry, Matrix, Quaternion, Symbolics, Tensor, constants, equations, mathematics, regression, plotting, tools
+>>> from pypynum import Geometry, Matrix, Quaternion, Symbolics, Tensor, Vector, constants, equations, mathematics, regression, plotting, tools
 
 ...
 
@@ -318,6 +323,22 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
 
  [[155 166]
   [211 226]]]
+
+v0 = Vector.vec([1, 2, 3, 4])
+v1 = Vector.vec([5, 6, 7, 8])
+print(v0)
+print(v1)
+print(v0 + v1)
+print(v0 @ v1)
+print(v0.normalize())
+print(v1.angles())
+
+[1 2 3 4]
+[5 6 7 8]
+[5 12 21 32]
+70
+[0.18257418583505536 0.3651483716701107 0.5477225575051661 0.7302967433402214]
+[1.1820279130506308, 1.0985826410133916, 1.0114070854293842, 0.9191723423169716]
 
 >>> print(constants.TB)
 >>> print(constants.e)
