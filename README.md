@@ -1,10 +1,8 @@
 # PyPyNum
 
-## Version -> 1.0.3
-### PyPI -> https://pypi.org/project/PyPyNum/
-### Gitee -> https://gitee.com/PythonSJL/PyPyNum 
+## Version -> 1.1.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
 
-#### 介绍
+### 介绍
 #### Introduction
 1.  DIY数学库，类似于numpy、scipy等，专为PyPy解释器制作
 1.  DIY math library, similar to numpy, scipy, etc., specifically designed for PyPy interpreters
@@ -13,7 +11,7 @@
 3.  如需联系，QQ 2261748025 （Py𝙿𝚢𝚝𝚑𝚘𝚗-水晶兰）
 3.  If you need to contact, QQ 2261748025 (Py𝙿𝚢𝚝𝚑𝚘𝚗-水晶兰)
 
-#### PyPyNum的Zen
+### PyPyNum的Zen
 #### The Zen of PyPyNum
 ```
     The Zen of PyPyNum, by Shen Jiayi
@@ -27,34 +25,53 @@ Python interpreter and run it!)
                                 December 27, 2023
 ```
 
-#### 与上一个版本相比新增功能
+### 与上一个版本相比新增功能
 #### New features compared to the previous version
 ```
-Vector
+[Rectify and optimize the code]
+
+Array
     CLASSES
-        Vector
+        Array
     FUNCTIONS
-        same(length, value=0)
-        vec(data)
+        array(data)
+        is_valid_array(_array, _shape)
 
 (More features need to be added)
 ```
 
-#### 下一个版本预期新增功能
+### 下一个版本预期新增功能
 #### Expected new features in the next version
 ```
-[Rectify and optimize the code]
+
 ```
 
 
-#### 基本结构
+### 基本结构
 #### Basic structure
 ```
 PyPyNum
+    errors
+        CLASSES
+            ShapeError
     test
         [A Code Test File]
     this
         [The Zen of PyPyNum]
+    types
+        DATA
+            arr = list | tuple
+            ite = list | tuple | str
+            num = int | float | complex
+            real = int | float
+    Array
+        CLASSES
+            Array
+        FUNCTIONS
+            array(data=None)
+            is_valid_array(_array, _shape)
+            zeros(_dimensions)
+            zeros_like(_nested_list)
     Geometry
         CLASSES
             Circle
@@ -64,17 +81,17 @@ PyPyNum
             Quadrilateral
             Triangle
         FUNCTIONS
-            distance(g1: <built-in function any>, g2: <built-in function any>, error: int | float = 0) -> float
+            distance(g1, g2, error: int | float = 0) -> float
     Matrix
         CLASSES
             Matrix
         FUNCTIONS
             eig(matrix)
-            hypot(a, b)
             identity(n)
             lu(matrix)
             mat(data)
             qr(matrix)
+            same(rows, cols, value=0)
             svd(matrix)
             tril_indices(n, k=0, m=None)
             zeros(_dimensions)
@@ -100,17 +117,19 @@ PyPyNum
         CLASSES
             Tensor
         FUNCTIONS
-            get_shape(_tensor)
-            is_valid_tensor(_tensor, _shape)
             ten(data)
             tensor_and_number(tensor, operator, number)
             tolist(_nested_list)
+            zeros(_dimensions)
+            zeros_like(_nested_list)
     Vector
         CLASSES
             Vector
         FUNCTIONS
             same(length, value=0)
             vec(data)
+            zeros(_dimensions)
+            zeros_like(_nested_list)
     constants
         DATA
             AMU = 1.6605402e-27
@@ -221,10 +240,8 @@ PyPyNum
             unary(function, right: int | float = 5, left: int | float = -5, top: int | float = 5, bottom: int | float = -5, complexity: int | float = 5, ratio: int | float = 3, merge: bool = True, basic: list = None, character: str = '.', data: bool = False) -> list | str
     regression
         FUNCTIONS
-            __covariance_matrix(_x, _y)
-            linear_regression(x_values, y_values)
+            linear_regression(x, y)
             parabolic_regression(x, y)
-            __solve_equations(a1, b1, c1, a2, b2, c2)
     tools
         FUNCTIONS
             classify(array: list | tuple) -> dict
@@ -233,12 +250,27 @@ PyPyNum
             linspace(start: int | float, stop: int | float, number: int) -> list
 ```
 
-#### 代码测试
+### 代码测试
 #### Code testing
 ```
->>> from pypynum import Geometry, Matrix, Quaternion, Symbolics, Tensor, Vector, constants, equations, mathematics, regression, plotting, tools
+>>> from pypynum import Array, Geometry, Matrix, Quaternion, Symbolics, Tensor, Vector, constants, equations, mathematics, regression, plotting, tools
 
 ...
+
+>>> print(Array.array())
+>>> print(Array.array([1, 2, 3, 4, 5, 6, 7, 8]))
+>>> print(Array.array([[1, 2, 3, 4], [5, 6, 7, 8]]))
+>>> print(Array.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]]))
+
+[]
+[1 2 3 4 5 6 7 8]
+[[1 2 3 4]
+ [5 6 7 8]]
+[[[1 2]
+  [3 4]]
+
+ [[5 6]
+  [7 8]]]
 
 >>> triangle = Geometry.Triangle((0, 0), (2, 2), (3, 0))
 >>> print(triangle.perimeter())
@@ -335,9 +367,9 @@ print(v1.angles())
 
 [1 2 3 4]
 [5 6 7 8]
-[5 12 21 32]
+[ 5 12 21 32]
 70
-[0.18257418583505536 0.3651483716701107 0.5477225575051661 0.7302967433402214]
+[0.18257418583505536  0.3651483716701107  0.5477225575051661  0.7302967433402214]
 [1.1820279130506308, 1.0985826410133916, 1.0114070854293842, 0.9191723423169716]
 
 >>> print(constants.TB)
@@ -366,6 +398,11 @@ print(v1.angles())
 >>> print(equations.pe(p))
 >>> print(equations.mles(*m))
 
+
+    提示：Matrix模块的eig函数可能存在计算错误
+
+    Tip: The eig function of the Matrix module may have calculation errors
+    
 [2.561552812809, -1.561552812809, 1.0]
 [1.666666666667, -0.666666666667, -0.444444444444]
 
