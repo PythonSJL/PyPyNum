@@ -1,0 +1,2 @@
+class ShapeError(ValueError):
+    pass
