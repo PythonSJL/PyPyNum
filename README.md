@@ -1,6 +1,6 @@
 # PyPyNum
 
-## Version -> 1.1.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
+## Version -> 1.1.1 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
 
 ### 介绍
 #### Introduction
@@ -28,14 +28,17 @@ Python interpreter and run it!)
 ### 与上一个版本相比新增功能
 #### New features compared to the previous version
 ```
-[Rectify and optimize the code]
-
-Array
+nn
     CLASSES
-        Array
+        NeuralNetwork
+random
     FUNCTIONS
-        array(data)
-        is_valid_array(_array, _shape)
+        choice(seq: list | tuple | str, shape: list | tuple = None)
+        gauss(mu: int | float = 0, sigma: int | float = 1, shape: list | tuple = None) -> float | list
+        gauss_error(original: list | tuple, mu: int | float = 0, sigma: int | float = 1) -> list
+        rand(shape: list | tuple = None) -> float | list
+        randint(a: int, b: int, shape: list | tuple = None) -> int | list
+        uniform(a: int | float, b: int | float, shape: list | tuple = None) -> float | list
 
 (More features need to be added)
 ```
@@ -53,6 +56,7 @@ Array
 PyPyNum
     errors
         CLASSES
+            RandomError
             ShapeError
     test
         [A Code Test File]
@@ -231,6 +235,9 @@ PyPyNum
             tanh(x: int | float) -> int | float
             var(numbers: list | tuple) -> int | float | complex
             zeta(alpha: int | float) -> float
+    nn
+        CLASSES
+            NeuralNetwork
     plotting
         FUNCTIONS
             background(right: int | float = 5, left: int | float = -5, top: int | float = 5, bottom: int | float = -5, complexity: int | float = 5, ratio: int | float = 3, merge: bool = False) -> list | str
@@ -238,6 +245,14 @@ PyPyNum
             c_unary(function, start: int | float, end: int | float, interval: int | float = 5, projection: str = 'ri', right: int | float = 5, left: int | float = -5, top: int | float = 5, bottom: int | float = -5, complexity: int | float = 5, ratio: int | float = 3, merge: bool = True, basic: list = None, character: str = '.', data: bool = False) -> list | str
             change(data: list | str) -> list | str
             unary(function, right: int | float = 5, left: int | float = -5, top: int | float = 5, bottom: int | float = -5, complexity: int | float = 5, ratio: int | float = 3, merge: bool = True, basic: list = None, character: str = '.', data: bool = False) -> list | str
+    random
+        FUNCTIONS
+            choice(seq: list | tuple | str, shape: list | tuple = None)
+            gauss(mu: int | float = 0, sigma: int | float = 1, shape: list | tuple = None) -> float | list
+            gauss_error(original: list | tuple, mu: int | float = 0, sigma: int | float = 1) -> list
+            rand(shape: list | tuple = None) -> float | list
+            randint(a: int, b: int, shape: list | tuple = None) -> int | list
+            uniform(a: int | float, b: int | float, shape: list | tuple = None) -> float | list
     regression
         FUNCTIONS
             linear_regression(x, y)
