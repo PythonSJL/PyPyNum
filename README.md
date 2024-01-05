@@ -1,6 +1,6 @@
 # PyPyNum
 
-## Version -> 1.1.1 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
+## Version -> 1.1.2 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
 
 ### 介绍
 #### Introduction
@@ -28,27 +28,27 @@ Python interpreter and run it!)
 ### 与上一个版本相比新增功能
 #### New features compared to the previous version
 ```
-nn
-    CLASSES
-        NeuralNetwork
-random
-    FUNCTIONS
-        choice(seq: list | tuple | str, shape: list | tuple = None)
-        gauss(mu: int | float = 0, sigma: int | float = 1, shape: list | tuple = None) -> float | list
-        gauss_error(original: list | tuple, mu: int | float = 0, sigma: int | float = 1) -> list
-        rand(shape: list | tuple = None) -> float | list
-        randint(a: int, b: int, shape: list | tuple = None) -> int | list
-        uniform(a: int | float, b: int | float, shape: list | tuple = None) -> float | list
+PyPyNum
+    Logic
+        CLASSES
+            Basic
+                Binary
+                    AND
+                    HalfAdder
+                    NAND
+                    NOR
+                    OR
+                    XNOR
+                    XOR
+                Ternary
+                    FullAdder
+                Unary
+                    NOT
+        FUNCTIONS
+            connector(previous, latter)
 
 (More features need to be added)
 ```
-
-### 下一个版本预期新增功能
-#### Expected new features in the next version
-```
-
-```
-
 
 ### 基本结构
 #### Basic structure
@@ -56,6 +56,7 @@ random
 PyPyNum
     errors
         CLASSES
+            LogicError
             RandomError
             ShapeError
     test
@@ -86,6 +87,23 @@ PyPyNum
             Triangle
         FUNCTIONS
             distance(g1, g2, error: int | float = 0) -> float
+    Logic
+        CLASSES
+            Basic
+                Binary
+                    AND
+                    HalfAdder
+                    NAND
+                    NOR
+                    OR
+                    XNOR
+                    XOR
+                Ternary
+                    FullAdder
+                Unary
+                    NOT
+        FUNCTIONS
+            connector(previous, latter)
     Matrix
         CLASSES
             Matrix
@@ -268,7 +286,8 @@ PyPyNum
 ### 代码测试
 #### Code testing
 ```
->>> from pypynum import Array, Geometry, Matrix, Quaternion, Symbolics, Tensor, Vector, constants, equations, mathematics, regression, plotting, tools
+>>> from pypynum import (Array, Geometry, Matrix, Quaternion, Symbolics, Tensor, Vector,
+                         constants, equations, mathematics, plotting, random, regression, tools)
 
 ...
 
@@ -435,14 +454,6 @@ print(v1.angles())
 385
 73.29
 
->>> print(regression.linear_regression(range(5), [2, 4, 6, 7, 8]))
->>> print(regression.parabolic_regression(range(5), [2, 4, 6, 7, 8]))
-
-f(x) = 1.5 * x + 2.4
-[1.5, 2.4]
-f(x) = -0.214285714 * x ** 2 + 2.357142857 * x + 1.971428571
-[-0.214285714, 2.357142857, 1.971428571]
-
 >>> plt = plotting.unary(lambda x: x ** 2, top=10, bottom=0, character="+")
 >>> print(plt)
 >>> print(plotting.binary(lambda x, y: x ** 2 + y ** 2 - 10, right=10, left=0, compare="<=", basic=plotting.change(plt)))
@@ -515,6 +526,24 @@ f(x) = -0.214285714 * x ** 2 + 2.357142857 * x + 1.971428571
           |                                                                                 
  -2.00e+00|_________________________________________________________________________________
            -2.00e+00                            0.00e+00                            2.00e+00
+
+>>> print(random.gauss(0, 1, [2, 3, 4]))
+>>> print(random.rand([2, 3, 4]))
+>>> print(random.randint(0, 9, [2, 3, 4]))
+>>> print(random.uniform(0, 9, [2, 3, 4]))
+
+[[[1.1502981476405219, -1.0002709269154175, -0.06467013473186378, 0.5282892957535983], [0.557962766498789, -1.4610924318488734, -0.33119529362843936, 0.05479371793711457], [-0.9827377731943527, 0.2879284038883946, 0.5700524089598109, -0.256287445847503]], [[-0.7513873254609658, 0.13193604387730232, -0.09138599318855258, 1.5405574078950774], [-0.022486653929687055, -0.35791829418056215, -0.36760476893542576, -1.2076938602239378], [-0.2916510487543816, -0.7221645569562312, 0.46842375385796964, 0.011210450932548199]]]
+[[[0.9175183082211057, 0.9283311736105956, 0.4245990856594879, 0.09651258071150115], [0.8981357678156286, 0.31307692522185915, 0.34069203352071353, 0.37685291613637395], [0.4949407043982422, 0.15600361615953395, 0.9000589934773592, 0.4102056098290481]], [[0.6844425996637066, 0.5456765263835978, 0.01640661088812201, 0.6433320824377733], [0.40848245176000597, 0.37471887077324983, 0.5307292705281943, 0.9395951330559237], [0.37772204905493956, 0.14264053955905664, 0.8082662183815095, 0.7080561193334061]]]
+[[[0, 7, 3, 4], [6, 2, 5, 8], [4, 1, 8, 8]], [[2, 3, 6, 8], [6, 6, 4, 6], [8, 1, 5, 0]]]
+[[[5.24758658559847, 7.282909906499745, 6.617341158971624, 6.423376259481441], [8.105871710793739, 3.0138068892424092, 7.216505858256132, 6.93658576327517], [1.9601597350056923, 7.721040855629424, 8.998532471458622, 3.6143104372037103]], [[2.943861358138797, 2.5995416526411157, 3.063537487568425, 4.334091408926585], [2.2819293354119328, 0.2894013545009049, 6.999008009402389, 8.823494863998096], [3.183543472398691, 4.49172735806245, 6.638553067799357, 1.173261311301359]]]
+
+>>> print(regression.linear_regression(range(5), [2, 4, 6, 7, 8]))
+>>> print(regression.parabolic_regression(range(5), [2, 4, 6, 7, 8]))
+
+f(x) = 1.5 * x + 2.4
+[1.5, 2.4]
+f(x) = -0.214285714 * x ** 2 + 2.357142857 * x + 1.971428571
+[-0.214285714, 2.357142857, 1.971428571]
 
 >>> print(tools.classify([1, 2.3, 4 + 5j, "string", list, True, 3.14, False, tuple, tools]))
 >>> print(tools.deduplicate(["Python", 6, "NumPy", int, "PyPyNum", 9, "pypynum", "NumPy", 6, True]))
