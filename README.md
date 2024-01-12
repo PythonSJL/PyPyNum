@@ -1,24 +1,28 @@
 # PyPyNum
 
-## Version -> 1.1.2 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
+## Version -> 1.2.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
 
 ### 介绍
+
 #### Introduction
-1.  DIY数学库，类似于numpy、scipy等，专为PyPy解释器制作
-1.  DIY math library, similar to numpy, scipy, etc., specifically designed for PyPy interpreters
-2.  不定期更新版本，增加更多实用功能
-2.  Update versions periodically to add more practical features
-3.  如需联系，QQ 2261748025 （Py𝙿𝚢𝚝𝚑𝚘𝚗-水晶兰）
-3.  If you need to contact, QQ 2261748025 (Py𝙿𝚢𝚝𝚑𝚘𝚗-水晶兰)
+
++ DIY数学库，类似于numpy、scipy等，专为PyPy解释器制作
++ DIY math library, similar to numpy, scipy, etc., specifically designed for PyPy interpreters
++ 不定期更新版本，增加更多实用功能
++ Update versions periodically to add more practical features
++ 如需联系，QQ 2261748025 （Py𝙿𝚢𝚝𝚑𝚘𝚗-水晶兰）
++ If you need to contact, QQ 2261748025 (Py𝙿𝚢𝚝𝚑𝚘𝚗-水晶兰)
 
 ### PyPyNum的Zen
+
 #### The Zen of PyPyNum
+
 ```
     The Zen of PyPyNum, by Shen Jiayi
 
 This is a math package written purely in Python.
 
-...(Do you want to see the entire content?
+... (Do you want to see the entire content?
 Then enter "from pypynum import this" on your
 Python interpreter and run it!)
 
@@ -26,7 +30,9 @@ Python interpreter and run it!)
 ```
 
 ### 与上一个版本相比新增功能
+
 #### New features compared to the previous version
+
 ```
 PyPyNum
     Logic
@@ -34,24 +40,40 @@ PyPyNum
             Basic
                 Binary
                     AND
+                    COMP +
                     HalfAdder
+                    HalfSuber +
+                    JKFF +
                     NAND
                     NOR
                     OR
                     XNOR
                     XOR
+                Quaternary +
+                    TwoBDiver +
+                    TwoBMuler +
                 Ternary
                     FullAdder
+                    FullSuber +
                 Unary
+                    DFF +
                     NOT
-        FUNCTIONS
-            connector(previous, latter)
+                    TFF +
 
-(More features need to be added)
+("+" indicates newly added)
+
+PyPyNum
+    cipher
+        FUNCTIONS
+            dna(string: str, decrypt: bool = False) -> str
+
+[Code modification and repair]
 ```
 
 ### 基本结构
+
 #### Basic structure
+
 ```
 PyPyNum
     errors
@@ -92,18 +114,25 @@ PyPyNum
             Basic
                 Binary
                     AND
+                    COMP
                     HalfAdder
+                    HalfSuber
+                    JKFF
                     NAND
                     NOR
                     OR
                     XNOR
                     XOR
+                Quaternary
+                    TwoBDiver
+                    TwoBMuler
                 Ternary
                     FullAdder
+                    FullSuber
                 Unary
+                    DFF
                     NOT
-        FUNCTIONS
-            connector(previous, latter)
+                    TFF
     Matrix
         CLASSES
             Matrix
@@ -152,6 +181,9 @@ PyPyNum
             vec(data)
             zeros(_dimensions)
             zeros_like(_nested_list)
+    cipher
+        FUNCTIONS
+            dna(string: str, decrypt: bool = False) -> str
     constants
         DATA
             AMU = 1.6605402e-27
@@ -253,7 +285,7 @@ PyPyNum
             tanh(x: int | float) -> int | float
             var(numbers: list | tuple) -> int | float | complex
             zeta(alpha: int | float) -> float
-    nn
+    neuralnetwork
         CLASSES
             NeuralNetwork
     plotting
@@ -284,10 +316,12 @@ PyPyNum
 ```
 
 ### 代码测试
+
 #### Code testing
+
 ```
 >>> from pypynum import (Array, Geometry, Matrix, Quaternion, Symbolics, Tensor, Vector,
-                         constants, equations, mathematics, plotting, random, regression, tools)
+                         cipher, constants, equations, mathematics, plotting, random, regression, tools)
 
 ...
 
@@ -389,6 +423,16 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
 
  [[155 166]
   [211 226]]]
+
+>>> string = "PyPyNum"
+>>> encrypted = cipher.dna(string)
+>>> print(string)
+>>> print(encrypted)
+>>> print(cipher.dna(encrypted, decrypt=True))
+
+PyPyNum
+CCCTAGACCCTCGTCCCGCTAAACCCTG
+PyPyNum
 
 v0 = Vector.vec([1, 2, 3, 4])
 v1 = Vector.vec([5, 6, 7, 8])
@@ -532,10 +576,10 @@ print(v1.angles())
 >>> print(random.randint(0, 9, [2, 3, 4]))
 >>> print(random.uniform(0, 9, [2, 3, 4]))
 
-[[[1.1502981476405219, -1.0002709269154175, -0.06467013473186378, 0.5282892957535983], [0.557962766498789, -1.4610924318488734, -0.33119529362843936, 0.05479371793711457], [-0.9827377731943527, 0.2879284038883946, 0.5700524089598109, -0.256287445847503]], [[-0.7513873254609658, 0.13193604387730232, -0.09138599318855258, 1.5405574078950774], [-0.022486653929687055, -0.35791829418056215, -0.36760476893542576, -1.2076938602239378], [-0.2916510487543816, -0.7221645569562312, 0.46842375385796964, 0.011210450932548199]]]
-[[[0.9175183082211057, 0.9283311736105956, 0.4245990856594879, 0.09651258071150115], [0.8981357678156286, 0.31307692522185915, 0.34069203352071353, 0.37685291613637395], [0.4949407043982422, 0.15600361615953395, 0.9000589934773592, 0.4102056098290481]], [[0.6844425996637066, 0.5456765263835978, 0.01640661088812201, 0.6433320824377733], [0.40848245176000597, 0.37471887077324983, 0.5307292705281943, 0.9395951330559237], [0.37772204905493956, 0.14264053955905664, 0.8082662183815095, 0.7080561193334061]]]
-[[[0, 7, 3, 4], [6, 2, 5, 8], [4, 1, 8, 8]], [[2, 3, 6, 8], [6, 6, 4, 6], [8, 1, 5, 0]]]
-[[[5.24758658559847, 7.282909906499745, 6.617341158971624, 6.423376259481441], [8.105871710793739, 3.0138068892424092, 7.216505858256132, 6.93658576327517], [1.9601597350056923, 7.721040855629424, 8.998532471458622, 3.6143104372037103]], [[2.943861358138797, 2.5995416526411157, 3.063537487568425, 4.334091408926585], [2.2819293354119328, 0.2894013545009049, 6.999008009402389, 8.823494863998096], [3.183543472398691, 4.49172735806245, 6.638553067799357, 1.173261311301359]]]
+[[[0.005010042633490881, 1.1160375815053902, 0.6145920379300898, -1.4696487204627253], [-0.20685462876933186, 0.8275330804972041, -0.8377832703632173, -0.8880186869697656], [-0.2653914684173608, -0.5205164919803434, -0.08359499889147641, -0.3006165927585791]], [[-1.1666695379454972, -1.0979019033440636, 0.5647293393684544, 0.23438322147503707], [0.04298318405503412, -0.6059076560822075, 1.600626179545926, 0.5204087192933082], [-0.058768641542423485, -0.4369666543837353, 0.37851158006771385, 2.0777148219436796]]]
+[[[0.40140286579987816, 0.07095255870174488, 0.6446608375143889, 0.6279016180497422], [0.804158734480493, 0.38595139889111474, 0.5653398643367361, 0.9106406788835898], [0.8502113481455789, 0.5679511415517262, 0.667955293914048, 0.43668222316158123]], [[0.06619508720421818, 0.09573784118592021, 0.6821744904157657, 0.9052002792268913], [0.30333795786917084, 0.13357618895131063, 0.144258651211569, 0.648655098110358], [0.8474099644680997, 0.8461881711073397, 0.6529621910052777, 0.17709859779327897]]]
+[[[1, 3, 9, 9], [0, 8, 0, 6], [5, 0, 0, 3]], [[9, 5, 6, 2], [6, 4, 9, 6], [8, 4, 8, 6]]]
+[[[2.3714687054662273, 7.8682431629091605, 3.4889108978334065, 7.8710116452525885], [8.524292784475549, 6.98190581041993, 3.4297944437860264, 6.068508585966597], [5.111615446006805, 7.916996987595166, 3.589747975729174, 1.3794064763997484]], [[3.295260189867274, 5.608688777939621, 8.217536152479274, 5.209074856197099], [4.95611538157316, 3.2743034659238717, 2.7104110034788764, 2.541949514340043], [8.033753127455242, 4.943764676329522, 7.150364785741341, 6.550305532995521]]]
 
 >>> print(regression.linear_regression(range(5), [2, 4, 6, 7, 8]))
 >>> print(regression.parabolic_regression(range(5), [2, 4, 6, 7, 8]))
