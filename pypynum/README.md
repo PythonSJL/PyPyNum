@@ -1,6 +1,8 @@
-﻿# PyPyNum
+# PyPyNum
 
 ## Version -> 1.2.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
+
+![LOGO](PyPyNum.png)
 
 ### 介绍
 
