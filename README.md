@@ -1,8 +1,22 @@
-﻿# PyPyNum
+﻿# <font color = blue>PyPyNum</font>
 
-## Version -> 1.2.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
+<font color = gree>A Python math package written in pure Python programming language</font> <font color = red>(
+python_requires >= 3.5)</font>
 
-![LOGO](pypynum/PyPyNum.png)
+```
+ ________   ___    ___  ________   ___    ___  ________    ___  ___   _____ ______
+|\   __  \ |\  \  /  /||\   __  \ |\  \  /  /||\   ___  \ |\  \|\  \ |\   _ \  _   \
+\ \  \|\  \\ \  \/  / /\ \  \|\  \\ \  \/  / /\ \  \\ \  \\ \  \\\  \\ \  \\\__\ \  \
+ \ \   ____\\ \    / /  \ \   ____\\ \    / /  \ \  \\ \  \\ \  \\\  \\ \  \\|__| \  \
+  \ \  \___| \/  /  /    \ \  \___| \/  /  /    \ \  \\ \  \\ \  \\\  \\ \  \    \ \  \
+   \ \__\  __/  / /       \ \__\  __/  / /       \ \__\\ \__\\ \_______\\ \__\    \ \__\
+    \|__| |\___/ /         \|__| |\___/ /         \|__| \|__| \|_______| \|__|     \|__|
+          \|___|/                \|___|/
+```
+
+## Version -> 1.3.1 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
+
+![LOGO](PyPyNum.png)
 
 ### 介绍
 
@@ -37,39 +51,8 @@ Python interpreter and run it!)
 
 ```
 PyPyNum
-    Logic
-        CLASSES
-            Basic
-                Binary
-                    AND
-                    COMP +
-                    HalfAdder
-                    HalfSuber +
-                    JKFF +
-                    NAND
-                    NOR
-                    OR
-                    XNOR
-                    XOR
-                Quaternary +
-                    TwoBDiver +
-                    TwoBMuler +
-                Ternary
-                    FullAdder
-                    FullSuber +
-                Unary
-                    DFF +
-                    NOT
-                    TFF +
 
-("+" indicates newly added)
-
-PyPyNum
-    cipher
-        FUNCTIONS
-            dna(string: str, decrypt: bool = False) -> str
-
-[Code modification and repair]
+[Additionally, revise and supplement the original code]
 ```
 
 ### 基本结构
@@ -78,30 +61,39 @@ PyPyNum
 
 ```
 PyPyNum
-    errors
+    ★ __init__
+        [Import some features from other modules in this package]
+    ★ errors [Special errors]
         CLASSES
             LogicError
             RandomError
             ShapeError
-    test
-        [A Code Test File]
-    this
+    ★ file [Reading and saving instance data]
+        FUNCTIONS
+            read(file: str) -> list
+            write(file: str, *cls: object)
+    ★ test
+        [A code test file]
+    ★ this
         [The Zen of PyPyNum]
-    types
+    ★ types [Special types]
         DATA
-            arr = list | tuple
-            ite = list | tuple | str
-            num = int | float | complex
-            real = int | float
-    Array
+            arr = typing.Union[list, tuple]
+            ite = typing.Union[list, tuple, str]
+            num = typing.Union[int, float, complex]
+            real = typing.Union[int, float]
+    ★ Array [N-dimensional array]
         CLASSES
             Array
         FUNCTIONS
             array(data=None)
+            fill(shape, sequence=None)
+            function(_array, _function, args=None)
+            get_shape(data)
             is_valid_array(_array, _shape)
-            zeros(_dimensions)
+            zeros(shape)
             zeros_like(_nested_list)
-    Geometry
+    ★ Geometry [Planar geometry]
         CLASSES
             Circle
             Line
@@ -111,7 +103,16 @@ PyPyNum
             Triangle
         FUNCTIONS
             distance(g1, g2, error: int | float = 0) -> float
-    Logic
+    ★ Group [Group theory]
+        CLASSES
+            Group
+        FUNCTIONS
+            add(x, y)
+            divide(x, y)
+            group(data)
+            multiply(x, y)
+            subtract(x, y)
+    ★ Logic [Logic circuit simulation]
         CLASSES
             Basic
                 Binary
@@ -135,7 +136,7 @@ PyPyNum
                     DFF
                     NOT
                     TFF
-    Matrix
+    ★ Matrix [Matrix calculation]
         CLASSES
             Matrix
         FUNCTIONS
@@ -149,7 +150,7 @@ PyPyNum
             tril_indices(n, k=0, m=None)
             zeros(_dimensions)
             zeros_like(_nested_list)
-    Quaternion
+    ★ Quaternion [Quaternion calculation]
         CLASSES
             Euler
             Quaternion
@@ -157,7 +158,7 @@ PyPyNum
             change(data: Euler | Quaternion) -> Quaternion | Euler
             euler(yaw: int | float = 0, pitch: int | float = 0, roll: int | float = 0) -> Euler
             quat(w: int | float = 0, x: int | float = 0, y: int | float = 0, z: int | float = 0) -> Quaternion
-    Symbolics
+    ★ Symbolics [Symbol calculation]
         FUNCTIONS
             interpreter(expr: str) -> list
         DATA
@@ -166,7 +167,7 @@ PyPyNum
             greek = 'ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟ∏ΡΣΤΥΦΧΨΩβγδεζηθικλμνξοπρστυφχψω'
             operators = ['**', '*', '//', '/', '%', '+', '-']
             valid = '%()*+-./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcd...yzΑΒΓΔΕΖΗΘ...'
-    Tensor
+    ★ Tensor [Tensor calculation]
         CLASSES
             Tensor
         FUNCTIONS
@@ -175,7 +176,7 @@ PyPyNum
             tolist(_nested_list)
             zeros(_dimensions)
             zeros_like(_nested_list)
-    Vector
+    ★ Vector [Vector calculation]
         CLASSES
             Vector
         FUNCTIONS
@@ -183,10 +184,10 @@ PyPyNum
             vec(data)
             zeros(_dimensions)
             zeros_like(_nested_list)
-    cipher
+    ★ cipher [String encryption and decryption algorithms]
         FUNCTIONS
             dna(string: str, decrypt: bool = False) -> str
-    constants
+    ★ constants [Constants in mathematics and science]
         DATA
             AMU = 1.6605402e-27
             EB = 1152921504606846976
@@ -228,13 +229,11 @@ PyPyNum
             yotta = 1e+24
             zepto = 1e-21
             zetta = 1e+21
-    equations
+    ★ equations [Solving specific forms of equations]
         FUNCTIONS
-            mles = multivariate_linear_equation_system(left: list, right: list) -> None | list
-            multivariate_linear_equation_system(left: list, right: list) -> None | list
-            pe = polynomial_equation(coefficients: list) -> list
+            linear_equation(left: list, right: list) -> list
             polynomial_equation(coefficients: list) -> list
-    mathematics
+    ★ mathematics [Mathematical functions]
         FUNCTIONS
             A = arrangement(n: int, r: int) -> int
             C = combination(n: int, r: int) -> int
@@ -287,17 +286,17 @@ PyPyNum
             tanh(x: int | float) -> int | float
             var(numbers: list | tuple) -> int | float | complex
             zeta(alpha: int | float) -> float
-    neuralnetwork
+    ★ neuralnetwork [A simple neural network model]
         CLASSES
             NeuralNetwork
-    plotting
+    ★ plotting [Draw a graph of equations using characters]
         FUNCTIONS
             background(right: int | float = 5, left: int | float = -5, top: int | float = 5, bottom: int | float = -5, complexity: int | float = 5, ratio: int | float = 3, merge: bool = False) -> list | str
             binary(function, right: int | float = 5, left: int | float = -5, top: int | float = 5, bottom: int | float = -5, complexity: int | float = 5, ratio: int | float = 3, error=0, compare='==', merge: bool = True, basic: list = None, character: str = '.', data: bool = False) -> list | str
             c_unary(function, start: int | float, end: int | float, interval: int | float = 5, projection: str = 'ri', right: int | float = 5, left: int | float = -5, top: int | float = 5, bottom: int | float = -5, complexity: int | float = 5, ratio: int | float = 3, merge: bool = True, basic: list = None, character: str = '.', data: bool = False) -> list | str
             change(data: list | str) -> list | str
             unary(function, right: int | float = 5, left: int | float = -5, top: int | float = 5, bottom: int | float = -5, complexity: int | float = 5, ratio: int | float = 3, merge: bool = True, basic: list = None, character: str = '.', data: bool = False) -> list | str
-    random
+    ★ random [Generate random numbers or random arrays]
         FUNCTIONS
             choice(seq: list | tuple | str, shape: list | tuple = None)
             gauss(mu: int | float = 0, sigma: int | float = 1, shape: list | tuple = None) -> float | list
@@ -305,11 +304,12 @@ PyPyNum
             rand(shape: list | tuple = None) -> float | list
             randint(a: int, b: int, shape: list | tuple = None) -> int | list
             uniform(a: int | float, b: int | float, shape: list | tuple = None) -> float | list
-    regression
+    ★ regression [Formula based polynomial regression]
         FUNCTIONS
-            linear_regression(x, y)
-            parabolic_regression(x, y)
-    tools
+            linear_regression(x: Union[list, tuple], y: Union[list, tuple]) -> list
+            parabolic_regression(x: Union[list, tuple], y: Union[list, tuple]) -> list
+            polynomial_regression(x: Union[list, tuple], y: Union[list, tuple], n: int = None) -> list
+    ★ tools [Other useful tools]
         FUNCTIONS
             classify(array: list | tuple) -> dict
             deduplicate(iterable: list | tuple | str) -> list | tuple | str
