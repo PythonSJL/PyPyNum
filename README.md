@@ -14,9 +14,9 @@ python_requires >= 3.5)</font>
           \|___|/                \|___|/
 ```
 
-## Version -> 1.3.1 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
+## Version -> 1.4.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
 
-![输入图片说明](pypynum/PyPyNum.png)
+![LOGO](PyPyNum.png)
 
 ### 介绍
 
@@ -51,8 +51,53 @@ Python interpreter and run it!)
 
 ```
 PyPyNum
+    ★ FourierT [Fourier transform and inverse Fourier transform]
+        CLASSES
+            FT1D
+    ★ probability [Probability function]
+        FUNCTIONS
+            binomial(sample_size: int, successes: int, success_probability: Union[int, float]) -> float
+            hypergeometric(total_items: int, success_items: int, sample_size: int, successes_in_sample: int) -> float
+    ★ sequence [Various sequences]
+        FUNCTIONS
+            bernoulli(n: int, single: bool = True) -> list
+            catalan(n: int) -> int
+            fibonacci(n: int) -> int
 
-[Additionally, revise and supplement the original code]
+[“maths”等模块增加了新功能]
+[New features have been added to modules such as "maths"]
+
+☆ 一些模块已经更改了名称，所以请记住以下名字 ☆
+☆ Some modules have changed their names, so please remember the following names ☆
+
+PACKAGE CONTENTS
+    Array
+    FourierT
+    Geometry
+    Group
+    Logic
+    Matrix
+    NeuralN
+    Quaternion
+    Symbolics
+    Tensor
+    Vector
+    __temporary
+    cipher
+    constants
+    equations
+    errors
+    file
+    maths
+    plotting
+    probability
+    random
+    regression
+    sequence
+    test
+    this
+    tools
+    types
 ```
 
 ### 基本结构
@@ -93,6 +138,9 @@ PyPyNum
             is_valid_array(_array, _shape)
             zeros(shape)
             zeros_like(_nested_list)
+    ★ FourierT [Fourier transform and inverse Fourier transform]
+        CLASSES
+            FT1D
     ★ Geometry [Planar geometry]
         CLASSES
             Circle
@@ -150,14 +198,19 @@ PyPyNum
             tril_indices(n, k=0, m=None)
             zeros(_dimensions)
             zeros_like(_nested_list)
+    ★ NeuralN [A simple neural network model]
+        CLASSES
+            NeuralNetwork
+        FUNCTIONS
+            neuraln(_input, _hidden, _output)
     ★ Quaternion [Quaternion calculation]
         CLASSES
             Euler
             Quaternion
         FUNCTIONS
-            change(data: Euler | Quaternion) -> Quaternion | Euler
-            euler(yaw: int | float = 0, pitch: int | float = 0, roll: int | float = 0) -> Euler
-            quat(w: int | float = 0, x: int | float = 0, y: int | float = 0, z: int | float = 0) -> Quaternion
+            change(data: Union[pypynum.Quaternion.Euler, pypynum.Quaternion.Quaternion]) -> Union[pypynum.Quaternion.Euler, pypynum.Quaternion.Quaternion]
+            euler(yaw: Union[int, float] = 0, pitch: Union[int, float] = 0, roll: Union[int, float] = 0) -> pypynum.Quaternion.Euler
+            quat(w: Union[int, float] = 0, x: Union[int, float] = 0, y: Union[int, float] = 0, z: Union[int, float] = 0) -> pypynum.Quaternion.Quaternion
     ★ Symbolics [Symbol calculation]
         FUNCTIONS
             interpreter(expr: str) -> list
@@ -233,62 +286,63 @@ PyPyNum
         FUNCTIONS
             linear_equation(left: list, right: list) -> list
             polynomial_equation(coefficients: list) -> list
-    ★ mathematics [Mathematical functions]
+    ★ maths [Mathematical functions]
         FUNCTIONS
             A = arrangement(n: int, r: int) -> int
             C = combination(n: int, r: int) -> int
-            acos(x: int | float) -> int | float
-            acosh(x: int | float) -> int | float
-            acot(x: int | float) -> int | float
-            acoth(x: int | float) -> int | float
-            acsc(x: int | float) -> int | float
-            acsch(x: int | float) -> int | float
+            acos(x: Union[int, float]) -> Union[int, float]
+            acosh(x: Union[int, float]) -> Union[int, float]
+            acot(x: Union[int, float]) -> Union[int, float]
+            acoth(x: Union[int, float]) -> Union[int, float]
+            acsc(x: Union[int, float]) -> Union[int, float]
+            acsch(x: Union[int, float]) -> Union[int, float]
             arrangement(n: int, r: int) -> int
-            asec(x: int | float) -> int | float
-            asech(x: int | float) -> int | float
-            asin(x: int | float) -> int | float
-            asinh(x: int | float) -> int | float
-            atan(x: int | float) -> int | float
-            atanh(x: int | float) -> int | float
-            beta(p: int | float, q: int | float) -> int | float
+            asec(x: Union[int, float]) -> Union[int, float]
+            asech(x: Union[int, float]) -> Union[int, float]
+            asin(x: Union[int, float]) -> Union[int, float]
+            asinh(x: Union[int, float]) -> Union[int, float]
+            atan(x: Union[int, float]) -> Union[int, float]
+            atanh(x: Union[int, float]) -> Union[int, float]
+            beta(p: Union[int, float], q: Union[int, float]) -> Union[int, float]
             combination(n: int, r: int) -> int
-            cos(x: int | float) -> int | float
-            cosh(x: int | float) -> int | float
-            cot(x: int | float) -> int | float
-            coth(x: int | float) -> int | float
-            csc(x: int | float) -> int | float
-            csch(x: int | float) -> int | float
-            definite_integral(f, x_start: int | float, x_end: int | float, n: int = 10000000) -> float
-            derivative(f, x: int | float, h: int | float = 1e-07) -> float
-            erf(x: int | float) -> float
-            exp(x: int | float) -> int | float
+            cos(x: Union[int, float]) -> Union[int, float]
+            cosh(x: Union[int, float]) -> Union[int, float]
+            cot(x: Union[int, float]) -> Union[int, float]
+            coth(x: Union[int, float]) -> Union[int, float]
+            csc(x: Union[int, float]) -> Union[int, float]
+            csch(x: Union[int, float]) -> Union[int, float]
+            definite_integral(f, x_start: Union[int, float], x_end: Union[int, float], n: int = 10000000) -> float
+            derivative(f, x: Union[int, float], h: Union[int, float] = 1e-07) -> float
+            erf(x: Union[int, float]) -> float
+            exp(x: Union[int, float]) -> Union[int, float]
             factorial(n: int) -> int
-            freq(data: list | tuple) -> dict
-            gamma(alpha: int | float) -> float
-            gaussian(x: int | float, _mu: int | float = 0, _sigma: int | float = 1) -> float
-            ln(x: int | float) -> int | float
-            mean(numbers: list | tuple) -> int | float | complex
-            median(numbers: list | tuple) -> int | float | complex
-            mode(data: list | tuple) -> <built-in function any>
-            pi(i: int, n: int, f) -> int | float | complex
-            product(numbers: list | tuple) -> int | float | complex
-            ptp(numbers: list | tuple) -> int | float | complex
-            root(x: int | float | complex, y: int | float | complex) -> int | float | complex
-            sec(x: int | float) -> int | float
-            sech(x: int | float) -> int | float
-            sigma(i: int, n: int, f) -> int | float | complex
-            sigmoid(x: int | float) -> float
-            sign(x: int | float) -> int
-            sin(x: int | float) -> int | float
-            sinh(x: int | float) -> int | float
-            std(numbers: list | tuple) -> int | float | complex
-            tan(x: int | float) -> int | float
-            tanh(x: int | float) -> int | float
-            var(numbers: list | tuple) -> int | float | complex
-            zeta(alpha: int | float) -> float
-    ★ neuralnetwork [A simple neural network model]
-        CLASSES
-            NeuralNetwork
+            freq(data: Union[list, tuple]) -> dict
+            gamma(alpha: Union[int, float]) -> float
+            gaussian(x: Union[int, float], _mu: Union[int, float] = 0, _sigma: Union[int, float] = 1) -> float
+            gcd(*args: int) -> int
+            lcm(*args: int) -> int
+            ln(x: Union[int, float]) -> Union[int, float]
+            mean(numbers: Union[list, tuple]) -> Union[int, float, complex]
+            median(numbers: Union[list, tuple]) -> Union[int, float, complex]
+            mode(data: Union[list, tuple])
+            parity(x: int) -> int
+            pi(i: int, n: int, f) -> Union[int, float, complex]
+            poisson(x: int, _lambda: Union[int, float]) -> float
+            product(numbers: Union[list, tuple]) -> Union[int, float, complex]
+            ptp(numbers: Union[list, tuple]) -> Union[int, float, complex]
+            root(x: Union[int, float, complex], y: Union[int, float, complex]) -> Union[int, float, complex]
+            sec(x: Union[int, float]) -> Union[int, float]
+            sech(x: Union[int, float]) -> Union[int, float]
+            sigma(i: int, n: int, f) -> Union[int, float, complex]
+            sigmoid(x: Union[int, float]) -> float
+            sign(x: Union[int, float]) -> int
+            sin(x: Union[int, float]) -> Union[int, float]
+            sinh(x: Union[int, float]) -> Union[int, float]
+            std(numbers: Union[list, tuple]) -> Union[int, float, complex]
+            tan(x: Union[int, float]) -> Union[int, float]
+            tanh(x: Union[int, float]) -> Union[int, float]
+            var(numbers: Union[list, tuple]) -> Union[int, float, complex]
+            zeta(alpha: Union[int, float]) -> float
     ★ plotting [Draw a graph of equations using characters]
         FUNCTIONS
             background(right: int | float = 5, left: int | float = -5, top: int | float = 5, bottom: int | float = -5, complexity: int | float = 5, ratio: int | float = 3, merge: bool = False) -> list | str
@@ -296,25 +350,35 @@ PyPyNum
             c_unary(function, start: int | float, end: int | float, interval: int | float = 5, projection: str = 'ri', right: int | float = 5, left: int | float = -5, top: int | float = 5, bottom: int | float = -5, complexity: int | float = 5, ratio: int | float = 3, merge: bool = True, basic: list = None, character: str = '.', data: bool = False) -> list | str
             change(data: list | str) -> list | str
             unary(function, right: int | float = 5, left: int | float = -5, top: int | float = 5, bottom: int | float = -5, complexity: int | float = 5, ratio: int | float = 3, merge: bool = True, basic: list = None, character: str = '.', data: bool = False) -> list | str
+    ★ probability [Probability function]
+        FUNCTIONS
+            binomial(sample_size: int, successes: int, success_probability: Union[int, float]) -> float
+            hypergeometric(total_items: int, success_items: int, sample_size: int, successes_in_sample: int) -> float
     ★ random [Generate random numbers or random arrays]
         FUNCTIONS
-            choice(seq: list | tuple | str, shape: list | tuple = None)
-            gauss(mu: int | float = 0, sigma: int | float = 1, shape: list | tuple = None) -> float | list
-            gauss_error(original: list | tuple, mu: int | float = 0, sigma: int | float = 1) -> list
-            rand(shape: list | tuple = None) -> float | list
-            randint(a: int, b: int, shape: list | tuple = None) -> int | list
-            uniform(a: int | float, b: int | float, shape: list | tuple = None) -> float | list
+            choice(seq: Union[list, tuple, str], shape: Union[list, tuple] = None)
+            gauss(mu: Union[int, float] = 0, sigma: Union[int, float] = 1, shape: Union[list, tuple] = None) -> Union[float, list]
+            gauss_error(original: Union[list, tuple], mu: Union[int, float] = 0, sigma: Union[int, float] = 1) -> list
+            rand(shape: Union[list, tuple] = None) -> Union[float, list]
+            randint(a: int, b: int, shape: Union[list, tuple] = None) -> Union[int, list]
+            uniform(a: Union[int, float], b: Union[int, float], shape: Union[list, tuple] = None) -> Union[float, list]
     ★ regression [Formula based polynomial regression]
         FUNCTIONS
             linear_regression(x: Union[list, tuple], y: Union[list, tuple]) -> list
             parabolic_regression(x: Union[list, tuple], y: Union[list, tuple]) -> list
             polynomial_regression(x: Union[list, tuple], y: Union[list, tuple], n: int = None) -> list
+    ★ sequence [Various sequences]
+        FUNCTIONS
+            bernoulli(n: int, single: bool = True) -> list
+            catalan(n: int) -> int
+            fibonacci(n: int) -> int
     ★ tools [Other useful tools]
         FUNCTIONS
-            classify(array: list | tuple) -> dict
-            deduplicate(iterable: list | tuple | str) -> list | tuple | str
-            frange(start: int | float, stop: int | float, step: float = 1.0) -> list
-            linspace(start: int | float, stop: int | float, number: int) -> list
+            classify(array: Union[list, tuple]) -> dict
+            deduplicate(iterable: Union[list, tuple, str]) -> Union[list, tuple, str]
+            frange(start: Union[int, float], stop: Union[int, float], step: float = 1.0) -> list
+            linspace(start: Union[int, float], stop: Union[int, float], number: int) -> list
+            split(iterable: Union[list, tuple, str], key: Union[list, tuple], retain: bool = False) -> list
 ```
 
 ### 代码测试
