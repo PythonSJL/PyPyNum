@@ -14,9 +14,9 @@ python_requires >= 3.5)</font>
           \|___|/                \|___|/
 ```
 
-## Version -> 1.4.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
+## Version -> 1.5.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
 
-![输入图片说明](pypynum/PyPyNum.png)
+![LOGO](PyPyNum.png)
 
 ### 介绍
 
@@ -50,59 +50,95 @@ Python interpreter and run it!)
 #### New features compared to the previous version
 
 ```
-PyPyNum
-    ★ FourierT [Fourier transform and inverse Fourier transform]
-        CLASSES
-            FT1D
-    ★ probability [Probability function]
-        FUNCTIONS
-            binomial(sample_size: int, successes: int, success_probability: Union[int, float]) -> float
-            hypergeometric(total_items: int, success_items: int, sample_size: int, successes_in_sample: int) -> float
-    ★ sequence [Various sequences]
-        FUNCTIONS
-            bernoulli(n: int, single: bool = True) -> list
-            catalan(n: int) -> int
-            fibonacci(n: int) -> int
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-[“maths”等模块增加了新功能]
-[New features have been added to modules such as "maths"]
+“Symbolics”模块中的希腊字母字符串中存
+在错误，已更正
+There is an error in the Greek
+letter string in the "Symbolics"
+module, which has been corrected
 
-☆ 一些模块已经更改了名称，所以请记住以下名字 ☆
-☆ Some modules have changed their names, so please remember the following names ☆
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-PACKAGE CONTENTS
-    Array
-    FourierT
-    Geometry
-    Group
-    Logic
-    Matrix
-    NeuralN
-    Quaternion
-    Symbolics
-    Tensor
-    Vector
-    __temporary
-    cipher
-    constants
-    equations
-    errors
-    file
-    maths
-    plotting
-    probability
-    random
-    regression
-    sequence
-    test
-    this
-    tools
-    types
+傅立叶变换的类“FT1D”在数据末尾设置自动
+零填充，直到数据长度达到2的正整数幂
+The class "FT1D" of Fourier
+transform sets automatic zero
+padding at the end of the data
+until the data length reaches a
+positive integer power of 2
+
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+
+“plotting”模块中添加了一个非常有用的
+“color”函数，可用于使字符串或其他类型
+的数据着色。
+A very useful "color" function
+has been added to the "plotting"
+module, which can be used to
+make strings or other types of
+data colored.
+
+您可以使用此函数为字符上色，然后将其用作
+绘制函数曲线的字符，并将“coloration”
+参数设置为“True”（可能仅适用于
+PyCharm等编程软件）
+You can use this function to
+color a character, then use it
+as the character to draw the
+function curve, and set the
+"color" parameter to "True"
+(which may only be applicable to
+programming software like
+PyCharm)
+
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+
+<The "+" indicates the newly added method>
+
+[This is the base class of vectors, matrices, and tensors]
+
+Array(data=None, check=True)
+    __add__(self, other)
+    __eq__(self, other)
+    __getitem__(self, item)
+    __hash__(self)
+    __init__(self, data=None, check=True)
+    __ne__(self, other)
+    __radd__(self, other)
+    __repr__(self)
+    __round__(self, n=None)
+    __str__(self)
+    argmax(self, axis=None) +
+    argmin(self, axis=None) +
+    basic(self, func, axis=None) +
+    copy(self)
+    flatten(self)
+    max(self, axis=None) +
+    mean(self, axis=None) +
+    median(self, axis=None) +
+    min(self, axis=None) +
+    mode(self, axis=None) +
+    product(self, axis=None) +
+    ptp(self, axis=None) +
+    reshape(self, shape)
+    std(self, axis=None) +
+    sum(self, axis=None) +
+    var(self, axis=None) +
+
+maths [Mathematical functions]
+    root(x: num, y: num) -> num +
+    ...
+    cumsum(lst: arr) -> list +
+    cumprod(lst: arr) -> list +
+    iroot(y: int, n: int) -> int +
+
+<<< Other modules also have certain modifications >>>
 ```
 
-### 用时测试
+### 运行用时测试
 
-#### Time testing
+#### Run Time Test
 
 |                     矩阵用时测试<br>Matrix Time Test                     |                                                                            NumPy﻿+﻿CPython﻿（﻿seconds﻿）                                                                             | 排名<br>Ranking |                                                                             PyPyNum﻿+﻿PyPy﻿（﻿seconds﻿）                                                                             | 排名<br>Ranking |                                                                           Mpmath﻿_﻿+﻿_﻿PyPy﻿_﻿（﻿_﻿seconds﻿_﻿）                                                                           | 排名<br>Ranking |                                                                                                     SymPy﻿_﻿+﻿_﻿PyPy﻿_﻿（﻿_﻿seconds﻿_﻿）                                                                                                     | 排名<br>Ranking |
 |:------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------:|
@@ -224,7 +260,7 @@ PyPyNum
             Euler
             Quaternion
         FUNCTIONS
-            change(data: Union[pypynum.Quaternion.Euler, pypynum.Quaternion.Quaternion]) -> Union[pypynum.Quaternion.Euler, pypynum.Quaternion.Quaternion]
+            change(data: Union[pypynum.Quaternion.Quaternion, pypynum.Matrix.Matrix, pypynum.Quaternion.Euler], to: str) -> Union[pypynum.Quaternion.Quaternion, pypynum.Matrix.Matrix, pypynum.Quaternion.Euler]
             euler(yaw: Union[int, float] = 0, pitch: Union[int, float] = 0, roll: Union[int, float] = 0) -> pypynum.Quaternion.Euler
             quat(w: Union[int, float] = 0, x: Union[int, float] = 0, y: Union[int, float] = 0, z: Union[int, float] = 0) -> pypynum.Quaternion.Quaternion
     ★ Symbolics [Symbol calculation]
@@ -233,9 +269,9 @@ PyPyNum
         DATA
             basic = '%()*+-./0123456789'
             english = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
-            greek = 'ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟ∏ΡΣΤΥΦΧΨΩβγδεζηθικλμνξοπρστυφχψω'
+            greek = 'ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρστυφχψω'
             operators = ['**', '*', '//', '/', '%', '+', '-']
-            valid = '%()*+-./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcd...yzΑΒΓΔΕΖΗΘ...'
+            valid = '%()*+-./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcd...zΑΒΓΔΕΖΗΘΙ...'
     ★ Tensor [Tensor calculation]
         CLASSES
             Tensor
@@ -304,68 +340,70 @@ PyPyNum
             polynomial_equation(coefficients: list) -> list
     ★ maths [Mathematical functions]
         FUNCTIONS
-            A = arrangement(n: int, r: int) -> int
-            C = combination(n: int, r: int) -> int
-            acos(x: Union[int, float]) -> Union[int, float]
-            acosh(x: Union[int, float]) -> Union[int, float]
-            acot(x: Union[int, float]) -> Union[int, float]
-            acoth(x: Union[int, float]) -> Union[int, float]
-            acsc(x: Union[int, float]) -> Union[int, float]
-            acsch(x: Union[int, float]) -> Union[int, float]
-            arrangement(n: int, r: int) -> int
-            asec(x: Union[int, float]) -> Union[int, float]
-            asech(x: Union[int, float]) -> Union[int, float]
-            asin(x: Union[int, float]) -> Union[int, float]
-            asinh(x: Union[int, float]) -> Union[int, float]
-            atan(x: Union[int, float]) -> Union[int, float]
-            atanh(x: Union[int, float]) -> Union[int, float]
-            beta(p: Union[int, float], q: Union[int, float]) -> Union[int, float]
-            combination(n: int, r: int) -> int
-            cos(x: Union[int, float]) -> Union[int, float]
-            cosh(x: Union[int, float]) -> Union[int, float]
-            cot(x: Union[int, float]) -> Union[int, float]
-            coth(x: Union[int, float]) -> Union[int, float]
-            csc(x: Union[int, float]) -> Union[int, float]
-            csch(x: Union[int, float]) -> Union[int, float]
-            definite_integral(f, x_start: Union[int, float], x_end: Union[int, float], n: int = 10000000) -> float
-            derivative(f, x: Union[int, float], h: Union[int, float] = 1e-07) -> float
-            erf(x: Union[int, float]) -> float
-            exp(x: Union[int, float]) -> Union[int, float]
-            factorial(n: int) -> int
-            freq(data: Union[list, tuple]) -> dict
-            gamma(alpha: Union[int, float]) -> float
-            gaussian(x: Union[int, float], _mu: Union[int, float] = 0, _sigma: Union[int, float] = 1) -> float
+            root(x: num, y: num) -> num
+            exp(x: real) -> real
+            ln(x: real) -> real
             gcd(*args: int) -> int
             lcm(*args: int) -> int
-            ln(x: Union[int, float]) -> Union[int, float]
-            mean(numbers: Union[list, tuple]) -> Union[int, float, complex]
-            median(numbers: Union[list, tuple]) -> Union[int, float, complex]
-            mode(data: Union[list, tuple])
+            sin(x: real) -> real
+            cos(x: real) -> real
+            tan(x: real) -> real
+            csc(x: real) -> real
+            sec(x: real) -> real
+            cot(x: real) -> real
+            asin(x: real) -> real
+            acos(x: real) -> real
+            atan(x: real) -> real
+            acsc(x: real) -> real
+            asec(x: real) -> real
+            acot(x: real) -> real
+            sinh(x: real) -> real
+            cosh(x: real) -> real
+            tanh(x: real) -> real
+            csch(x: real) -> real
+            sech(x: real) -> real
+            coth(x: real) -> real
+            asinh(x: real) -> real
+            acosh(x: real) -> real
+            atanh(x: real) -> real
+            acsch(x: real) -> real
+            asech(x: real) -> real
+            acoth(x: real) -> real
+            ptp(numbers: arr) -> num
+            median(numbers: arr) -> num
+            freq(data: arr) -> dict
+            mode(data: arr)
+            mean(numbers: arr) -> num
+            var(numbers: arr) -> num
+            std(numbers: arr) -> num
+            product(numbers: arr) -> num
+            sigma(i: int, n: int, f) -> num
+            pi(i: int, n: int, f) -> num
+            derivative(f, x: real, h: real = 1e-7) -> float
+            definite_integral(f, x_start: real, x_end: real, n: int = 10000000) -> float
+            beta(p: real, q: real) -> real
+            gamma(alpha: real) -> float
+            factorial(n: int) -> int
+            arrangement(n: int, r: int) -> int
+            combination(n: int, r: int) -> int
+            zeta(alpha: real) -> float
+            gaussian(x: real, _mu: real = 0, _sigma: real = 1) -> float
+            poisson(x: int, _lambda: real) -> float
+            erf(x: real) -> float
+            sigmoid(x: real) -> float
+            sign(x: real) -> int
             parity(x: int) -> int
-            pi(i: int, n: int, f) -> Union[int, float, complex]
-            poisson(x: int, _lambda: Union[int, float]) -> float
-            product(numbers: Union[list, tuple]) -> Union[int, float, complex]
-            ptp(numbers: Union[list, tuple]) -> Union[int, float, complex]
-            root(x: Union[int, float, complex], y: Union[int, float, complex]) -> Union[int, float, complex]
-            sec(x: Union[int, float]) -> Union[int, float]
-            sech(x: Union[int, float]) -> Union[int, float]
-            sigma(i: int, n: int, f) -> Union[int, float, complex]
-            sigmoid(x: Union[int, float]) -> float
-            sign(x: Union[int, float]) -> int
-            sin(x: Union[int, float]) -> Union[int, float]
-            sinh(x: Union[int, float]) -> Union[int, float]
-            std(numbers: Union[list, tuple]) -> Union[int, float, complex]
-            tan(x: Union[int, float]) -> Union[int, float]
-            tanh(x: Union[int, float]) -> Union[int, float]
-            var(numbers: Union[list, tuple]) -> Union[int, float, complex]
-            zeta(alpha: Union[int, float]) -> float
+            cumsum(lst: arr) -> list
+            cumprod(lst: arr) -> list
+            iroot(y: int, n: int) -> int
     ★ plotting [Draw a graph of equations using characters]
         FUNCTIONS
-            background(right: int | float = 5, left: int | float = -5, top: int | float = 5, bottom: int | float = -5, complexity: int | float = 5, ratio: int | float = 3, merge: bool = False) -> list | str
-            binary(function, right: int | float = 5, left: int | float = -5, top: int | float = 5, bottom: int | float = -5, complexity: int | float = 5, ratio: int | float = 3, error=0, compare='==', merge: bool = True, basic: list = None, character: str = '.', data: bool = False) -> list | str
-            c_unary(function, start: int | float, end: int | float, interval: int | float = 5, projection: str = 'ri', right: int | float = 5, left: int | float = -5, top: int | float = 5, bottom: int | float = -5, complexity: int | float = 5, ratio: int | float = 3, merge: bool = True, basic: list = None, character: str = '.', data: bool = False) -> list | str
-            change(data: list | str) -> list | str
-            unary(function, right: int | float = 5, left: int | float = -5, top: int | float = 5, bottom: int | float = -5, complexity: int | float = 5, ratio: int | float = 3, merge: bool = True, basic: list = None, character: str = '.', data: bool = False) -> list | str
+            color(text: str, rgb: arr) -> str
+            change(data: thing) -> thing
+            background(right: real = 5, left: real = -5, top: real = 5, bottom: real = -5...
+            unary(function, right: real = 5, left: real = -5, top: real = 5, bottom: real = -5, complexity: real = 5...
+            binary(function, right: real = 5, left: real = -5, top: real = 5, bottom: real = -5, complexity: real = 5...
+            c_unary(function, start: real, end: real, interval: real = 5, projection: str = "ri", right: real = 5...
     ★ probability [Probability function]
         FUNCTIONS
             binomial(sample_size: int, successes: int, success_probability: Union[int, float]) -> float
@@ -402,8 +440,8 @@ PyPyNum
 #### Code testing
 
 ```
->>> from pypynum import (Array, Geometry, Matrix, Quaternion, Symbolics, Tensor, Vector,
-                         cipher, constants, equations, mathematics, plotting, random, regression, tools)
+>>> from pypynum import (Array, Geometry, Logic, Matrix, Quaternion, Symbolics, Tensor, Vector,
+                         cipher, constants, equations, maths, plotting, random, regression, tools)
 
 ...
 
@@ -430,6 +468,21 @@ PyPyNum
 8.06449510224598
 3.0
 (1.6666666666666667, 0.6666666666666666)
+
+>>> a, b, c = 1, 1, 1
+>>> adder0, adder1 = Logic.HalfAdder("alpha", a, b), Logic.HalfAdder("beta", c, None)
+>>> xor0 = Logic.XOR("alpha")
+>>> ff0, ff1 = Logic.DFF("alpha"), Logic.DFF("beta")
+>>> xor0.set_order0(1)
+>>> xor0.set_order1(1)
+>>> Logic.connector(adder0, adder1)
+>>> Logic.connector(adder0, xor0)
+>>> Logic.connector(adder1, xor0)
+>>> Logic.connector(adder1, ff0)
+>>> Logic.connector(xor0, ff1)
+>>> print("sum: {}, carry: {}".format(ff0.out(), ff1.out()))
+
+sum: [1], carry: [1]
 
 >>> m0 = Matrix.mat([[1, 2], [3, 4]])
 >>> m1 = Matrix.mat([[5, 6], [7, 8]])
@@ -475,7 +528,7 @@ PyPyNum
 
 %()*+-./0123456789
 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
-ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟ∏ΡΣΤΥΦΧΨΩβγδεζηθικλμνξοπρστυφχψω
+ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρστυφχψω
 [['10', '+', 'a', '-', ['3.14', '+', 'b0'], '*', '-5'], '**', ['-ζn1', '-', '2.718', '/', 'mΣ99'], '//', '9']
 
 >>> t0 = Tensor.ten([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
@@ -555,23 +608,18 @@ print(v1.angles())
     ],
     [-1, -2, -3]
 ]
->>> print(equations.pe(p))
->>> print(equations.mles(*m))
+>>> print(equations.polynomial_equation(p))
+>>> print(equations.linear_equation(*m))
 
+[(-1.5615528128088307-6.5209667308287455e-24j)   (2.5615528128088294+4.456233626665941e-24j)   (1.0000000000000007+3.241554513744382e-25j)]
+[ 1.6666666666666667 -0.6666666666666666 -0.4444444444444444]
 
-    提示：Matrix模块的eig函数可能存在计算错误
-
-    Tip: The eig function of the Matrix module may have calculation errors
-    
-[2.561552812809, -1.561552812809, 1.0]
-[1.666666666667, -0.666666666667, -0.444444444444]
-
->>> print(mathematics.cot(constants.pi / 3))
->>> print(mathematics.gamma(1.5))
->>> print(mathematics.pi(1, 10, lambda x: x ** 2))
->>> print(mathematics.product([2, 3, 5, 7, 11, 13, 17, 19, 23, 29]))
->>> print(mathematics.sigma(1, 10, lambda x: x ** 2))
->>> print(mathematics.var([2, 3, 5, 7, 11, 13, 17, 19, 23, 29]))
+>>> print(maths.cot(constants.pi / 3))
+>>> print(maths.gamma(1.5))
+>>> print(maths.pi(1, 10, lambda x: x ** 2))
+>>> print(maths.product([2, 3, 5, 7, 11, 13, 17, 19, 23, 29]))
+>>> print(maths.sigma(1, 10, lambda x: x ** 2))
+>>> print(maths.var([2, 3, 5, 7, 11, 13, 17, 19, 23, 29]))
 
 0.577350269189626
 0.886226925452758
@@ -658,18 +706,18 @@ print(v1.angles())
 >>> print(random.randint(0, 9, [2, 3, 4]))
 >>> print(random.uniform(0, 9, [2, 3, 4]))
 
-[[[0.005010042633490881, 1.1160375815053902, 0.6145920379300898, -1.4696487204627253], [-0.20685462876933186, 0.8275330804972041, -0.8377832703632173, -0.8880186869697656], [-0.2653914684173608, -0.5205164919803434, -0.08359499889147641, -0.3006165927585791]], [[-1.1666695379454972, -1.0979019033440636, 0.5647293393684544, 0.23438322147503707], [0.04298318405503412, -0.6059076560822075, 1.600626179545926, 0.5204087192933082], [-0.058768641542423485, -0.4369666543837353, 0.37851158006771385, 2.0777148219436796]]]
-[[[0.40140286579987816, 0.07095255870174488, 0.6446608375143889, 0.6279016180497422], [0.804158734480493, 0.38595139889111474, 0.5653398643367361, 0.9106406788835898], [0.8502113481455789, 0.5679511415517262, 0.667955293914048, 0.43668222316158123]], [[0.06619508720421818, 0.09573784118592021, 0.6821744904157657, 0.9052002792268913], [0.30333795786917084, 0.13357618895131063, 0.144258651211569, 0.648655098110358], [0.8474099644680997, 0.8461881711073397, 0.6529621910052777, 0.17709859779327897]]]
-[[[1, 3, 9, 9], [0, 8, 0, 6], [5, 0, 0, 3]], [[9, 5, 6, 2], [6, 4, 9, 6], [8, 4, 8, 6]]]
-[[[2.3714687054662273, 7.8682431629091605, 3.4889108978334065, 7.8710116452525885], [8.524292784475549, 6.98190581041993, 3.4297944437860264, 6.068508585966597], [5.111615446006805, 7.916996987595166, 3.589747975729174, 1.3794064763997484]], [[3.295260189867274, 5.608688777939621, 8.217536152479274, 5.209074856197099], [4.95611538157316, 3.2743034659238717, 2.7104110034788764, 2.541949514340043], [8.033753127455242, 4.943764676329522, 7.150364785741341, 6.550305532995521]]]
+[[[0.4334341920363395, 0.055711784711422116, -1.0235500373980284, 0.30031229336738374], [-0.2650367914670356, 0.5513398538865067, -0.9735921328831166, 0.41345578602104827], [-0.11598957920080871, -0.9044539791933183, 1.6448227575237069, -0.26304156924843813]], [[0.27363898507271256, -0.5897181011789576, 1.5120937498473583, 2.1302709742844694], [1.9743293887616236, 0.4117207260898469, 0.5809554193110543, -1.8456249006764007], [1.274481044612177, -0.30645083457981553, -1.3285606156236818, 0.33473439037886943]]]
+[[[0.5269441534226782, 0.36498666932667356, 0.7363066388832684, 0.5878544826035406], [0.5684721009896431, 0.9009577979323332, 0.036288112799501615, 0.18351641818419884], [0.24258369409385339, 0.09354340906140202, 0.4856203412285762, 0.783031677244552]], [[0.8777465681935882, 0.6406910705155251, 0.10275292827025073, 0.01295823682977526], [0.3898500974345528, 0.6216248983423127, 0.3179425906177036, 0.012870877167621808], [0.2660481991211192, 0.09872041627158801, 0.3681944568198672, 0.494087114885137]]]
+[[[5, 9, 5, 6], [6, 7, 6, 1], [1, 3, 2, 4]], [[5, 8, 8, 3], [3, 2, 3, 9], [3, 0, 7, 1]]]
+[[[8.610851610963957, 1.3747433091161905, 1.3831050577679438, 4.715182178697273], [0.8765517657148284, 4.809554825684029, 2.7557819856736137, 5.938765584746821], [6.088739464744903, 4.627722536295625, 0.6116370455995369, 5.875683438664389]], [[7.7228845997304845, 5.428461366109726, 8.02712172516869, 5.9319006090345425], [5.726626482636939, 7.978329508380601, 1.114307478513796, 6.236721706167868], [1.4123245528031072, 5.327811122183013, 7.324213082306745, 1.5016363011868927]]]
 
->>> print(regression.linear_regression(range(5), [2, 4, 6, 7, 8]))
->>> print(regression.parabolic_regression(range(5), [2, 4, 6, 7, 8]))
+>>> print(regression.linear_regression(list(range(5)), [2, 4, 6, 7, 8]))
+>>> print(regression.parabolic_regression(list(range(5)), [2, 4, 6, 7, 8]))
+>>> print(regression.polynomial_regression(list(range(5)), [2, 4, 6, 7, 8], 4))
 
-f(x) = 1.5 * x + 2.4
-[1.5, 2.4]
-f(x) = -0.214285714 * x ** 2 + 2.357142857 * x + 1.971428571
-[-0.214285714, 2.357142857, 1.971428571]
+[1.5, 2.4000000000000004]
+[-0.21428571428571183, 2.3571428571428474, 1.9714285714285764]
+[0.08333333334800574, -0.6666666668092494, 1.4166666678382942, 1.1666666648311956, 2.0000000002900613]
 
 >>> print(tools.classify([1, 2.3, 4 + 5j, "string", list, True, 3.14, False, tuple, tools]))
 >>> print(tools.deduplicate(["Python", 6, "NumPy", int, "PyPyNum", 9, "pypynum", "NumPy", 6, True]))
