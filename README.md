@@ -16,7 +16,7 @@ python_requires >= 3.5)</font>
 
 ## Version -> 1.5.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
 
-![LOGO](PyPyNum.png)
+![输入图片说明](pypynum/PyPyNum.png)
 
 ### 介绍
 
