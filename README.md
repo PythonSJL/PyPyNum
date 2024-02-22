@@ -1,7 +1,7 @@
 ﻿# <font color = blue>PyPyNum</font>
 
-<font color = gree>A Python math package written in pure Python programming language</font> <font color = red>(
-python_requires >= 3.5)</font>
+<font color = gree>A Python math package written in pure Python programming language</font><font color = red>
+(python_requires >= 3.5)</font>
 
 ```
  ________   ___    ___  ________   ___    ___  ________    ___  ___   _____ ______
@@ -14,9 +14,9 @@ python_requires >= 3.5)</font>
           \|___|/                \|___|/
 ```
 
-## Version -> 1.5.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
+## Version -> 1.5.1 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
 
-![输入图片说明](pypynum/PyPyNum.png)
+![LOGO](pypynum/PyPyNum.png)
 
 ### 介绍
 
@@ -50,90 +50,21 @@ Python interpreter and run it!)
 #### New features compared to the previous version
 
 ```
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
-“Symbolics”模块中的希腊字母字符串中存
-在错误，已更正
-There is an error in the Greek
-letter string in the "Symbolics"
-module, which has been corrected
-
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
-傅立叶变换的类“FT1D”在数据末尾设置自动
-零填充，直到数据长度达到2的正整数幂
-The class "FT1D" of Fourier
-transform sets automatic zero
-padding at the end of the data
-until the data length reaches a
-positive integer power of 2
-
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
-“plotting”模块中添加了一个非常有用的
-“color”函数，可用于使字符串或其他类型
-的数据着色。
-A very useful "color" function
-has been added to the "plotting"
-module, which can be used to
-make strings or other types of
-data colored.
-
-您可以使用此函数为字符上色，然后将其用作
-绘制函数曲线的字符，并将“coloration”
-参数设置为“True”（可能仅适用于
-PyCharm等编程软件）
-You can use this function to
-color a character, then use it
-as the character to draw the
-function curve, and set the
-"color" parameter to "True"
-(which may only be applicable to
-programming software like
-PyCharm)
-
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
-<The "+" indicates the newly added method>
-
-[This is the base class of vectors, matrices, and tensors]
-
-Array(data=None, check=True)
-    __add__(self, other)
-    __eq__(self, other)
-    __getitem__(self, item)
-    __hash__(self)
-    __init__(self, data=None, check=True)
-    __ne__(self, other)
-    __radd__(self, other)
-    __repr__(self)
-    __round__(self, n=None)
-    __str__(self)
-    argmax(self, axis=None) +
-    argmin(self, axis=None) +
-    basic(self, func, axis=None) +
-    copy(self)
-    flatten(self)
-    max(self, axis=None) +
-    mean(self, axis=None) +
-    median(self, axis=None) +
-    min(self, axis=None) +
-    mode(self, axis=None) +
-    product(self, axis=None) +
-    ptp(self, axis=None) +
-    reshape(self, shape)
-    std(self, axis=None) +
-    sum(self, axis=None) +
-    var(self, axis=None) +
+<<<The "+" indicates the newly added method>>>
 
 maths [Mathematical functions]
-    root(x: num, y: num) -> num +
     ...
-    cumsum(lst: arr) -> list +
-    cumprod(lst: arr) -> list +
-    iroot(y: int, n: int) -> int +
+    cov(x: arr, y: arr) -> num +
+    corr_coeff(x: arr, y: arr) -> num +
+    coeff_det(x: arr, y: arr) -> num +
+    ...
 
-<<< Other modules also have certain modifications >>>
+sequence [Various sequences]
+    ...
+    arithmetic_sequence(*, a1=None, an=None, d=None, n=None, s=None) +
+    geometric_sequence(*, a1=None, an=None, r=None, n=None, s=None) +
+
+<<<There are three situations in the "geometric_sequence" function that have not been implemented>>>
 ```
 
 ### 运行用时测试
@@ -376,6 +307,9 @@ PyPyNum
             mean(numbers: arr) -> num
             var(numbers: arr) -> num
             std(numbers: arr) -> num
+            cov(x: arr, y: arr) -> num
+            corr_coeff(x: arr, y: arr) -> num
+            coeff_det(x: arr, y: arr) -> num
             product(numbers: arr) -> num
             sigma(i: int, n: int, f) -> num
             pi(i: int, n: int, f) -> num
@@ -423,9 +357,11 @@ PyPyNum
             polynomial_regression(x: Union[list, tuple], y: Union[list, tuple], n: int = None) -> list
     ★ sequence [Various sequences]
         FUNCTIONS
-            bernoulli(n: int, single: bool = True) -> list
-            catalan(n: int) -> int
             fibonacci(n: int) -> int
+            catalan(n: int) -> int
+            bernoulli(n: int, single: bool = True) -> list
+            arithmetic_sequence(*, a1=None, an=None, d=None, n=None, s=None)
+            geometric_sequence(*, a1=None, an=None, r=None, n=None, s=None)
     ★ tools [Other useful tools]
         FUNCTIONS
             classify(array: Union[list, tuple]) -> dict
