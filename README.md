@@ -14,9 +14,13 @@
           \|___|/                \|___|/
 ```
 
-## Version -> 1.5.1 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
+## Version -> 1.5.2 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
 
-![LOGO](pypynum/PyPyNum.png)
+![输入图片说明](pypynum/PyPyNum.png)
+
+PyPI上无法显示logo，可以在Gitee中查看。
+
+The logo cannot be displayed on PyPI, it can be viewed in Gitee.
 
 ### 介绍
 
@@ -29,20 +33,27 @@
 + 如需联系，QQ 2261748025 （Py𝙿𝚢𝚝𝚑𝚘𝚗-水晶兰）
 + If you need to contact, QQ 2261748025 (Py𝙿𝚢𝚝𝚑𝚘𝚗-水晶兰)
 
-### PyPyNum的Zen
+### PyPyNum的Zen（预览）
 
-#### The Zen of PyPyNum
+#### The Zen of PyPyNum (Preview)
 
 ```
     The Zen of PyPyNum, by Shen Jiayi
 
 This is a math package written purely in Python.
 
-... (Do you want to see the entire content?
-Then enter "from pypynum import this" on your
+Elegant is superior to clunky.
+Clarity trumps obscurity.
+Straightforwardness is preferred over convolution.
+Sophisticated is better than overcomplicated.
+Flat structure beats nested hierarchies.
+Sparse code wins over bloated ones.
+
+... (Do you want to view all the content?
+Enter "from pypynum import this" in your
 Python interpreter and run it!)
 
-                                December 27, 2023
+                                        February 27, 2024
 ```
 
 ### 与上一个版本相比新增功能
@@ -50,21 +61,71 @@ Python interpreter and run it!)
 #### New features compared to the previous version
 
 ```
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+
+重写了PyPyNum的Zen。
+
+Rewrote the Zen of PyPyNum.
+
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+
+“maths”模块的一些功能已经进行了优化，
+以实现更快的运行速度。
+
+Some functions of the "maths"
+module have been optimized to
+achieve faster running speed.
+
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+
+修复了“tools”模块中的“split”函数导致
+的字符串分割错误。
+
+Fixed string splitting error
+caused by the "split" function
+in the "tools" module.
+
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+
+“sequence”模块设置为每个序列返回单独
+的第n项或包含第0到第n项的列表的功能。
+
+The "sequence" module sets the
+function of returning a separate
+nth item or a list containing
+0th to nth items for each
+sequence.
+
+
+“geometric_sequence”函数补充了一个
+情况的求解函数，并且已经证实，其余两个情
+况没有解析解，需要使用多项式方程来求解。
+
+The "geometric_sequence"
+function supplements the solving
+function for one scenario, and
+it has been confirmed that there
+are no analytical solutions for
+the remaining two scenarios,
+which need to be solved using
+polynomial equations for
+implementation.
+
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+
 <<<The "+" indicates the newly added method>>>
 
 maths [Mathematical functions]
     ...
-    cov(x: arr, y: arr) -> num +
-    corr_coeff(x: arr, y: arr) -> num +
-    coeff_det(x: arr, y: arr) -> num +
+    geom_mean(numbers: arr) -> num +
+    square_mean(numbers: arr) -> num +
+    harm_mean(numbers: arr) -> num +
     ...
 
 sequence [Various sequences]
     ...
-    arithmetic_sequence(*, a1=None, an=None, d=None, n=None, s=None) +
-    geometric_sequence(*, a1=None, an=None, r=None, n=None, s=None) +
-
-<<<There are three situations in the "geometric_sequence" function that have not been implemented>>>
+    recaman(n: int, single: bool = True) -> Union[int, list] +
+    ...
 ```
 
 ### 运行用时测试
@@ -305,6 +366,9 @@ PyPyNum
             freq(data: arr) -> dict
             mode(data: arr)
             mean(numbers: arr) -> num
+            geom_mean(numbers: arr) -> num
+            square_mean(numbers: arr) -> num
+            harm_mean(numbers: arr) -> num
             var(numbers: arr) -> num
             std(numbers: arr) -> num
             cov(x: arr, y: arr) -> num
@@ -357,11 +421,12 @@ PyPyNum
             polynomial_regression(x: Union[list, tuple], y: Union[list, tuple], n: int = None) -> list
     ★ sequence [Various sequences]
         FUNCTIONS
-            fibonacci(n: int) -> int
-            catalan(n: int) -> int
+            fibonacci(n: int, single: bool = True) -> Union[int, list]
+            catalan(n: int, single: bool = True) -> Union[int, list]
             bernoulli(n: int, single: bool = True) -> list
-            arithmetic_sequence(*, a1=None, an=None, d=None, n=None, s=None)
-            geometric_sequence(*, a1=None, an=None, r=None, n=None, s=None)
+            recaman(n: int, single: bool = True) -> Union[int, list]
+            arithmetic_sequence(*, a1: real = None, an: real = None, d: real = None, n: real = None, s: real = None) -> dict
+            geometric_sequence(*, a1: real = None, an: real = None, r: real = None, n: real = None, s: real = None) -> dict
     ★ tools [Other useful tools]
         FUNCTIONS
             classify(array: Union[list, tuple]) -> dict
