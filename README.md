@@ -1,4 +1,4 @@
-﻿# <font color = blue>PyPyNum</font>
+# <font color = blue>PyPyNum</font>
 
 <font color = gree>A Python math package written in pure Python programming language</font><font color = red>
 (python_requires >= 3.5)</font>
@@ -14,9 +14,9 @@
           \|___|/                \|___|/
 ```
 
-## Version -> 1.5.2 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
+## Version -> 1.6.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
 
-![输入图片说明](pypynum/PyPyNum.png)
+![logo](pypynum/PyPyNum.png)
 
 PyPI上无法显示logo，可以在Gitee中查看。
 
@@ -61,71 +61,38 @@ Python interpreter and run it!)
 #### New features compared to the previous version
 
 ```
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
-重写了PyPyNum的Zen。
-
-Rewrote the Zen of PyPyNum.
-
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
-“maths”模块的一些功能已经进行了优化，
-以实现更快的运行速度。
-
-Some functions of the "maths"
-module have been optimized to
-achieve faster running speed.
-
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
-修复了“tools”模块中的“split”函数导致
-的字符串分割错误。
-
-Fixed string splitting error
-caused by the "split" function
-in the "tools" module.
-
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
-“sequence”模块设置为每个序列返回单独
-的第n项或包含第0到第n项的列表的功能。
-
-The "sequence" module sets the
-function of returning a separate
-nth item or a list containing
-0th to nth items for each
-sequence.
-
-
-“geometric_sequence”函数补充了一个
-情况的求解函数，并且已经证实，其余两个情
-况没有解析解，需要使用多项式方程来求解。
-
-The "geometric_sequence"
-function supplements the solving
-function for one scenario, and
-it has been confirmed that there
-are no analytical solutions for
-the remaining two scenarios,
-which need to be solved using
-polynomial equations for
-implementation.
-
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
-<<<The "+" indicates the newly added method>>>
+chars [Special mathematical symbols]
+    DATA
+        arrow = [["↖", "↑", "↗"], ["←", "⇌", "→"], ["↙", "↓", "↘"], ["↔", "⇋",...
+        div = "÷"
+        mul = "×"
+        others = "¬°‰‱′″∀∂∃∅∆∇∈∉∏∐∑∝∞∟∠∣∥∧∨∩∪∫∬∭∮∯∰∴∵∷∽≈≌≒≠≡≢≤≥≪≫≮≯≰≱≲≳⊕⊙⊥⊿⌒㏑㏒...
+        overline = "̄"
+        pi = "Ππ𝜫𝝅𝝥𝝿𝞟𝞹Пп∏ϖ∐ℼㄇ兀"
+        sgn = "±"
+        strikethrough = "̶"
+        subscript = "₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎ₐₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓ"
+        superscript = "⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ᴬᴮᴰᴱᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾᴿᵀᵁⱽᵂᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛ...
+        tab = [["┌", "┬", "┐"], ["├", "┼", "┤"], ["└", "┴", "┘"], ["─", "╭", "...
+        underline = "_"
 
 maths [Mathematical functions]
     ...
-    geom_mean(numbers: arr) -> num +
-    square_mean(numbers: arr) -> num +
-    harm_mean(numbers: arr) -> num +
+    raw_moment(data: Union[list, tuple], order: int) -> float
+    central_moment(data: Union[list, tuple], order: int) -> float
+    skew(data: Union[list, tuple]) -> float
+    kurt(data: Union[list, tuple]) -> float
     ...
 
-sequence [Various sequences]
-    ...
-    recaman(n: int, single: bool = True) -> Union[int, list] +
-    ...
+numbers [Conversion of various numbers]
+    FUNCTIONS
+        float2fraction(number: float, mixed: bool = False, error: float = 1e-15) -> tuple
+        int2roman(integer: int, overline: bool = True) -> str
+        roman2int(roman_num: str) -> int
+        str2int(string: str) -> int
+    DATA
+        roman_symbols = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"]
+        roman_values = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
 ```
 
 ### 运行用时测试
@@ -259,11 +226,11 @@ PyPyNum
         FUNCTIONS
             interpreter(expr: str) -> list
         DATA
-            basic = '%()*+-./0123456789'
-            english = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
-            greek = 'ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρστυφχψω'
-            operators = ['**', '*', '//', '/', '%', '+', '-']
-            valid = '%()*+-./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcd...zΑΒΓΔΕΖΗΘΙ...'
+            basic = "%()*+-./0123456789"
+            english = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+            greek = "ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρστυφχψω"
+            operators = ["**", "*", "//", "/", "%", "+", "-"]
+            valid = "%()*+-./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcd...zΑΒΓΔΕΖΗΘΙ...
     ★ Tensor [Tensor calculation]
         CLASSES
             Tensor
@@ -281,6 +248,20 @@ PyPyNum
             vec(data)
             zeros(_dimensions)
             zeros_like(_nested_list)
+    ★ chars [Special mathematical symbols]
+        DATA
+            arrow = [["↖", "↑", "↗"], ["←", "⇌", "→"], ["↙", "↓", "↘"], ["↔", "⇋",...
+            div = "÷"
+            mul = "×"
+            others = "¬°‰‱′″∀∂∃∅∆∇∈∉∏∐∑∝∞∟∠∣∥∧∨∩∪∫∬∭∮∯∰∴∵∷∽≈≌≒≠≡≢≤≥≪≫≮≯≰≱≲≳⊕⊙⊥⊿⌒㏑㏒...
+            overline = "̄"
+            pi = "Ππ𝜫𝝅𝝥𝝿𝞟𝞹Пп∏ϖ∐ℼㄇ兀"
+            sgn = "±"
+            strikethrough = "̶"
+            subscript = "₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎ₐₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓ"
+            superscript = "⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ᴬᴮᴰᴱᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾᴿᵀᵁⱽᵂᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛ...
+            tab = [["┌", "┬", "┐"], ["├", "┼", "┤"], ["└", "┴", "┘"], ["─", "╭", "...
+            underline = "_"
     ★ cipher [String encryption and decryption algorithms]
         FUNCTIONS
             dna(string: str, decrypt: bool = False) -> str
@@ -301,99 +282,113 @@ PyPyNum
             c = 299792458
             centi = 0.01
             deci = 0.1
-            deka = 10.0
+            deka = 10
             e = 2.718281828459045
-            exa = 1e+18
+            exa = 1000000000000000000
             femto = 1e-15
             gamma = 0.5772156649015329
-            giga = 1000000000.0
+            giga = 1000000000
             h = 6.62607015e-34
-            hecto = 100.0
+            hecto = 100
             inf = inf
-            kilo = 1000.0
-            mega = 1000000.0
+            kilo = 1000
+            mega = 1000000
             micro = 1e-06
             milli = 0.001
             nan = nan
             nano = 1e-09
-            peta = 1000000000000000.0
+            peta = 1000000000000000
             phi = 1.618033988749895
             pi = 3.141592653589793
             pico = 1e-12
             qe = 1.60217733e-19
-            tera = 1000000000000.0
+            tera = 1000000000000
             yocto = 1e-24
-            yotta = 1e+24
+            yotta = 1000000000000000000000000
             zepto = 1e-21
-            zetta = 1e+21
+            zetta = 1000000000000000000000
     ★ equations [Solving specific forms of equations]
         FUNCTIONS
             linear_equation(left: list, right: list) -> list
             polynomial_equation(coefficients: list) -> list
     ★ maths [Mathematical functions]
         FUNCTIONS
-            root(x: num, y: num) -> num
-            exp(x: real) -> real
-            ln(x: real) -> real
-            gcd(*args: int) -> int
-            lcm(*args: int) -> int
-            sin(x: real) -> real
-            cos(x: real) -> real
-            tan(x: real) -> real
-            csc(x: real) -> real
-            sec(x: real) -> real
-            cot(x: real) -> real
-            asin(x: real) -> real
-            acos(x: real) -> real
-            atan(x: real) -> real
-            acsc(x: real) -> real
-            asec(x: real) -> real
-            acot(x: real) -> real
-            sinh(x: real) -> real
-            cosh(x: real) -> real
-            tanh(x: real) -> real
-            csch(x: real) -> real
-            sech(x: real) -> real
-            coth(x: real) -> real
-            asinh(x: real) -> real
-            acosh(x: real) -> real
-            atanh(x: real) -> real
-            acsch(x: real) -> real
-            asech(x: real) -> real
-            acoth(x: real) -> real
-            ptp(numbers: arr) -> num
-            median(numbers: arr) -> num
-            freq(data: arr) -> dict
-            mode(data: arr)
-            mean(numbers: arr) -> num
-            geom_mean(numbers: arr) -> num
-            square_mean(numbers: arr) -> num
-            harm_mean(numbers: arr) -> num
-            var(numbers: arr) -> num
-            std(numbers: arr) -> num
-            cov(x: arr, y: arr) -> num
-            corr_coeff(x: arr, y: arr) -> num
-            coeff_det(x: arr, y: arr) -> num
-            product(numbers: arr) -> num
-            sigma(i: int, n: int, f) -> num
-            pi(i: int, n: int, f) -> num
-            derivative(f, x: real, h: real = 1e-7) -> float
-            definite_integral(f, x_start: real, x_end: real, n: int = 10000000) -> float
-            beta(p: real, q: real) -> real
-            gamma(alpha: real) -> float
-            factorial(n: int) -> int
+            A = arrangement(n: int, r: int) -> int
+            C = combination(n: int, r: int) -> int
+            acos(x: Union[int, float]) -> Union[int, float]
+            acosh(x: Union[int, float]) -> Union[int, float]
+            acot(x: Union[int, float]) -> Union[int, float]
+            acoth(x: Union[int, float]) -> Union[int, float]
+            acsc(x: Union[int, float]) -> Union[int, float]
+            acsch(x: Union[int, float]) -> Union[int, float]
             arrangement(n: int, r: int) -> int
+            asec(x: Union[int, float]) -> Union[int, float]
+            asech(x: Union[int, float]) -> Union[int, float]
+            asin(x: Union[int, float]) -> Union[int, float]
+            asinh(x: Union[int, float]) -> Union[int, float]
+            atan(x: Union[int, float]) -> Union[int, float]
+            atanh(x: Union[int, float]) -> Union[int, float]
+            beta(p: Union[int, float], q: Union[int, float]) -> Union[int, float]
+            central_moment(data: Union[list, tuple], order: int) -> float
+            coeff_det(x: Union[list, tuple], y: Union[list, tuple]) -> Union[int, float, complex]
             combination(n: int, r: int) -> int
-            zeta(alpha: real) -> float
-            gaussian(x: real, _mu: real = 0, _sigma: real = 1) -> float
-            poisson(x: int, _lambda: real) -> float
-            erf(x: real) -> float
-            sigmoid(x: real) -> float
-            sign(x: real) -> int
-            parity(x: int) -> int
-            cumsum(lst: arr) -> list
-            cumprod(lst: arr) -> list
+            corr_coeff(x: Union[list, tuple], y: Union[list, tuple]) -> Union[int, float, complex]
+            cos(x: Union[int, float]) -> Union[int, float]
+            cosh(x: Union[int, float]) -> Union[int, float]
+            cot(x: Union[int, float]) -> Union[int, float]
+            coth(x: Union[int, float]) -> Union[int, float]
+            cov(x: Union[list, tuple], y: Union[list, tuple]) -> Union[int, float, complex]
+            csc(x: Union[int, float]) -> Union[int, float]
+            csch(x: Union[int, float]) -> Union[int, float]
+            cumprod(lst: Union[list, tuple]) -> list
+            cumsum(lst: Union[list, tuple]) -> list
+            definite_integral(f, x_start: Union[int, float], x_end: Union[int, float], n: int = 10000000) -> float
+            derivative(f, x: Union[int, float], h: Union[int, float] = 1e-07) -> float
+            erf(x: Union[int, float]) -> float
+            exp(x: Union[int, float]) -> Union[int, float]
+            factorial(n: int) -> int
+            freq(data: Union[list, tuple]) -> dict
+            gamma(alpha: Union[int, float]) -> float
+            gaussian(x: Union[int, float], _mu: Union[int, float] = 0, _sigma: Union[int, float] = 1) -> float
+            gcd(*args: int) -> int
+            geom_mean(numbers: Union[list, tuple]) -> Union[int, float, complex]
+            harm_mean(numbers: Union[list, tuple]) -> Union[int, float, complex]
             iroot(y: int, n: int) -> int
+            kurt(data: Union[list, tuple]) -> float
+            lcm(*args: int) -> int
+            ln(x: Union[int, float]) -> Union[int, float]
+            mean(numbers: Union[list, tuple]) -> Union[int, float, complex]
+            median(numbers: Union[list, tuple]) -> Union[int, float, complex]
+            parity(x: int) -> int
+            pi(i: int, n: int, f) -> Union[int, float, complex]
+            poisson(x: int, _lambda: Union[int, float]) -> float
+            product(numbers: Union[list, tuple]) -> Union[int, float, complex]
+            ptp(numbers: Union[list, tuple]) -> Union[int, float, complex]
+            raw_moment(data: Union[list, tuple], order: int) -> float
+            root(x: Union[int, float, complex], y: Union[int, float, complex]) -> Union[int, float, complex]
+            sec(x: Union[int, float]) -> Union[int, float]
+            sech(x: Union[int, float]) -> Union[int, float]
+            sigma(i: int, n: int, f) -> Union[int, float, complex]
+            sigmoid(x: Union[int, float]) -> float
+            sign(x: Union[int, float]) -> int
+            sin(x: Union[int, float]) -> Union[int, float]
+            sinh(x: Union[int, float]) -> Union[int, float]
+            skew(data: Union[list, tuple]) -> float
+            square_mean(numbers: Union[list, tuple]) -> Union[int, float, complex]
+            std(numbers: Union[list, tuple]) -> Union[int, float, complex]
+            tan(x: Union[int, float]) -> Union[int, float]
+            tanh(x: Union[int, float]) -> Union[int, float]
+            var(numbers: Union[list, tuple]) -> Union[int, float, complex]
+            zeta(alpha: Union[int, float]) -> float
+    ★ numbers [Conversion of various numbers]
+        FUNCTIONS
+            float2fraction(number: float, mixed: bool = False, error: float = 1e-15) -> tuple
+            int2roman(integer: int, overline: bool = True) -> str
+            roman2int(roman_num: str) -> int
+            str2int(string: str) -> int
+        DATA
+            roman_symbols = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"]
+            roman_values = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
     ★ plotting [Draw a graph of equations using characters]
         FUNCTIONS
             color(text: str, rgb: arr) -> str
