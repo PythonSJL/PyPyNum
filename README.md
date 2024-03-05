@@ -22,8 +22,6 @@
 
 ## Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
 
-<div align="center"><img src="https://github.com/PythonSJL/PyPyNum/blob/main/PyPyNum.png"></div>
-
 ### 介绍
 
 #### Introduction
