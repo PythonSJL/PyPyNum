@@ -24,10 +24,6 @@
 
 ![LOGO](PyPyNum.png)
 
-PyPI上无法显示logo，可以在Gitee中查看。
-
-The logo cannot be displayed on PyPI, it can be viewed in Gitee.
-
 ### 介绍
 
 #### Introduction
