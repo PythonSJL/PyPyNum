@@ -22,7 +22,7 @@
 
 ## Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
 
-![LOGO](PyPyNum.png)
+![LOGO](https://github.com/PythonSJL/PyPyNum/blob/main/PyPyNum.png)
 
 ### 介绍
 
