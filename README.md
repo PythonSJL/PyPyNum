@@ -1,7 +1,7 @@
-# <font color = blue>PyPyNum</font>
+﻿# <font color = blue>PyPyNum</font>
 
-<font color = gree>A Python math package written in pure Python programming language</font><font color = red>
-(python_requires >= 3.5)</font>
+<font color = gree>A multifunctional mathematical calculation package written in pure Python programming language
+</font><font color = red>[Python>=3.5]</font>
 
 ```
  ________   ___    ___  ________   ___    ___  ________    ___  ___   _____ ______
@@ -14,7 +14,11 @@
           \|___|/                \|___|/
 ```
 
-## Version -> 1.6.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
+[![Downloads](https://static.pepy.tech/badge/pypynum)](https://pepy.tech/project/pypynum)
+[![Downloads](https://static.pepy.tech/badge/pypynum/month)](https://pepy.tech/project/pypynum)
+[![Downloads](https://static.pepy.tech/badge/pypynum/week)](https://pepy.tech/project/pypynum)
+
+## Version -> 1.7.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
 
 ![logo](pypynum/PyPyNum.png)
 
@@ -61,38 +65,92 @@ Python interpreter and run it!)
 #### New features compared to the previous version
 
 ```
-chars [Special mathematical symbols]
-    DATA
-        arrow = [["↖", "↑", "↗"], ["←", "⇌", "→"], ["↙", "↓", "↘"], ["↔", "⇋",...
-        div = "÷"
-        mul = "×"
-        others = "¬°‰‱′″∀∂∃∅∆∇∈∉∏∐∑∝∞∟∠∣∥∧∨∩∪∫∬∭∮∯∰∴∵∷∽≈≌≒≠≡≢≤≥≪≫≮≯≰≱≲≳⊕⊙⊥⊿⌒㏑㏒...
-        overline = "̄"
-        pi = "Ππ𝜫𝝅𝝥𝝿𝞟𝞹Пп∏ϖ∐ℼㄇ兀"
-        sgn = "±"
-        strikethrough = "̶"
-        subscript = "₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎ₐₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓ"
-        superscript = "⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ᴬᴮᴰᴱᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾᴿᵀᵁⱽᵂᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛ...
-        tab = [["┌", "┬", "┐"], ["├", "┼", "┤"], ["└", "┴", "┘"], ["─", "╭", "...
-        underline = "_"
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-maths [Mathematical functions]
-    ...
-    raw_moment(data: Union[list, tuple], order: int) -> float
-    central_moment(data: Union[list, tuple], order: int) -> float
-    skew(data: Union[list, tuple]) -> float
-    kurt(data: Union[list, tuple]) -> float
-    ...
+新增代码行数：
+约八百行
 
-numbers [Conversion of various numbers]
-    FUNCTIONS
-        float2fraction(number: float, mixed: bool = False, error: float = 1e-15) -> tuple
-        int2roman(integer: int, overline: bool = True) -> str
-        roman2int(roman_num: str) -> int
-        str2int(string: str) -> int
-    DATA
-        roman_symbols = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"]
-        roman_values = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
+New code lines:
+approximately 800 lines
+
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+
+部分函数再次优化，性能提高一倍。
+
+Partial functions were optimized
+again, resulting in a doubling
+of performance.
+
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+
+新增的好玩功能举例。
+
+Examples of newly added fun
+features.
+
+新增的有序集合包含绝大多数内置集合的运算
+，并且另有几个新函数。请注意它不是从内置
+集合继承的。
+
+The newly added ordered set
+contains the majority of
+built-in set operations, and
+there are also several new
+functions. Please note that it
+does not inherit from the
+built-in set.
+
+新增的无穷迭代器支持迭代多种数列，默认的
+空字符串即为自增数列。目前支持的数列有等
+差数列、等比数列、斐波那契数列与卡特兰数
+列。
+
+The newly added infinite
+iterator supports iterating
+multiple sequences, and the
+default empty string is the self
+increasing sequence. The
+currently supported sequences
+include arithmetic sequences,
+proportional sequences,
+Fibonacci sequences, and Catalan
+sequences.
+
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+
+<<<以下结构中的省略号表示原有的部分>>>
+
+<<<The ellipsis in the following structure represents the original part>>>
+
+PyPyNum
+    ★ Tree [Various trees]
+        CLASSES
+            MultiTree
+            MultiTreeNode
+    ★ maths [Mathematical functions]
+        FUNCTIONS
+            ...
+            totient(n: int) -> int
+            mod_order(a: int, n: int, b: int) -> int
+            primitive_root(a: int, single: bool = False) -> Union[int, list]
+            normalize(data: arr, target: num = 1) -> arr
+            average(data, weights, expected=False)
+            exgcd(a: int, b: int) -> tuple
+            crt(n: arr, a: arr) -> int
+    ★ sequence [Various sequences]
+        FUNCTIONS
+            farey(n: int) -> list
+            ...
+    ★ tools [Other useful tools]
+        FUNCTIONS
+            ...
+            primality(n: int, iter_num: int = 10) -> bool
+            generate_primes(limit: int) -> list
+            prime_factors(integer: int, dictionary: bool = False, pollard_rho: bool = True) -> Union[list, dict]
+    ★ utils [Other useful tools]
+        CLASSES
+            InfIterator
+            OrderedSet
 ```
 
 ### 运行用时测试
@@ -240,6 +298,10 @@ PyPyNum
             tolist(_nested_list)
             zeros(_dimensions)
             zeros_like(_nested_list)
+    ★ Tree [Various trees]
+        CLASSES
+            MultiTree
+            MultiTreeNode
     ★ Vector [Vector calculation]
         CLASSES
             Vector
@@ -313,73 +375,79 @@ PyPyNum
             polynomial_equation(coefficients: list) -> list
     ★ maths [Mathematical functions]
         FUNCTIONS
-            A = arrangement(n: int, r: int) -> int
-            C = combination(n: int, r: int) -> int
-            acos(x: Union[int, float]) -> Union[int, float]
-            acosh(x: Union[int, float]) -> Union[int, float]
-            acot(x: Union[int, float]) -> Union[int, float]
-            acoth(x: Union[int, float]) -> Union[int, float]
-            acsc(x: Union[int, float]) -> Union[int, float]
-            acsch(x: Union[int, float]) -> Union[int, float]
-            arrangement(n: int, r: int) -> int
-            asec(x: Union[int, float]) -> Union[int, float]
-            asech(x: Union[int, float]) -> Union[int, float]
-            asin(x: Union[int, float]) -> Union[int, float]
-            asinh(x: Union[int, float]) -> Union[int, float]
-            atan(x: Union[int, float]) -> Union[int, float]
-            atanh(x: Union[int, float]) -> Union[int, float]
-            beta(p: Union[int, float], q: Union[int, float]) -> Union[int, float]
-            central_moment(data: Union[list, tuple], order: int) -> float
-            coeff_det(x: Union[list, tuple], y: Union[list, tuple]) -> Union[int, float, complex]
-            combination(n: int, r: int) -> int
-            corr_coeff(x: Union[list, tuple], y: Union[list, tuple]) -> Union[int, float, complex]
-            cos(x: Union[int, float]) -> Union[int, float]
-            cosh(x: Union[int, float]) -> Union[int, float]
-            cot(x: Union[int, float]) -> Union[int, float]
-            coth(x: Union[int, float]) -> Union[int, float]
-            cov(x: Union[list, tuple], y: Union[list, tuple]) -> Union[int, float, complex]
-            csc(x: Union[int, float]) -> Union[int, float]
-            csch(x: Union[int, float]) -> Union[int, float]
-            cumprod(lst: Union[list, tuple]) -> list
-            cumsum(lst: Union[list, tuple]) -> list
-            definite_integral(f, x_start: Union[int, float], x_end: Union[int, float], n: int = 10000000) -> float
-            derivative(f, x: Union[int, float], h: Union[int, float] = 1e-07) -> float
-            erf(x: Union[int, float]) -> float
-            exp(x: Union[int, float]) -> Union[int, float]
-            factorial(n: int) -> int
-            freq(data: Union[list, tuple]) -> dict
-            gamma(alpha: Union[int, float]) -> float
-            gaussian(x: Union[int, float], _mu: Union[int, float] = 0, _sigma: Union[int, float] = 1) -> float
+            root(x: num, y: num) -> num
+            exp(x: real) -> real
+            ln(x: real) -> real
             gcd(*args: int) -> int
-            geom_mean(numbers: Union[list, tuple]) -> Union[int, float, complex]
-            harm_mean(numbers: Union[list, tuple]) -> Union[int, float, complex]
-            iroot(y: int, n: int) -> int
-            kurt(data: Union[list, tuple]) -> float
             lcm(*args: int) -> int
-            ln(x: Union[int, float]) -> Union[int, float]
-            mean(numbers: Union[list, tuple]) -> Union[int, float, complex]
-            median(numbers: Union[list, tuple]) -> Union[int, float, complex]
+            sin(x: real) -> real
+            cos(x: real) -> real
+            tan(x: real) -> real
+            csc(x: real) -> real
+            sec(x: real) -> real
+            cot(x: real) -> real
+            asin(x: real) -> real
+            acos(x: real) -> real
+            atan(x: real) -> real
+            acsc(x: real) -> real
+            asec(x: real) -> real
+            acot(x: real) -> real
+            sinh(x: real) -> real
+            cosh(x: real) -> real
+            tanh(x: real) -> real
+            csch(x: real) -> real
+            sech(x: real) -> real
+            coth(x: real) -> real
+            asinh(x: real) -> real
+            acosh(x: real) -> real
+            atanh(x: real) -> real
+            acsch(x: real) -> real
+            asech(x: real) -> real
+            acoth(x: real) -> real
+            ptp(numbers: arr) -> num
+            median(numbers: arr) -> num
+            freq(data: arr) -> dict
+            mode(data: arr)
+            mean(numbers: arr) -> num
+            geom_mean(numbers: arr) -> num
+            square_mean(numbers: arr) -> num
+            harm_mean(numbers: arr) -> num
+            raw_moment(data: arr, order: int) -> float
+            central_moment(data: arr, order: int) -> float
+            var(numbers: arr, ddof: int = 0) -> num
+            skew(data: arr) -> float
+            kurt(data: arr) -> float
+            std(numbers: arr, ddof: int = 0) -> num
+            cov(x: arr, y: arr, ddof: int = 0) -> num
+            corr_coeff(x: arr, y: arr) -> num
+            coeff_det(x: arr, y: arr) -> num
+            product(numbers: arr) -> num
+            sigma(i: int, n: int, f) -> num
+            pi(i: int, n: int, f) -> num
+            derivative(f, x: real, h: real = 1e-7) -> float
+            definite_integral(f, x_start: real, x_end: real, n: int = 10000000) -> float
+            beta(p: real, q: real) -> real
+            gamma(alpha: real) -> float
+            factorial(n: int) -> int
+            arrangement(n: int, r: int) -> int
+            combination(n: int, r: int) -> int
+            zeta(alpha: real) -> float
+            gaussian(x: real, _mu: real = 0, _sigma: real = 1) -> float
+            poisson(x: int, _lambda: real) -> float
+            erf(x: real) -> float
+            sigmoid(x: real) -> float
+            sign(x: real) -> int
             parity(x: int) -> int
-            pi(i: int, n: int, f) -> Union[int, float, complex]
-            poisson(x: int, _lambda: Union[int, float]) -> float
-            product(numbers: Union[list, tuple]) -> Union[int, float, complex]
-            ptp(numbers: Union[list, tuple]) -> Union[int, float, complex]
-            raw_moment(data: Union[list, tuple], order: int) -> float
-            root(x: Union[int, float, complex], y: Union[int, float, complex]) -> Union[int, float, complex]
-            sec(x: Union[int, float]) -> Union[int, float]
-            sech(x: Union[int, float]) -> Union[int, float]
-            sigma(i: int, n: int, f) -> Union[int, float, complex]
-            sigmoid(x: Union[int, float]) -> float
-            sign(x: Union[int, float]) -> int
-            sin(x: Union[int, float]) -> Union[int, float]
-            sinh(x: Union[int, float]) -> Union[int, float]
-            skew(data: Union[list, tuple]) -> float
-            square_mean(numbers: Union[list, tuple]) -> Union[int, float, complex]
-            std(numbers: Union[list, tuple]) -> Union[int, float, complex]
-            tan(x: Union[int, float]) -> Union[int, float]
-            tanh(x: Union[int, float]) -> Union[int, float]
-            var(numbers: Union[list, tuple]) -> Union[int, float, complex]
-            zeta(alpha: Union[int, float]) -> float
+            cumsum(lst: arr) -> list
+            cumprod(lst: arr) -> list
+            iroot(y: int, n: int) -> int
+            totient(n: int) -> int
+            mod_order(a: int, n: int, b: int) -> int
+            primitive_root(a: int, single: bool = False) -> Union[int, list]
+            normalize(data: arr, target: num = 1) -> arr
+            average(data, weights, expected=False)
+            exgcd(a: int, b: int) -> tuple
+            crt(n: arr, a: arr) -> int
     ★ numbers [Conversion of various numbers]
         FUNCTIONS
             float2fraction(number: float, mixed: bool = False, error: float = 1e-15) -> tuple
@@ -416,6 +484,7 @@ PyPyNum
             polynomial_regression(x: Union[list, tuple], y: Union[list, tuple], n: int = None) -> list
     ★ sequence [Various sequences]
         FUNCTIONS
+            farey(n: int) -> list
             fibonacci(n: int, single: bool = True) -> Union[int, list]
             catalan(n: int, single: bool = True) -> Union[int, list]
             bernoulli(n: int, single: bool = True) -> list
@@ -424,11 +493,20 @@ PyPyNum
             geometric_sequence(*, a1: real = None, an: real = None, r: real = None, n: real = None, s: real = None) -> dict
     ★ tools [Other useful tools]
         FUNCTIONS
-            classify(array: Union[list, tuple]) -> dict
-            deduplicate(iterable: Union[list, tuple, str]) -> Union[list, tuple, str]
-            frange(start: Union[int, float], stop: Union[int, float], step: float = 1.0) -> list
-            linspace(start: Union[int, float], stop: Union[int, float], number: int) -> list
-            split(iterable: Union[list, tuple, str], key: Union[list, tuple], retain: bool = False) -> list
+            frange(start: real, stop: real, step: float = 1.0) -> list
+            linspace(start: real, stop: real, number: int) -> list
+            geomspace(start: real, stop: real, number: int) -> list
+            deduplicate(iterable: ite) -> ite
+            classify(array: arr) -> dict
+            split(iterable: ite, key: arr, retain: bool = False) -> list
+            interpolation(data: arr, length: int) -> list
+            primality(n: int, iter_num: int = 10) -> bool
+            generate_primes(limit: int) -> list
+            prime_factors(integer: int, dictionary: bool = False, pollard_rho: bool = True) -> Union[list, dict]
+    ★ utils [Other useful tools]
+        CLASSES
+            InfIterator
+            OrderedSet
 ```
 
 ### 代码测试
