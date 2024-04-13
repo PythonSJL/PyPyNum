@@ -18,9 +18,9 @@
 [![Downloads](https://static.pepy.tech/badge/pypynum/month)](https://pepy.tech/project/pypynum)
 [![Downloads](https://static.pepy.tech/badge/pypynum/week)](https://pepy.tech/project/pypynum)
 
-## Version -> 1.7.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
+## Version -> 1.8.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
 
-![logo](pypynum/PyPyNum.png)
+![输入图片说明](pypynum/PyPyNum.png)
 
 PyPI上无法显示logo，可以在Gitee中查看。
 
@@ -67,54 +67,65 @@ Python interpreter and run it!)
 ```
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-新增代码行数：
-约八百行
+新增代码行数为603行
 
-New code lines:
-approximately 800 lines
+Add 603 new lines of code
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-部分函数再次优化，性能提高一倍。
+新增函数“magic_square”的功能简介：可
+以生成任意大于等于三的整数阶幻方。
 
-Partial functions were optimized
-again, resulting in a doubling
-of performance.
+Introduction to the newly added
+function "magic square": It can
+generate any integer order magic
+square greater than or equal to
+three.
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-新增的好玩功能举例。
+新增模块“Graph”的功能简介：具有有向图
+、无向图、带权有向图、带权无向图这四个对
+象，支持添加或删除顶点和边，以及深度优先
+搜索与广度优先搜索这两种图的遍历方式，还
+有计算最短路径等功能。
 
-Examples of newly added fun
-features.
+Introduction to the functions of
+the newly added module "Graph":
+it has four objects: directed
+graph, undirected graph,
+weighted directed graph, and
+weighted undirected graph. It
+supports adding or removing
+vertices and edges, as well as
+depth first search and breadth
+first search for graph
+traversal. It also has functions
+such as calculating the shortest
+path.
 
-新增的有序集合包含绝大多数内置集合的运算
-，并且另有几个新函数。请注意它不是从内置
-集合继承的。
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-The newly added ordered set
-contains the majority of
-built-in set operations, and
-there are also several new
-functions. Please note that it
-does not inherit from the
-built-in set.
+新增模块“polynomial”的功能简介：有一
+个多项式对象，可以通过传入包含“(次数,
+系数)”的二元组组成的序列创建多项式对象
+，可以随时设置某一项的数值，并且支持多
+项式形式的四则运算，还有取商式、取余式
+、求幂、求模幂的功能。
 
-新增的无穷迭代器支持迭代多种数列，默认的
-空字符串即为自增数列。目前支持的数列有等
-差数列、等比数列、斐波那契数列与卡特兰数
-列。
-
-The newly added infinite
-iterator supports iterating
-multiple sequences, and the
-default empty string is the self
-increasing sequence. The
-currently supported sequences
-include arithmetic sequences,
-proportional sequences,
-Fibonacci sequences, and Catalan
-sequences.
+Introduction to the newly added
+module "polynomial": There is a
+polynomial object that can be
+created by passing in a sequence
+of binary tuples containing
+"degree, coefficient". The value
+of a certain term can be set at
+any time, and it supports
+polynomial form arithmetic
+operations. It also has
+functions such as quotient,
+remainder, exponentiation, and
+modular exponentiation.
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
@@ -123,34 +134,23 @@ sequences.
 <<<The ellipsis in the following structure represents the original part>>>
 
 PyPyNum
-    ★ Tree [Various trees]
+    ★ Graph [Graph theory]
         CLASSES
-            MultiTree
-            MultiTreeNode
-    ★ maths [Mathematical functions]
+            BaseGraph
+                BaseWeGraph
+                    WeDiGraph
+                    WeUnGraph
+                DiGraph
+                UnGraph
+    ★ polynomial [Polynomial object]
+        CLASSES
+            Polynomial
         FUNCTIONS
-            ...
-            totient(n: int) -> int
-            mod_order(a: int, n: int, b: int) -> int
-            primitive_root(a: int, single: bool = False) -> Union[int, list]
-            normalize(data: arr, target: num = 1) -> arr
-            average(data, weights, expected=False)
-            exgcd(a: int, b: int) -> tuple
-            crt(n: arr, a: arr) -> int
-    ★ sequence [Various sequences]
-        FUNCTIONS
-            farey(n: int) -> list
-            ...
+            poly(terms=None)
     ★ tools [Other useful tools]
         FUNCTIONS
             ...
-            primality(n: int, iter_num: int = 10) -> bool
-            generate_primes(limit: int) -> list
-            prime_factors(integer: int, dictionary: bool = False, pollard_rho: bool = True) -> Union[list, dict]
-    ★ utils [Other useful tools]
-        CLASSES
-            InfIterator
-            OrderedSet
+            magic_square(n)
 ```
 
 ### 运行用时测试
@@ -220,6 +220,14 @@ PyPyNum
             Triangle
         FUNCTIONS
             distance(g1, g2, error: int | float = 0) -> float
+    ★ Graph [Graph theory]
+        CLASSES
+            BaseGraph
+                BaseWeGraph
+                    WeDiGraph
+                    WeUnGraph
+                DiGraph
+                UnGraph
     ★ Group [Group theory]
         CLASSES
             Group
@@ -465,6 +473,11 @@ PyPyNum
             unary(function, right: real = 5, left: real = -5, top: real = 5, bottom: real = -5, complexity: real = 5...
             binary(function, right: real = 5, left: real = -5, top: real = 5, bottom: real = -5, complexity: real = 5...
             c_unary(function, start: real, end: real, interval: real = 5, projection: str = "ri", right: real = 5...
+    ★ polynomial [Polynomial object]
+        CLASSES
+            Polynomial
+        FUNCTIONS
+            poly(terms=None)
     ★ probability [Probability function]
         FUNCTIONS
             binomial(sample_size: int, successes: int, success_probability: Union[int, float]) -> float
@@ -503,6 +516,7 @@ PyPyNum
             primality(n: int, iter_num: int = 10) -> bool
             generate_primes(limit: int) -> list
             prime_factors(integer: int, dictionary: bool = False, pollard_rho: bool = True) -> Union[list, dict]
+            magic_square(n)
     ★ utils [Other useful tools]
         CLASSES
             InfIterator
