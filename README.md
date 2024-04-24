@@ -18,9 +18,9 @@
 [![Downloads](https://static.pepy.tech/badge/pypynum/month)](https://pepy.tech/project/pypynum)
 [![Downloads](https://static.pepy.tech/badge/pypynum/week)](https://pepy.tech/project/pypynum)
 
-## Version -> 1.8.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
+## Version -> 1.8.1 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
 
-![输入图片说明](pypynum/PyPyNum.png)
+![](pypynum/PyPyNum.png)
 
 PyPI上无法显示logo，可以在Gitee中查看。
 
@@ -67,65 +67,11 @@ Python interpreter and run it!)
 ```
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-新增代码行数为603行
+eig函数修复了计算错误并改名为eigen
 
-Add 603 new lines of code
-
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
-新增函数“magic_square”的功能简介：可
-以生成任意大于等于三的整数阶幻方。
-
-Introduction to the newly added
-function "magic square": It can
-generate any integer order magic
-square greater than or equal to
-three.
-
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
-新增模块“Graph”的功能简介：具有有向图
-、无向图、带权有向图、带权无向图这四个对
-象，支持添加或删除顶点和边，以及深度优先
-搜索与广度优先搜索这两种图的遍历方式，还
-有计算最短路径等功能。
-
-Introduction to the functions of
-the newly added module "Graph":
-it has four objects: directed
-graph, undirected graph,
-weighted directed graph, and
-weighted undirected graph. It
-supports adding or removing
-vertices and edges, as well as
-depth first search and breadth
-first search for graph
-traversal. It also has functions
-such as calculating the shortest
-path.
-
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
-新增模块“polynomial”的功能简介：有一
-个多项式对象，可以通过传入包含“(次数,
-系数)”的二元组组成的序列创建多项式对象
-，可以随时设置某一项的数值，并且支持多
-项式形式的四则运算，还有取商式、取余式
-、求幂、求模幂的功能。
-
-Introduction to the newly added
-module "polynomial": There is a
-polynomial object that can be
-created by passing in a sequence
-of binary tuples containing
-"degree, coefficient". The value
-of a certain term can be set at
-any time, and it supports
-polynomial form arithmetic
-operations. It also has
-functions such as quotient,
-remainder, exponentiation, and
-modular exponentiation.
+The eig function fixed
+calculation errors and changed
+its name to eigen
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
@@ -134,23 +80,13 @@ modular exponentiation.
 <<<The ellipsis in the following structure represents the original part>>>
 
 PyPyNum
-    ★ Graph [Graph theory]
-        CLASSES
-            BaseGraph
-                BaseWeGraph
-                    WeDiGraph
-                    WeUnGraph
-                DiGraph
-                UnGraph
-    ★ polynomial [Polynomial object]
-        CLASSES
-            Polynomial
-        FUNCTIONS
-            poly(terms=None)
-    ★ tools [Other useful tools]
+    ★ Matrix [Matrix calculation]
         FUNCTIONS
             ...
-            magic_square(n)
+            rotate90(matrix: pypynum.Matrix.Matrix, times: int) -> pypynum.Matrix.Matrix
+            hessenberg(matrix: pypynum.Matrix.Matrix) -> tuple
+            eigen(matrix: pypynum.Matrix.Matrix) -> tuple
+            ...
 ```
 
 ### 运行用时测试
@@ -265,14 +201,16 @@ PyPyNum
         CLASSES
             Matrix
         FUNCTIONS
-            eig(matrix)
-            identity(n)
-            lu(matrix)
+            eigen(matrix: pypynum.Matrix.Matrix) -> tuple
+            hessenberg(matrix: pypynum.Matrix.Matrix) -> tuple
+            identity(n: int) -> pypynum.Matrix.Matrix
+            lu(matrix: pypynum.Matrix.Matrix) -> tuple
             mat(data)
-            qr(matrix)
+            qr(matrix: pypynum.Matrix.Matrix) -> tuple
+            rotate90(matrix: pypynum.Matrix.Matrix, times: int) -> pypynum.Matrix.Matrix
             same(rows, cols, value=0)
-            svd(matrix)
-            tril_indices(n, k=0, m=None)
+            svd(matrix: pypynum.Matrix.Matrix) -> tuple
+            tril_indices(n: int, k: int = 0, m: int = None) -> tuple
             zeros(_dimensions)
             zeros_like(_nested_list)
     ★ NeuralN [A simple neural network model]
@@ -456,6 +394,9 @@ PyPyNum
             average(data, weights, expected=False)
             exgcd(a: int, b: int) -> tuple
             crt(n: arr, a: arr) -> int
+            isqrt(x: int) -> int
+            is_possibly_square(n: int) -> bool
+            is_square(n: int) -> bool
     ★ numbers [Conversion of various numbers]
         FUNCTIONS
             float2fraction(number: float, mixed: bool = False, error: float = 1e-15) -> tuple
@@ -685,7 +626,7 @@ print(v1.angles())
 6.62607015e-34
 1.618033988749895
 3.141592653589793
-1000000000000.0
+1000000000000
 
 >>> p = [1, -2, -3, 4]
 >>> m = [
@@ -699,7 +640,9 @@ print(v1.angles())
 >>> print(equations.polynomial_equation(p))
 >>> print(equations.linear_equation(*m))
 
-[(-1.5615528128088307-6.5209667308287455e-24j)   (2.5615528128088294+4.456233626665941e-24j)   (1.0000000000000007+3.241554513744382e-25j)]
+[[(-1.5615528128088307-6.5209667308287455e-24j)                                             0                                             0]
+ [                                            0   (2.5615528128088294+4.456233626665941e-24j)                                             0]
+ [                                            0                                             0   (1.0000000000000007+3.241554513744382e-25j)]]
 [ 1.6666666666666667 -0.6666666666666666 -0.4444444444444444]
 
 >>> print(maths.cot(constants.pi / 3))
@@ -794,10 +737,10 @@ print(v1.angles())
 >>> print(random.randint(0, 9, [2, 3, 4]))
 >>> print(random.uniform(0, 9, [2, 3, 4]))
 
-[[[0.4334341920363395, 0.055711784711422116, -1.0235500373980284, 0.30031229336738374], [-0.2650367914670356, 0.5513398538865067, -0.9735921328831166, 0.41345578602104827], [-0.11598957920080871, -0.9044539791933183, 1.6448227575237069, -0.26304156924843813]], [[0.27363898507271256, -0.5897181011789576, 1.5120937498473583, 2.1302709742844694], [1.9743293887616236, 0.4117207260898469, 0.5809554193110543, -1.8456249006764007], [1.274481044612177, -0.30645083457981553, -1.3285606156236818, 0.33473439037886943]]]
-[[[0.5269441534226782, 0.36498666932667356, 0.7363066388832684, 0.5878544826035406], [0.5684721009896431, 0.9009577979323332, 0.036288112799501615, 0.18351641818419884], [0.24258369409385339, 0.09354340906140202, 0.4856203412285762, 0.783031677244552]], [[0.8777465681935882, 0.6406910705155251, 0.10275292827025073, 0.01295823682977526], [0.3898500974345528, 0.6216248983423127, 0.3179425906177036, 0.012870877167621808], [0.2660481991211192, 0.09872041627158801, 0.3681944568198672, 0.494087114885137]]]
-[[[5, 9, 5, 6], [6, 7, 6, 1], [1, 3, 2, 4]], [[5, 8, 8, 3], [3, 2, 3, 9], [3, 0, 7, 1]]]
-[[[8.610851610963957, 1.3747433091161905, 1.3831050577679438, 4.715182178697273], [0.8765517657148284, 4.809554825684029, 2.7557819856736137, 5.938765584746821], [6.088739464744903, 4.627722536295625, 0.6116370455995369, 5.875683438664389]], [[7.7228845997304845, 5.428461366109726, 8.02712172516869, 5.9319006090345425], [5.726626482636939, 7.978329508380601, 1.114307478513796, 6.236721706167868], [1.4123245528031072, 5.327811122183013, 7.324213082306745, 1.5016363011868927]]]
+[[[1.524086835643172, -0.20868457467847845, 0.5240261503975477, -0.6439838767682032], [-1.091904210196648, -0.20567633973733265, 1.374424576574523, 0.6563097903476932], [0.2171635934136032, 1.0821030876490199, -0.8410496800310051, -0.8321549344577578]], [[0.5306996954571072, -0.4441704154154241, 1.0481960055260355, 0.39805451821848287], [-0.4006858882593715, -0.06238294764009237, -1.1536673264483728, -0.8063185246185602], [0.3029117113345387, -0.32570360518676644, 0.6608320231980702, 1.7415150171137153]]]
+[[[0.3736243541521843, 0.8599079983285199, 0.4260061864869946, 0.8441437619796597], [0.8955986631978392, 0.7570336992646656, 0.6706841989644684, 0.328634366074538], [0.4371430562585502, 0.9576395263025738, 0.2380278778546957, 0.806813631306664]], [[0.18549375381453237, 0.5749941389233029, 0.7009767023241946, 0.30017399397762223], [0.6661914823434657, 0.7802291606608635, 0.6847755352217044, 0.2661053533652564], [0.07937643994416943, 0.5452043474222034, 0.8026792060861194, 0.07776400257578953]]]
+[[[9, 0, 9, 0], [2, 6, 3, 4], [5, 8, 4, 7]], [[7, 7, 6, 3], [5, 5, 5, 8], [3, 4, 6, 6]]]
+[[[5.049093842782947, 1.3880585421884204, 8.533634113864629, 3.550264239771317], [3.3311351975225176, 5.131771033264564, 0.9570872044431911, 5.165536082759862], [1.2035779060925538, 8.292998518472567, 8.014641974770818, 6.251632912237915]], [[6.411677800595937, 5.365937405245105, 8.70943859614565, 4.348757668525482], [7.827612569569748, 1.3718742546020972, 0.5252489627763138, 2.065015517785291], [4.620664668451086, 2.604569735623819, 5.548107842615733, 7.60342292447815]]]
 
 >>> print(regression.linear_regression(list(range(5)), [2, 4, 6, 7, 8]))
 >>> print(regression.parabolic_regression(list(range(5)), [2, 4, 6, 7, 8]))
