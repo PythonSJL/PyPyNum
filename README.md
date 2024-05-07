@@ -1,7 +1,7 @@
 ﻿# <font color = blue>PyPyNum</font>
 
 <font color = gree>A multifunctional mathematical calculation package written in pure Python programming language
-</font><font color = red>[Python>=3.5]</font>
+</font><font color = red>[Python>=3.4]</font>
 
 ```
  ________   ___    ___  ________   ___    ___  ________    ___  ___   _____ ______
@@ -18,7 +18,7 @@
 [![Downloads](https://static.pepy.tech/badge/pypynum/month)](https://pepy.tech/project/pypynum)
 [![Downloads](https://static.pepy.tech/badge/pypynum/week)](https://pepy.tech/project/pypynum)
 
-## Version -> 1.8.1 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum
+## Version -> 1.8.2 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
 
 ![](pypynum/PyPyNum.png)
 
@@ -30,8 +30,9 @@ The logo cannot be displayed on PyPI, it can be viewed in Gitee.
 
 #### Introduction
 
-+ DIY数学库，类似于numpy、scipy等，专为PyPy解释器制作
-+ DIY math library, similar to numpy, scipy, etc., specifically designed for PyPy interpreters
++ 多功能数学库，类似于numpy、scipy等，专为PyPy解释器制作，亦支持其他类型的Python解释器
++ Multi functional math library, similar to numpy, scipy, etc., designed specifically for PyPy interpreters and also
+  supports other types of Python interpreters
 + 不定期更新版本，增加更多实用功能
 + Update versions periodically to add more practical features
 + 如需联系，QQ 2261748025 （Py𝙿𝚢𝚝𝚑𝚘𝚗-水晶兰）
@@ -67,26 +68,49 @@ Python interpreter and run it!)
 ```
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-eig函数修复了计算错误并改名为eigen
+已确认此库能够向下兼容Python 3.4版本
+以此支持IronPython解释器。
 
-The eig function fixed
-calculation errors and changed
-its name to eigen
+It has been confirmed that this
+library is backward compatible
+with Python version 3.4 to
+support the IronPython
+interpreter.
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-<<<以下结构中的省略号表示原有的部分>>>
+修改并优化了部分功能。
 
-<<<The ellipsis in the following structure represents the original part>>>
+Modified and optimized some
+features.
 
-PyPyNum
-    ★ Matrix [Matrix calculation]
-        FUNCTIONS
-            ...
-            rotate90(matrix: pypynum.Matrix.Matrix, times: int) -> pypynum.Matrix.Matrix
-            hessenberg(matrix: pypynum.Matrix.Matrix) -> tuple
-            eigen(matrix: pypynum.Matrix.Matrix) -> tuple
-            ...
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+
+修改了fill函数，该函数将一维值序列填充
+到指定形状的数组中。如果未指定列表，则默
+认为从零开始递增的序列。此函数默认为循环
+填充，否则使用零填充来填充剩余位置。
+
+Modified the fill function,
+which fills a one-dimensional
+value sequence into an array of
+specified shapes. If no list is
+specified, it defaults to a
+sequence that increments from
+zero. This function defaults to
+loop padding, otherwise zero
+padding is used to fill the
+remaining positions.
+
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+
+使用辛普森公式提高定积分的计算精度。
+
+Use Simpson's formula to improve
+the calculation accuracy of
+definite integrals.
+
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 ```
 
 ### 运行用时测试
@@ -137,7 +161,7 @@ PyPyNum
             Array
         FUNCTIONS
             array(data=None)
-            fill(shape, sequence=None)
+            fill(shape, sequence=None, repeat=True)
             function(_array, _function, args=None)
             get_shape(data)
             is_valid_array(_array, _shape)
