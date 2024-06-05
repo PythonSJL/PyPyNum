@@ -18,7 +18,7 @@
 [![Downloads](https://static.pepy.tech/badge/pypynum/month)](https://pepy.tech/project/pypynum)
 [![Downloads](https://static.pepy.tech/badge/pypynum/week)](https://pepy.tech/project/pypynum)
 
-## Version -> 1.9.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
+## Version -> 1.9.1 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
 
 ![](pypynum/PyPyNum.png)
 
@@ -115,61 +115,11 @@ Python interpreter and run it!
 ```
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-新增的代码行数约三百行。
+修复了一些功能问题
 
-The number of new code lines is
-about 300.
-
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
-以下函数进行了改名，使用时请注意。
-
-The following functions have
-been renamed, please be careful
-when using them.
-
-
-interpreter -> parse_expr
-deduplicate -> dedup
-interpolation -> interp
+Fixed some functional issues
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
-“chi2_cont”是卡方检验函数，支持输入一
-个列联表，返回(chi2，p，dof，
-expected)，当自由度为1时可以设置是否
-经过Yates校正。
-
-"chi2_cont" is a chi-square
-test function that supports
-entering a contingency table and
-returning (chi2, p, dof,
-expected). When the degree of
-freedom is 1, you can set
-whether to perform Yates
-correction.
-
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
-PyPyNum
-├── cipher
-│   └── FUNCTION
-│       ├── atbash(text: str) -> str
-│       ├── base_64(text: str, decrypt: bool) -> str
-│       ├── caesar(text: str, shift: int, decrypt: bool) -> str
-│       ├── morse(text: str, decrypt: bool) -> str
-│       ├── playfair(text: str, key: str, decrypt: bool) -> str
-│       ├── rot13(text: str) -> str
-│       ├── substitution(text: str, sub_map: dict, decrypt: bool) -> str
-│       └── vigenere(text: str, key: str, decrypt: bool) -> str
-├── probability
-│   └── FUNCTION
-│       ├── chi2_cont(contingency: list, calc_p: bool, corr: bool) -> tuple
-│       ├── chi2_pdf(x: typing.Union[int, float], k: typing.Union[int, float]) -> float
-└── utils
-    ├── CLASS
-    │   ├── LinkedList(object)/__init__(self: Any) -> Any
-    │   ├── LinkedListNode(object)/__init__(self: Any, value: Any, next_node: Any) -> Any
 ```
 
 ### 运行用时测试
@@ -199,7 +149,7 @@ PyPyNum
 │   │   └── Array(object)/__init__(self: Any, data: Any, check: Any) -> Any
 │   └── FUNCTION
 │       ├── array(data: Any) -> Any
-│       ├── fill(shape: Any, sequence: Any, repeat: Any) -> Any
+│       ├── fill(shape: Any, sequence: Any, repeat: Any, pad: Any) -> Any
 │       ├── function(_array: Any, _function: Any, args: Any) -> Any
 │       ├── get_shape(data: Any) -> Any
 │       ├── is_valid_array(_array: Any, _shape: Any) -> Any
@@ -327,8 +277,12 @@ PyPyNum
 │       ├── atbash(text: str) -> str
 │       ├── base_64(text: str, decrypt: bool) -> str
 │       ├── caesar(text: str, shift: int, decrypt: bool) -> str
+│       ├── hill256(text: bytes, key: list, decrypt: bool) -> bytes
+│       ├── ksa(key: bytes) -> list
 │       ├── morse(text: str, decrypt: bool) -> str
 │       ├── playfair(text: str, key: str, decrypt: bool) -> str
+│       ├── prga(s: list) -> Any
+│       ├── rc4(text: bytes, key: bytes) -> bytes
 │       ├── rot13(text: str) -> str
 │       ├── substitution(text: str, sub_map: dict, decrypt: bool) -> str
 │       └── vigenere(text: str, key: str, decrypt: bool) -> str
@@ -428,7 +382,7 @@ PyPyNum
 │       ├── tanh(x: typing.Union[int, float]) -> typing.Union[int, float]
 │       ├── totient(n: int) -> int
 │       ├── var(numbers: typing.Union[list, tuple], dof: int) -> typing.Union[int, float, complex]
-│       └── zeta(alpha: typing.Union[int, float]) -> float
+│       └── zeta(alpha: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
 ├── numbers
 │   ├── CLASS
 │   └── FUNCTION
@@ -441,7 +395,7 @@ PyPyNum
 │   └── FUNCTION
 │       ├── background(right: typing.Union[int, float], left: typing.Union[int, float], top: typing.Union[int, float], bottom: typing.Union[int, float], complexity: typing.Union[int, float], ratio: typing.Union[int, float], string: bool) -> typing.Union[list, str]
 │       ├── binary(function: Any, right: typing.Union[int, float], left: typing.Union[int, float], top: typing.Union[int, float], bottom: typing.Union[int, float], complexity: typing.Union[int, float], ratio: typing.Union[int, float], error: Any, compare: Any, string: bool, basic: list, character: str, data: bool, coloration: Any) -> typing.Union[list, str]
-│       ├── c_unary(function: Any, start: typing.Union[int, float], end: typing.Union[int, float], interval: typing.Union[int, float], projection: str, right: typing.Union[int, float], left: typing.Union[int, float], top: typing.Union[int, float], bottom: typing.Union[int, float], complexity: typing.Union[int, float], ratio: typing.Union[int, float], string: bool, basic: list, character: str, data: bool, coloration: Any) -> typing.Union[list, str]
+│       ├── c_unary(function: Any, projection: str, right: typing.Union[int, float], left: typing.Union[int, float], top: typing.Union[int, float], bottom: typing.Union[int, float], complexity: typing.Union[int, float], ratio: typing.Union[int, float], string: bool, basic: list, character: str, data: bool, coloration: Any) -> typing.Union[list, str]
 │       ├── change(data: typing.Union[list, str]) -> typing.Union[list, str]
 │       ├── color(text: str, rgb: typing.Union[list, tuple]) -> str
 │       └── unary(function: Any, right: typing.Union[int, float], left: typing.Union[int, float], top: typing.Union[int, float], bottom: typing.Union[int, float], complexity: typing.Union[int, float], ratio: typing.Union[int, float], string: bool, basic: list, character: str, data: bool, coloration: Any) -> typing.Union[list, str]
@@ -506,6 +460,16 @@ PyPyNum
 ├── types
 │   ├── CLASS
 │   └── FUNCTION
+├── ufuncs
+│   ├── CLASS
+│   └── FUNCTION
+│       ├── add(x: Any, y: Any) -> Any
+│       ├── divide(x: Any, y: Any) -> Any
+│       ├── floor_divide(x: Any, y: Any) -> Any
+│       ├── modulo(x: Any, y: Any) -> Any
+│       ├── multiply(x: Any, y: Any) -> Any
+│       ├── power(x: Any, y: Any, m: Any) -> Any
+│       └── subtract(x: Any, y: Any) -> Any
 └── utils
     ├── CLASS
     │   ├── InfIterator(object)/__init__(self: Any, start: typing.Union[int, float, complex], mode: str, common: typing.Union[int, float, complex]) -> Any
@@ -751,7 +715,7 @@ print(maths.var([2, 3, 5, 7, 11, 13, 17, 19, 23, 29]))
 plt = plotting.unary(lambda x: x ** 2, top=10, bottom=0, character="+")
 print(plt)
 print(plotting.binary(lambda x, y: x ** 2 + y ** 2 - 10, right=10, left=0, compare="<=", basic=plotting.change(plt)))
-print(plotting.c_unary(lambda x: x ** x, start=-10, end=10, interval=100, right=2, left=-2, top=2, bottom=-2, complexity=20, character="-"))
+print(plotting.c_unary(lambda x: x ** x, right=2, left=-2, top=2, bottom=-2, complexity=20, character="-"))
 
 """
   1.00e+01|         +                               +         
@@ -792,34 +756,34 @@ print(plotting.c_unary(lambda x: x ** x, start=-10, end=10, interval=100, right=
           |                     +++   +++                     
   0.00e+00|________________________+++________________________
            -5.00e+00             0.00e+00             5.00e+00
-  2.00e+00|                                                                                 
-          |                                                                                 
-          |                                                                                 
-          |                                                                                 
-          |                                                                                 
-          |                                                                                 
-          |                                                                                 
-          |                                                                                 
-          |                                                                                 
-          |                                -------                                          
-          |                          ------       -----                                     
-          |                       ----                 --                                   
-          |                     ---                     --                                  
-  0.00e+00|_ _ _ _ _ _ _ _ _ _ --_ _ _ _ _ _ _ _ _-- _ _-- _ _ _ ---------------------------
-          |                   --                  -------               ---                 
-          |                   -                                           --                
-          |                   -                                            -                
-          |                   --                                           -                
-          |                    --                                         -                 
-          |                      --                                      -                  
-          |                       ---                                 ---                   
-          |                          ----                         ----                      
-          |                             --------            -------                         
-          |                                     ------------                                
-          |                                                                                 
-          |                                                                                 
-          |                                                                                 
- -2.00e+00|_________________________________________________________________________________
+  2.00e+00|           -                 -           -          -          -            -    
+          |               -  -            -          -         -         -           -      
+          |                     -           -         -        -        -          -        
+          |-                       -          -       -       -        -         -          
+          |     -   -                - -       --      -      -       -        -            
+          |            -  -              -       -      -     -      -       -             -
+          |                  -  - -       - --  - ---  -- -  --     -     - -         - -   
+          |                         - -   -  --    --    -   -  - --     -       - -        
+          |  -   -  - - -  -          - -- -   ---  ---  -   -   ---   --     - -           
+          |             -    -  - - - --    ----- -- -- --- --  --  ---    --           -  -
+          |               - -      -     ------------ ----  - --  -- - ---       - - -      
+          |    -  -  -  - -  ----- - -- ----------------------- -- ----  - -- --            
+          |   -  -   - -         - ---- ---------------------------------      - - - - -  - 
+  0.00e+00|_ _ _ _ _ _ _ _-_-_-_-_---- ------------------------------------_-- _ _ _ _ _ _ _
+          |            -  -   - - ----------------------------------------- -- - - - -      
+          |   -  --  -  -       -- -  -  --------------------------------- -           -  - 
+          |    -          - ---- - - -- --------------------- ----- ----    - -- -          
+          |               -         - -- --------- -- -- -  -----  ---  -- -       - -  -   
+          |             -  - -  - - - -    ---- --- --- --- --  --  ---     - -            -
+          |  -   -  - -               - --     --   --   -   -    --   --       --          
+          |                       - -     -  --    -    --   -- -  -     --        -  -     
+          |                  -  -         - -   - - -  -- -   -     --      -           -   
+          |            -  -            - -      --     --     -      -       - -           -
+          |     -   -                -         -       -      -       -          -          
+          |-                    -  -          -       -        -       -           -        
+          |                  -              -         -        -        -            -      
+          |               -               -          -         -         -                  
+ -2.00e+00|___________-_________________-___________-_____________________-____________-____
            -2.00e+00                            0.00e+00                            2.00e+00
 """
 
@@ -829,10 +793,10 @@ print(random.randint(0, 9, [2, 3, 4]))
 print(random.uniform(0, 9, [2, 3, 4]))
 
 """
-[[[1.5224810365398622, -0.3957309179046998, 0.22865800022960608, 0.69458992002954], [1.2796914880445907, -0.9963205507196862, -1.035672172661647, 0.6685698624811087], [0.7966036403993993, 1.4728609716690575, 1.4271945372122727, 1.1346636992788732]], [[-1.5167315121066547, 0.5337355746221562, -0.3856209788535444, 0.9933311189027801], [-0.3000451683620412, 1.985371100287406, 1.0044445415210081, -0.160547602340231], [-1.4024800661532726, -0.2943388293424122, 0.39426575084974064, -0.1788920335787877]]]
-[[[0.5832734051570118, 0.12709072960713108, 0.8460371711928255, 0.7732502834495745], [0.1337174418330055, 0.20214133151753821, 0.11501155244785399, 0.945090241309287], [0.784115524194132, 0.5008953798117651, 0.3514598489060844, 0.2730882163660271]], [[0.8536525608965406, 0.03101021951426164, 0.8904423549934418, 0.30844019778976395], [0.6686071112680847, 0.8622569244011669, 0.5624751157425253, 0.25138337174684133], [0.28360470724085995, 0.31597491199666694, 0.8115190344839784, 0.2685895801115009]]]
-[[[7, 1, 2, 5], [0, 7, 9, 9], [3, 0, 5, 6]], [[2, 2, 4, 3], [9, 7, 2, 0], [2, 5, 6, 6]]]
-[[[3.2674331705558304, 8.794845124593792, 8.48281482952606, 4.071439810303413], [3.525937325174985, 8.353244015747865, 5.167113956700689, 8.200558536323298], [0.5729366698493622, 4.49113422389227, 7.736245315815029, 1.9082811620380302]], [[4.889120931109369, 1.6037956737307013, 7.983047897048623, 1.3817112552960102], [5.866208284533167, 0.5963242816793028, 6.17792540726971, 8.415093555918986], [0.2560629015262261, 1.9094767046602064, 5.647362624435581, 4.042400239970636]]]
+[[[0.4604088962341266, -1.7729143777833498, -1.027113249139529, -1.367335972424437], [1.5152952392963814, 0.1143532276512219, -2.2478367353916626, 0.770010737736378], [-0.4126751204277065, -2.5483288418244814, -0.8493985529797649, -0.5563319772201964]], [[1.9010219123281087, 0.44289739103266357, -0.7148439667426828, -0.742966218100922], [0.21210379525283574, 1.5466635593995341, -0.4536304781981763, 0.5978046752778463], [-0.802299453332161, -1.0295309618075863, 0.5960990076298143, -0.7956578324150254]]]
+[[[0.6378288221898551, 0.5667742466043126, 0.4656215108828976, 0.15042085420645113], [0.17290475960349394, 0.7286971110875379, 0.645886619551428, 0.6328537921605502], [0.5626377160935252, 0.41015810474249603, 0.9951566294215863, 0.21679108443018347]], [[0.7747392018966252, 0.5885873225687281, 0.4305122635955937, 0.1102178686782671], [0.6823600514076231, 0.919946966200235, 0.9010988477920265, 0.9324975541841414], [0.026520946245817467, 0.7483826867189314, 0.25799134110551736, 0.7231613737350734]]]
+[[[5, 5, 4, 2], [2, 0, 9, 6], [9, 2, 0, 0]], [[0, 3, 9, 2], [2, 5, 5, 3], [9, 2, 5, 1]]]
+[[[4.661185893580614, 6.263504213542613, 1.5982048879385133, 4.592524740685044], [5.915777961319595, 0.7073727896327806, 2.6233256174392263, 4.980453415047565], [2.257336580759053, 8.299789041235444, 5.839322602213961, 3.1890466264933925]], [[8.498155134210208, 4.722625882838601, 4.4036516933236705, 4.313235000904077], [3.7418534910533126, 2.7783464437089305, 8.884554145257127, 3.860087039759355], [4.430653527343895, 0.9625175276439548, 6.813933725727357, 7.910773669181097]]]
 """
 
 print(regression.linear_regression(list(range(5)), [2, 4, 6, 7, 8]))
@@ -841,7 +805,7 @@ print(regression.polynomial_regression(list(range(5)), [2, 4, 6, 7, 8], 4))
 
 """
 [1.5, 2.4000000000000004]
-[-0.21428571428571183, 2.3571428571428474, 1.9714285714285764]
+[-0.21428571428571563, 2.3571428571428625, 1.971428571428569]
 [0.08333333334800574, -0.6666666668092494, 1.4166666678382942, 1.1666666648311956, 2.0000000002900613]
 """
 
