@@ -56,7 +56,7 @@ def parse_expr(expr: str) -> list:
         result.append(number)
     if depth != 0:
         raise ValueError("The parentheses in the expression are not paired")
-    return result if len(result) != 1 else result[0]
+    return result
 
 
 # TODO 表达式展开
