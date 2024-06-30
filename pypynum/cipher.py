@@ -129,13 +129,13 @@ def substitution(text: str, sub_map: dict, decrypt: bool = False) -> str:
     return result
 
 
-def morse(text: str, decrypt: bool = False) -> str:
+def morse(string: str, decrypt: bool = False) -> str:
     code_dict = MORSE_CODE_REVERSE if decrypt else MORSE_CODE
     result = []
     if decrypt:
-        text = text.split()
+        text = string.split()
     else:
-        text = text.upper()
+        text = string.upper()
     for item in text:
         if item in code_dict:
             result.append(code_dict[item])
