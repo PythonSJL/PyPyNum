@@ -18,9 +18,9 @@
 [![Downloads](https://static.pepy.tech/badge/pypynum/month)](https://pepy.tech/project/pypynum)
 [![Downloads](https://static.pepy.tech/badge/pypynum/week)](https://pepy.tech/project/pypynum)
 
-## Version -> 1.10.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
+## Version -> 1.11.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
 
-![](pypynum/PyPyNum.png)
+![LOGO](pypynum/PyPyNum.png)
 
 PyPI上无法显示logo，可以在Gitee或者GitHub中查看。
 
@@ -42,42 +42,43 @@ The logo cannot be displayed on PyPI, it can be viewed in Gitee or GitHub.
 
 #### Name and Function Introduction of Submodules
 
-| 子模块名称 Submodule Name  |         功能简介 Function Introduction         |
-|:---------------------:|:------------------------------------------:|
-|    `pypynum.Array`    |        多维数组 Multidimensional array         |
-|    `pypynum.chars`    |    特殊数学符号 Special mathematical symbols     |
-|   `pypynum.cipher`    | 加密解密算法 Encryption and decryption algorithm |
-|  `pypynum.constants`  |    数学常数集合 Set of mathematical constants    |
-|  `pypynum.equations`  |           方程求解 Solving equations           |
-|   `pypynum.errors`    |           异常对象 Exception object            |
-|    `pypynum.file`     |          文件读写 File read and write          |
-|  `pypynum.FourierT`   |          傅里叶变换 Fourier transform           |
-|  `pypynum.Geometry`   |            几何形状 Geometric shape            |
-|    `pypynum.Graph`    |        图论算法 Graph Theory Algorithm         |
-|    `pypynum.Group`    |        群论算法 Group Theory Algorithm         |
-|    `pypynum.image`    |           图像处理 Image processing            |
-|    `pypynum.Logic`    |        逻辑电路设计 Logic circuit design         |
-|    `pypynum.maths`    |   通用数学函数 General mathematical functions    |
-|   `pypynum.Matrix`    |           矩阵运算 Matrix operation            |
-|   `pypynum.NeuralN`   |       神经网络训练 Neural network training       |
-|   `pypynum.numbers`   |           数字处理 Number processing           |
-|  `pypynum.plotting`   |          数据可视化 Data visualization          |
-| `pypynum.polynomial`  |         多项式运算 Polynomial operation         |
-| `pypynum.probability` |        概率统计 Probability statistics         |
-| `pypynum.Quaternion`  |         四元数运算 Quaternion operation         |
-|   `pypynum.random`    |       随机数生成 Random number generation       |
-| `pypynum.regression`  |          回归分析 Regression analysis          |
-|  `pypynum.sequence`   |         数列计算 Sequence calculation          |
-|  `pypynum.Symbolics`  |          符号计算 Symbol calculation           |
-|   `pypynum.Tensor`    |           张量运算 Tensor operation            |
-|    `pypynum.test`     |               简易测试 Easy test               |
-|    `pypynum.this`     |            项目之禅 Zen of Projects            |
-|    `pypynum.tools`    |          辅助函数 Auxiliary functions          |
-|    `pypynum.Tree`     |         树形数据结构 Tree data structure         |
-|    `pypynum.types`    |             特殊类型 Special types             |
-|   `pypynum.ufuncs`    |          通用函数 Universal functions          |
-|    `pypynum.utils`    |                实用工具 Utility                |
-|   `pypynum.Vector`    |           向量运算 Vector operation            |
+| 子模块名称 Submodule Name |         功能简介 Function Introduction         |
+|:--------------------:|:------------------------------------------:|
+|   `pypynum.Array`    |        多维数组 Multidimensional array         |
+|   `pypynum.chars`    |    特殊数学符号 Special mathematical symbols     |
+|   `pypynum.cipher`   | 加密解密算法 Encryption and decryption algorithm |
+| `pypynum.constants`  |    数学常数集合 Set of mathematical constants    |
+|   `pypynum.dists`    |       概率分布 Probability distribution        |
+| `pypynum.equations`  |           方程求解 Solving equations           |
+|   `pypynum.errors`   |           异常对象 Exception object            |
+|    `pypynum.file`    |          文件读写 File read and write          |
+|  `pypynum.FourierT`  |          傅里叶变换 Fourier transform           |
+|  `pypynum.Geometry`  |            几何形状 Geometric shape            |
+|   `pypynum.Graph`    |        图论算法 Graph Theory Algorithm         |
+|   `pypynum.Group`    |        群论算法 Group Theory Algorithm         |
+|   `pypynum.image`    |           图像处理 Image processing            |
+|   `pypynum.Logic`    |        逻辑电路设计 Logic circuit design         |
+|   `pypynum.maths`    |   通用数学函数 General mathematical functions    |
+|   `pypynum.Matrix`   |           矩阵运算 Matrix operation            |
+|  `pypynum.NeuralN`   |       神经网络训练 Neural network training       |
+|  `pypynum.numbers`   |           数字处理 Number processing           |
+|  `pypynum.plotting`  |          数据可视化 Data visualization          |
+| `pypynum.polynomial` |         多项式运算 Polynomial operation         |
+| `pypynum.Quaternion` |         四元数运算 Quaternion operation         |
+|   `pypynum.random`   |       随机数生成 Random number generation       |
+| `pypynum.regression` |          回归分析 Regression analysis          |
+|  `pypynum.sequence`  |         数列计算 Sequence calculation          |
+|  `pypynum.stattest`  |           统计检验 Statistical test            |
+| `pypynum.Symbolics`  |          符号计算 Symbol calculation           |
+|   `pypynum.Tensor`   |           张量运算 Tensor operation            |
+|    `pypynum.test`    |               简易测试 Easy test               |
+|    `pypynum.this`    |            项目之禅 Zen of Projects            |
+|   `pypynum.tools`    |          辅助函数 Auxiliary functions          |
+|    `pypynum.Tree`    |         树形数据结构 Tree data structure         |
+|   `pypynum.types`    |             特殊类型 Special types             |
+|   `pypynum.ufuncs`   |          通用函数 Universal functions          |
+|   `pypynum.utils`    |                实用工具 Utility                |
+|   `pypynum.Vector`   |           向量运算 Vector operation            |
 
 ### PyPyNum的Zen（预览）
 
@@ -110,193 +111,95 @@ Python interpreter and run it!
                                         February 27, 2024
 ```
 
-### 与上一个版本相比新增功能
+### 与上一个版本相比功能变化
 
-#### New features compared to the previous version
+#### Functional changes compared to the previous version
 
 ```
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-名称缩写的函数
+代码增加了约1000行
 
-Functions with abbreviated names
-
-linear_regression -> lin_reg
-parabolic_regression -> par_reg
-polynomial_regression -> poly_reg
-linear_equation -> lin_eq
-polynomial_equation -> poly_eq
-derivative -> deriv
-definite_integral -> integ
+The code has increased by about
+1000 lines
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-★ Matrix.inv(self):
-★ 速度提高约55000%
-★ Speed increased by about 55000%
+删除了maths模块中的一些分布函数
+Removed some distribution
+functions from the math module
 
-Matrix.outer(self, other):
-速度提高约900%
-Speed increased by about 900%
+删除了probability模块
+The probability module has been
+removed
 
-identity(n: int) -> Matrix:
-速度提高约630%
-Speed increased by about 630%
+增加了dists模块
+Added dists module
 
-tril_indices(n: int,
-k: int = 0,
-m: int | None = None) -> tuple:
-速度提高约140%
-Speed increased by about 140%
-
-Matrix.kron(self, other):
-速度提高约130%
-Speed increased by about 130%
-
-Matrix.t(self):
-速度提高约70%
-Speed increased by about 70%
-
-lu(matrix: Matrix) -> tuple:
-速度提高约9%
-Speed increased by about 9%
-
-Matrix.inner(self, other):
-速度提高约5%
-Speed increased by about 5%
+增加了stattest模块
+Added stattest module
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-矩阵支持更好的修改元素方式
+<<<新增的函数>>>
 
-Matrix supports better ways
-to modify elements
+<<<New functions added>>>
 
-示例 Example
-
-A = [[0, 1, 2, 3],
-     [4, 5, 6, 7],
-     [8, 9, 10, 11],
-     [12, 13, 14, 15]]
-matrix = mat(A)
-matrix[0:2, 0:2] = [[16, 77],
-                    [72, 16]]
-
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
-这个方法添加了是否返回所有主元
-
-This method adds whether to return all main elements
-
-Matrix.rref(self, pivots=True)
-
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
-新增的函数
-
-New functions added
-
-aslist(data)
-asarray(data)
-roll(seq, shift)
-
-请注意，“roll”函数目前是一个初步实现，将来将被设计为数组绑定方法。
-Please note that the "roll" function is currently a preliminary implementation
-and will be designed as an array binding method in the future.
-
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
-<<<添加了image模块>>>
-
-<<<Added image module>>>
-
-<<<添加了PNG类>>>
-
-<<<Added PNG class>>>
-
-class PNG(builtins.object)
-
-    Introduction
-    ==========
-    This is a PNG class written in pure Python,
-    supporting the creation, reading, modification, and saving of PNG images.
-
-    Roadmap
-    ==========
-    This class is currently in development.
-    Future updates will expand its functionality to enhance the capabilities of working with PNG images.
-
-    Usage
-    ==========
-
-    Creating a new PNG image:
-    ----------
-    To create a new PNG image, instantiate the PNG class and use the `new` method
-    to define the image dimensions, bit depth, and color mode.
-
-    - from png import PNG
-
-    # Create a new image with a width of 200 pixels, a height of 100 pixels,
-    an 8-bit depth, and the default RGB color mode.
-
-    - image = PNG()
-    - image.new(200, 100, 8)
-
-    # Optionally, you can specify a background color. For example, to create a new image with a blue background:
-
-    - image.new(200, 100, 8, color=(0, 0, 255))
-
-    Reading an existing PNG image:
-    ----------
-    To read an existing PNG image from a file, use the `read` method.
-
-    - image = PNG()
-    - image.read("example.png")
-
-    Modifying a pixel:
-    ----------
-    To modify the color of a pixel at a specific coordinate, use the `setp` method.
-
-    # Set the pixel at (10, 10) to red (255, 0, 0).
-
-    - image.setp(10, 10, (255, 0, 0))
-
-    Getting a pixel's color:
-    ----------
-    To retrieve the color of a pixel at a specific coordinate, use the `getp` method.
-
-    - color = image.getp(10, 10)
-    - print(color)  # Output: (255, 0, 0) for the example above
-
-    Saving the image:
-    ----------
-    To save the image to a file, use the `write` method.
-
-    - image.write("output.png")
-
-    Getting image information:
-    ----------
-    To obtain information about the image, such as its dimensions and color mode, use the `info` method.
-
-    - info = image.info()
-    - print(info)  # Output: {'width': 200, 'height': 100, 'bit_depth': 8, 'color_mode': 'RGB'}
-
-    __init__(self) -> None
-
-    __repr__(self) -> str
-
-    getp(self, x: int, y: int) -> tuple
-
-    info(self) -> dict
-
-    new(self, width: int, height: int, bit_depth: int, color: tuple = (), color_mode: str = 'RGB') -> None
-
-    read(self, filename: str) -> None
-
-    setp(self, x: int, y: int, color: tuple) -> None
-
-    write(self, filename: str = None) -> bytes
-
+PyPyNum
+├── dists
+│   └── FUNCTION
+│       ├── beta_pdf(x: Any, a: Any, b: Any) -> Any
+│       ├── binom_pmf(k: Any, n: Any, p: Any) -> Any
+│       ├── cauchy_cdf(x: Any, x0: Any, gamma: Any) -> Any
+│       ├── cauchy_pdf(x: Any, x0: Any, gamma: Any) -> Any
+│       ├── chi2_cdf(k: Any, x: Any) -> Any
+│       ├── chi2_pdf(x: Any, df: Any) -> Any
+│       ├── expon_cdf(x: Any, scale: Any) -> Any
+│       ├── expon_pdf(x: Any, scale: Any) -> Any
+│       ├── f_pdf(x: Any, dfnum: Any, dfden: Any) -> Any
+│       ├── gamma_pdf(x: Any, shape: Any, scale: Any) -> Any
+│       ├── geometric_pmf(k: Any, p: Any) -> Any
+│       ├── hypergeom_pmf(k: Any, mg: Any, n: Any, nt: Any) -> Any
+│       ├── inv_gauss_pdf(x: Any, mu: Any, lambda_: Any, alpha: Any) -> Any
+│       ├── levy_pdf(x: Any, c: Any) -> Any
+│       ├── log_logistic_cdf(x: Any, alpha: Any, beta: Any) -> Any
+│       ├── log_logistic_pdf(x: Any, alpha: Any, beta: Any) -> Any
+│       ├── logistic_cdf(x: Any, mu: Any, s: Any) -> Any
+│       ├── logistic_pdf(x: Any, mu: Any, s: Any) -> Any
+│       ├── lognorm_cdf(x: Any, mu: Any, sigma: Any) -> Any
+│       ├── lognorm_pdf(x: Any, s: Any, scale: Any) -> Any
+│       ├── logser_pmf(k: Any, p: Any) -> Any
+│       ├── multinomial_pmf(k: Any, n: Any, p: Any) -> Any
+│       ├── nbinom_pmf(k: Any, n: Any, p: Any) -> Any
+│       ├── nhypergeom_pmf(k: Any, m: Any, n: Any, r: Any) -> Any
+│       ├── normal_cdf(x: Any, mu: Any, sigma: Any) -> Any
+│       ├── normal_pdf(x: Any, mu: Any, sigma: Any) -> Any
+│       ├── pareto_pdf(x: Any, k: Any, m: Any) -> Any
+│       ├── poisson_pmf(k: Any, mu: Any) -> Any
+│       ├── rayleigh_pdf(x: Any, sigma: Any) -> Any
+│       ├── t_pdf(x: Any, df: Any) -> Any
+│       ├── uniform_cdf(x: Any, loc: Any, scale: Any) -> Any
+│       ├── uniform_pdf(x: Any, loc: Any, scale: Any) -> Any
+│       ├── vonmises_pdf(x: Any, mu: Any, kappa: Any) -> Any
+│       ├── weibull_max_pdf(x: Any, c: Any, scale: Any, loc: Any) -> Any
+│       ├── weibull_min_pdf(x: Any, c: Any, scale: Any, loc: Any) -> Any
+│       └── zipf_pmf(k: Any, s: Any, n: Any) -> Any
+├── maths
+│   └── FUNCTION
+│       ├── bessel_i0(x: Any) -> Any
+│       ├── bessel_iv(v: Any, x: Any) -> Any
+│       ├── lower_gamma(s: Any, x: Any) -> Any
+│       ├── upper_gamma(s: Any, x: Any) -> Any
+│       ├── xlogy(x: typing.Union[int, float, complex], y: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+├── stattest
+│   ├── CLASS
+│   └── FUNCTION
+│       ├── chi2_cont(contingency: list, lambda_: float, calc_p: bool, corr: bool) -> tuple
+│       ├── chisquare(observed: list, expected: list) -> tuple
+│       ├── kurttest(data: list, two_tailed: bool) -> tuple
+│       ├── mediantest(samples: Any, ties: Any, lambda_: Any, corr: Any) -> Any
+│       ├── normaltest(data: list) -> tuple
+│       └── skewtest(data: list, two_tailed: bool) -> tuple
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 ```
 
@@ -470,6 +373,45 @@ PyPyNum
 ├── constants
 │   ├── CLASS
 │   └── FUNCTION
+├── dists
+│   ├── CLASS
+│   └── FUNCTION
+│       ├── beta_pdf(x: Any, a: Any, b: Any) -> Any
+│       ├── binom_pmf(k: Any, n: Any, p: Any) -> Any
+│       ├── cauchy_cdf(x: Any, x0: Any, gamma: Any) -> Any
+│       ├── cauchy_pdf(x: Any, x0: Any, gamma: Any) -> Any
+│       ├── chi2_cdf(x: Any, df: Any) -> Any
+│       ├── chi2_pdf(x: Any, df: Any) -> Any
+│       ├── expon_cdf(x: Any, scale: Any) -> Any
+│       ├── expon_pdf(x: Any, scale: Any) -> Any
+│       ├── f_pdf(x: Any, dfnum: Any, dfden: Any) -> Any
+│       ├── gamma_pdf(x: Any, shape: Any, scale: Any) -> Any
+│       ├── geometric_pmf(k: Any, p: Any) -> Any
+│       ├── hypergeom_pmf(k: Any, mg: Any, n: Any, nt: Any) -> Any
+│       ├── inv_gauss_pdf(x: Any, mu: Any, lambda_: Any, alpha: Any) -> Any
+│       ├── levy_pdf(x: Any, c: Any) -> Any
+│       ├── log_logistic_cdf(x: Any, alpha: Any, beta: Any) -> Any
+│       ├── log_logistic_pdf(x: Any, alpha: Any, beta: Any) -> Any
+│       ├── logistic_cdf(x: Any, mu: Any, s: Any) -> Any
+│       ├── logistic_pdf(x: Any, mu: Any, s: Any) -> Any
+│       ├── lognorm_cdf(x: Any, mu: Any, sigma: Any) -> Any
+│       ├── lognorm_pdf(x: Any, s: Any, scale: Any) -> Any
+│       ├── logser_pmf(k: Any, p: Any) -> Any
+│       ├── multinomial_pmf(k: Any, n: Any, p: Any) -> Any
+│       ├── nbinom_pmf(k: Any, n: Any, p: Any) -> Any
+│       ├── nhypergeom_pmf(k: Any, m: Any, n: Any, r: Any) -> Any
+│       ├── normal_cdf(x: Any, mu: Any, sigma: Any) -> Any
+│       ├── normal_pdf(x: Any, mu: Any, sigma: Any) -> Any
+│       ├── pareto_pdf(x: Any, k: Any, m: Any) -> Any
+│       ├── poisson_pmf(k: Any, mu: Any) -> Any
+│       ├── rayleigh_pdf(x: Any, sigma: Any) -> Any
+│       ├── t_pdf(x: Any, df: Any) -> Any
+│       ├── uniform_cdf(x: Any, loc: Any, scale: Any) -> Any
+│       ├── uniform_pdf(x: Any, loc: Any, scale: Any) -> Any
+│       ├── vonmises_pdf(x: Any, mu: Any, kappa: Any) -> Any
+│       ├── weibull_max_pdf(x: Any, c: Any, scale: Any, loc: Any) -> Any
+│       ├── weibull_min_pdf(x: Any, c: Any, scale: Any, loc: Any) -> Any
+│       └── zipf_pmf(k: Any, s: Any, n: Any) -> Any
 ├── equations
 │   ├── CLASS
 │   └── FUNCTION
@@ -507,6 +449,8 @@ PyPyNum
 │       ├── atan(x: typing.Union[int, float]) -> typing.Union[int, float]
 │       ├── atanh(x: typing.Union[int, float]) -> typing.Union[int, float]
 │       ├── average(data: Any, weights: Any, expected: Any) -> Any
+│       ├── bessel_i0(x: Any) -> Any
+│       ├── bessel_iv(v: Any, x: Any) -> Any
 │       ├── beta(p: typing.Union[int, float], q: typing.Union[int, float]) -> typing.Union[int, float]
 │       ├── central_moment(data: typing.Union[list, tuple], order: int) -> float
 │       ├── coeff_det(x: typing.Union[list, tuple], y: typing.Union[list, tuple]) -> typing.Union[int, float, complex]
@@ -529,7 +473,6 @@ PyPyNum
 │       ├── factorial(n: int) -> int
 │       ├── freq(data: typing.Union[list, tuple]) -> dict
 │       ├── gamma(alpha: typing.Union[int, float]) -> float
-│       ├── gaussian(x: typing.Union[int, float], _mu: typing.Union[int, float], _sigma: typing.Union[int, float]) -> float
 │       ├── gcd(args: int) -> int
 │       ├── geom_mean(numbers: typing.Union[list, tuple]) -> typing.Union[int, float, complex]
 │       ├── harm_mean(numbers: typing.Union[list, tuple]) -> typing.Union[int, float, complex]
@@ -538,9 +481,10 @@ PyPyNum
 │       ├── is_possibly_square(n: int) -> bool
 │       ├── is_square(n: int) -> bool
 │       ├── isqrt(x: int) -> int
-│       ├── kurt(data: typing.Union[list, tuple]) -> float
+│       ├── kurt(data: typing.Union[list, tuple], fisher: bool) -> float
 │       ├── lcm(args: int) -> int
 │       ├── ln(x: typing.Union[int, float]) -> typing.Union[int, float]
+│       ├── lower_gamma(s: Any, x: Any) -> Any
 │       ├── mean(numbers: typing.Union[list, tuple]) -> typing.Union[int, float, complex]
 │       ├── median(numbers: typing.Union[list, tuple]) -> typing.Union[int, float, complex]
 │       ├── mod_order(a: int, n: int, b: int) -> int
@@ -548,7 +492,6 @@ PyPyNum
 │       ├── normalize(data: typing.Union[list, tuple], target: typing.Union[int, float, complex]) -> typing.Union[list, tuple]
 │       ├── parity(x: int) -> int
 │       ├── pi(i: int, n: int, f: Any) -> typing.Union[int, float, complex]
-│       ├── poisson(x: int, _lambda: typing.Union[int, float]) -> float
 │       ├── primitive_root(a: int, single: bool) -> typing.Union[int, list]
 │       ├── product(numbers: typing.Union[list, tuple]) -> typing.Union[int, float, complex]
 │       ├── ptp(numbers: typing.Union[list, tuple]) -> typing.Union[int, float, complex]
@@ -569,7 +512,9 @@ PyPyNum
 │       ├── tan(x: typing.Union[int, float]) -> typing.Union[int, float]
 │       ├── tanh(x: typing.Union[int, float]) -> typing.Union[int, float]
 │       ├── totient(n: int) -> int
+│       ├── upper_gamma(s: Any, x: Any) -> Any
 │       ├── var(numbers: typing.Union[list, tuple], dof: int) -> typing.Union[int, float, complex]
+│       ├── xlogy(x: typing.Union[int, float, complex], y: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
 │       └── zeta(alpha: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
 ├── numbers
 │   ├── CLASS
@@ -597,13 +542,6 @@ PyPyNum
 │       ├── leggauss(polynomial: Any) -> Any
 │       ├── legpoly(n: Any) -> Any
 │       └── poly(terms: Any) -> Any
-├── probability
-│   ├── CLASS
-│   └── FUNCTION
-│       ├── binomial(sample_size: int, successes: int, success_probability: typing.Union[int, float]) -> float
-│       ├── chi2_cont(contingency: list, calc_p: bool, corr: bool) -> tuple
-│       ├── chi2_pdf(x: typing.Union[int, float], k: typing.Union[int, float]) -> float
-│       └── hypergeometric(total_items: int, success_items: int, sample_size: int, successes_in_sample: int) -> float
 ├── random
 │   ├── CLASS
 │   └── FUNCTION
@@ -629,6 +567,15 @@ PyPyNum
 │       ├── fibonacci(n: int, single: bool) -> typing.Union[int, list]
 │       ├── geometric_sequence(a1: typing.Union[int, float], an: typing.Union[int, float], r: typing.Union[int, float], n: typing.Union[int, float], s: typing.Union[int, float]) -> dict
 │       └── recaman(n: int, single: bool) -> typing.Union[int, list]
+├── stattest
+│   ├── CLASS
+│   └── FUNCTION
+│       ├── chi2_cont(contingency: list, lambda_: float, calc_p: bool, corr: bool) -> tuple
+│       ├── chisquare(observed: list, expected: list) -> tuple
+│       ├── kurttest(data: list, two_tailed: bool) -> tuple
+│       ├── mediantest(samples: Any, ties: Any, lambda_: Any, corr: Any) -> Any
+│       ├── normaltest(data: list) -> tuple
+│       └── skewtest(data: list, two_tailed: bool) -> tuple
 ├── test
 │   ├── CLASS
 │   └── FUNCTION
