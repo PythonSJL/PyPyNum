@@ -1,7 +1,9 @@
 ﻿# <font color = blue>PyPyNum</font>
 
-<font color = gree>A multifunctional mathematical calculation package written in pure Python programming language
-</font><font color = red>[Python>=3.4]</font>
+<font color = gree>PyPyNum is a Python library for math & science computations, covering algebra, calculus, stats, with
+data structures like matrices, vectors, tensors. It offers numerical tools, programs, and supports computational ops,
+functions, processing, simulation, & visualization in data science & ML, crucial for research, engineering, & data
+processing.</font><font color = red>[Python>=3.4]</font>
 
 ```
  ________   ___    ___  ________   ___    ___  ________    ___  ___   _____ ______
@@ -18,9 +20,9 @@
 [![Downloads](https://static.pepy.tech/badge/pypynum/month)](https://pepy.tech/project/pypynum)
 [![Downloads](https://static.pepy.tech/badge/pypynum/week)](https://pepy.tech/project/pypynum)
 
-## Version -> 1.11.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
+## Version -> 1.11.1 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
 
-![LOGO](pypynum/PyPyNum.png)
+![](pypynum/PyPyNum.png)
 
 PyPI上无法显示logo，可以在Gitee或者GitHub中查看。
 
@@ -56,6 +58,7 @@ The logo cannot be displayed on PyPI, it can be viewed in Gitee or GitHub.
 |  `pypynum.Geometry`  |            几何形状 Geometric shape            |
 |   `pypynum.Graph`    |        图论算法 Graph Theory Algorithm         |
 |   `pypynum.Group`    |        群论算法 Group Theory Algorithm         |
+|  `pypynum.highprec`  |      高精度计算 high precision computation      |
 |   `pypynum.image`    |           图像处理 Image processing            |
 |   `pypynum.Logic`    |        逻辑电路设计 Logic circuit design         |
 |   `pypynum.maths`    |   通用数学函数 General mathematical functions    |
@@ -64,6 +67,7 @@ The logo cannot be displayed on PyPI, it can be viewed in Gitee or GitHub.
 |  `pypynum.numbers`   |           数字处理 Number processing           |
 |  `pypynum.plotting`  |          数据可视化 Data visualization          |
 | `pypynum.polynomial` |         多项式运算 Polynomial operation         |
+| `pypynum.pprinters`  |            美化打印 Pretty printers            |
 | `pypynum.Quaternion` |         四元数运算 Quaternion operation         |
 |   `pypynum.random`   |       随机数生成 Random number generation       |
 | `pypynum.regression` |          回归分析 Regression analysis          |
@@ -118,89 +122,93 @@ Python interpreter and run it!
 ```
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-代码增加了约1000行
-
-The code has increased by about
-1000 lines
-
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
-删除了maths模块中的一些分布函数
-Removed some distribution
-functions from the math module
-
-删除了probability模块
-The probability module has been
-removed
-
-增加了dists模块
-Added dists module
-
-增加了stattest模块
-Added stattest module
-
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
 <<<新增的函数>>>
 
 <<<New functions added>>>
 
-PyPyNum
-├── dists
+├── highprec
 │   └── FUNCTION
-│       ├── beta_pdf(x: Any, a: Any, b: Any) -> Any
-│       ├── binom_pmf(k: Any, n: Any, p: Any) -> Any
-│       ├── cauchy_cdf(x: Any, x0: Any, gamma: Any) -> Any
-│       ├── cauchy_pdf(x: Any, x0: Any, gamma: Any) -> Any
-│       ├── chi2_cdf(k: Any, x: Any) -> Any
-│       ├── chi2_pdf(x: Any, df: Any) -> Any
-│       ├── expon_cdf(x: Any, scale: Any) -> Any
-│       ├── expon_pdf(x: Any, scale: Any) -> Any
-│       ├── f_pdf(x: Any, dfnum: Any, dfden: Any) -> Any
-│       ├── gamma_pdf(x: Any, shape: Any, scale: Any) -> Any
-│       ├── geometric_pmf(k: Any, p: Any) -> Any
-│       ├── hypergeom_pmf(k: Any, mg: Any, n: Any, nt: Any) -> Any
-│       ├── inv_gauss_pdf(x: Any, mu: Any, lambda_: Any, alpha: Any) -> Any
-│       ├── levy_pdf(x: Any, c: Any) -> Any
-│       ├── log_logistic_cdf(x: Any, alpha: Any, beta: Any) -> Any
-│       ├── log_logistic_pdf(x: Any, alpha: Any, beta: Any) -> Any
-│       ├── logistic_cdf(x: Any, mu: Any, s: Any) -> Any
-│       ├── logistic_pdf(x: Any, mu: Any, s: Any) -> Any
-│       ├── lognorm_cdf(x: Any, mu: Any, sigma: Any) -> Any
-│       ├── lognorm_pdf(x: Any, s: Any, scale: Any) -> Any
-│       ├── logser_pmf(k: Any, p: Any) -> Any
-│       ├── multinomial_pmf(k: Any, n: Any, p: Any) -> Any
-│       ├── nbinom_pmf(k: Any, n: Any, p: Any) -> Any
-│       ├── nhypergeom_pmf(k: Any, m: Any, n: Any, r: Any) -> Any
-│       ├── normal_cdf(x: Any, mu: Any, sigma: Any) -> Any
-│       ├── normal_pdf(x: Any, mu: Any, sigma: Any) -> Any
-│       ├── pareto_pdf(x: Any, k: Any, m: Any) -> Any
-│       ├── poisson_pmf(k: Any, mu: Any) -> Any
-│       ├── rayleigh_pdf(x: Any, sigma: Any) -> Any
-│       ├── t_pdf(x: Any, df: Any) -> Any
-│       ├── uniform_cdf(x: Any, loc: Any, scale: Any) -> Any
-│       ├── uniform_pdf(x: Any, loc: Any, scale: Any) -> Any
-│       ├── vonmises_pdf(x: Any, mu: Any, kappa: Any) -> Any
-│       ├── weibull_max_pdf(x: Any, c: Any, scale: Any, loc: Any) -> Any
-│       ├── weibull_min_pdf(x: Any, c: Any, scale: Any, loc: Any) -> Any
-│       └── zipf_pmf(k: Any, s: Any, n: Any) -> Any
-├── maths
+│       ├── calc_e(digits: int, method: str) -> decimal.Decimal
+│       ├── calc_phi(digits: int, method: str) -> decimal.Decimal
+│       └── calc_pi(digits: int, method: str) -> decimal.Decimal
+├── pprinters
 │   └── FUNCTION
-│       ├── bessel_i0(x: Any) -> Any
-│       ├── bessel_iv(v: Any, x: Any) -> Any
-│       ├── lower_gamma(s: Any, x: Any) -> Any
-│       ├── upper_gamma(s: Any, x: Any) -> Any
-│       ├── xlogy(x: typing.Union[int, float, complex], y: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
-├── stattest
-│   ├── CLASS
-│   └── FUNCTION
-│       ├── chi2_cont(contingency: list, lambda_: float, calc_p: bool, corr: bool) -> tuple
-│       ├── chisquare(observed: list, expected: list) -> tuple
-│       ├── kurttest(data: list, two_tailed: bool) -> tuple
-│       ├── mediantest(samples: Any, ties: Any, lambda_: Any, corr: Any) -> Any
-│       ├── normaltest(data: list) -> tuple
-│       └── skewtest(data: list, two_tailed: bool) -> tuple
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+│       └── pprint_matrix(matrix: Any, style: Any, output: Any) -> Any
+
+=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+
+新增的highprec模块用于高精度计算
+
+The newly added highprec module
+is used for high-precision
+calculations
+
+=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+
+函数pprint_matrix支持五种矩阵美化输出
+风格：["numpy", "mpmath", "sympy",
+"borderless", "numbered"]
+
+The function pprint_matrix
+supports five types of matrix
+beautification output styles:
+["numpy", "mpmath", "sympy",
+"borderless", "numbered"]
+
+[[-81  -3  83  36  19 -77 -29  14]
+ [-73 -14  34  58 -55   6 -84   4]
+ [ 33  80 -31 -36  49 -22  66  -1]
+ [-78  69  91 -59  89  40   2  68]
+ [-62  59 -54 -92 -80 -13  60 -99]
+ [ 96 -35 -34  65 -31 -88  -1 -31]
+ [ 13  96 -72  26 -44 -74 -48 -49]
+ [ 96  19  96 -94 -95  75  40 -74]]
+
+[-81   -3   83   36   19  -77  -29   14]
+[-73  -14   34   58  -55    6  -84    4]
+[ 33   80  -31  -36   49  -22   66   -1]
+[-78   69   91  -59   89   40    2   68]
+[-62   59  -54  -92  -80  -13   60  -99]
+[ 96  -35  -34   65  -31  -88   -1  -31]
+[ 13   96  -72   26  -44  -74  -48  -49]
+[ 96   19   96  -94  -95   75   40  -74]
+
+⎡-81   -3   83   36   19  -77  -29   14⎤
+⎢                                      ⎥
+⎢-73  -14   34   58  -55    6  -84    4⎥
+⎢                                      ⎥
+⎢ 33   80  -31  -36   49  -22   66   -1⎥
+⎢                                      ⎥
+⎢-78   69   91  -59   89   40    2   68⎥
+⎢                                      ⎥
+⎢-62   59  -54  -92  -80  -13   60  -99⎥
+⎢                                      ⎥
+⎢ 96  -35  -34   65  -31  -88   -1  -31⎥
+⎢                                      ⎥
+⎢ 13   96  -72   26  -44  -74  -48  -49⎥
+⎢                                      ⎥
+⎣ 96   19   96  -94  -95   75   40  -74⎦
+
+-81  -3  83  36  19 -77 -29  14
+-73 -14  34  58 -55   6 -84   4
+ 33  80 -31 -36  49 -22  66  -1
+-78  69  91 -59  89  40   2  68
+-62  59 -54 -92 -80 -13  60 -99
+ 96 -35 -34  65 -31 -88  -1 -31
+ 13  96 -72  26 -44 -74 -48 -49
+ 96  19  96 -94 -95  75  40 -74
+
+  |  1   2   3   4   5   6   7   8 
+-----------------------------------
+1 | -81  -3  83  36  19 -77 -29  14
+2 | -73 -14  34  58 -55   6 -84   4
+3 |  33  80 -31 -36  49 -22  66  -1
+4 | -78  69  91 -59  89  40   2  68
+5 | -62  59 -54 -92 -80 -13  60 -99
+6 |  96 -35 -34  65 -31 -88  -1 -31
+7 |  13  96 -72  26 -44 -74 -48 -49
+8 |  96  19  96 -94 -95  75  40 -74
+=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 ```
 
 ### 运行用时测试
@@ -307,12 +315,14 @@ PyPyNum
 │   ├── CLASS
 │   │   └── Matrix(pypynum.Array.Array)/__init__(self: Any, data: Any, check: Any) -> Any
 │   └── FUNCTION
+│       ├── cholesky(matrix: Any, hermitian: Any) -> Any
 │       ├── eigen(matrix: pypynum.Matrix.Matrix) -> tuple
 │       ├── hessenberg(matrix: pypynum.Matrix.Matrix) -> tuple
 │       ├── identity(n: int) -> pypynum.Matrix.Matrix
 │       ├── lu(matrix: pypynum.Matrix.Matrix) -> tuple
 │       ├── mat(data: Any) -> Any
 │       ├── qr(matrix: pypynum.Matrix.Matrix) -> tuple
+│       ├── rank_decomp(matrix: pypynum.Matrix.Matrix) -> tuple
 │       ├── rotate90(matrix: pypynum.Matrix.Matrix, times: int) -> pypynum.Matrix.Matrix
 │       ├── svd(matrix: pypynum.Matrix.Matrix) -> tuple
 │       └── tril_indices(n: int, k: int, m: int) -> tuple
@@ -425,6 +435,12 @@ PyPyNum
 │   └── FUNCTION
 │       ├── read(file: str) -> list
 │       └── write(file: str, cls: object) -> Any
+├── highprec
+│   ├── CLASS
+│   └── FUNCTION
+│       ├── calc_e(digits: int, method: str) -> decimal.Decimal
+│       ├── calc_phi(digits: int, method: str) -> decimal.Decimal
+│       └── calc_pi(digits: int, method: str) -> decimal.Decimal
 ├── image
 │   ├── CLASS
 │   │   └── PNG(object)/__init__(self: Any) -> None
@@ -542,6 +558,10 @@ PyPyNum
 │       ├── leggauss(polynomial: Any) -> Any
 │       ├── legpoly(n: Any) -> Any
 │       └── poly(terms: Any) -> Any
+├── pprinters
+│   ├── CLASS
+│   └── FUNCTION
+│       └── pprint_matrix(matrix: Any, style: Any, output: Any) -> Any
 ├── random
 │   ├── CLASS
 │   └── FUNCTION
