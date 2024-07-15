@@ -20,7 +20,7 @@ processing.</font><font color = red>[Python>=3.4]</font>
 [![Downloads](https://static.pepy.tech/badge/pypynum/month)](https://pepy.tech/project/pypynum)
 [![Downloads](https://static.pepy.tech/badge/pypynum/week)](https://pepy.tech/project/pypynum)
 
-## Version -> 1.11.1 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
+## Version -> 1.11.2 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
 
 ![](pypynum/PyPyNum.png)
 
@@ -49,6 +49,7 @@ The logo cannot be displayed on PyPI, it can be viewed in Gitee or GitHub.
 |   `pypynum.Array`    |        多维数组 Multidimensional array         |
 |   `pypynum.chars`    |    特殊数学符号 Special mathematical symbols     |
 |   `pypynum.cipher`   | 加密解密算法 Encryption and decryption algorithm |
+|   `pypynum.confs`    |        通用配置 Universal configuration        |
 | `pypynum.constants`  |    数学常数集合 Set of mathematical constants    |
 |   `pypynum.dists`    |       概率分布 Probability distribution        |
 | `pypynum.equations`  |           方程求解 Solving equations           |
@@ -122,93 +123,110 @@ Python interpreter and run it!
 ```
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-<<<新增的函数>>>
+新增了Config类
 
-<<<New functions added>>>
+Added Config class
 
-├── highprec
-│   └── FUNCTION
-│       ├── calc_e(digits: int, method: str) -> decimal.Decimal
-│       ├── calc_phi(digits: int, method: str) -> decimal.Decimal
-│       └── calc_pi(digits: int, method: str) -> decimal.Decimal
-├── pprinters
-│   └── FUNCTION
-│       └── pprint_matrix(matrix: Any, style: Any, output: Any) -> Any
+Introduction
+    The Config class is designed to manage and configure application settings. It provides a mechanism to ensure consistency in configurations and prevents accidental changes by limiting attribute modification.
+Roadmap
+    The Config class is currently stable. Future updates may include new configuration options to support additional features.
+Usage
+    Modifying Configuration:
+        You can modify the configuration by setting attributes directly, but only with predefined boolean values.
+        config. use_latex = True # Enable LaTeX formatting
+    Reading Configuration:
+        You can read the current configuration by accessing the attributes.
+        print(config. use_unicode) # Output: False
+    Ensuring Exclusive Configuration:
+        The Config class is designed to be mutually exclusive, meaning only one configuration item can be True at a time.
+        config. use_std = True # This will automatically set other configuration items to False
+    Getting Configuration Information:
+        Use the __repr__ method to get a string representation of the current configuration.
+        print(config) # Output: Config(use_latex=True, use_std=False, use_unicode=False)
 
-=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+修改配置时，您可以像这样导入“from pypynum import config”
 
-新增的highprec模块用于高精度计算
+When modifying the configuration, you can import 'from pypynum import config' like this
 
-The newly added highprec module
-is used for high-precision
-calculations
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+一些类现在支持以Unicode或LaTeX显示数据
 
-函数pprint_matrix支持五种矩阵美化输出
-风格：["numpy", "mpmath", "sympy",
-"borderless", "numbered"]
+Some classes now support displaying data in Unicode or LaTeX
 
-The function pprint_matrix
-supports five types of matrix
-beautification output styles:
-["numpy", "mpmath", "sympy",
-"borderless", "numbered"]
 
-[[-81  -3  83  36  19 -77 -29  14]
- [-73 -14  34  58 -55   6 -84   4]
- [ 33  80 -31 -36  49 -22  66  -1]
- [-78  69  91 -59  89  40   2  68]
- [-62  59 -54 -92 -80 -13  60 -99]
- [ 96 -35 -34  65 -31 -88  -1 -31]
- [ 13  96 -72  26 -44 -74 -48 -49]
- [ 96  19  96 -94 -95  75  40 -74]]
+Polynomial :
+Standard 27x - 85x^4 + 25x^12 + 54x^42 + x^47 - 29x^61 - 73x^66 - 53x^72 - 90x^94 - 99x^97
+Unicode 27x - 85x⁴ + 25x¹² + 54x⁴² + x⁴⁷ - 29x⁶¹ - 73x⁶⁶ - 53x⁷² - 90x⁹⁴ - 99x⁹⁷
+LaTeX 27x - 85x^{4} + 25x^{12} + 54x^{42} + x^{47} - 29x^{61} - 73x^{66} - 53x^{72} - 90x^{94} - 99x^{97}
 
-[-81   -3   83   36   19  -77  -29   14]
-[-73  -14   34   58  -55    6  -84    4]
-[ 33   80  -31  -36   49  -22   66   -1]
-[-78   69   91  -59   89   40    2   68]
-[-62   59  -54  -92  -80  -13   60  -99]
-[ 96  -35  -34   65  -31  -88   -1  -31]
-[ 13   96  -72   26  -44  -74  -48  -49]
-[ 96   19   96  -94  -95   75   40  -74]
+IntervalSet :
+Standard [-94, -61) U [-41, -20] U (-1, 76] U (78, 85)
+Unicode [-94, -61) ∪ [-41, -20] ∪ (-1, 76] ∪ (78, 85)
+LaTeX \left[-94, -61\right) \cup \left[-41, -20\right] \cup \left(-1, 76\right] \cup \left(78, 85\right)
 
-⎡-81   -3   83   36   19  -77  -29   14⎤
-⎢                                      ⎥
-⎢-73  -14   34   58  -55    6  -84    4⎥
-⎢                                      ⎥
-⎢ 33   80  -31  -36   49  -22   66   -1⎥
-⎢                                      ⎥
-⎢-78   69   91  -59   89   40    2   68⎥
-⎢                                      ⎥
-⎢-62   59  -54  -92  -80  -13   60  -99⎥
-⎢                                      ⎥
-⎢ 96  -35  -34   65  -31  -88   -1  -31⎥
-⎢                                      ⎥
-⎢ 13   96  -72   26  -44  -74  -48  -49⎥
-⎢                                      ⎥
-⎣ 96   19   96  -94  -95   75   40  -74⎦
+Matrix :
+Standard
+[[-65  26  81 -47]
+ [ 60  85   4 -23]
+ [ 27  56  86  -7]
+ [ 38  79  47  76]]
+LaTeX
+\begin{bmatrix}-65 & 26 & 81 & -47\\60 & 85 & 4 & -23\\27 & 56 & 86 & -7\\38 & 79 & 47 & 76\end{bmatrix}
 
--81  -3  83  36  19 -77 -29  14
--73 -14  34  58 -55   6 -84   4
- 33  80 -31 -36  49 -22  66  -1
--78  69  91 -59  89  40   2  68
--62  59 -54 -92 -80 -13  60 -99
- 96 -35 -34  65 -31 -88  -1 -31
- 13  96 -72  26 -44 -74 -48 -49
- 96  19  96 -94 -95  75  40 -74
 
-  |  1   2   3   4   5   6   7   8 
------------------------------------
-1 | -81  -3  83  36  19 -77 -29  14
-2 | -73 -14  34  58 -55   6 -84   4
-3 |  33  80 -31 -36  49 -22  66  -1
-4 | -78  69  91 -59  89  40   2  68
-5 | -62  59 -54 -92 -80 -13  60 -99
-6 |  96 -35 -34  65 -31 -88  -1 -31
-7 |  13  96 -72  26 -44 -74 -48 -49
-8 |  96  19  96 -94 -95  75  40 -74
-=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+Matrix自带的latex()方法可以设置LaTeX矩阵类型与元素间距
+The LaTeX() method that comes with Matrix allows you to set the LaTeX matrix type and element spacing
+
+EXAMPLE :
+>>> print(A.latex(matrix_type="vmatrix", row_spacing=5, col_spacing=5, spacing_unit="mm"))
+\begin{vmatrix}-65 & \hspace{5mm} & 26 & \hspace{5mm} & 81 & \hspace{5mm} & -47\\[5mm]60 & \hspace{5mm} & 85 & \hspace{5mm} & 4 & \hspace{5mm} & -23\\[5mm]27 & \hspace{5mm} & 56 & \hspace{5mm} & 86 & \hspace{5mm} & -7\\[5mm]38 & \hspace{5mm} & 79 & \hspace{5mm} & 47 & \hspace{5mm} & 76\end{vmatrix}
+
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+
+新增了IntervalSet类
+
+Added IntervalSet class
+
+支持区间的各种集合运算
+
+Support various set operations for intervals
+
+class IntervalSet(builtins.object)
+ |  __and__ = intersection(self, other)
+ |  __eq__ = is_equal(self, other)
+ |  __ge__ = is_superset(self, other)
+ |  __gt__ = is_proper_superset(self, other)
+ |  __init__(self, intervals=None)
+ |      It is a set of intervals and supports multiple operations.
+ |      :param intervals: A sequence containing multiple intervals
+ |  __le__ = is_subset(self, other)
+ |  __lt__ = is_proper_subset(self, other)
+ |  __matmul__ = complement(self, other)
+ |  __ne__ = is_not_equal(self, other)
+ |  __or__ = union(self, other)
+ |  __repr__(self, use_latex=False)
+ |      Return repr(self).
+ |  __sub__ = difference(self, other)
+ |  __xor__ = symmetric_difference(self, other)
+ |  add_interval(self, start, end, start_open=False, end_open=False)
+ |  add_intervals(self, intervals)
+ |  complement(self, other)
+ |  difference(self, other)
+ |  intersection(self, other)
+ |  is_equal(self, other)
+ |  is_not_equal(self, other)
+ |  is_proper_subset(self, other)
+ |  is_proper_superset(self, other)
+ |  is_subset(self, other)
+ |  is_superset(self, other)
+ |  latex(self)
+ |  remove_interval(self, start, end, start_open=False, end_open=False)
+ |  symmetric_difference(self, other)
+ |  union(self, other)
+
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 ```
 
 ### 运行用时测试
@@ -365,6 +383,10 @@ PyPyNum
 ├── chars
 │   ├── CLASS
 │   └── FUNCTION
+│       ├── int2subscript(standard_str: str) -> str
+│       ├── int2superscript(standard_str: str) -> str
+│       ├── subscript2int(subscript_str: str) -> str
+│       └── superscript2int(superscript_str: str) -> str
 ├── cipher
 │   ├── CLASS
 │   └── FUNCTION
@@ -380,6 +402,9 @@ PyPyNum
 │       ├── rot13(text: str) -> str
 │       ├── substitution(text: str, sub_map: dict, decrypt: bool) -> str
 │       └── vigenere(text: str, key: str, decrypt: bool) -> str
+├── confs
+│   ├── CLASS
+│   └── FUNCTION
 ├── constants
 │   ├── CLASS
 │   └── FUNCTION
@@ -565,9 +590,10 @@ PyPyNum
 ├── random
 │   ├── CLASS
 │   └── FUNCTION
+│       ├── __create_nested_list(dimensions: Any, func: Any) -> Any
+│       ├── __validate_shape(shape: Any) -> Any
 │       ├── choice(seq: typing.Union[list, tuple, str], shape: typing.Union[list, tuple]) -> Any
 │       ├── gauss(mu: typing.Union[int, float], sigma: typing.Union[int, float], shape: typing.Union[list, tuple]) -> typing.Union[float, list]
-│       ├── gauss_error(original: typing.Union[list, tuple], mu: typing.Union[int, float], sigma: typing.Union[int, float]) -> list
 │       ├── rand(shape: typing.Union[list, tuple]) -> typing.Union[float, list]
 │       ├── randint(a: int, b: int, shape: typing.Union[list, tuple]) -> typing.Union[int, list]
 │       └── uniform(a: typing.Union[int, float], b: typing.Union[int, float], shape: typing.Union[list, tuple]) -> typing.Union[float, list]
@@ -635,6 +661,7 @@ PyPyNum
 └── utils
     ├── CLASS
     │   ├── InfIterator(object)/__init__(self: Any, start: typing.Union[int, float, complex], mode: str, common: typing.Union[int, float, complex]) -> Any
+    │   ├── IntervalSet(object)/__init__(self: Any, intervals: Any) -> Any
     │   ├── LinkedList(object)/__init__(self: Any) -> Any
     │   ├── LinkedListNode(object)/__init__(self: Any, value: Any, next_node: Any) -> Any
     │   └── OrderedSet(object)/__init__(self: Any, sequence: Any) -> Any
