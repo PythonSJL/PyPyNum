@@ -20,7 +20,7 @@ processing.</font><font color = red>[Python>=3.4]</font>
 [![Downloads](https://static.pepy.tech/badge/pypynum/month)](https://pepy.tech/project/pypynum)
 [![Downloads](https://static.pepy.tech/badge/pypynum/week)](https://pepy.tech/project/pypynum)
 
-## Version -> 1.11.2 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
+## Version -> 1.12.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
 
 ![](pypynum/PyPyNum.png)
 
@@ -59,11 +59,11 @@ The logo cannot be displayed on PyPI, it can be viewed in Gitee or GitHub.
 |  `pypynum.Geometry`  |            几何形状 Geometric shape            |
 |   `pypynum.Graph`    |        图论算法 Graph Theory Algorithm         |
 |   `pypynum.Group`    |        群论算法 Group Theory Algorithm         |
-|  `pypynum.highprec`  |      高精度计算 high precision computation      |
 |   `pypynum.image`    |           图像处理 Image processing            |
 |   `pypynum.Logic`    |        逻辑电路设计 Logic circuit design         |
 |   `pypynum.maths`    |   通用数学函数 General mathematical functions    |
 |   `pypynum.Matrix`   |           矩阵运算 Matrix operation            |
+| `pypynum.multiprec`  |     多精度计算 Multi precision calculation      |
 |  `pypynum.NeuralN`   |       神经网络训练 Neural network training       |
 |  `pypynum.numbers`   |           数字处理 Number processing           |
 |  `pypynum.plotting`  |          数据可视化 Data visualization          |
@@ -84,6 +84,7 @@ The logo cannot be displayed on PyPI, it can be viewed in Gitee or GitHub.
 |   `pypynum.ufuncs`   |          通用函数 Universal functions          |
 |   `pypynum.utils`    |                实用工具 Utility                |
 |   `pypynum.Vector`   |           向量运算 Vector operation            |
+|   `pypynum.zh_cn`    |    中文名的函数 Functions with Chinese names     |
 
 ### PyPyNum的Zen（预览）
 
@@ -123,108 +124,151 @@ Python interpreter and run it!
 ```
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-新增了Config类
+添加了zh_cn模块，
+其中包括一些用中文名称封装的函数，
+并将继续补充未封装的函数。
 
-Added Config class
+Added zh_cn module, 
+which includes some functions encapsulated with Chinese names, 
+and will continue to supplement unencapsulated functions.
 
-Introduction
-    The Config class is designed to manage and configure application settings. It provides a mechanism to ensure consistency in configurations and prevents accidental changes by limiting attribute modification.
-Roadmap
-    The Config class is currently stable. Future updates may include new configuration options to support additional features.
-Usage
-    Modifying Configuration:
-        You can modify the configuration by setting attributes directly, but only with predefined boolean values.
-        config. use_latex = True # Enable LaTeX formatting
-    Reading Configuration:
-        You can read the current configuration by accessing the attributes.
-        print(config. use_unicode) # Output: False
-    Ensuring Exclusive Configuration:
-        The Config class is designed to be mutually exclusive, meaning only one configuration item can be True at a time.
-        config. use_std = True # This will automatically set other configuration items to False
-    Getting Configuration Information:
-        Use the __repr__ method to get a string representation of the current configuration.
-        print(config) # Output: Config(use_latex=True, use_std=False, use_unicode=False)
+以下是当前已经过中文名称封装的函数：
 
-修改配置时，您可以像这样导入“from pypynum import config”
+The following are the functions that have already been encapsulated with Chinese names:
 
-When modifying the configuration, you can import 'from pypynum import config' like this
+["Fraction转为Decimal", "RC4伪随机生成算法", "RC4初始化密钥调度算法", "RC4密码", "ROT13密码", "S型函数", "base64密码",
+ "x对数y乘积", "y次方根", "一维傅里叶变换", "上伽玛", "上标转整数", "下伽玛", "下标转整数", "中位数", "中国剩余定理",
+ "中心矩", "乘积和", "代替密码", "众数", "伽玛函数", "余切", "余割", "余弦", "偏度", "全一", "全部填充", "全零", "写入",
+ "几何平均数", "凯撒密码", "判定系数", "判断平方数", "加权平均", "协方差", "原根", "原点矩", "双曲余切", "双曲余割",
+ "双曲余弦", "双曲正切", "双曲正割", "双曲正弦", "反余切", "反余割", "反余弦", "反双曲余切", "反双曲余割", "反双曲余弦",
+ "反双曲正切", "反双曲正割", "反双曲正弦", "反正切", "反正割", "反正弦", "可能是平方数", "填充序列", "多次方根取整",
+ "多精度余弦", "多精度圆周率", "多精度对数", "多精度欧拉数", "多精度正弦", "多精度自然对数", "多精度黄金分割率",
+ "多项式方程", "导数", "峰度", "希尔256密码", "平均数", "平方平均数", "平方根取整", "序列滚动", "归一化",
+ "扩展欧几里得算法", "排列数", "数组", "整数转上标", "整数转下标", "方差", "普莱费尔密码", "最大公约数", "最小公倍数",
+ "极差", "标准差", "模运算阶", "欧拉函数", "正切", "正割", "正弦", "相关系数", "积分", "积累乘积", "符号函数",
+ "类似形状全一", "类似形状全零", "类似形状填充", "累乘积", "累加和", "线性方程组", "组合数", "维吉尼亚密码", "自然对数",
+ "自然指数", "莫尔斯密码", "误差函数", "读取", "调和平均数", "贝塔函数", "贝塞尔I0", "贝塞尔Iv", "负一整数次幂",
+ "转换为列表", "转换为数组", "连续乘积", "连续加和", "阶乘函数", "阿特巴什密码", "频率统计", "黎曼函数"]
 
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+(120 functions)
 
-一些类现在支持以Unicode或LaTeX显示数据
+下面是一个使用示例
 
-Some classes now support displaying data in Unicode or LaTeX
+Here is an example of usage
 
-
-Polynomial :
-Standard 27x - 85x^4 + 25x^12 + 54x^42 + x^47 - 29x^61 - 73x^66 - 53x^72 - 90x^94 - 99x^97
-Unicode 27x - 85x⁴ + 25x¹² + 54x⁴² + x⁴⁷ - 29x⁶¹ - 73x⁶⁶ - 53x⁷² - 90x⁹⁴ - 99x⁹⁷
-LaTeX 27x - 85x^{4} + 25x^{12} + 54x^{42} + x^{47} - 29x^{61} - 73x^{66} - 53x^{72} - 90x^{94} - 99x^{97}
-
-IntervalSet :
-Standard [-94, -61) U [-41, -20] U (-1, 76] U (78, 85)
-Unicode [-94, -61) ∪ [-41, -20] ∪ (-1, 76] ∪ (78, 85)
-LaTeX \left[-94, -61\right) \cup \left[-41, -20\right] \cup \left(-1, 76\right] \cup \left(78, 85\right)
-
-Matrix :
-Standard
-[[-65  26  81 -47]
- [ 60  85   4 -23]
- [ 27  56  86  -7]
- [ 38  79  47  76]]
-LaTeX
-\begin{bmatrix}-65 & 26 & 81 & -47\\60 & 85 & 4 & -23\\27 & 56 & 86 & -7\\38 & 79 & 47 & 76\end{bmatrix}
-
-
-Matrix自带的latex()方法可以设置LaTeX矩阵类型与元素间距
-The LaTeX() method that comes with Matrix allows you to set the LaTeX matrix type and element spacing
-
-EXAMPLE :
->>> print(A.latex(matrix_type="vmatrix", row_spacing=5, col_spacing=5, spacing_unit="mm"))
-\begin{vmatrix}-65 & \hspace{5mm} & 26 & \hspace{5mm} & 81 & \hspace{5mm} & -47\\[5mm]60 & \hspace{5mm} & 85 & \hspace{5mm} & 4 & \hspace{5mm} & -23\\[5mm]27 & \hspace{5mm} & 56 & \hspace{5mm} & 86 & \hspace{5mm} & -7\\[5mm]38 & \hspace{5mm} & 79 & \hspace{5mm} & 47 & \hspace{5mm} & 76\end{vmatrix}
+>>> from pypynum import zh_cn
+>>> print(zh_cn.多精度正弦(1, 100))
+0.8414709848078965066525023216302989996225630607983710656727517099919104043912396689486397435430526959
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-新增了IntervalSet类
+Group类修复了原有方法的问题并且新增了
+一些方法。
 
-Added IntervalSet class
+The Group class has fixed the
+issues with the original methods
+and added some new methods.
 
-支持区间的各种集合运算
 
-Support various set operations for intervals
+下面是新增的方法（Monoid是幺半群）：
 
-class IntervalSet(builtins.object)
- |  __and__ = intersection(self, other)
- |  __eq__ = is_equal(self, other)
- |  __ge__ = is_superset(self, other)
- |  __gt__ = is_proper_superset(self, other)
- |  __init__(self, intervals=None)
- |      It is a set of intervals and supports multiple operations.
- |      :param intervals: A sequence containing multiple intervals
- |  __le__ = is_subset(self, other)
- |  __lt__ = is_proper_subset(self, other)
- |  __matmul__ = complement(self, other)
- |  __ne__ = is_not_equal(self, other)
- |  __or__ = union(self, other)
- |  __repr__(self, use_latex=False)
- |      Return repr(self).
- |  __sub__ = difference(self, other)
- |  __xor__ = symmetric_difference(self, other)
- |  add_interval(self, start, end, start_open=False, end_open=False)
- |  add_intervals(self, intervals)
- |  complement(self, other)
- |  difference(self, other)
- |  intersection(self, other)
- |  is_equal(self, other)
- |  is_not_equal(self, other)
- |  is_proper_subset(self, other)
- |  is_proper_superset(self, other)
- |  is_subset(self, other)
- |  is_superset(self, other)
- |  latex(self)
- |  remove_interval(self, start, end, start_open=False, end_open=False)
- |  symmetric_difference(self, other)
- |  union(self, other)
+Here are the newly added methods:
+
+
+elements(self)
+getop(self)
+identity(self)
+is_monoid(self, modulus=None)
+is_subgroup(self, other, modulus=None)
+is_supergroup(self, other, modulus=None)
+setop(self, operation)
+
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+
+"Polynomial"类增加了五个寻找特殊点的方法，下面是这五个方法。
+
+The "Polynomial" class has added five methods for finding special points. 
+Here are these five methods.
+
+
+1. `stationaries(self, tolerance=1e-15)`:
+
+计算多项式的**驻点**，即一阶导数等于零的点。
+驻点可能是局部极大值、局部极小值或鞍点。
+
+Calculate the stationary point of a polynomial, 
+which is the point where the first derivative equals zero. 
+The stationary point may be a local maximum, 
+local minimum, 
+or saddle point.
+
+
+2. `saddles(self, tolerance=1e-15)`:
+
+计算多项式的**鞍点**。
+鞍点是驻点，其一阶导数在该点为零，而二阶导数在该点不为零且一阶导数与二阶导数的符号相反。
+
+Calculate the saddle point of a polynomial. 
+The saddle point is a stationary point, 
+where its first derivative is zero and its second derivative is non-zero, 
+and the signs of the first and second derivatives are opposite.
+
+
+3. `minima(self, tolerance=1e-15)`:
+
+计算多项式的**局部极小值点**。
+局部极小值点是驻点，其二阶导数在该点大于零。
+
+Calculate the local minimum points of a polynomial. 
+The local minimum point is a stationary point, 
+and its second derivative is greater than zero at that point.
+
+
+4. `maxima(self, tolerance=1e-15)`:
+
+计算多项式的**局部极大值点**。
+局部极大值点是驻点，其二阶导数在该点小于零。
+
+Calculate the local maximum points of a polynomial. 
+The local maximum point is a stationary point, 
+and its second derivative is less than zero at that point.
+
+
+5. `inflections(self, tolerance=1e-15)`:
+
+计算多项式的**拐点**。
+拐点是二阶导数等于零的点，并且三阶导数在该点不为零，表示函数在该点改变其凹凸性。
+
+Calculate the inflection point of a polynomial. 
+The inflection point is the point where the second derivative equals zero, 
+and the third derivative is not zero at that point, 
+indicating that the function changes its concavity and convexity at that point.
+
+
+每个方法都使用了`tolerance`参数来确定计算过程中可接受的误差范围。
+例如，在判断导数是否为零或者是否大于/小于零时，都会考虑到这个容差值。
+
+Each method uses the 'tolerance' parameter to determine the acceptable range of error during the calculation process. 
+For example, 
+when determining whether the derivative is zero or greater/less than zero, 
+this tolerance value will be taken into account.
+
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+
+highprec模块改名为multiprec，
+然后重命名和新增了几个函数。
+
+The highprec module was renamed as multiparec, 
+and several functions were renamed and added.
+
+frac2dec(frac: fractions.Fraction, sigfigs: int) -> decimal.Decimal
+mp_cos(x: Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+mp_e(sigfigs: int, method: str = 'series') -> decimal.Decimal
+mp_ln(x: Union[int, str, decimal.Decimal], sigfigs: int, builtin: bool = True) -> decimal.Decimal
+mp_log(x: Union[int, str, decimal.Decimal], base: Union[int, str, decimal.Decimal], sigfigs: int, builtin: bool = True) -> decimal.Decimal
+mp_phi(sigfigs: int, method: str = 'algebraic') -> decimal.Decimal
+mp_pi(sigfigs: int, method: str = 'chudnovsky') -> decimal.Decimal
+mp_sin(x: Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 ```
@@ -460,12 +504,6 @@ PyPyNum
 │   └── FUNCTION
 │       ├── read(file: str) -> list
 │       └── write(file: str, cls: object) -> Any
-├── highprec
-│   ├── CLASS
-│   └── FUNCTION
-│       ├── calc_e(digits: int, method: str) -> decimal.Decimal
-│       ├── calc_phi(digits: int, method: str) -> decimal.Decimal
-│       └── calc_pi(digits: int, method: str) -> decimal.Decimal
 ├── image
 │   ├── CLASS
 │   │   └── PNG(object)/__init__(self: Any) -> None
@@ -489,9 +527,9 @@ PyPyNum
 │       ├── asinh(x: typing.Union[int, float]) -> typing.Union[int, float]
 │       ├── atan(x: typing.Union[int, float]) -> typing.Union[int, float]
 │       ├── atanh(x: typing.Union[int, float]) -> typing.Union[int, float]
-│       ├── average(data: Any, weights: Any, expected: Any) -> Any
-│       ├── bessel_i0(x: Any) -> Any
-│       ├── bessel_iv(v: Any, x: Any) -> Any
+│       ├── average(data: typing.Union[list, tuple], weights: typing.Union[list, tuple]) -> float
+│       ├── bessel_i0(x: typing.Union[int, float]) -> typing.Union[int, float]
+│       ├── bessel_iv(v: typing.Union[int, float], x: typing.Union[int, float]) -> typing.Union[int, float]
 │       ├── beta(p: typing.Union[int, float], q: typing.Union[int, float]) -> typing.Union[int, float]
 │       ├── central_moment(data: typing.Union[list, tuple], order: int) -> float
 │       ├── coeff_det(x: typing.Union[list, tuple], y: typing.Union[list, tuple]) -> typing.Union[int, float, complex]
@@ -525,7 +563,7 @@ PyPyNum
 │       ├── kurt(data: typing.Union[list, tuple], fisher: bool) -> float
 │       ├── lcm(args: int) -> int
 │       ├── ln(x: typing.Union[int, float]) -> typing.Union[int, float]
-│       ├── lower_gamma(s: Any, x: Any) -> Any
+│       ├── lower_gamma(s: typing.Union[int, float, complex], x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
 │       ├── mean(numbers: typing.Union[list, tuple]) -> typing.Union[int, float, complex]
 │       ├── median(numbers: typing.Union[list, tuple]) -> typing.Union[int, float, complex]
 │       ├── mod_order(a: int, n: int, b: int) -> int
@@ -553,10 +591,21 @@ PyPyNum
 │       ├── tan(x: typing.Union[int, float]) -> typing.Union[int, float]
 │       ├── tanh(x: typing.Union[int, float]) -> typing.Union[int, float]
 │       ├── totient(n: int) -> int
-│       ├── upper_gamma(s: Any, x: Any) -> Any
+│       ├── upper_gamma(s: typing.Union[int, float, complex], x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
 │       ├── var(numbers: typing.Union[list, tuple], dof: int) -> typing.Union[int, float, complex]
 │       ├── xlogy(x: typing.Union[int, float, complex], y: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
 │       └── zeta(alpha: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+├── multiprec
+│   ├── CLASS
+│   └── FUNCTION
+│       ├── frac2dec(frac: fractions.Fraction, sigfigs: int) -> decimal.Decimal
+│       ├── mp_cos(x: typing.Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+│       ├── mp_e(sigfigs: int, method: str) -> decimal.Decimal
+│       ├── mp_ln(x: typing.Union[int, str, decimal.Decimal], sigfigs: int, builtin: bool) -> decimal.Decimal
+│       ├── mp_log(x: typing.Union[int, str, decimal.Decimal], base: typing.Union[int, str, decimal.Decimal], sigfigs: int, builtin: bool) -> decimal.Decimal
+│       ├── mp_phi(sigfigs: int, method: str) -> decimal.Decimal
+│       ├── mp_pi(sigfigs: int, method: str) -> decimal.Decimal
+│       └── mp_sin(x: typing.Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
 ├── numbers
 │   ├── CLASS
 │   └── FUNCTION
@@ -658,14 +707,137 @@ PyPyNum
 │       ├── power(x: Any, y: Any, m: Any) -> Any
 │       ├── subtract(x: Any, y: Any) -> Any
 │       └── ufunc_helper(x: Any, y: Any, func: Any) -> Any
-└── utils
+├── utils
+│   ├── CLASS
+│   │   ├── InfIterator(object)/__init__(self: Any, start: typing.Union[int, float, complex], mode: str, common: typing.Union[int, float, complex]) -> Any
+│   │   ├── IntervalSet(object)/__init__(self: Any, intervals: Any) -> Any
+│   │   ├── LinkedList(object)/__init__(self: Any) -> Any
+│   │   ├── LinkedListNode(object)/__init__(self: Any, value: Any, next_node: Any) -> Any
+│   │   └── OrderedSet(object)/__init__(self: Any, sequence: Any) -> Any
+│   └── FUNCTION
+└── zh_cn
     ├── CLASS
-    │   ├── InfIterator(object)/__init__(self: Any, start: typing.Union[int, float, complex], mode: str, common: typing.Union[int, float, complex]) -> Any
-    │   ├── IntervalSet(object)/__init__(self: Any, intervals: Any) -> Any
-    │   ├── LinkedList(object)/__init__(self: Any) -> Any
-    │   ├── LinkedListNode(object)/__init__(self: Any, value: Any, next_node: Any) -> Any
-    │   └── OrderedSet(object)/__init__(self: Any, sequence: Any) -> Any
     └── FUNCTION
+        ├── Fraction转为Decimal(分数对象: fractions.Fraction, 有效位数: int) -> decimal.Decimal
+        ├── RC4伪随机生成算法(密钥序列: list) -> Any
+        ├── RC4初始化密钥调度算法(密钥: bytes) -> list
+        ├── RC4密码(文本: bytes, 密钥: bytes) -> bytes
+        ├── ROT13密码(文本: str) -> str
+        ├── S型函数(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── base64密码(文本: str, 解密: bool) -> str
+        ├── x对数y乘积(x: float, y: float) -> float
+        ├── y次方根(被开方数: typing.Union[int, float, complex], 开方数: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+        ├── 一维傅里叶变换(数据: Any) -> pypynum.FourierT.FT1D
+        ├── 上伽玛(s: typing.Union[int, float, complex], x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+        ├── 上标转整数(上标字符串: str) -> str
+        ├── 下伽玛(s: typing.Union[int, float, complex], x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+        ├── 下标转整数(下标字符串: str) -> str
+        ├── 中位数(数据: typing.List[float]) -> float
+        ├── 中国剩余定理(n: typing.List[int], a: typing.List[int]) -> int
+        ├── 中心矩(数据: typing.List[float], 阶数: int) -> float
+        ├── 乘积和(数组: typing.List[typing.Any]) -> float
+        ├── 代替密码(文本: str, 替换映射: dict, 解密: bool) -> str
+        ├── 众数(数据: typing.List[typing.Any]) -> Any
+        ├── 伽玛函数(alpha: float) -> float
+        ├── 余切(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 余割(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 余弦(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 偏度(数据: typing.List[float]) -> float
+        ├── 全一(形状: Any, 返回类型: Any) -> Any
+        ├── 全部填充(形状: Any, 填充值: Any, 返回类型: Any) -> Any
+        ├── 全零(形状: Any, 返回类型: Any) -> Any
+        ├── 写入(文件: str, 对象: object) -> Any
+        ├── 几何平均数(数据: typing.List[float]) -> float
+        ├── 凯撒密码(文本: str, 移位: int, 解密: bool) -> str
+        ├── 判定系数(x: typing.List[float], y: typing.List[float]) -> float
+        ├── 判断平方数(n: int) -> bool
+        ├── 加权平均(数据: typing.List[float], 权重: typing.List[float]) -> float
+        ├── 协方差(x: typing.List[float], y: typing.List[float], 自由度: int) -> float
+        ├── 原根(a: int, 单个: bool) -> typing.Union[int, typing.List[int]]
+        ├── 原点矩(数据: typing.List[float], 阶数: int) -> float
+        ├── 双曲余切(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 双曲余割(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 双曲余弦(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 双曲正切(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 双曲正割(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 双曲正弦(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 反余切(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 反余割(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 反余弦(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 反双曲余切(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 反双曲余割(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 反双曲余弦(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 反双曲正切(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 反双曲正割(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 反双曲正弦(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 反正切(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 反正割(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 反正弦(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 可能是平方数(n: int) -> bool
+        ├── 填充序列(形状: Any, 序列: Any, 重复: Any, 填充: Any, 返回类型: Any) -> Any
+        ├── 多次方根取整(被开方数: int, 开方数: int) -> int
+        ├── 多精度余弦(x: typing.Union[int, float], 有效位数: int) -> decimal.Decimal
+        ├── 多精度圆周率(有效位数: int, 方法: str) -> decimal.Decimal
+        ├── 多精度对数(真数: typing.Union[int, float], 底数: typing.Union[int, float], 有效位数: int, 使用内置方法: bool) -> decimal.Decimal
+        ├── 多精度欧拉数(有效位数: int, 方法: str) -> decimal.Decimal
+        ├── 多精度正弦(x: typing.Union[int, float], 有效位数: int) -> decimal.Decimal
+        ├── 多精度自然对数(真数: typing.Union[int, float], 有效位数: int, 使用内置方法: bool) -> decimal.Decimal
+        ├── 多精度黄金分割率(有效位数: int, 方法: str) -> decimal.Decimal
+        ├── 多项式方程(系数: list) -> list
+        ├── 导数(函数: Any, 参数: float, 步长: float, 额外参数: Any, 额外关键字参数: Any) -> float
+        ├── 峰度(数据: typing.List[float], 费希尔: bool) -> float
+        ├── 希尔256密码(文本: bytes, 密钥: list, 解密: bool) -> bytes
+        ├── 平均数(数据: typing.List[float]) -> float
+        ├── 平方平均数(数据: typing.List[float]) -> float
+        ├── 平方根取整(被开方数: int) -> int
+        ├── 序列滚动(序列: typing.Iterator[typing.Any], 偏移: int) -> typing.Iterator[typing.Any]
+        ├── 归一化(数据: typing.List[float], 目标: float) -> typing.List[float]
+        ├── 扩展欧几里得算法(a: int, b: int) -> typing.Tuple[int, int, int]
+        ├── 排列数(总数: int, 选取数: int) -> int
+        ├── 数组(数据: list, 检查: bool) -> pypynum.Array.Array
+        ├── 整数转上标(标准字符串: str) -> str
+        ├── 整数转下标(标准字符串: str) -> str
+        ├── 方差(数据: typing.List[float], 自由度: int) -> float
+        ├── 普莱费尔密码(文本: str, 密钥: str, 解密: bool) -> str
+        ├── 最大公约数(args: int) -> int
+        ├── 最小公倍数(args: int) -> int
+        ├── 极差(数据: typing.List[float]) -> float
+        ├── 标准差(数据: typing.List[float], 自由度: int) -> float
+        ├── 模运算阶(a: int, n: int, b: int) -> int
+        ├── 欧拉函数(n: int) -> int
+        ├── 正切(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 正割(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 正弦(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 相关系数(x: typing.List[float], y: typing.List[float]) -> float
+        ├── 积分(函数: Any, 积分开始: float, 积分结束: float, 积分点数: int, 额外参数: Any, 额外关键字参数: Any) -> float
+        ├── 积累乘积(数据: typing.List[float]) -> float
+        ├── 符号函数(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+        ├── 类似形状全一(数组A: Any, 返回类型: Any) -> Any
+        ├── 类似形状全零(数组A: Any, 返回类型: Any) -> Any
+        ├── 类似形状填充(数组A: Any, 填充值: Any, 返回类型: Any) -> Any
+        ├── 累乘积(序列: typing.List[float]) -> typing.List[float]
+        ├── 累加和(序列: typing.List[float]) -> typing.List[float]
+        ├── 线性方程组(左边: list, 右边: list) -> list
+        ├── 组合数(总数: int, 选取数: int) -> int
+        ├── 维吉尼亚密码(文本: str, 密钥: str, 解密: bool) -> str
+        ├── 自然对数(真数: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 自然指数(指数: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 莫尔斯密码(文本: str, 解密: bool) -> str
+        ├── 误差函数(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 读取(文件: str) -> list
+        ├── 调和平均数(数据: typing.List[float]) -> float
+        ├── 贝塔函数(p: float, q: float) -> float
+        ├── 贝塞尔I0(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 贝塞尔Iv(v: typing.Union[int, float], x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 负一整数次幂(指数: int) -> int
+        ├── 转换为列表(数据: Any) -> list
+        ├── 转换为数组(数据: Any) -> pypynum.Array.Array
+        ├── 连续乘积(下界: int, 上界: int, 函数: typing.Callable) -> float
+        ├── 连续加和(下界: int, 上界: int, 函数: typing.Callable) -> float
+        ├── 阶乘函数(n: int) -> int
+        ├── 阿特巴什密码(文本: str) -> str
+        ├── 频率统计(数据: typing.List[typing.Any]) -> typing.Dict[typing.Any, int]
+        └── 黎曼函数(alpha: float) -> float
 ```
 
 ### 代码测试
