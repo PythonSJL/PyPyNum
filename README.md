@@ -20,7 +20,7 @@ processing.</font><font color = red>[Python>=3.4]</font>
 [![Downloads](https://static.pepy.tech/badge/pypynum/month)](https://pepy.tech/project/pypynum)
 [![Downloads](https://static.pepy.tech/badge/pypynum/week)](https://pepy.tech/project/pypynum)
 
-## Version -> 1.12.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
+## Version -> 1.12.1 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
 
 ![](pypynum/PyPyNum.png)
 
@@ -124,151 +124,22 @@ Python interpreter and run it!
 ```
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-添加了zh_cn模块，
-其中包括一些用中文名称封装的函数，
-并将继续补充未封装的函数。
+修复了矩阵的默认输出格式
 
-Added zh_cn module, 
-which includes some functions encapsulated with Chinese names, 
-and will continue to supplement unencapsulated functions.
-
-以下是当前已经过中文名称封装的函数：
-
-The following are the functions that have already been encapsulated with Chinese names:
-
-["Fraction转为Decimal", "RC4伪随机生成算法", "RC4初始化密钥调度算法", "RC4密码", "ROT13密码", "S型函数", "base64密码",
- "x对数y乘积", "y次方根", "一维傅里叶变换", "上伽玛", "上标转整数", "下伽玛", "下标转整数", "中位数", "中国剩余定理",
- "中心矩", "乘积和", "代替密码", "众数", "伽玛函数", "余切", "余割", "余弦", "偏度", "全一", "全部填充", "全零", "写入",
- "几何平均数", "凯撒密码", "判定系数", "判断平方数", "加权平均", "协方差", "原根", "原点矩", "双曲余切", "双曲余割",
- "双曲余弦", "双曲正切", "双曲正割", "双曲正弦", "反余切", "反余割", "反余弦", "反双曲余切", "反双曲余割", "反双曲余弦",
- "反双曲正切", "反双曲正割", "反双曲正弦", "反正切", "反正割", "反正弦", "可能是平方数", "填充序列", "多次方根取整",
- "多精度余弦", "多精度圆周率", "多精度对数", "多精度欧拉数", "多精度正弦", "多精度自然对数", "多精度黄金分割率",
- "多项式方程", "导数", "峰度", "希尔256密码", "平均数", "平方平均数", "平方根取整", "序列滚动", "归一化",
- "扩展欧几里得算法", "排列数", "数组", "整数转上标", "整数转下标", "方差", "普莱费尔密码", "最大公约数", "最小公倍数",
- "极差", "标准差", "模运算阶", "欧拉函数", "正切", "正割", "正弦", "相关系数", "积分", "积累乘积", "符号函数",
- "类似形状全一", "类似形状全零", "类似形状填充", "累乘积", "累加和", "线性方程组", "组合数", "维吉尼亚密码", "自然对数",
- "自然指数", "莫尔斯密码", "误差函数", "读取", "调和平均数", "贝塔函数", "贝塞尔I0", "贝塞尔Iv", "负一整数次幂",
- "转换为列表", "转换为数组", "连续乘积", "连续加和", "阶乘函数", "阿特巴什密码", "频率统计", "黎曼函数"]
-
-(120 functions)
-
-下面是一个使用示例
-
-Here is an example of usage
-
->>> from pypynum import zh_cn
->>> print(zh_cn.多精度正弦(1, 100))
-0.8414709848078965066525023216302989996225630607983710656727517099919104043912396689486397435430526959
+Fixed the default output format of the matrix
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-Group类修复了原有方法的问题并且新增了
-一些方法。
+multiprec模块新增了一些函数
 
-The Group class has fixed the
-issues with the original methods
-and added some new methods.
+The multiprec module has added some new functions
 
-
-下面是新增的方法（Monoid是幺半群）：
-
-Here are the newly added methods:
-
-
-elements(self)
-getop(self)
-identity(self)
-is_monoid(self, modulus=None)
-is_subgroup(self, other, modulus=None)
-is_supergroup(self, other, modulus=None)
-setop(self, operation)
-
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
-"Polynomial"类增加了五个寻找特殊点的方法，下面是这五个方法。
-
-The "Polynomial" class has added five methods for finding special points. 
-Here are these five methods.
-
-
-1. `stationaries(self, tolerance=1e-15)`:
-
-计算多项式的**驻点**，即一阶导数等于零的点。
-驻点可能是局部极大值、局部极小值或鞍点。
-
-Calculate the stationary point of a polynomial, 
-which is the point where the first derivative equals zero. 
-The stationary point may be a local maximum, 
-local minimum, 
-or saddle point.
-
-
-2. `saddles(self, tolerance=1e-15)`:
-
-计算多项式的**鞍点**。
-鞍点是驻点，其一阶导数在该点为零，而二阶导数在该点不为零且一阶导数与二阶导数的符号相反。
-
-Calculate the saddle point of a polynomial. 
-The saddle point is a stationary point, 
-where its first derivative is zero and its second derivative is non-zero, 
-and the signs of the first and second derivatives are opposite.
-
-
-3. `minima(self, tolerance=1e-15)`:
-
-计算多项式的**局部极小值点**。
-局部极小值点是驻点，其二阶导数在该点大于零。
-
-Calculate the local minimum points of a polynomial. 
-The local minimum point is a stationary point, 
-and its second derivative is greater than zero at that point.
-
-
-4. `maxima(self, tolerance=1e-15)`:
-
-计算多项式的**局部极大值点**。
-局部极大值点是驻点，其二阶导数在该点小于零。
-
-Calculate the local maximum points of a polynomial. 
-The local maximum point is a stationary point, 
-and its second derivative is less than zero at that point.
-
-
-5. `inflections(self, tolerance=1e-15)`:
-
-计算多项式的**拐点**。
-拐点是二阶导数等于零的点，并且三阶导数在该点不为零，表示函数在该点改变其凹凸性。
-
-Calculate the inflection point of a polynomial. 
-The inflection point is the point where the second derivative equals zero, 
-and the third derivative is not zero at that point, 
-indicating that the function changes its concavity and convexity at that point.
-
-
-每个方法都使用了`tolerance`参数来确定计算过程中可接受的误差范围。
-例如，在判断导数是否为零或者是否大于/小于零时，都会考虑到这个容差值。
-
-Each method uses the 'tolerance' parameter to determine the acceptable range of error during the calculation process. 
-For example, 
-when determining whether the derivative is zero or greater/less than zero, 
-this tolerance value will be taken into account.
-
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
-highprec模块改名为multiprec，
-然后重命名和新增了几个函数。
-
-The highprec module was renamed as multiparec, 
-and several functions were renamed and added.
-
-frac2dec(frac: fractions.Fraction, sigfigs: int) -> decimal.Decimal
-mp_cos(x: Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
-mp_e(sigfigs: int, method: str = 'series') -> decimal.Decimal
-mp_ln(x: Union[int, str, decimal.Decimal], sigfigs: int, builtin: bool = True) -> decimal.Decimal
-mp_log(x: Union[int, str, decimal.Decimal], base: Union[int, str, decimal.Decimal], sigfigs: int, builtin: bool = True) -> decimal.Decimal
-mp_phi(sigfigs: int, method: str = 'algebraic') -> decimal.Decimal
-mp_pi(sigfigs: int, method: str = 'chudnovsky') -> decimal.Decimal
-mp_sin(x: Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+mp_atan(x: Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+mp_atan2(y: Union[int, str, decimal.Decimal], x: Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+mp_cosh(x: Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+mp_exp(x: Union[int, str, decimal.Decimal], sigfigs: int, builtin: bool = True) -> decimal.Decimal
+mp_sinh(x: Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+setprec(sigfigs: int)
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 ```
@@ -344,7 +215,7 @@ PyPyNum
 │   └── FUNCTION
 ├── Group
 │   ├── CLASS
-│   │   └── Group(object)/__init__(self: Any, data: Any) -> Any
+│   │   └── Group(object)/__init__(self: Any, data: Any, operation: Any) -> Any
 │   └── FUNCTION
 │       └── group(data: Any) -> Any
 ├── Logic
@@ -599,13 +470,19 @@ PyPyNum
 │   ├── CLASS
 │   └── FUNCTION
 │       ├── frac2dec(frac: fractions.Fraction, sigfigs: int) -> decimal.Decimal
+│       ├── mp_atan(x: typing.Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+│       ├── mp_atan2(y: typing.Union[int, str, decimal.Decimal], x: typing.Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
 │       ├── mp_cos(x: typing.Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+│       ├── mp_cosh(x: typing.Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
 │       ├── mp_e(sigfigs: int, method: str) -> decimal.Decimal
+│       ├── mp_exp(x: typing.Union[int, str, decimal.Decimal], sigfigs: int, builtin: bool) -> decimal.Decimal
 │       ├── mp_ln(x: typing.Union[int, str, decimal.Decimal], sigfigs: int, builtin: bool) -> decimal.Decimal
 │       ├── mp_log(x: typing.Union[int, str, decimal.Decimal], base: typing.Union[int, str, decimal.Decimal], sigfigs: int, builtin: bool) -> decimal.Decimal
 │       ├── mp_phi(sigfigs: int, method: str) -> decimal.Decimal
 │       ├── mp_pi(sigfigs: int, method: str) -> decimal.Decimal
-│       └── mp_sin(x: typing.Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+│       ├── mp_sin(x: typing.Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+│       ├── mp_sinh(x: typing.Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+│       └── setprec(sigfigs: int) -> Any
 ├── numbers
 │   ├── CLASS
 │   └── FUNCTION
@@ -777,11 +654,16 @@ PyPyNum
         ├── 填充序列(形状: Any, 序列: Any, 重复: Any, 填充: Any, 返回类型: Any) -> Any
         ├── 多次方根取整(被开方数: int, 开方数: int) -> int
         ├── 多精度余弦(x: typing.Union[int, float], 有效位数: int) -> decimal.Decimal
+        ├── 多精度双曲余弦(x: typing.Union[int, float], 有效位数: int) -> decimal.Decimal
+        ├── 多精度双曲正弦(x: typing.Union[int, float], 有效位数: int) -> decimal.Decimal
+        ├── 多精度反正切(x: typing.Union[int, float], 有效位数: int) -> decimal.Decimal
         ├── 多精度圆周率(有效位数: int, 方法: str) -> decimal.Decimal
         ├── 多精度对数(真数: typing.Union[int, float], 底数: typing.Union[int, float], 有效位数: int, 使用内置方法: bool) -> decimal.Decimal
+        ├── 多精度方位角(y: typing.Union[int, float], x: typing.Union[int, float], 有效位数: int) -> decimal.Decimal
         ├── 多精度欧拉数(有效位数: int, 方法: str) -> decimal.Decimal
         ├── 多精度正弦(x: typing.Union[int, float], 有效位数: int) -> decimal.Decimal
         ├── 多精度自然对数(真数: typing.Union[int, float], 有效位数: int, 使用内置方法: bool) -> decimal.Decimal
+        ├── 多精度自然指数(指数: typing.Union[int, float], 有效位数: int, 使用内置方法: bool) -> decimal.Decimal
         ├── 多精度黄金分割率(有效位数: int, 方法: str) -> decimal.Decimal
         ├── 多项式方程(系数: list) -> list
         ├── 导数(函数: Any, 参数: float, 步长: float, 额外参数: Any, 额外关键字参数: Any) -> float
