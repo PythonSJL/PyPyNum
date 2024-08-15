@@ -20,7 +20,7 @@ processing.</font><font color = red>[Python>=3.4]</font>
 [![Downloads](https://static.pepy.tech/badge/pypynum/month)](https://pepy.tech/project/pypynum)
 [![Downloads](https://static.pepy.tech/badge/pypynum/week)](https://pepy.tech/project/pypynum)
 
-## Version -> 1.12.1 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
+## Version -> 1.13.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
 
 ![](pypynum/PyPyNum.png)
 
@@ -37,8 +37,8 @@ The logo cannot be displayed on PyPI, it can be viewed in Gitee or GitHub.
   supports other types of Python interpreters
 + 不定期更新版本，增加更多实用功能
 + Update versions periodically to add more practical features
-+ 如需联系，请添加QQ号2261748025 （Py𝙿𝚢𝚝𝚑𝚘𝚗-水晶兰）
-+ If you need to contact, please add QQ number 2261748025 (Py𝙿𝚢𝚝𝚑𝚘𝚗-水晶兰)
++ 如需联系，请添加QQ号2261748025（Py𝙿𝚢𝚝𝚑𝚘𝚗-水晶兰），或者通过我的邮箱2261748025@qq.com
++ If you need to contact, please add QQ number 2261748025 (Py𝙿𝚢𝚝𝚑𝚘𝚗-水晶兰), or through my email 2261748025@qq.com
 
 ### 子模块的名称与功能简介
 
@@ -60,6 +60,7 @@ The logo cannot be displayed on PyPI, it can be viewed in Gitee or GitHub.
 |   `pypynum.Graph`    |        图论算法 Graph Theory Algorithm         |
 |   `pypynum.Group`    |        群论算法 Group Theory Algorithm         |
 |   `pypynum.image`    |           图像处理 Image processing            |
+|   `pypynum.interp`   |          数据插值 Data Interpolation           |
 |   `pypynum.Logic`    |        逻辑电路设计 Logic circuit design         |
 |   `pypynum.maths`    |   通用数学函数 General mathematical functions    |
 |   `pypynum.Matrix`   |           矩阵运算 Matrix operation            |
@@ -124,22 +125,102 @@ Python interpreter and run it!
 ```
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-修复了矩阵的默认输出格式
-
-Fixed the default output format of the matrix
-
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
 multiprec模块新增了一些函数
 
 The multiprec module has added some new functions
 
-mp_atan(x: Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
-mp_atan2(y: Union[int, str, decimal.Decimal], x: Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
-mp_cosh(x: Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
-mp_exp(x: Union[int, str, decimal.Decimal], sigfigs: int, builtin: bool = True) -> decimal.Decimal
-mp_sinh(x: Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
-setprec(sigfigs: int)
+asmpc(real: Union[int, float, str, decimal.Decimal, complex, pypynum.multiprec.MPComplex], imag: Union[int, float, str, decimal.Decimal] = 0, sigfigs: int = 28) -> pypynum.multiprec.MPComplex
+mp_acos(x: Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+mp_asin(x: Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+mp_fresnel_c(x: Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+mp_fresnel_s(x: Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+
+
+新增了MPComplex类，
+其实现了多精度复数计算，
+目前支持加、减、乘、除、指数、对数等运算，
+并且将在后面的版本增加各种三角函数。
+
+The MPComplex class has been added, 
+which implements multi precision complex calculations. 
+Currently, 
+it supports operations such as addition, 
+subtraction, 
+multiplication, 
+division, 
+exponentiation, 
+and logarithm, 
+and various trigonometric functions will be added in later versions.
+
+MPComplex(real, imag, sigfigs=28)
+
+
+创建多精度复数时建议使用asmpc函数，
+因为它可以更方便地把其他数值类型转换为MPComplex对象。
+
+It is recommended to use the asmpc function when creating multi precision complex numbers, 
+as it can more easily convert other numerical types to MPComplex objects.
+
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+
+移除了pypynum.tools.interp函数，改名为interp1d，
+与新增的interp2d函数置于新的子模块——pypynum.interp。
+
+Removed the pypynum.tools.interp function and renamed it interp1d, 
+placing it in a new submodule - pypynum.interp - along with the newly added interp2d function.
+
+
+Help on module pypynum.interp in pypynum:
+
+NAME
+    pypynum.interp
+
+FUNCTIONS
+    bicubic(x)
+        Calculate the cubic B-spline interpolation function value.
+        :param x: The x value for which the B-spline function is evaluated.
+        :return: The value of the cubic B-spline function at x.
+
+    contribute(src, x, y, channels=None)
+        Calculate the contribution of the source array at a specific point after bicubic interpolation.
+        :param src: The source 2D array from which to interpolate.
+        :param x: The x-coordinate of the point to interpolate.
+        :param y: The y-coordinate of the point to interpolate.
+        :param channels: The number of channels if src is a multichannel array.
+        :return: The interpolated value at the point (x, y).
+
+    interp1d(data: Union[list, tuple], length: int) -> list
+        Introduction
+        ==========
+        One-dimensional data interpolation
+
+        Example
+        ==========
+        >>> interp1d((2, 4, 4, 2), 6)
+        [2, 3.320000000000001, 4.160000000000005, 4.160000000000012, 3.3200000000000074, 2]
+        >>>
+        :param data: List of data points to be interpolated. Must be at least two points.
+        :param length: The number of points in the resampled data set.
+        :return: A list of interpolated values at the new points.
+
+    interp2d(src, new_height, new_width, channels=None, round_res=False, min_val=None, max_val=None)
+        Introduction
+        ==========
+        Two-dimensional data interpolation using bicubic spline interpolation.
+
+        Example
+        ==========
+        >>> interp2d([[1, 2], [3, 4]], 3, 3)
+        [[1.0, 1.6875, 2.0], [2.25, 3.1640625, 3.375], [3.0, 3.9375, 4.0]]
+        >>>
+        :param src: The source 2D array to be interpolated.
+        :param new_height: The desired height of the interpolated array.
+        :param new_width: The desired width of the interpolated array.
+        :param channels: The number of channels if src is a multichannel array.
+        :param round_res: Whether to round the result to the nearest integer.
+        :param min_val: The minimum value to clip the interpolated results.
+        :param max_val: The maximum value to clip the interpolated results.
+        :return: A 2D array of the interpolated values with the new dimensions.
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 ```
@@ -380,6 +461,13 @@ PyPyNum
 │   │   └── PNG(object)/__init__(self: Any) -> None
 │   └── FUNCTION
 │       └── crc(data: Any, length: Any, init: Any, xor: Any) -> Any
+├── interp
+│   ├── CLASS
+│   └── FUNCTION
+│       ├── bicubic(x: Any) -> Any
+│       ├── contribute(src: Any, x: Any, y: Any, channels: Any) -> Any
+│       ├── interp1d(data: typing.Union[list, tuple], length: int) -> list
+│       └── interp2d(src: Any, new_height: Any, new_width: Any, channels: Any, round_res: Any, min_val: Any, max_val: Any) -> Any
 ├── maths
 │   ├── CLASS
 │   └── FUNCTION
@@ -416,7 +504,7 @@ PyPyNum
 │       ├── csch(x: typing.Union[int, float]) -> typing.Union[int, float]
 │       ├── cumprod(lst: typing.Union[list, tuple]) -> list
 │       ├── cumsum(lst: typing.Union[list, tuple]) -> list
-│       ├── deriv(f: Any, x: typing.Union[int, float], h: typing.Union[int, float], args: Any, kwargs: Any) -> float
+│       ├── deriv(f: Any, x: float, h: float, method: str, args: Any, kwargs: Any) -> Any
 │       ├── erf(x: typing.Union[int, float]) -> float
 │       ├── exgcd(a: int, b: int) -> tuple
 │       ├── exp(x: typing.Union[int, float]) -> typing.Union[int, float]
@@ -468,21 +556,28 @@ PyPyNum
 │       └── zeta(alpha: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
 ├── multiprec
 │   ├── CLASS
+│   │   └── MPComplex(object)/__init__(self: Any, real: Any, imag: Any, sigfigs: Any) -> Any
 │   └── FUNCTION
+│       ├── _remove_trailing_zeros(value: typing.Any) -> str
+│       ├── _setprec(sigfigs: int) -> Any
+│       ├── asmpc(real: typing.Union[int, float, str, decimal.Decimal, complex, pypynum.multiprec.MPComplex], imag: typing.Union[int, float, str, decimal.Decimal], sigfigs: int) -> pypynum.multiprec.MPComplex
 │       ├── frac2dec(frac: fractions.Fraction, sigfigs: int) -> decimal.Decimal
-│       ├── mp_atan(x: typing.Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
-│       ├── mp_atan2(y: typing.Union[int, str, decimal.Decimal], x: typing.Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
-│       ├── mp_cos(x: typing.Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
-│       ├── mp_cosh(x: typing.Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+│       ├── mp_acos(x: typing.Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+│       ├── mp_asin(x: typing.Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+│       ├── mp_atan(x: typing.Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+│       ├── mp_atan2(y: typing.Union[int, float, str, decimal.Decimal], x: typing.Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+│       ├── mp_cos(x: typing.Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+│       ├── mp_cosh(x: typing.Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
 │       ├── mp_e(sigfigs: int, method: str) -> decimal.Decimal
-│       ├── mp_exp(x: typing.Union[int, str, decimal.Decimal], sigfigs: int, builtin: bool) -> decimal.Decimal
-│       ├── mp_ln(x: typing.Union[int, str, decimal.Decimal], sigfigs: int, builtin: bool) -> decimal.Decimal
-│       ├── mp_log(x: typing.Union[int, str, decimal.Decimal], base: typing.Union[int, str, decimal.Decimal], sigfigs: int, builtin: bool) -> decimal.Decimal
+│       ├── mp_exp(x: typing.Union[int, float, str, decimal.Decimal], sigfigs: int, builtin: bool) -> decimal.Decimal
+│       ├── mp_fresnel_c(x: typing.Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+│       ├── mp_fresnel_s(x: typing.Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+│       ├── mp_ln(x: typing.Union[int, float, str, decimal.Decimal], sigfigs: int, builtin: bool) -> decimal.Decimal
+│       ├── mp_log(x: typing.Union[int, float, str, decimal.Decimal], base: typing.Union[int, float, str, decimal.Decimal], sigfigs: int, builtin: bool) -> decimal.Decimal
 │       ├── mp_phi(sigfigs: int, method: str) -> decimal.Decimal
 │       ├── mp_pi(sigfigs: int, method: str) -> decimal.Decimal
-│       ├── mp_sin(x: typing.Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
-│       ├── mp_sinh(x: typing.Union[int, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
-│       └── setprec(sigfigs: int) -> Any
+│       ├── mp_sin(x: typing.Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+│       └── mp_sinh(x: typing.Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
 ├── numbers
 │   ├── CLASS
 │   └── FUNCTION
@@ -504,10 +599,14 @@ PyPyNum
 │   ├── CLASS
 │   │   └── Polynomial(object)/__init__(self: Any, terms: Any) -> Any
 │   └── FUNCTION
+│       ├── chebgauss(n: Any) -> Any
+│       ├── chebpoly(n: Any, single: Any) -> Any
 │       ├── from_coeffs(coeffs: Any) -> Any
 │       ├── from_coords(coords: Any) -> Any
-│       ├── leggauss(polynomial: Any) -> Any
-│       ├── legpoly(n: Any) -> Any
+│       ├── laggauss(n: Any) -> Any
+│       ├── lagpoly(n: Any, single: Any) -> Any
+│       ├── leggauss(n: Any) -> Any
+│       ├── legpoly(n: Any, single: Any) -> Any
 │       └── poly(terms: Any) -> Any
 ├── pprinters
 │   ├── CLASS
@@ -563,7 +662,6 @@ PyPyNum
 │       ├── generate_primes(limit: int) -> list
 │       ├── generate_semiprimes(limit: int) -> list
 │       ├── geomspace(start: typing.Union[int, float], stop: typing.Union[int, float], number: int) -> list
-│       ├── interp(data: typing.Union[list, tuple], length: int) -> list
 │       ├── linspace(start: typing.Union[int, float], stop: typing.Union[int, float], number: int) -> list
 │       ├── magic_square(n: Any) -> Any
 │       ├── primality(n: int, iter_num: int) -> bool
@@ -656,16 +754,22 @@ PyPyNum
         ├── 多精度余弦(x: typing.Union[int, float], 有效位数: int) -> decimal.Decimal
         ├── 多精度双曲余弦(x: typing.Union[int, float], 有效位数: int) -> decimal.Decimal
         ├── 多精度双曲正弦(x: typing.Union[int, float], 有效位数: int) -> decimal.Decimal
+        ├── 多精度反余弦(x: typing.Union[int, float], 有效位数: int) -> decimal.Decimal
         ├── 多精度反正切(x: typing.Union[int, float], 有效位数: int) -> decimal.Decimal
+        ├── 多精度反正弦(x: typing.Union[int, float], 有效位数: int) -> decimal.Decimal
         ├── 多精度圆周率(有效位数: int, 方法: str) -> decimal.Decimal
+        ├── 多精度复数(实部: typing.Union[int, float, str, decimal.Decimal], 虚部: typing.Union[int, float, str, decimal.Decimal], 有效位数: int) -> pypynum.multiprec.MPComplex
         ├── 多精度对数(真数: typing.Union[int, float], 底数: typing.Union[int, float], 有效位数: int, 使用内置方法: bool) -> decimal.Decimal
         ├── 多精度方位角(y: typing.Union[int, float], x: typing.Union[int, float], 有效位数: int) -> decimal.Decimal
         ├── 多精度欧拉数(有效位数: int, 方法: str) -> decimal.Decimal
         ├── 多精度正弦(x: typing.Union[int, float], 有效位数: int) -> decimal.Decimal
         ├── 多精度自然对数(真数: typing.Union[int, float], 有效位数: int, 使用内置方法: bool) -> decimal.Decimal
         ├── 多精度自然指数(指数: typing.Union[int, float], 有效位数: int, 使用内置方法: bool) -> decimal.Decimal
+        ├── 多精度菲涅耳余弦积分(x: typing.Union[int, float], 有效位数: int) -> decimal.Decimal
+        ├── 多精度菲涅耳正弦积分(x: typing.Union[int, float], 有效位数: int) -> decimal.Decimal
         ├── 多精度黄金分割率(有效位数: int, 方法: str) -> decimal.Decimal
         ├── 多项式方程(系数: list) -> list
+        ├── 字符串转整数(字符串: str) -> int
         ├── 导数(函数: Any, 参数: float, 步长: float, 额外参数: Any, 额外关键字参数: Any) -> float
         ├── 峰度(数据: typing.List[float], 费希尔: bool) -> float
         ├── 希尔256密码(文本: bytes, 密钥: list, 解密: bool) -> bytes
@@ -679,6 +783,8 @@ PyPyNum
         ├── 数组(数据: list, 检查: bool) -> pypynum.Array.Array
         ├── 整数转上标(标准字符串: str) -> str
         ├── 整数转下标(标准字符串: str) -> str
+        ├── 整数转单词(整数: int) -> str
+        ├── 整数转罗马数(整数: int, 上划线: bool) -> str
         ├── 方差(数据: typing.List[float], 自由度: int) -> float
         ├── 普莱费尔密码(文本: str, 密钥: str, 解密: bool) -> str
         ├── 最大公约数(args: int) -> int
@@ -690,6 +796,7 @@ PyPyNum
         ├── 正切(x: typing.Union[int, float]) -> typing.Union[int, float]
         ├── 正割(x: typing.Union[int, float]) -> typing.Union[int, float]
         ├── 正弦(x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 浮点数转分数(数值: float, 是否带分数: bool, 误差: float) -> tuple
         ├── 相关系数(x: typing.List[float], y: typing.List[float]) -> float
         ├── 积分(函数: Any, 积分开始: float, 积分结束: float, 积分点数: int, 额外参数: Any, 额外关键字参数: Any) -> float
         ├── 积累乘积(数据: typing.List[float]) -> float
@@ -702,6 +809,7 @@ PyPyNum
         ├── 线性方程组(左边: list, 右边: list) -> list
         ├── 组合数(总数: int, 选取数: int) -> int
         ├── 维吉尼亚密码(文本: str, 密钥: str, 解密: bool) -> str
+        ├── 罗马数转整数(罗马数: str) -> int
         ├── 自然对数(真数: typing.Union[int, float]) -> typing.Union[int, float]
         ├── 自然指数(指数: typing.Union[int, float]) -> typing.Union[int, float]
         ├── 莫尔斯密码(文本: str, 解密: bool) -> str
@@ -712,6 +820,7 @@ PyPyNum
         ├── 贝塞尔I0(x: typing.Union[int, float]) -> typing.Union[int, float]
         ├── 贝塞尔Iv(v: typing.Union[int, float], x: typing.Union[int, float]) -> typing.Union[int, float]
         ├── 负一整数次幂(指数: int) -> int
+        ├── 转为多精度复数(实部: typing.Union[int, float, str, decimal.Decimal, complex, pypynum.multiprec.MPComplex], 虚部: typing.Union[int, float, str, decimal.Decimal], 有效位数: int) -> pypynum.multiprec.MPComplex
         ├── 转换为列表(数据: Any) -> list
         ├── 转换为数组(数据: Any) -> pypynum.Array.Array
         ├── 连续乘积(下界: int, 上界: int, 函数: typing.Callable) -> float
