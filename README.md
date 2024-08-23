@@ -20,7 +20,7 @@ processing.</font><font color = red>[Python>=3.4]</font>
 [![Downloads](https://static.pepy.tech/badge/pypynum/month)](https://pepy.tech/project/pypynum)
 [![Downloads](https://static.pepy.tech/badge/pypynum/week)](https://pepy.tech/project/pypynum)
 
-## Version -> 1.13.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
+## Version -> 1.13.1 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
 
 ![](pypynum/PyPyNum.png)
 
@@ -125,102 +125,48 @@ Python interpreter and run it!
 ```
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-multiprec模块新增了一些函数
+修正了MPComplex的错误并且新增了部分用
+于计算三角函数的方法
 
-The multiprec module has added some new functions
-
-asmpc(real: Union[int, float, str, decimal.Decimal, complex, pypynum.multiprec.MPComplex], imag: Union[int, float, str, decimal.Decimal] = 0, sigfigs: int = 28) -> pypynum.multiprec.MPComplex
-mp_acos(x: Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
-mp_asin(x: Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
-mp_fresnel_c(x: Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
-mp_fresnel_s(x: Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
-
-
-新增了MPComplex类，
-其实现了多精度复数计算，
-目前支持加、减、乘、除、指数、对数等运算，
-并且将在后面的版本增加各种三角函数。
-
-The MPComplex class has been added, 
-which implements multi precision complex calculations. 
-Currently, 
-it supports operations such as addition, 
-subtraction, 
-multiplication, 
-division, 
-exponentiation, 
-and logarithm, 
-and various trigonometric functions will be added in later versions.
-
-MPComplex(real, imag, sigfigs=28)
-
-
-创建多精度复数时建议使用asmpc函数，
-因为它可以更方便地把其他数值类型转换为MPComplex对象。
-
-It is recommended to use the asmpc function when creating multi precision complex numbers, 
-as it can more easily convert other numerical types to MPComplex objects.
+Corrected errors in MPComplex
+and added some methods for
+calculating trigonometric
+functions
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-移除了pypynum.tools.interp函数，改名为interp1d，
-与新增的interp2d函数置于新的子模块——pypynum.interp。
+增加了levenshtein_distance函数
 
-Removed the pypynum.tools.interp function and renamed it interp1d, 
-placing it in a new submodule - pypynum.interp - along with the newly added interp2d function.
+Added levenshtein_distance function
 
 
-Help on module pypynum.interp in pypynum:
+Help on function levenshtein_distance in module pypynum.tools:
 
-NAME
-    pypynum.interp
+levenshtein_distance(s1: str, s2: str) -> int
+    Introduction
+    ==========
+    Calculate the Levenshtein distance between two strings.
 
-FUNCTIONS
-    bicubic(x)
-        Calculate the cubic B-spline interpolation function value.
-        :param x: The x value for which the B-spline function is evaluated.
-        :return: The value of the cubic B-spline function at x.
+    The Levenshtein distance is a measure of the difference between two strings. It is defined as the minimum number
+    of single-character edits (i.e., insertions, deletions or substitutions) required to change one string into the
+    other.
 
-    contribute(src, x, y, channels=None)
-        Calculate the contribution of the source array at a specific point after bicubic interpolation.
-        :param src: The source 2D array from which to interpolate.
-        :param x: The x-coordinate of the point to interpolate.
-        :param y: The y-coordinate of the point to interpolate.
-        :param channels: The number of channels if src is a multichannel array.
-        :return: The interpolated value at the point (x, y).
+    Example
+    ==========
+    >>> levenshtein_distance("kitten", "sitting")
+    3
+    >>>
+    :param s1: First string to compare.
+    :param s2: Second string to compare.
+    :return: The Levenshtein distance between the two strings.
 
-    interp1d(data: Union[list, tuple], length: int) -> list
-        Introduction
-        ==========
-        One-dimensional data interpolation
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-        Example
-        ==========
-        >>> interp1d((2, 4, 4, 2), 6)
-        [2, 3.320000000000001, 4.160000000000005, 4.160000000000012, 3.3200000000000074, 2]
-        >>>
-        :param data: List of data points to be interpolated. Must be at least two points.
-        :param length: The number of points in the resampled data set.
-        :return: A list of interpolated values at the new points.
+注意：以后的版本中的自述文件将更改为纯英文
 
-    interp2d(src, new_height, new_width, channels=None, round_res=False, min_val=None, max_val=None)
-        Introduction
-        ==========
-        Two-dimensional data interpolation using bicubic spline interpolation.
-
-        Example
-        ==========
-        >>> interp2d([[1, 2], [3, 4]], 3, 3)
-        [[1.0, 1.6875, 2.0], [2.25, 3.1640625, 3.375], [3.0, 3.9375, 4.0]]
-        >>>
-        :param src: The source 2D array to be interpolated.
-        :param new_height: The desired height of the interpolated array.
-        :param new_width: The desired width of the interpolated array.
-        :param channels: The number of channels if src is a multichannel array.
-        :param round_res: Whether to round the result to the nearest integer.
-        :param min_val: The minimum value to clip the interpolated results.
-        :param max_val: The maximum value to clip the interpolated results.
-        :return: A 2D array of the interpolated values with the new dimensions.
+Attention: The self description
+file in future versions will be
+changed to pure English
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 ```
@@ -662,6 +608,7 @@ PyPyNum
 │       ├── generate_primes(limit: int) -> list
 │       ├── generate_semiprimes(limit: int) -> list
 │       ├── geomspace(start: typing.Union[int, float], stop: typing.Union[int, float], number: int) -> list
+│       ├── levenshtein_distance(s1: str, s2: str) -> int
 │       ├── linspace(start: typing.Union[int, float], stop: typing.Union[int, float], number: int) -> list
 │       ├── magic_square(n: Any) -> Any
 │       ├── primality(n: int, iter_num: int) -> bool
@@ -1042,8 +989,8 @@ print(equations.poly_eq(p))
 print(equations.lin_eq(*m))
 
 """
-[(-1.5615528128088307-6.5209667308287455e-24j)   (1.0000000000000007+3.241554513744382e-25j)   (2.5615528128088294+4.456233626665941e-24j)]
-[ 1.6666666666666667 -0.6666666666666666 -0.4444444444444444]
+[(-1.5615528128088307-6.5209667308287455e-24j), (1.0000000000000007+3.241554513744382e-25j), (2.5615528128088294+4.456233626665941e-24j)]
+[1.6666666666666665, -0.6666666666666666, -0.4444444444444444]
 """
 
 print(maths.cot(constants.pi / 3))
@@ -1143,10 +1090,10 @@ print(random.randint(0, 9, [2, 3, 4]))
 print(random.uniform(0, 9, [2, 3, 4]))
 
 """
-[[[1.0022026821190488, -0.38242004448759154, -0.23648445523561967, 0.43813038741951754], [-0.3778652198785619, -0.03865603124657112, -1.5186239424691736, -0.7368762975012327], [-0.7580654190380791, -1.3672869759158346, 0.582588816791107, 1.0281649895276377]], [[0.5270622699930536, 0.6132250709048543, 0.9764619731696673, -0.13740454362420268], [-2.0801461607759886, -0.1935521020633617, 0.44420106801354153, 1.4830089202063659], [-0.8790685594194517, 0.45517163054358967, -1.1448643981658326, 0.986414969442009]]]
-[[[0.13698864758140294, 0.634190467772759, 0.25683276170297875, 0.9026812741081188], [0.26303437123782614, 0.02477620234532174, 0.9947822450199725, 0.5916822332583692], [0.7523977891797228, 0.6198410071512576, 0.05799276940261333, 0.4181042411131305]], [[0.21564211884049145, 0.30667940527138227, 0.03010277335333611, 0.904264028183912], [0.33977550248572597, 0.042594462434406455, 0.6371061749651907, 0.8639246364627866], [0.009159271907318911, 0.054475512265855563, 0.7109847662274855, 0.9695933487818381]]]
-[[[1, 6, 0, 1], [0, 4, 8, 3], [2, 4, 2, 8]], [[9, 7, 0, 6], [6, 2, 4, 6], [2, 2, 0, 1]]]
-[[[4.281963231653285, 7.6564706580977155, 2.7831005401808904, 4.69275453971821], [7.731377457312142, 7.026081604862776, 3.1623746844355916, 4.097454457127405], [1.0053860355938644, 8.396390096875859, 5.860124932392565, 0.7556741321519111]], [[3.0505373562186717, 5.846422325897977, 5.79128924014881, 5.322513543793011], [7.97334322055796, 0.4266873959996582, 6.217219949795519, 2.819046997201407], [7.195256735457888, 3.205909055908082, 2.9903485221015123, 6.695032815286013]]]
+[[[0.015128082827448793, -0.731558889632968, -0.23379102528494308, 0.5923285646572862], [0.6389462900078073, -1.6347914510943111, 2.3694029836271726, -0.568526047386569], [-1.4229328154353735, 0.45185125607678145, -0.4003256267251042, -1.1425679894907612]], [[1.2876668616276734, 0.934232416262927, -1.4096609242818299, 0.2683613962988281], [0.3503627719719857, 1.9613965063102903, -2.0790609695353077, -0.10339725500993839], [-0.9334087233797456, 1.1394611182611, 1.3341558691128073, -0.3838574172857678]]]
+[[[0.8274205130045614, 0.27524584776494854, 0.715710895889572, 0.5807271906102146], [0.21742840470887725, 0.04577819370109826, 0.873689463957162, 0.04119770233167375], [0.554823367037196, 0.5901404246422433, 0.21342393541488192, 0.2979716283166385]], [[0.6045948602408673, 0.265586003384665, 0.9646655285283718, 0.9873208424367568], [0.16916505841642293, 0.15942804932580645, 0.679004396069304, 0.4586819952716237], [0.6058239213086706, 0.37021967026096103, 0.0015603885735545608, 0.8432925281217005]]]
+[[[7, 2, 9, 7], [0, 5, 1, 3], [9, 1, 0, 2]], [[1, 2, 7, 5], [5, 7, 4, 1], [2, 5, 7, 9]]]
+[[[1.6682230173222767, 0.5174279535822173, 6.202024157209834, 5.097176032335483], [3.44538825088208, 3.7119354081208025, 4.584800897579607, 8.294514147889751], [7.201908571787272, 4.96544760729807, 5.896259095293225, 3.215472062129558]], [[6.352678024277219, 6.894646335413341, 2.0445980257056333, 1.5835361381716893], [6.363077167625872, 8.831103031792672, 6.229821243776864, 0.5639371628314593], [7.639545178199688, 8.079077083978365, 8.063058392021144, 8.673394953496695]]]
 """
 
 print(regression.lin_reg(list(range(5)), [2, 4, 6, 7, 8]))
@@ -1171,19 +1118,8 @@ print(tools.linspace(0, 2.8, 8))
 [0.0, 0.39999999999999997, 0.7999999999999999, 1.2, 1.5999999999999999, 1.9999999999999998, 2.4, 2.8]
 """
 
-# 提示：
-# 
-# 测试已成功通过并结束。
-# 
-# 这些测试只是这个包功能的一部分。
-# 
-# 更多的功能需要自己探索和尝试！
-# 
 # Tip:
-# 
 # The test has been successfully passed and ended.
-# 
 # These tests are only part of the functionality of this package.
-# 
 # More features need to be explored and tried by yourself!
 ```
