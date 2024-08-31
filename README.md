@@ -20,76 +20,68 @@ processing.</font><font color = red>[Python>=3.4]</font>
 [![Downloads](https://static.pepy.tech/badge/pypynum/month)](https://pepy.tech/project/pypynum)
 [![Downloads](https://static.pepy.tech/badge/pypynum/week)](https://pepy.tech/project/pypynum)
 
-## Version -> 1.13.1 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
+## Version -> 1.14.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
 
 ![](pypynum/PyPyNum.png)
 
-PyPI上无法显示logo，可以在Gitee或者GitHub中查看。
-
 The logo cannot be displayed on PyPI, it can be viewed in Gitee or GitHub.
 
-### 介绍
+### Introduction
 
-#### Introduction
-
-+ 多功能数学库，类似于numpy、scipy等，专为PyPy解释器制作，亦支持其他类型的Python解释器
 + Multi functional math library, similar to numpy, scipy, etc., designed specifically for PyPy interpreters and also
   supports other types of Python interpreters
-+ 不定期更新版本，增加更多实用功能
 + Update versions periodically to add more practical features
-+ 如需联系，请添加QQ号2261748025（Py𝙿𝚢𝚝𝚑𝚘𝚗-水晶兰），或者通过我的邮箱2261748025@qq.com
 + If you need to contact, please add QQ number 2261748025 (Py𝙿𝚢𝚝𝚑𝚘𝚗-水晶兰), or through my email 2261748025@qq.com
 
-### 子模块的名称与功能简介
+### Name and Function Introduction of Submodules
 
-#### Name and Function Introduction of Submodules
+|    Submodule Name    |        Function Introduction        |
+|:--------------------:|:-----------------------------------:|
+|   `pypynum.Array`    |       Multidimensional array        |
+|   `pypynum.bessel`   |          Bessel functions           |
+|   `pypynum.chars`    |    Special mathematical symbols     |
+|   `pypynum.cipher`   | Encryption and decryption algorithm |
+|   `pypynum.confs`    |       Universal configuration       |
+| `pypynum.constants`  |    Set of mathematical constants    |
+|  `pypynum.crandom`   |        Random complex number        |
+|  `pypynum.dataproc`  |           Data processing           |
+|   `pypynum.dists`    |      Probability distribution       |
+| `pypynum.equations`  |          Solving equations          |
+|   `pypynum.errors`   |          Exception object           |
+|    `pypynum.file`    |         File read and write         |
+|  `pypynum.FourierT`  |          Fourier transform          |
+|  `pypynum.Geometry`  |           Geometric shape           |
+|   `pypynum.Graph`    |       Graph Theory Algorithm        |
+|   `pypynum.Group`    |       Group Theory Algorithm        |
+|   `pypynum.image`    |          Image processing           |
+|   `pypynum.interp`   |         Data Interpolation          |
+|   `pypynum.Logic`    |        Logic circuit design         |
+|   `pypynum.maths`    |   General mathematical functions    |
+|   `pypynum.Matrix`   |          Matrix operation           |
+| `pypynum.multiprec`  |     Multi precision calculation     |
+|  `pypynum.NeuralN`   |       Neural network training       |
+|  `pypynum.numbers`   |          Number processing          |
+|  `pypynum.plotting`  |         Data visualization          |
+| `pypynum.polynomial` |        Polynomial operation         |
+| `pypynum.pprinters`  |           Pretty printers           |
+| `pypynum.Quaternion` |        Quaternion operation         |
+|   `pypynum.random`   |      Random number generation       |
+| `pypynum.regression` |         Regression analysis         |
+|  `pypynum.sequence`  |        Sequence calculation         |
+|  `pypynum.stattest`  |          Statistical test           |
+| `pypynum.Symbolics`  |         Symbol calculation          |
+|   `pypynum.Tensor`   |          Tensor operation           |
+|    `pypynum.test`    |              Easy test              |
+|    `pypynum.this`    |           Zen of Projects           |
+|   `pypynum.tools`    |         Auxiliary functions         |
+|    `pypynum.Tree`    |         Tree data structure         |
+|   `pypynum.types`    |            Special types            |
+|   `pypynum.ufuncs`   |         Universal functions         |
+|   `pypynum.utils`    |               Utility               |
+|   `pypynum.Vector`   |          Vector operation           |
+|   `pypynum.zh_cn`    |    Functions with Chinese names     |
 
-| 子模块名称 Submodule Name |         功能简介 Function Introduction         |
-|:--------------------:|:------------------------------------------:|
-|   `pypynum.Array`    |        多维数组 Multidimensional array         |
-|   `pypynum.chars`    |    特殊数学符号 Special mathematical symbols     |
-|   `pypynum.cipher`   | 加密解密算法 Encryption and decryption algorithm |
-|   `pypynum.confs`    |        通用配置 Universal configuration        |
-| `pypynum.constants`  |    数学常数集合 Set of mathematical constants    |
-|   `pypynum.dists`    |       概率分布 Probability distribution        |
-| `pypynum.equations`  |           方程求解 Solving equations           |
-|   `pypynum.errors`   |           异常对象 Exception object            |
-|    `pypynum.file`    |          文件读写 File read and write          |
-|  `pypynum.FourierT`  |          傅里叶变换 Fourier transform           |
-|  `pypynum.Geometry`  |            几何形状 Geometric shape            |
-|   `pypynum.Graph`    |        图论算法 Graph Theory Algorithm         |
-|   `pypynum.Group`    |        群论算法 Group Theory Algorithm         |
-|   `pypynum.image`    |           图像处理 Image processing            |
-|   `pypynum.interp`   |          数据插值 Data Interpolation           |
-|   `pypynum.Logic`    |        逻辑电路设计 Logic circuit design         |
-|   `pypynum.maths`    |   通用数学函数 General mathematical functions    |
-|   `pypynum.Matrix`   |           矩阵运算 Matrix operation            |
-| `pypynum.multiprec`  |     多精度计算 Multi precision calculation      |
-|  `pypynum.NeuralN`   |       神经网络训练 Neural network training       |
-|  `pypynum.numbers`   |           数字处理 Number processing           |
-|  `pypynum.plotting`  |          数据可视化 Data visualization          |
-| `pypynum.polynomial` |         多项式运算 Polynomial operation         |
-| `pypynum.pprinters`  |            美化打印 Pretty printers            |
-| `pypynum.Quaternion` |         四元数运算 Quaternion operation         |
-|   `pypynum.random`   |       随机数生成 Random number generation       |
-| `pypynum.regression` |          回归分析 Regression analysis          |
-|  `pypynum.sequence`  |         数列计算 Sequence calculation          |
-|  `pypynum.stattest`  |           统计检验 Statistical test            |
-| `pypynum.Symbolics`  |          符号计算 Symbol calculation           |
-|   `pypynum.Tensor`   |           张量运算 Tensor operation            |
-|    `pypynum.test`    |               简易测试 Easy test               |
-|    `pypynum.this`    |            项目之禅 Zen of Projects            |
-|   `pypynum.tools`    |          辅助函数 Auxiliary functions          |
-|    `pypynum.Tree`    |         树形数据结构 Tree data structure         |
-|   `pypynum.types`    |             特殊类型 Special types             |
-|   `pypynum.ufuncs`   |          通用函数 Universal functions          |
-|   `pypynum.utils`    |                实用工具 Utility                |
-|   `pypynum.Vector`   |           向量运算 Vector operation            |
-|   `pypynum.zh_cn`    |    中文名的函数 Functions with Chinese names     |
-
-### PyPyNum的Zen（预览）
-
-#### The Zen of PyPyNum (Preview)
+### The Zen of PyPyNum (Preview)
 
 ```
     The Zen of PyPyNum, by Shen Jiayi
@@ -118,64 +110,57 @@ Python interpreter and run it!
                                         February 27, 2024
 ```
 
-### 与上一个版本相比功能变化
-
-#### Functional changes compared to the previous version
+### Functional changes compared to the previous version
 
 ```
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-修正了MPComplex的错误并且新增了部分用
-于计算三角函数的方法
-
-Corrected errors in MPComplex
-and added some methods for
-calculating trigonometric
-functions
+750 new lines have been added to the code
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-增加了levenshtein_distance函数
-
-Added levenshtein_distance function
+Newly added functions and classes
 
 
-Help on function levenshtein_distance in module pypynum.tools:
-
-levenshtein_distance(s1: str, s2: str) -> int
-    Introduction
-    ==========
-    Calculate the Levenshtein distance between two strings.
-
-    The Levenshtein distance is a measure of the difference between two strings. It is defined as the minimum number
-    of single-character edits (i.e., insertions, deletions or substitutions) required to change one string into the
-    other.
-
-    Example
-    ==========
-    >>> levenshtein_distance("kitten", "sitting")
-    3
-    >>>
-    :param s1: First string to compare.
-    :param s2: Second string to compare.
-    :return: The Levenshtein distance between the two strings.
+├── bessel
+│   ├── CLASS
+│   └── FUNCTION
+│       ├── bessel_i0(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── bessel_i1(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── bessel_iv(v: typing.Union[int, float], x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── bessel_j0(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── bessel_j1(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       └── bessel_jv(v: typing.Union[int, float], x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+├── crandom
+│   └── FUNCTION
+│       ├── randint_polar(left: int, right: int, mod: typing.Union[int, float], angle: typing.Union[int, float]) -> complex
+│       ├── randint_rect(left: int, right: int, real: typing.Union[int, float], imag: typing.Union[int, float]) -> complex
+│       ├── random_polar(mod: typing.Union[int, float], angle: typing.Union[int, float]) -> complex
+│       ├── random_rect(real: typing.Union[int, float], imag: typing.Union[int, float]) -> complex
+│       ├── uniform_polar(left: typing.Union[int, float], right: typing.Union[int, float], mod: typing.Union[int, float], angle: typing.Union[int, float]) -> complex
+│       └── uniform_rect(left: typing.Union[int, float], right: typing.Union[int, float], real: typing.Union[int, float], imag: typing.Union[int, float]) -> complex
+├── dataproc
+│   ├── CLASS
+│   │   └── Series(object)/__init__(self: Any, data: typing.Any, index: typing.Any) -> None
+├── maths
+│   └── FUNCTION
+│       ├── quantile(data: list, q: float, interpolation: str, ordered: bool) -> float
+├── numbers
+│   └── FUNCTION
+│       ├── parse_float(s: str) -> tuple
+│       ├── split_float(s: str) -> tuple
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-注意：以后的版本中的自述文件将更改为纯英文
-
-Attention: The self description
-file in future versions will be
-changed to pure English
+Tip: The second type of Bessel
+function has not been
+implemented yet, but will be
+added in future versions.
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 ```
 
-### 运行用时测试
-
-#### Run Time Test
-
-Python解释器版本
+### Run Time Test
 
 Python interpreter version
 
@@ -183,31 +168,31 @@ Python interpreter version
 
 + PyPy 3.10.12
 
-|                     矩阵用时测试<br>Matrix Time Test                     |                                                                            NumPy﻿+﻿CPython﻿（﻿seconds﻿）                                                                             | 排名<br>Ranking |                                                                             PyPyNum﻿+﻿PyPy﻿（﻿seconds﻿）                                                                             | 排名<br>Ranking |                                                                           Mpmath﻿_﻿+﻿_﻿PyPy﻿_﻿（﻿_﻿seconds﻿_﻿）                                                                           | 排名<br>Ranking |                                                                                                     SymPy﻿_﻿+﻿_﻿PyPy﻿_﻿（﻿_﻿seconds﻿_﻿）                                                                                                     | 排名<br>Ranking |
-|:------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------:|
-| 创﻿建﻿一﻿百﻿阶﻿随﻿机﻿数﻿矩﻿阵<br>Create a hundred order random number matrix |                                                                                      0.000083                                                                                      |       1       |                                                                                      0.005374                                                                                      |       2       |                                                                                        0.075253                                                                                         |       3       |                                                                                                                  0.230530                                                                                                                  |       4       |
-|     创建一千阶随机数矩阵<br>Create a thousand order random number matrix     |                                                                                      0.006740                                                                                      |       1       |                                                                                      0.035666                                                                                      |       2       |                                                                                        1.200950                                                                                         |       3       |                                                                                                                  4.370265                                                                                                                  |       4       |
-|        一百阶矩阵相加<br>Addition of matrices of order one hundred        |                                                                                      0.000029                                                                                      |       1       |                                                                                      0.002163                                                                                      |       2       |                                                                                        0.045641                                                                                         |       4       |                                                                                                                  0.035700                                                                                                                  |       3       |
-|          一千阶矩阵相加<br>Adding matrices of order one thousand          |                                                                                      0.002647                                                                                      |       1       |                                                                                      0.019111                                                                                      |       2       |                                                                                        1.746957                                                                                         |       4       |                                                                                                                  0.771542                                                                                                                  |       3       |
-|         一百阶矩阵行列式<br>Determinant of a hundred order matrix          |                                                                                      0.087209                                                                                      |       2       |                                                                                      0.016331                                                                                      |       1       |                                                                                        4.354507                                                                                         |       3       |                                                                                                                  5.157206                                                                                                                  |       4       |
-|         一千阶矩阵行列式<br>Determinant of a thousand order matrix         |                                                                                      0.616113                                                                                      |       1       |                                                                                      3.509747                                                                                      |       2       |                                                                                  It takes a long time                                                                                   |       3       |                                                                                                            It takes a long time                                                                                                            |       4       |
-|      一百阶矩阵求逆<br>Finding the inverse of a hundred order matrix      |                                                                                      0.162770                                                                                      |       2       |                                                                                      0.015768                                                                                      |       1       |                                                                                        8.162948                                                                                         |       3       |                                                                                                                 21.437424                                                                                                                  |       4       |
-|     一千阶矩阵求逆<br>Finding the inverse of a thousand order matrix      |                                                                                      0.598905                                                                                      |       1       |                                                                                     17.072552                                                                                      |       2       |                                                                                  It takes a long time                                                                                   |       3       |                                                                                                            It takes a long time                                                                                                            |       4       |
-|                   数组输出效果<br>Array output effect                    | ```[[[[ -7 -67]```<br>```[-78  29]]```<br><br>```[[-86 -97]```<br>```[ 68  -3]]]```<br><br><br>```[[[ 11  42]```<br>```[ 24 -65]]```<br><br>```[[-60  72]```<br>```[ 73   2]]]]``` |       /       | ```[[[[ 37  83]```<br>```[ 40   2]]```<br><br>```[[ -5 -34]```<br>```[ -7  72]]]```<br><br><br>```[[[ 13 -64]```<br>```[  6  90]]```<br><br>```[[ 68  57]```<br>```[ 78  11]]]]``` |       /       | ```[-80.0   -8.0  80.0  -88.0]```<br>```[-99.0  -43.0  87.0   81.0]```<br>```[ 20.0  -55.0  98.0    8.0]```<br>```[  8.0   44.0  64.0  -35.0]```<br>(只支持矩阵)<br>(Only supports matrices) |       /       | ```⎡⎡16   -56⎤  ⎡ 8   -28⎤⎤```<br>```⎢⎢        ⎥  ⎢        ⎥⎥```<br>```⎢⎣-56  56 ⎦  ⎣-28  28 ⎦⎥```<br>```⎢                      ⎥```<br>```⎢ ⎡-2  7 ⎤   ⎡-18  63 ⎤⎥```<br>```⎢ ⎢      ⎥   ⎢        ⎥⎥```<br>```⎣ ⎣7   -7⎦   ⎣63   -63⎦⎦``` |       /       |
+| Matrix Time Test                               | NumPy+CPython (seconds)                                                                                                                                                            | Ranking | PyPyNum+PyPy (seconds)                                                                                                                                                             | Ranking | Mpmath_+_PyPy_ (seconds)                                                                                                                                                         | Ranking | SymPy_+_PyPy_ (seconds)                                                                                                                                                                                                                    | Ranking |
+|------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| Create a hundred order random number matrix    | 0.000083                                                                                                                                                                           | 1       | 0.005374                                                                                                                                                                           | 2       | 0.075253                                                                                                                                                                         | 3       | 0.230530                                                                                                                                                                                                                                   | 4       |
+| Create a thousand order random number matrix   | 0.006740                                                                                                                                                                           | 1       | 0.035666                                                                                                                                                                           | 2       | 1.200950                                                                                                                                                                         | 3       | 4.370265                                                                                                                                                                                                                                   | 4       |
+| Addition of matrices of order one hundred      | 0.000029                                                                                                                                                                           | 1       | 0.002163                                                                                                                                                                           | 2       | 0.045641                                                                                                                                                                         | 4       | 0.035700                                                                                                                                                                                                                                   | 3       |
+| Adding matrices of order one thousand          | 0.002647                                                                                                                                                                           | 1       | 0.019111                                                                                                                                                                           | 2       | 1.746957                                                                                                                                                                         | 4       | 0.771542                                                                                                                                                                                                                                   | 3       |
+| Determinant of a hundred order matrix          | 0.087209                                                                                                                                                                           | 2       | 0.016331                                                                                                                                                                           | 1       | 4.354507                                                                                                                                                                         | 3       | 5.157206                                                                                                                                                                                                                                   | 4       |
+| Determinant of a thousand order matrix         | 0.616113                                                                                                                                                                           | 1       | 3.509747                                                                                                                                                                           | 2       | It takes a long time                                                                                                                                                             | 3       | It takes a long time                                                                                                                                                                                                                       | 4       |
+| Finding the inverse of a hundred order matrix  | 0.162770                                                                                                                                                                           | 2       | 0.015768                                                                                                                                                                           | 1       | 8.162948                                                                                                                                                                         | 3       | 21.437424                                                                                                                                                                                                                                  | 4       |
+| Finding the inverse of a thousand order matrix | 0.598905                                                                                                                                                                           | 1       | 17.072552                                                                                                                                                                          | 2       | It takes a long time                                                                                                                                                             | 3       | It takes a long time                                                                                                                                                                                                                       | 4       |
+| Array output effect                            | ```[[[[ -7 -67]```<br>```[-78  29]]```<br><br>```[[-86 -97]```<br>```[ 68  -3]]]```<br><br><br>```[[[ 11  42]```<br>```[ 24 -65]]```<br><br>```[[-60  72]```<br>```[ 73   2]]]]``` | /       | ```[[[[ 37  83]```<br>```[ 40   2]]```<br><br>```[[ -5 -34]```<br>```[ -7  72]]]```<br><br><br>```[[[ 13 -64]```<br>```[  6  90]]```<br><br>```[[ 68  57]```<br>```[ 78  11]]]]``` | /       | ```[-80.0   -8.0  80.0  -88.0]```<br>```[-99.0  -43.0  87.0   81.0]```<br>```[ 20.0  -55.0  98.0    8.0]```<br>```[  8.0   44.0  64.0  -35.0]```<br><br>(Only supports matrices) | /       | ```⎡⎡16   -56⎤  ⎡ 8   -28⎤⎤```<br>```⎢⎢        ⎥  ⎢        ⎥⎥```<br>```⎢⎣-56  56 ⎦  ⎣-28  28 ⎦⎥```<br>```⎢                      ⎥```<br>```⎢ ⎡-2  7 ⎤   ⎡-18  63 ⎤⎥```<br>```⎢ ⎢      ⎥   ⎢        ⎥⎥```<br>```⎣ ⎣7   -7⎦   ⎣63   -63⎦⎦``` | /       |
 
-### 基本结构
-
-#### Basic structure
+### Basic structure
 
 ```
 PyPyNum
 ├── Array
 │   ├── CLASS
-│   │   └── Array(object)/__init__(self: Any, data: Any, check: Any) -> Any
+│   │   ├── Array(object)/__init__(self: Any, data: Any, check: Any) -> Any
+│   │   └── BoolArray(pypynum.Array.Array)/__init__(self: Any, data: Any, check: Any) -> Any
 │   └── FUNCTION
 │       ├── array(data: Any) -> Any
 │       ├── asarray(data: Any) -> Any
 │       ├── aslist(data: Any) -> Any
+│       ├── boolarray(data: Any) -> Any
 │       ├── fill(shape: Any, sequence: Any, repeat: Any, pad: Any, rtype: Any) -> Any
 │       ├── full(shape: Any, fill_value: Any, rtype: Any) -> Any
 │       ├── full_like(a: Any, fill_value: Any, rtype: Any) -> Any
@@ -322,6 +307,15 @@ PyPyNum
 │   │   └── Vector(pypynum.Array.Array)/__init__(self: Any, data: Any, check: Any) -> Any
 │   └── FUNCTION
 │       └── vec(data: Any) -> Any
+├── bessel
+│   ├── CLASS
+│   └── FUNCTION
+│       ├── bessel_i0(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── bessel_i1(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── bessel_iv(v: typing.Union[int, float], x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── bessel_j0(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── bessel_j1(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       └── bessel_jv(v: typing.Union[int, float], x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
 ├── chars
 │   ├── CLASS
 │   └── FUNCTION
@@ -349,6 +343,19 @@ PyPyNum
 │   └── FUNCTION
 ├── constants
 │   ├── CLASS
+│   └── FUNCTION
+├── crandom
+│   ├── CLASS
+│   └── FUNCTION
+│       ├── randint_polar(left: int, right: int, mod: typing.Union[int, float], angle: typing.Union[int, float]) -> complex
+│       ├── randint_rect(left: int, right: int, real: typing.Union[int, float], imag: typing.Union[int, float]) -> complex
+│       ├── random_polar(mod: typing.Union[int, float], angle: typing.Union[int, float]) -> complex
+│       ├── random_rect(real: typing.Union[int, float], imag: typing.Union[int, float]) -> complex
+│       ├── uniform_polar(left: typing.Union[int, float], right: typing.Union[int, float], mod: typing.Union[int, float], angle: typing.Union[int, float]) -> complex
+│       └── uniform_rect(left: typing.Union[int, float], right: typing.Union[int, float], real: typing.Union[int, float], imag: typing.Union[int, float]) -> complex
+├── dataproc
+│   ├── CLASS
+│   │   └── Series(object)/__init__(self: Any, data: typing.Any, index: typing.Any) -> None
 │   └── FUNCTION
 ├── dists
 │   ├── CLASS
@@ -433,8 +440,6 @@ PyPyNum
 │       ├── atan(x: typing.Union[int, float]) -> typing.Union[int, float]
 │       ├── atanh(x: typing.Union[int, float]) -> typing.Union[int, float]
 │       ├── average(data: typing.Union[list, tuple], weights: typing.Union[list, tuple]) -> float
-│       ├── bessel_i0(x: typing.Union[int, float]) -> typing.Union[int, float]
-│       ├── bessel_iv(v: typing.Union[int, float], x: typing.Union[int, float]) -> typing.Union[int, float]
 │       ├── beta(p: typing.Union[int, float], q: typing.Union[int, float]) -> typing.Union[int, float]
 │       ├── central_moment(data: typing.Union[list, tuple], order: int) -> float
 │       ├── coeff_det(x: typing.Union[list, tuple], y: typing.Union[list, tuple]) -> typing.Union[int, float, complex]
@@ -479,6 +484,7 @@ PyPyNum
 │       ├── primitive_root(a: int, single: bool) -> typing.Union[int, list]
 │       ├── product(numbers: typing.Union[list, tuple]) -> typing.Union[int, float, complex]
 │       ├── ptp(numbers: typing.Union[list, tuple]) -> typing.Union[int, float, complex]
+│       ├── quantile(data: list, q: float, interpolation: str, ordered: bool) -> float
 │       ├── raw_moment(data: typing.Union[list, tuple], order: int) -> float
 │       ├── roll(seq: typing.Union[list, tuple, str], shift: int) -> typing.Union[list, tuple, str]
 │       ├── root(x: typing.Union[int, float, complex], y: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
@@ -530,7 +536,9 @@ PyPyNum
 │       ├── float2fraction(number: float, mixed: bool, error: float) -> tuple
 │       ├── int2roman(integer: int, overline: bool) -> str
 │       ├── int2words(integer: int) -> str
+│       ├── parse_float(s: str) -> tuple
 │       ├── roman2int(roman_num: str) -> int
+│       ├── split_float(s: str) -> tuple
 │       └── str2int(string: str) -> int
 ├── plotting
 │   ├── CLASS
@@ -621,11 +629,18 @@ PyPyNum
 │   ├── CLASS
 │   └── FUNCTION
 │       ├── add(x: Any, y: Any) -> Any
+│       ├── apply(a: Any, func: Any, rtype: Any) -> Any
 │       ├── base_ufunc(arrays: Any, func: Any, args: Any, rtype: Any) -> Any
 │       ├── divide(x: Any, y: Any) -> Any
+│       ├── eq(x: Any, y: Any) -> Any
 │       ├── floor_divide(x: Any, y: Any) -> Any
+│       ├── ge(x: Any, y: Any) -> Any
+│       ├── gt(x: Any, y: Any) -> Any
+│       ├── le(x: Any, y: Any) -> Any
+│       ├── lt(x: Any, y: Any) -> Any
 │       ├── modulo(x: Any, y: Any) -> Any
 │       ├── multiply(x: Any, y: Any) -> Any
+│       ├── ne(x: Any, y: Any) -> Any
 │       ├── power(x: Any, y: Any, m: Any) -> Any
 │       ├── subtract(x: Any, y: Any) -> Any
 │       └── ufunc_helper(x: Any, y: Any, func: Any) -> Any
@@ -671,6 +686,7 @@ PyPyNum
         ├── 写入(文件: str, 对象: object) -> Any
         ├── 几何平均数(数据: typing.List[float]) -> float
         ├── 凯撒密码(文本: str, 移位: int, 解密: bool) -> str
+        ├── 分位数(数据: list, 分位值: float, 插值方法: str, 已排序: bool) -> float
         ├── 判定系数(x: typing.List[float], y: typing.List[float]) -> float
         ├── 判断平方数(n: int) -> bool
         ├── 加权平均(数据: typing.List[float], 权重: typing.List[float]) -> float
@@ -726,6 +742,7 @@ PyPyNum
         ├── 序列滚动(序列: typing.Iterator[typing.Any], 偏移: int) -> typing.Iterator[typing.Any]
         ├── 归一化(数据: typing.List[float], 目标: float) -> typing.List[float]
         ├── 扩展欧几里得算法(a: int, b: int) -> typing.Tuple[int, int, int]
+        ├── 拆分浮点数字符串(字符串: str) -> tuple
         ├── 排列数(总数: int, 选取数: int) -> int
         ├── 数组(数据: list, 检查: bool) -> pypynum.Array.Array
         ├── 整数转上标(标准字符串: str) -> str
@@ -760,12 +777,17 @@ PyPyNum
         ├── 自然对数(真数: typing.Union[int, float]) -> typing.Union[int, float]
         ├── 自然指数(指数: typing.Union[int, float]) -> typing.Union[int, float]
         ├── 莫尔斯密码(文本: str, 解密: bool) -> str
+        ├── 解析浮点数字符串(字符串: str) -> tuple
         ├── 误差函数(x: typing.Union[int, float]) -> typing.Union[int, float]
         ├── 读取(文件: str) -> list
         ├── 调和平均数(数据: typing.List[float]) -> float
         ├── 贝塔函数(p: float, q: float) -> float
-        ├── 贝塞尔I0(x: typing.Union[int, float]) -> typing.Union[int, float]
-        ├── 贝塞尔Iv(v: typing.Union[int, float], x: typing.Union[int, float]) -> typing.Union[int, float]
+        ├── 贝塞尔函数I0(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+        ├── 贝塞尔函数I1(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+        ├── 贝塞尔函数Iv(v: typing.Union[int, float], x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+        ├── 贝塞尔函数J0(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+        ├── 贝塞尔函数J1(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+        ├── 贝塞尔函数Jv(v: typing.Union[int, float], x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
         ├── 负一整数次幂(指数: int) -> int
         ├── 转为多精度复数(实部: typing.Union[int, float, str, decimal.Decimal, complex, pypynum.multiprec.MPComplex], 虚部: typing.Union[int, float, str, decimal.Decimal], 有效位数: int) -> pypynum.multiprec.MPComplex
         ├── 转换为列表(数据: Any) -> list
@@ -778,9 +800,7 @@ PyPyNum
         └── 黎曼函数(alpha: float) -> float
 ```
 
-### 代码测试
-
-#### Code testing
+### Code testing
 
 ```python
 from pypynum import (Array, Geometry, Logic, Matrix, Quaternion, Symbolics, Tensor, Vector,
