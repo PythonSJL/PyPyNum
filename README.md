@@ -20,9 +20,9 @@ processing.</font><font color = red>[Python>=3.4]</font>
 [![Downloads](https://static.pepy.tech/badge/pypynum/month)](https://pepy.tech/project/pypynum)
 [![Downloads](https://static.pepy.tech/badge/pypynum/week)](https://pepy.tech/project/pypynum)
 
-## Version -> 1.14.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
+## Version -> 1.14.1 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
 
-![](pypynum/PyPyNum.png)
+![LOGO](pypynum/PyPyNum.png)
 
 The logo cannot be displayed on PyPI, it can be viewed in Gitee or GitHub.
 
@@ -84,16 +84,15 @@ The logo cannot be displayed on PyPI, it can be viewed in Gitee or GitHub.
 ### The Zen of PyPyNum (Preview)
 
 ```
-    The Zen of PyPyNum, by Shen Jiayi
+                The Zen of PyPyNum, by Shen Jiayi
 
-This is a math package written purely in Python.
-
-Elegant is superior to clunky.
-Clarity trumps obscurity.
-Straightforwardness is preferred over convolution.
-Sophisticated is better than overcomplicated.
-Flat structure beats nested hierarchies.
-Sparse code wins over bloated ones.
+In this mathematical sanctuary, we weave our algorithms with pure Python threads.
+Precision outweighs approximation.
+Elegance in mathematics transcends the bulky algorithms.
+Clarity in logic illuminates the darkest problems.
+Simplicity in form is the pinnacle of sophistication.
+Flat hierarchies in our code mirror the linear nature of functions.
+Sparse code, like a minimal polynomial, retains essence without redundancy.
 ```
 
 ```
@@ -107,7 +106,7 @@ Python interpreter and run it!
 ```
 
 ```
-                                        February 27, 2024
+                                                                September 5, 2024
 ```
 
 ### Functional changes compared to the previous version
@@ -115,47 +114,39 @@ Python interpreter and run it!
 ```
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-750 new lines have been added to the code
+< Fixed the display issue of multi precision complex numbers >
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-Newly added functions and classes
-
-
-├── bessel
-│   ├── CLASS
-│   └── FUNCTION
-│       ├── bessel_i0(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
-│       ├── bessel_i1(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
-│       ├── bessel_iv(v: typing.Union[int, float], x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
-│       ├── bessel_j0(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
-│       ├── bessel_j1(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
-│       └── bessel_jv(v: typing.Union[int, float], x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
-├── crandom
-│   └── FUNCTION
-│       ├── randint_polar(left: int, right: int, mod: typing.Union[int, float], angle: typing.Union[int, float]) -> complex
-│       ├── randint_rect(left: int, right: int, real: typing.Union[int, float], imag: typing.Union[int, float]) -> complex
-│       ├── random_polar(mod: typing.Union[int, float], angle: typing.Union[int, float]) -> complex
-│       ├── random_rect(real: typing.Union[int, float], imag: typing.Union[int, float]) -> complex
-│       ├── uniform_polar(left: typing.Union[int, float], right: typing.Union[int, float], mod: typing.Union[int, float], angle: typing.Union[int, float]) -> complex
-│       └── uniform_rect(left: typing.Union[int, float], right: typing.Union[int, float], real: typing.Union[int, float], imag: typing.Union[int, float]) -> complex
-├── dataproc
-│   ├── CLASS
-│   │   └── Series(object)/__init__(self: Any, data: typing.Any, index: typing.Any) -> None
-├── maths
-│   └── FUNCTION
-│       ├── quantile(data: list, q: float, interpolation: str, ordered: bool) -> float
-├── numbers
-│   └── FUNCTION
-│       ├── parse_float(s: str) -> tuple
-│       ├── split_float(s: str) -> tuple
+< Updated the Zen content of the project >
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-Tip: The second type of Bessel
-function has not been
-implemented yet, but will be
-added in future versions.
+< The following two function names have removed the 'generate' prefix >
+
+generate_primes(limit: int) -> list
+generate_semiprimes(limit: int) -> list
+
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+
+<<< Newly added functions and classes >>>
+
+PyPyNum
+├── Matrix
+│   └── FUNCTION
+│       └── triu_indices(n: int, k: int, m: int) -> tuple  # Returns the indices of the upper triangular part of a matrix
+├── multiprec
+│   └── FUNCTION
+│       ├── mp_euler_gamma(sigfigs: int) -> decimal.Decimal  # Returns the Euler-Mascheroni constant with specified significant figures
+├── sequence
+│   └── FUNCTION
+│       ├── bell_triangle(n: int) -> list  # Returns the first n rows of the Bell triangle
+│       ├── pascal_triangle(n: int) -> list  # Returns the first n rows of Pascal's triangle
+│       ├── stirling1(n: int) -> list  # Returns the first n rows of Stirling numbers of the first kind
+│       └── stirling2(n: int) -> list  # Returns the first n rows of Stirling numbers of the second kind
+├── tools
+│   └── FUNCTION
+│       └── twinprimes(limit: int) -> list  # Returns all twin prime pairs up to and including the specified limit
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 ```
@@ -270,7 +261,8 @@ PyPyNum
 │       ├── rank_decomp(matrix: pypynum.Matrix.Matrix) -> tuple
 │       ├── rotate90(matrix: pypynum.Matrix.Matrix, times: int) -> pypynum.Matrix.Matrix
 │       ├── svd(matrix: pypynum.Matrix.Matrix) -> tuple
-│       └── tril_indices(n: int, k: int, m: int) -> tuple
+│       ├── tril_indices(n: int, k: int, m: int) -> tuple
+│       └── triu_indices(n: int, k: int, m: int) -> tuple
 ├── NeuralN
 │   ├── CLASS
 │   │   └── NeuralNetwork(object)/__init__(self: Any, _input: Any, _hidden: Any, _output: Any) -> Any
@@ -521,6 +513,7 @@ PyPyNum
 │       ├── mp_cos(x: typing.Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
 │       ├── mp_cosh(x: typing.Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
 │       ├── mp_e(sigfigs: int, method: str) -> decimal.Decimal
+│       ├── mp_euler_gamma(sigfigs: int) -> decimal.Decimal
 │       ├── mp_exp(x: typing.Union[int, float, str, decimal.Decimal], sigfigs: int, builtin: bool) -> decimal.Decimal
 │       ├── mp_fresnel_c(x: typing.Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
 │       ├── mp_fresnel_s(x: typing.Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
@@ -586,12 +579,16 @@ PyPyNum
 │   ├── CLASS
 │   └── FUNCTION
 │       ├── arithmetic_sequence(a1: typing.Union[int, float], an: typing.Union[int, float], d: typing.Union[int, float], n: typing.Union[int, float], s: typing.Union[int, float]) -> dict
+│       ├── bell_triangle(n: int) -> list
 │       ├── bernoulli(n: int, single: bool) -> list
 │       ├── catalan(n: int, single: bool) -> typing.Union[int, list]
 │       ├── farey(n: int) -> list
 │       ├── fibonacci(n: int, single: bool) -> typing.Union[int, list]
 │       ├── geometric_sequence(a1: typing.Union[int, float], an: typing.Union[int, float], r: typing.Union[int, float], n: typing.Union[int, float], s: typing.Union[int, float]) -> dict
-│       └── recaman(n: int, single: bool) -> typing.Union[int, list]
+│       ├── pascal_triangle(n: int) -> list
+│       ├── recaman(n: int, single: bool) -> typing.Union[int, list]
+│       ├── stirling1(n: int) -> list
+│       └── stirling2(n: int) -> list
 ├── stattest
 │   ├── CLASS
 │   └── FUNCTION
@@ -613,15 +610,16 @@ PyPyNum
 │       ├── classify(array: typing.Union[list, tuple]) -> dict
 │       ├── dedup(iterable: typing.Union[list, tuple, str]) -> typing.Union[list, tuple, str]
 │       ├── frange(start: typing.Union[int, float], stop: typing.Union[int, float], step: float) -> list
-│       ├── generate_primes(limit: int) -> list
-│       ├── generate_semiprimes(limit: int) -> list
 │       ├── geomspace(start: typing.Union[int, float], stop: typing.Union[int, float], number: int) -> list
 │       ├── levenshtein_distance(s1: str, s2: str) -> int
 │       ├── linspace(start: typing.Union[int, float], stop: typing.Union[int, float], number: int) -> list
 │       ├── magic_square(n: Any) -> Any
 │       ├── primality(n: int, iter_num: int) -> bool
 │       ├── prime_factors(integer: int, dictionary: bool, pollard_rho: bool) -> typing.Union[list, dict]
-│       └── split(iterable: typing.Union[list, tuple, str], key: typing.Union[list, tuple], retain: bool) -> list
+│       ├── primes(limit: int) -> list
+│       ├── semiprimes(limit: int) -> list
+│       ├── split(iterable: typing.Union[list, tuple, str], key: typing.Union[list, tuple], retain: bool) -> list
+│       └── twinprimes(limit: int) -> list
 ├── types
 │   ├── CLASS
 │   └── FUNCTION
