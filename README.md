@@ -20,9 +20,9 @@ processing.</font><font color = red>[Python>=3.4]</font>
 [![Downloads](https://static.pepy.tech/badge/pypynum/month)](https://pepy.tech/project/pypynum)
 [![Downloads](https://static.pepy.tech/badge/pypynum/week)](https://pepy.tech/project/pypynum)
 
-## Version -> 1.14.1 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
+## Version -> 1.15.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
 
-![LOGO](pypynum/PyPyNum.png)
+![](pypynum/PyPyNum.png)
 
 The logo cannot be displayed on PyPI, it can be viewed in Gitee or GitHub.
 
@@ -35,51 +35,50 @@ The logo cannot be displayed on PyPI, it can be viewed in Gitee or GitHub.
 
 ### Name and Function Introduction of Submodules
 
-|    Submodule Name    |        Function Introduction        |
-|:--------------------:|:-----------------------------------:|
-|   `pypynum.Array`    |       Multidimensional array        |
-|   `pypynum.bessel`   |          Bessel functions           |
-|   `pypynum.chars`    |    Special mathematical symbols     |
-|   `pypynum.cipher`   | Encryption and decryption algorithm |
-|   `pypynum.confs`    |       Universal configuration       |
-| `pypynum.constants`  |    Set of mathematical constants    |
-|  `pypynum.crandom`   |        Random complex number        |
-|  `pypynum.dataproc`  |           Data processing           |
-|   `pypynum.dists`    |      Probability distribution       |
-| `pypynum.equations`  |          Solving equations          |
-|   `pypynum.errors`   |          Exception object           |
-|    `pypynum.file`    |         File read and write         |
-|  `pypynum.FourierT`  |          Fourier transform          |
-|  `pypynum.Geometry`  |           Geometric shape           |
-|   `pypynum.Graph`    |       Graph Theory Algorithm        |
-|   `pypynum.Group`    |       Group Theory Algorithm        |
-|   `pypynum.image`    |          Image processing           |
-|   `pypynum.interp`   |         Data Interpolation          |
-|   `pypynum.Logic`    |        Logic circuit design         |
-|   `pypynum.maths`    |   General mathematical functions    |
-|   `pypynum.Matrix`   |          Matrix operation           |
-| `pypynum.multiprec`  |     Multi precision calculation     |
-|  `pypynum.NeuralN`   |       Neural network training       |
-|  `pypynum.numbers`   |          Number processing          |
-|  `pypynum.plotting`  |         Data visualization          |
-| `pypynum.polynomial` |        Polynomial operation         |
-| `pypynum.pprinters`  |           Pretty printers           |
-| `pypynum.Quaternion` |        Quaternion operation         |
-|   `pypynum.random`   |      Random number generation       |
-| `pypynum.regression` |         Regression analysis         |
-|  `pypynum.sequence`  |        Sequence calculation         |
-|  `pypynum.stattest`  |          Statistical test           |
-| `pypynum.Symbolics`  |         Symbol calculation          |
-|   `pypynum.Tensor`   |          Tensor operation           |
-|    `pypynum.test`    |              Easy test              |
-|    `pypynum.this`    |           Zen of Projects           |
-|   `pypynum.tools`    |         Auxiliary functions         |
-|    `pypynum.Tree`    |         Tree data structure         |
-|   `pypynum.types`    |            Special types            |
-|   `pypynum.ufuncs`   |         Universal functions         |
-|   `pypynum.utils`    |               Utility               |
-|   `pypynum.Vector`   |          Vector operation           |
-|   `pypynum.zh_cn`    |    Functions with Chinese names     |
+|   Submodule Name    |                       Function Introduction                        |
+|:-------------------:|:------------------------------------------------------------------:|
+|  `pypynum.arrays`   | Provides operations and calculations for multi-dimensional arrays. |
+|  `pypynum.bessel`   |           Implements calculations for Bessel functions.            |
+|   `pypynum.chars`   |       Contains a variety of special mathematical characters.       |
+|  `pypynum.ciphers`  |      Implements various encryption and decryption algorithms.      |
+|  `pypynum.consts`   |           Contains mathematical and physical constants.            |
+|  `pypynum.crandom`  |                 Generates random complex numbers.                  |
+| `pypynum.dataproc`  |          Tools for data preprocessing and transformation.          |
+|   `pypynum.dists`   |    Statistical distribution functions and related calculations.    |
+| `pypynum.equations` |         Solves equations and performs symbolic operations.         |
+|    `pypynum.fft`    |  Implements Fast Fourier Transforms and related functionalities.   |
+|   `pypynum.files`   |                  File reading and writing tools.                   |
+|   `pypynum.geoms`   |             Geometric shapes and calculation methods.              |
+|  `pypynum.graphs`   |           Graph theory algorithms and network analysis.            |
+|  `pypynum.groups`   |         Group theory calculations and structural analysis.         |
+|  `pypynum.images`   |              Image processing and manipulation tools.              |
+|  `pypynum.interp`   |         Interpolation methods and function approximation.          |
+|  `pypynum.kernels`  |          Implementation of kernel functions and methods.           |
+|  `pypynum.logics`   |                    Simulates logical circuits.                     |
+|   `pypynum.maths`   |        Basic mathematical operations and special functions.        |
+| `pypynum.matrices`  |         Matrix operations and linear algebra calculations.         |
+| `pypynum.multiprec` |               High-precision numerical computations.               |
+| `pypynum.networks`  |                   Network models and algorithms.                   |
+|  `pypynum.numbers`  |           Operations on numerical types and properties.            |
+| `pypynum.plotting`  |                     Data visualization tools.                      |
+|   `pypynum.polys`   |              Polynomial operations and calculations.               |
+| `pypynum.pprinters` |              Advanced printing and formatting output.              |
+|   `pypynum.quats`   |             Quaternion operations and transformations.             |
+|  `pypynum.random`   |                Generates arrays of random numbers.                 |
+|   `pypynum.regs`    |               Regression analysis and model fitting.               |
+|   `pypynum.seqs`    |              Computes various mathematical sequences.              |
+| `pypynum.stattest`  |                Statistical tests and data analysis.                |
+|  `pypynum.symbols`  |         Symbolic computation and expression manipulation.          |
+|  `pypynum.tensors`  |                Tensor operations and calculations.                 |
+|   `pypynum.test`    |                Simple code testing for the library.                |
+|   `pypynum.this`    |     The Zen of the library, expressing its guiding principles.     |
+|   `pypynum.tools`   |                General tools and helper functions.                 |
+|   `pypynum.trees`   |           Tree structures and algorithm implementations.           |
+|   `pypynum.types`   |      Contains various types, exceptions, and configurations.       |
+|  `pypynum.ufuncs`   |           Universal functions and vectorized operations.           |
+|   `pypynum.utils`   |             Utility programs and auxiliary functions.              |
+|  `pypynum.vectors`  |                Vector operations and calculations.                 |
+|   `pypynum.zh_cn`   | Provides Chinese language interfaces for various functionalities.  |
 
 ### The Zen of PyPyNum (Preview)
 
@@ -109,44 +108,60 @@ Python interpreter and run it!
                                                                 September 5, 2024
 ```
 
-### Functional changes compared to the previous version
+### Functional Changes Compared to the Previous Version
 
 ```
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-< Fixed the display issue of multi precision complex numbers >
+Renamed most of the submodules,
+please refer to the
+"Name and Function Introduction of Submodules"
 
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-< Updated the Zen content of the project >
+MultiTreeNode renamed as MTNode
 
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-< The following two function names have removed the 'generate' prefix >
-
-generate_primes(limit: int) -> list
-generate_semiprimes(limit: int) -> list
+Fixed all known issues in trees and graphs,
+and added some new features.
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
 <<< Newly added functions and classes >>>
 
 PyPyNum
-├── Matrix
+├── kernels
 │   └── FUNCTION
-│       └── triu_indices(n: int, k: int, m: int) -> tuple  # Returns the indices of the upper triangular part of a matrix
-├── multiprec
+│       ├── det2x2kernel(a: typing.Union[list, tuple]) -> float
+│       ├── det3x3kernel(a: typing.Union[list, tuple]) -> float
+│       ├── det4x4kernel(a: typing.Union[list, tuple]) -> float
+│       ├── eigen2x2kernel(a: typing.Union[list, tuple]) -> tuple
+│       ├── inv2x2kernel(a: typing.Union[list, tuple]) -> list
+│       ├── inv3x3kernel(a: typing.Union[list, tuple]) -> list
+│       ├── inv4x4kernel(a: typing.Union[list, tuple]) -> list
+│       ├── lu2x2kernel(a: typing.Union[list, tuple]) -> tuple
+│       ├── lu3x3kernel(a: typing.Union[list, tuple]) -> tuple
+│       ├── lu4x4kernel(a: typing.Union[list, tuple]) -> tuple
+│       ├── matexp2x2kernel(a: typing.Union[list, tuple]) -> list
+│       ├── matmul2x2kernel(a: typing.Union[list, tuple], b: typing.Union[list, tuple]) -> list
+│       ├── matmul3x3kernel(a: typing.Union[list, tuple], b: typing.Union[list, tuple]) -> list
+│       ├── matmul4x4kernel(a: typing.Union[list, tuple], b: typing.Union[list, tuple]) -> list
+│       └── matpow2x2kernel(a: typing.Union[list, tuple], n: typing.Union[int, float, complex]) -> list
+├── seqs
 │   └── FUNCTION
-│       ├── mp_euler_gamma(sigfigs: int) -> decimal.Decimal  # Returns the Euler-Mascheroni constant with specified significant figures
-├── sequence
-│   └── FUNCTION
-│       ├── bell_triangle(n: int) -> list  # Returns the first n rows of the Bell triangle
-│       ├── pascal_triangle(n: int) -> list  # Returns the first n rows of Pascal's triangle
-│       ├── stirling1(n: int) -> list  # Returns the first n rows of Stirling numbers of the first kind
-│       └── stirling2(n: int) -> list  # Returns the first n rows of Stirling numbers of the second kind
+│       ├── lucas(n: int, single: bool) -> typing.Union[int, list]
+│       ├── pell(n: int, single: bool) -> typing.Union[int, list]
+│       ├── tetranacci(n: int, single: bool) -> typing.Union[int, list]
+│       └── tribonacci(n: int, single: bool) -> typing.Union[int, list]
 ├── tools
 │   └── FUNCTION
-│       └── twinprimes(limit: int) -> list  # Returns all twin prime pairs up to and including the specified limit
+│       ├── fast_pow(a: typing.Any, n: int, init: typing.Any, mul: typing.Callable) -> typing.Any
+├── trees
+│   ├── CLASS
+│   │   ├── BTNode(object)/__init__(self: Any, data: Any) -> Any
+│   │   ├── BinaryTree(object)/__init__(self: Any, root: Any) -> Any
+│   │   ├── RBTNode(object)/__init__(self: Any, data: Any, color: Any) -> Any
+│   │   └── RedBlackTree(object)/__init__(self: Any) -> Any
+
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 ```
@@ -171,14 +186,14 @@ Python interpreter version
 | Finding the inverse of a thousand order matrix | 0.598905                                                                                                                                                                           | 1       | 17.072552                                                                                                                                                                          | 2       | It takes a long time                                                                                                                                                             | 3       | It takes a long time                                                                                                                                                                                                                       | 4       |
 | Array output effect                            | ```[[[[ -7 -67]```<br>```[-78  29]]```<br><br>```[[-86 -97]```<br>```[ 68  -3]]]```<br><br><br>```[[[ 11  42]```<br>```[ 24 -65]]```<br><br>```[[-60  72]```<br>```[ 73   2]]]]``` | /       | ```[[[[ 37  83]```<br>```[ 40   2]]```<br><br>```[[ -5 -34]```<br>```[ -7  72]]]```<br><br><br>```[[[ 13 -64]```<br>```[  6  90]]```<br><br>```[[ 68  57]```<br>```[ 78  11]]]]``` | /       | ```[-80.0   -8.0  80.0  -88.0]```<br>```[-99.0  -43.0  87.0   81.0]```<br>```[ 20.0  -55.0  98.0    8.0]```<br>```[  8.0   44.0  64.0  -35.0]```<br><br>(Only supports matrices) | /       | ```⎡⎡16   -56⎤  ⎡ 8   -28⎤⎤```<br>```⎢⎢        ⎥  ⎢        ⎥⎥```<br>```⎢⎣-56  56 ⎦  ⎣-28  28 ⎦⎥```<br>```⎢                      ⎥```<br>```⎢ ⎡-2  7 ⎤   ⎡-18  63 ⎤⎥```<br>```⎢ ⎢      ⎥   ⎢        ⎥⎥```<br>```⎣ ⎣7   -7⎦   ⎣63   -63⎦⎦``` | /       |
 
-### Basic structure
+### Basic Structure
 
 ```
 PyPyNum
-├── Array
+├── arrays
 │   ├── CLASS
 │   │   ├── Array(object)/__init__(self: Any, data: Any, check: Any) -> Any
-│   │   └── BoolArray(pypynum.Array.Array)/__init__(self: Any, data: Any, check: Any) -> Any
+│   │   └── BoolArray(pypynum.arrays.Array)/__init__(self: Any, data: Any, check: Any) -> Any
 │   └── FUNCTION
 │       ├── array(data: Any) -> Any
 │       ├── asarray(data: Any) -> Any
@@ -193,112 +208,6 @@ PyPyNum
 │       ├── ones_like(a: Any, rtype: Any) -> Any
 │       ├── zeros(shape: Any, rtype: Any) -> Any
 │       └── zeros_like(a: Any, rtype: Any) -> Any
-├── FourierT
-│   ├── CLASS
-│   │   └── FT1D(object)/__init__(self: Any, data: Any) -> Any
-│   └── FUNCTION
-├── Geometry
-│   ├── CLASS
-│   │   ├── Circle(object)/__init__(self: Any, center: typing.Union[list, tuple], radius: typing.Union[int, float]) -> Any
-│   │   ├── Line(object)/__init__(self: Any, a: typing.Union[list, tuple], b: typing.Union[list, tuple]) -> Any
-│   │   ├── Point(object)/__init__(self: Any, p: typing.Union[list, tuple]) -> Any
-│   │   ├── Polygon(object)/__init__(self: Any, p: typing.Union[list, tuple]) -> Any
-│   │   ├── Quadrilateral(object)/__init__(self: Any, a: typing.Union[list, tuple], b: typing.Union[list, tuple], c: typing.Union[list, tuple], d: typing.Union[list, tuple]) -> Any
-│   │   └── Triangle(object)/__init__(self: Any, a: typing.Union[list, tuple], b: typing.Union[list, tuple], c: typing.Union[list, tuple]) -> Any
-│   └── FUNCTION
-│       └── distance(g1: Any, g2: Any, error: typing.Union[int, float]) -> float
-├── Graph
-│   ├── CLASS
-│   │   ├── BaseGraph(object)/__init__(self: Any) -> Any
-│   │   ├── BaseWeGraph(pypynum.Graph.BaseGraph)/__init__(self: Any) -> Any
-│   │   ├── DiGraph(pypynum.Graph.BaseGraph)/__init__(self: Any) -> Any
-│   │   ├── UnGraph(pypynum.Graph.BaseGraph)/__init__(self: Any) -> Any
-│   │   ├── WeDiGraph(pypynum.Graph.BaseWeGraph)/__init__(self: Any) -> Any
-│   │   └── WeUnGraph(pypynum.Graph.BaseWeGraph)/__init__(self: Any) -> Any
-│   └── FUNCTION
-├── Group
-│   ├── CLASS
-│   │   └── Group(object)/__init__(self: Any, data: Any, operation: Any) -> Any
-│   └── FUNCTION
-│       └── group(data: Any) -> Any
-├── Logic
-│   ├── CLASS
-│   │   ├── AND(pypynum.Logic.Binary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any) -> Any
-│   │   ├── Basic(object)/__init__(self: Any, label: Any) -> Any
-│   │   ├── Binary(pypynum.Logic.Basic)/__init__(self: Any, label: Any, pin0: Any, pin1: Any) -> Any
-│   │   ├── COMP(pypynum.Logic.Binary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any) -> Any
-│   │   ├── DFF(pypynum.Logic.Unary)/__init__(self: Any, label: Any, pin0: Any, state: Any) -> Any
-│   │   ├── FullAdder(pypynum.Logic.Ternary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any, pin2: Any) -> Any
-│   │   ├── FullSuber(pypynum.Logic.Ternary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any, pin2: Any) -> Any
-│   │   ├── HalfAdder(pypynum.Logic.Binary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any) -> Any
-│   │   ├── HalfSuber(pypynum.Logic.Binary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any) -> Any
-│   │   ├── JKFF(pypynum.Logic.Binary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any, state: Any) -> Any
-│   │   ├── NAND(pypynum.Logic.Binary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any) -> Any
-│   │   ├── NOR(pypynum.Logic.Binary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any) -> Any
-│   │   ├── NOT(pypynum.Logic.Unary)/__init__(self: Any, label: Any, pin0: Any) -> Any
-│   │   ├── OR(pypynum.Logic.Binary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any) -> Any
-│   │   ├── Quaternary(pypynum.Logic.Basic)/__init__(self: Any, label: Any, pin0: Any, pin1: Any, pin2: Any, pin3: Any) -> Any
-│   │   ├── TFF(pypynum.Logic.Unary)/__init__(self: Any, label: Any, pin0: Any, state: Any) -> Any
-│   │   ├── Ternary(pypynum.Logic.Basic)/__init__(self: Any, label: Any, pin0: Any, pin1: Any, pin2: Any) -> Any
-│   │   ├── TwoBDiver(pypynum.Logic.Quaternary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any, pin2: Any, pin3: Any) -> Any
-│   │   ├── TwoBMuler(pypynum.Logic.Quaternary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any, pin2: Any, pin3: Any) -> Any
-│   │   ├── Unary(pypynum.Logic.Basic)/__init__(self: Any, label: Any, pin0: Any) -> Any
-│   │   ├── XNOR(pypynum.Logic.Binary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any) -> Any
-│   │   └── XOR(pypynum.Logic.Binary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any) -> Any
-│   └── FUNCTION
-│       └── connector(previous: Any, latter: Any) -> Any
-├── Matrix
-│   ├── CLASS
-│   │   └── Matrix(pypynum.Array.Array)/__init__(self: Any, data: Any, check: Any) -> Any
-│   └── FUNCTION
-│       ├── cholesky(matrix: Any, hermitian: Any) -> Any
-│       ├── eigen(matrix: pypynum.Matrix.Matrix) -> tuple
-│       ├── hessenberg(matrix: pypynum.Matrix.Matrix) -> tuple
-│       ├── identity(n: int) -> pypynum.Matrix.Matrix
-│       ├── lu(matrix: pypynum.Matrix.Matrix) -> tuple
-│       ├── mat(data: Any) -> Any
-│       ├── qr(matrix: pypynum.Matrix.Matrix) -> tuple
-│       ├── rank_decomp(matrix: pypynum.Matrix.Matrix) -> tuple
-│       ├── rotate90(matrix: pypynum.Matrix.Matrix, times: int) -> pypynum.Matrix.Matrix
-│       ├── svd(matrix: pypynum.Matrix.Matrix) -> tuple
-│       ├── tril_indices(n: int, k: int, m: int) -> tuple
-│       └── triu_indices(n: int, k: int, m: int) -> tuple
-├── NeuralN
-│   ├── CLASS
-│   │   └── NeuralNetwork(object)/__init__(self: Any, _input: Any, _hidden: Any, _output: Any) -> Any
-│   └── FUNCTION
-│       └── neuraln(_input: Any, _hidden: Any, _output: Any) -> Any
-├── Quaternion
-│   ├── CLASS
-│   │   ├── Euler(object)/__init__(self: Any, y: typing.Union[int, float], p: typing.Union[int, float], r: typing.Union[int, float]) -> Any
-│   │   └── Quaternion(object)/__init__(self: Any, w: typing.Union[int, float], x: typing.Union[int, float], y: typing.Union[int, float], z: typing.Union[int, float]) -> Any
-│   └── FUNCTION
-│       ├── change(data: typing.Union[pypynum.Quaternion.Quaternion, pypynum.Matrix.Matrix, pypynum.Quaternion.Euler], to: str) -> typing.Union[pypynum.Quaternion.Quaternion, pypynum.Matrix.Matrix, pypynum.Quaternion.Euler]
-│       ├── euler(yaw: typing.Union[int, float], pitch: typing.Union[int, float], roll: typing.Union[int, float]) -> pypynum.Quaternion.Euler
-│       └── quat(w: typing.Union[int, float], x: typing.Union[int, float], y: typing.Union[int, float], z: typing.Union[int, float]) -> pypynum.Quaternion.Quaternion
-├── Symbolics
-│   ├── CLASS
-│   └── FUNCTION
-│       └── parse_expr(expr: str) -> list
-├── Tensor
-│   ├── CLASS
-│   │   └── Tensor(pypynum.Array.Array)/__init__(self: Any, data: Any, check: Any) -> Any
-│   └── FUNCTION
-│       ├── ten(data: list) -> pypynum.Tensor.Tensor
-│       ├── tensor_and_number(tensor: Any, operator: Any, number: Any) -> Any
-│       ├── tensorproduct(tensors: pypynum.Tensor.Tensor) -> pypynum.Tensor.Tensor
-│       ├── zeros(_dimensions: Any) -> Any
-│       └── zeros_like(_nested_list: Any) -> Any
-├── Tree
-│   ├── CLASS
-│   │   ├── MultiTree(object)/__init__(self: Any, root: Any) -> Any
-│   │   └── MultiTreeNode(object)/__init__(self: Any, data: Any) -> Any
-│   └── FUNCTION
-├── Vector
-│   ├── CLASS
-│   │   └── Vector(pypynum.Array.Array)/__init__(self: Any, data: Any, check: Any) -> Any
-│   └── FUNCTION
-│       └── vec(data: Any) -> Any
 ├── bessel
 │   ├── CLASS
 │   └── FUNCTION
@@ -315,7 +224,7 @@ PyPyNum
 │       ├── int2superscript(standard_str: str) -> str
 │       ├── subscript2int(subscript_str: str) -> str
 │       └── superscript2int(superscript_str: str) -> str
-├── cipher
+├── ciphers
 │   ├── CLASS
 │   └── FUNCTION
 │       ├── atbash(text: str) -> str
@@ -330,10 +239,7 @@ PyPyNum
 │       ├── rot13(text: str) -> str
 │       ├── substitution(text: str, sub_map: dict, decrypt: bool) -> str
 │       └── vigenere(text: str, key: str, decrypt: bool) -> str
-├── confs
-│   ├── CLASS
-│   └── FUNCTION
-├── constants
+├── consts
 │   ├── CLASS
 │   └── FUNCTION
 ├── crandom
@@ -393,15 +299,40 @@ PyPyNum
 │   └── FUNCTION
 │       ├── lin_eq(left: list, right: list) -> list
 │       └── poly_eq(coefficients: list) -> list
-├── errors
+├── fft
 │   ├── CLASS
+│   │   └── FT1D(object)/__init__(self: Any, data: Any) -> Any
 │   └── FUNCTION
-├── file
+├── files
 │   ├── CLASS
 │   └── FUNCTION
 │       ├── read(file: str) -> list
 │       └── write(file: str, cls: object) -> Any
-├── image
+├── geoms
+│   ├── CLASS
+│   │   ├── Circle(object)/__init__(self: Any, center: typing.Union[list, tuple], radius: typing.Union[int, float]) -> Any
+│   │   ├── Line(object)/__init__(self: Any, a: typing.Union[list, tuple], b: typing.Union[list, tuple]) -> Any
+│   │   ├── Point(object)/__init__(self: Any, p: typing.Union[list, tuple]) -> Any
+│   │   ├── Polygon(object)/__init__(self: Any, p: typing.Union[list, tuple]) -> Any
+│   │   ├── Quadrilateral(object)/__init__(self: Any, a: typing.Union[list, tuple], b: typing.Union[list, tuple], c: typing.Union[list, tuple], d: typing.Union[list, tuple]) -> Any
+│   │   └── Triangle(object)/__init__(self: Any, a: typing.Union[list, tuple], b: typing.Union[list, tuple], c: typing.Union[list, tuple]) -> Any
+│   └── FUNCTION
+│       └── distance(g1: Any, g2: Any, error: typing.Union[int, float]) -> float
+├── graphs
+│   ├── CLASS
+│   │   ├── BaseGraph(object)/__init__(self: Any) -> Any
+│   │   ├── BaseWeGraph(pypynum.graphs.BaseGraph)/__init__(self: Any) -> Any
+│   │   ├── DiGraph(pypynum.graphs.BaseGraph)/__init__(self: Any) -> Any
+│   │   ├── UnGraph(pypynum.graphs.BaseGraph)/__init__(self: Any) -> Any
+│   │   ├── WeDiGraph(pypynum.graphs.BaseWeGraph)/__init__(self: Any) -> Any
+│   │   └── WeUnGraph(pypynum.graphs.BaseWeGraph)/__init__(self: Any) -> Any
+│   └── FUNCTION
+├── groups
+│   ├── CLASS
+│   │   └── Group(object)/__init__(self: Any, data: Any, operation: Any) -> Any
+│   └── FUNCTION
+│       └── group(data: Any) -> Any
+├── images
 │   ├── CLASS
 │   │   └── PNG(object)/__init__(self: Any) -> None
 │   └── FUNCTION
@@ -413,6 +344,50 @@ PyPyNum
 │       ├── contribute(src: Any, x: Any, y: Any, channels: Any) -> Any
 │       ├── interp1d(data: typing.Union[list, tuple], length: int) -> list
 │       └── interp2d(src: Any, new_height: Any, new_width: Any, channels: Any, round_res: Any, min_val: Any, max_val: Any) -> Any
+├── kernels
+│   ├── CLASS
+│   └── FUNCTION
+│       ├── det2x2kernel(a: typing.Union[list, tuple]) -> float
+│       ├── det3x3kernel(a: typing.Union[list, tuple]) -> float
+│       ├── det4x4kernel(a: typing.Union[list, tuple]) -> float
+│       ├── eigen2x2kernel(a: typing.Union[list, tuple]) -> tuple
+│       ├── inv2x2kernel(a: typing.Union[list, tuple]) -> list
+│       ├── inv3x3kernel(a: typing.Union[list, tuple]) -> list
+│       ├── inv4x4kernel(a: typing.Union[list, tuple]) -> list
+│       ├── lu2x2kernel(a: typing.Union[list, tuple]) -> tuple
+│       ├── lu3x3kernel(a: typing.Union[list, tuple]) -> tuple
+│       ├── lu4x4kernel(a: typing.Union[list, tuple]) -> tuple
+│       ├── matexp2x2kernel(a: typing.Union[list, tuple]) -> list
+│       ├── matmul2x2kernel(a: typing.Union[list, tuple], b: typing.Union[list, tuple]) -> list
+│       ├── matmul3x3kernel(a: typing.Union[list, tuple], b: typing.Union[list, tuple]) -> list
+│       ├── matmul4x4kernel(a: typing.Union[list, tuple], b: typing.Union[list, tuple]) -> list
+│       └── matpow2x2kernel(a: typing.Union[list, tuple], n: typing.Union[int, float, complex]) -> list
+├── logics
+│   ├── CLASS
+│   │   ├── AND(pypynum.logics.Binary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any) -> Any
+│   │   ├── Basic(object)/__init__(self: Any, label: Any) -> Any
+│   │   ├── Binary(pypynum.logics.Basic)/__init__(self: Any, label: Any, pin0: Any, pin1: Any) -> Any
+│   │   ├── COMP(pypynum.logics.Binary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any) -> Any
+│   │   ├── DFF(pypynum.logics.Unary)/__init__(self: Any, label: Any, pin0: Any, state: Any) -> Any
+│   │   ├── FullAdder(pypynum.logics.Ternary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any, pin2: Any) -> Any
+│   │   ├── FullSuber(pypynum.logics.Ternary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any, pin2: Any) -> Any
+│   │   ├── HalfAdder(pypynum.logics.Binary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any) -> Any
+│   │   ├── HalfSuber(pypynum.logics.Binary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any) -> Any
+│   │   ├── JKFF(pypynum.logics.Binary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any, state: Any) -> Any
+│   │   ├── NAND(pypynum.logics.Binary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any) -> Any
+│   │   ├── NOR(pypynum.logics.Binary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any) -> Any
+│   │   ├── NOT(pypynum.logics.Unary)/__init__(self: Any, label: Any, pin0: Any) -> Any
+│   │   ├── OR(pypynum.logics.Binary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any) -> Any
+│   │   ├── Quaternary(pypynum.logics.Basic)/__init__(self: Any, label: Any, pin0: Any, pin1: Any, pin2: Any, pin3: Any) -> Any
+│   │   ├── TFF(pypynum.logics.Unary)/__init__(self: Any, label: Any, pin0: Any, state: Any) -> Any
+│   │   ├── Ternary(pypynum.logics.Basic)/__init__(self: Any, label: Any, pin0: Any, pin1: Any, pin2: Any) -> Any
+│   │   ├── TwoBDiver(pypynum.logics.Quaternary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any, pin2: Any, pin3: Any) -> Any
+│   │   ├── TwoBMuler(pypynum.logics.Quaternary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any, pin2: Any, pin3: Any) -> Any
+│   │   ├── Unary(pypynum.logics.Basic)/__init__(self: Any, label: Any, pin0: Any) -> Any
+│   │   ├── XNOR(pypynum.logics.Binary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any) -> Any
+│   │   └── XOR(pypynum.logics.Binary)/__init__(self: Any, label: Any, pin0: Any, pin1: Any) -> Any
+│   └── FUNCTION
+│       └── connector(previous: Any, latter: Any) -> Any
 ├── maths
 │   ├── CLASS
 │   └── FUNCTION
@@ -498,6 +473,22 @@ PyPyNum
 │       ├── var(numbers: typing.Union[list, tuple], dof: int) -> typing.Union[int, float, complex]
 │       ├── xlogy(x: typing.Union[int, float, complex], y: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
 │       └── zeta(alpha: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+├── matrices
+│   ├── CLASS
+│   │   └── Matrix(pypynum.arrays.Array)/__init__(self: Any, data: Any, check: Any) -> Any
+│   └── FUNCTION
+│       ├── cholesky(matrix: Any, hermitian: Any) -> Any
+│       ├── eigen(matrix: pypynum.matrices.Matrix) -> tuple
+│       ├── hessenberg(matrix: pypynum.matrices.Matrix) -> tuple
+│       ├── identity(n: int) -> pypynum.matrices.Matrix
+│       ├── lu(matrix: pypynum.matrices.Matrix) -> tuple
+│       ├── mat(data: Any) -> Any
+│       ├── qr(matrix: pypynum.matrices.Matrix) -> tuple
+│       ├── rank_decomp(matrix: pypynum.matrices.Matrix) -> tuple
+│       ├── rotate90(matrix: pypynum.matrices.Matrix, times: int) -> pypynum.matrices.Matrix
+│       ├── svd(matrix: pypynum.matrices.Matrix) -> tuple
+│       ├── tril_indices(n: int, k: int, m: int) -> tuple
+│       └── triu_indices(n: int, k: int, m: int) -> tuple
 ├── multiprec
 │   ├── CLASS
 │   │   └── MPComplex(object)/__init__(self: Any, real: Any, imag: Any, sigfigs: Any) -> Any
@@ -523,6 +514,11 @@ PyPyNum
 │       ├── mp_pi(sigfigs: int, method: str) -> decimal.Decimal
 │       ├── mp_sin(x: typing.Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
 │       └── mp_sinh(x: typing.Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+├── networks
+│   ├── CLASS
+│   │   └── NeuralNetwork(object)/__init__(self: Any, _input: Any, _hidden: Any, _output: Any) -> Any
+│   └── FUNCTION
+│       └── neuraln(_input: Any, _hidden: Any, _output: Any) -> Any
 ├── numbers
 │   ├── CLASS
 │   └── FUNCTION
@@ -542,7 +538,7 @@ PyPyNum
 │       ├── change(data: typing.Union[list, str]) -> typing.Union[list, str]
 │       ├── color(text: str, rgb: typing.Union[list, tuple]) -> str
 │       └── unary(function: Any, right: typing.Union[int, float], left: typing.Union[int, float], top: typing.Union[int, float], bottom: typing.Union[int, float], complexity: typing.Union[int, float], ratio: typing.Union[int, float], string: bool, basic: list, character: str, data: bool, coloration: Any) -> typing.Union[list, str]
-├── polynomial
+├── polys
 │   ├── CLASS
 │   │   └── Polynomial(object)/__init__(self: Any, terms: Any) -> Any
 │   └── FUNCTION
@@ -559,6 +555,14 @@ PyPyNum
 │   ├── CLASS
 │   └── FUNCTION
 │       └── pprint_matrix(matrix: Any, style: Any, output: Any) -> Any
+├── quats
+│   ├── CLASS
+│   │   ├── Euler(object)/__init__(self: Any, y: typing.Union[int, float], p: typing.Union[int, float], r: typing.Union[int, float]) -> Any
+│   │   └── Quaternion(object)/__init__(self: Any, w: typing.Union[int, float], x: typing.Union[int, float], y: typing.Union[int, float], z: typing.Union[int, float]) -> Any
+│   └── FUNCTION
+│       ├── change(data: typing.Union[pypynum.quats.Quaternion, pypynum.matrices.Matrix, pypynum.quats.Euler], to: str) -> typing.Union[pypynum.quats.Quaternion, pypynum.matrices.Matrix, pypynum.quats.Euler]
+│       ├── euler(yaw: typing.Union[int, float], pitch: typing.Union[int, float], roll: typing.Union[int, float]) -> pypynum.quats.Euler
+│       └── quat(w: typing.Union[int, float], x: typing.Union[int, float], y: typing.Union[int, float], z: typing.Union[int, float]) -> pypynum.quats.Quaternion
 ├── random
 │   ├── CLASS
 │   └── FUNCTION
@@ -569,13 +573,13 @@ PyPyNum
 │       ├── rand(shape: typing.Union[list, tuple]) -> typing.Union[float, list]
 │       ├── randint(a: int, b: int, shape: typing.Union[list, tuple]) -> typing.Union[int, list]
 │       └── uniform(a: typing.Union[int, float], b: typing.Union[int, float], shape: typing.Union[list, tuple]) -> typing.Union[float, list]
-├── regression
+├── regs
 │   ├── CLASS
 │   └── FUNCTION
 │       ├── lin_reg(x: typing.Union[list, tuple], y: typing.Union[list, tuple]) -> list
 │       ├── par_reg(x: typing.Union[list, tuple], y: typing.Union[list, tuple]) -> list
 │       └── poly_reg(x: typing.Union[list, tuple], y: typing.Union[list, tuple], n: int) -> list
-├── sequence
+├── seqs
 │   ├── CLASS
 │   └── FUNCTION
 │       ├── arithmetic_sequence(a1: typing.Union[int, float], an: typing.Union[int, float], d: typing.Union[int, float], n: typing.Union[int, float], s: typing.Union[int, float]) -> dict
@@ -585,10 +589,14 @@ PyPyNum
 │       ├── farey(n: int) -> list
 │       ├── fibonacci(n: int, single: bool) -> typing.Union[int, list]
 │       ├── geometric_sequence(a1: typing.Union[int, float], an: typing.Union[int, float], r: typing.Union[int, float], n: typing.Union[int, float], s: typing.Union[int, float]) -> dict
+│       ├── lucas(n: int, single: bool) -> typing.Union[int, list]
 │       ├── pascal_triangle(n: int) -> list
+│       ├── pell(n: int, single: bool) -> typing.Union[int, list]
 │       ├── recaman(n: int, single: bool) -> typing.Union[int, list]
 │       ├── stirling1(n: int) -> list
-│       └── stirling2(n: int) -> list
+│       ├── stirling2(n: int) -> list
+│       ├── tetranacci(n: int, single: bool) -> typing.Union[int, list]
+│       └── tribonacci(n: int, single: bool) -> typing.Union[int, list]
 ├── stattest
 │   ├── CLASS
 │   └── FUNCTION
@@ -598,6 +606,17 @@ PyPyNum
 │       ├── mediantest(samples: Any, ties: Any, lambda_: Any, corr: Any) -> Any
 │       ├── normaltest(data: list) -> tuple
 │       └── skewtest(data: list, two_tailed: bool) -> tuple
+├── symbols
+│   ├── CLASS
+│   └── FUNCTION
+│       └── parse_expr(expr: str) -> list
+├── tensors
+│   ├── CLASS
+│   │   └── Tensor(pypynum.arrays.Array)/__init__(self: Any, data: Any, check: Any) -> Any
+│   └── FUNCTION
+│       ├── ten(data: list) -> pypynum.tensors.Tensor
+│       ├── tensor_and_number(tensor: Any, operator: Any, number: Any) -> Any
+│       └── tensorproduct(tensors: pypynum.tensors.Tensor) -> pypynum.tensors.Tensor
 ├── test
 │   ├── CLASS
 │   └── FUNCTION
@@ -609,17 +628,27 @@ PyPyNum
 │   └── FUNCTION
 │       ├── classify(array: typing.Union[list, tuple]) -> dict
 │       ├── dedup(iterable: typing.Union[list, tuple, str]) -> typing.Union[list, tuple, str]
+│       ├── fast_pow(a: typing.Any, n: int, init: typing.Any, mul: typing.Callable) -> typing.Any
 │       ├── frange(start: typing.Union[int, float], stop: typing.Union[int, float], step: float) -> list
 │       ├── geomspace(start: typing.Union[int, float], stop: typing.Union[int, float], number: int) -> list
 │       ├── levenshtein_distance(s1: str, s2: str) -> int
 │       ├── linspace(start: typing.Union[int, float], stop: typing.Union[int, float], number: int) -> list
-│       ├── magic_square(n: Any) -> Any
+│       ├── magic_square(n: int) -> list
 │       ├── primality(n: int, iter_num: int) -> bool
 │       ├── prime_factors(integer: int, dictionary: bool, pollard_rho: bool) -> typing.Union[list, dict]
 │       ├── primes(limit: int) -> list
 │       ├── semiprimes(limit: int) -> list
 │       ├── split(iterable: typing.Union[list, tuple, str], key: typing.Union[list, tuple], retain: bool) -> list
 │       └── twinprimes(limit: int) -> list
+├── trees
+│   ├── CLASS
+│   │   ├── BTNode(object)/__init__(self: Any, data: Any) -> Any
+│   │   ├── BinaryTree(object)/__init__(self: Any, root: Any) -> Any
+│   │   ├── MTNode(object)/__init__(self: Any, data: Any) -> Any
+│   │   ├── MultiTree(object)/__init__(self: Any, root: Any) -> Any
+│   │   ├── RBTNode(object)/__init__(self: Any, data: Any, color: Any) -> Any
+│   │   └── RedBlackTree(object)/__init__(self: Any) -> Any
+│   └── FUNCTION
 ├── types
 │   ├── CLASS
 │   └── FUNCTION
@@ -650,6 +679,11 @@ PyPyNum
 │   │   ├── LinkedListNode(object)/__init__(self: Any, value: Any, next_node: Any) -> Any
 │   │   └── OrderedSet(object)/__init__(self: Any, sequence: Any) -> Any
 │   └── FUNCTION
+├── vectors
+│   ├── CLASS
+│   │   └── Vector(pypynum.arrays.Array)/__init__(self: Any, data: Any, check: Any) -> Any
+│   └── FUNCTION
+│       └── vec(data: Any) -> Any
 └── zh_cn
     ├── CLASS
     └── FUNCTION
@@ -662,7 +696,7 @@ PyPyNum
         ├── base64密码(文本: str, 解密: bool) -> str
         ├── x对数y乘积(x: float, y: float) -> float
         ├── y次方根(被开方数: typing.Union[int, float, complex], 开方数: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
-        ├── 一维傅里叶变换(数据: Any) -> pypynum.FourierT.FT1D
+        ├── 一维傅里叶变换(数据: Any) -> pypynum.fft.FT1D
         ├── 上伽玛(s: typing.Union[int, float, complex], x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
         ├── 上标转整数(上标字符串: str) -> str
         ├── 下伽玛(s: typing.Union[int, float, complex], x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
@@ -670,7 +704,7 @@ PyPyNum
         ├── 中位数(数据: typing.List[float]) -> float
         ├── 中国剩余定理(n: typing.List[int], a: typing.List[int]) -> int
         ├── 中心矩(数据: typing.List[float], 阶数: int) -> float
-        ├── 乘积和(数组: typing.List[typing.Any]) -> float
+        ├── 乘积和(多个数组: typing.List[typing.Any]) -> float
         ├── 代替密码(文本: str, 替换映射: dict, 解密: bool) -> str
         ├── 众数(数据: typing.List[typing.Any]) -> Any
         ├── 伽玛函数(alpha: float) -> float
@@ -742,7 +776,7 @@ PyPyNum
         ├── 扩展欧几里得算法(a: int, b: int) -> typing.Tuple[int, int, int]
         ├── 拆分浮点数字符串(字符串: str) -> tuple
         ├── 排列数(总数: int, 选取数: int) -> int
-        ├── 数组(数据: list, 检查: bool) -> pypynum.Array.Array
+        ├── 数组(数据: list, 检查: bool) -> pypynum.arrays.Array
         ├── 整数转上标(标准字符串: str) -> str
         ├── 整数转下标(标准字符串: str) -> str
         ├── 整数转单词(整数: int) -> str
@@ -789,7 +823,7 @@ PyPyNum
         ├── 负一整数次幂(指数: int) -> int
         ├── 转为多精度复数(实部: typing.Union[int, float, str, decimal.Decimal, complex, pypynum.multiprec.MPComplex], 虚部: typing.Union[int, float, str, decimal.Decimal], 有效位数: int) -> pypynum.multiprec.MPComplex
         ├── 转换为列表(数据: Any) -> list
-        ├── 转换为数组(数据: Any) -> pypynum.Array.Array
+        ├── 转换为数组(数据: Any) -> pypynum.arrays.Array
         ├── 连续乘积(下界: int, 上界: int, 函数: typing.Callable) -> float
         ├── 连续加和(下界: int, 上界: int, 函数: typing.Callable) -> float
         ├── 阶乘函数(n: int) -> int
@@ -798,18 +832,18 @@ PyPyNum
         └── 黎曼函数(alpha: float) -> float
 ```
 
-### Code testing
+### Code Testing
 
 ```python
-from pypynum import (Array, Geometry, Logic, Matrix, Quaternion, Symbolics, Tensor, Vector,
-                     cipher, constants, equations, maths, plotting, random, regression, tools)
+from pypynum import (arrays, geoms, logics, matrices, quats, symbols, tensors, vectors,
+                     ciphers, consts, equations, maths, plotting, random, regs, tools)
 
 ...
 
-print(Array.array())
-print(Array.array([1, 2, 3, 4, 5, 6, 7, 8]))
-print(Array.array([[1, 2, 3, 4], [5, 6, 7, 8]]))
-print(Array.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]]))
+print(arrays.array())
+print(arrays.array([1, 2, 3, 4, 5, 6, 7, 8]))
+print(arrays.array([[1, 2, 3, 4], [5, 6, 7, 8]]))
+print(arrays.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]]))
 
 """
 []
@@ -823,7 +857,7 @@ print(Array.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]]))
   [7 8]]]
 """
 
-triangle = Geometry.Triangle((0, 0), (2, 2), (3, 0))
+triangle = geoms.Triangle((0, 0), (2, 2), (3, 0))
 print(triangle.perimeter())
 print(triangle.area())
 print(triangle.centroid())
@@ -835,24 +869,24 @@ print(triangle.centroid())
 """
 
 a, b, c = 1, 1, 1
-adder0, adder1 = Logic.HalfAdder("alpha", a, b), Logic.HalfAdder("beta", c, None)
-xor0 = Logic.XOR("alpha")
-ff0, ff1 = Logic.DFF("alpha"), Logic.DFF("beta")
+adder0, adder1 = logics.HalfAdder("alpha", a, b), logics.HalfAdder("beta", c, None)
+xor0 = logics.XOR("alpha")
+ff0, ff1 = logics.DFF("alpha"), logics.DFF("beta")
 xor0.set_order0(1)
 xor0.set_order1(1)
-Logic.connector(adder0, adder1)
-Logic.connector(adder0, xor0)
-Logic.connector(adder1, xor0)
-Logic.connector(adder1, ff0)
-Logic.connector(xor0, ff1)
+logics.connector(adder0, adder1)
+logics.connector(adder0, xor0)
+logics.connector(adder1, xor0)
+logics.connector(adder1, ff0)
+logics.connector(xor0, ff1)
 print("sum: {}, carry: {}".format(ff0.out(), ff1.out()))
 
 """
 sum: [1], carry: [1]
 """
 
-m0 = Matrix.mat([[1, 2], [3, 4]])
-m1 = Matrix.mat([[5, 6], [7, 8]])
+m0 = matrices.mat([[1, 2], [3, 4]])
+m1 = matrices.mat([[5, 6], [7, 8]])
 print(m0)
 print(m1)
 print(m0 + m1)
@@ -874,8 +908,8 @@ print(m1.rank())
 2
 """
 
-q0 = Quaternion.quat(1, 2, 3, 4)
-q1 = Quaternion.quat(5, 6, 7, 8)
+q0 = quats.quat(1, 2, 3, 4)
+q1 = quats.quat(5, 6, 7, 8)
 print(q0)
 print(q1)
 print(q0 + q1)
@@ -892,10 +926,10 @@ print(q1.conjugate())
 (5+-6i+-7j+-8k)
 """
 
-print(Symbolics.BASIC)
-print(Symbolics.ENGLISH)
-print(Symbolics.GREEK)
-print(Symbolics.parse_expr("-(10+a-(3.14+b0)*(-5))**(-ζn1-2.718/mΣ99)//9"))
+print(symbols.BASIC)
+print(symbols.ENGLISH)
+print(symbols.GREEK)
+print(symbols.parse_expr("-(10+a-(3.14+b0)*(-5))**(-ζn1-2.718/mΣ99)//9"))
 
 """
 %()*+-./0123456789
@@ -904,8 +938,8 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
 [['10', '+', 'a', '-', ['3.14', '+', 'b0'], '*', '-5'], '**', ['-ζn1', '-', '2.718', '/', 'mΣ99'], '//', '9']
 """
 
-t0 = Tensor.ten([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
-t1 = Tensor.ten([[[9, 10], [11, 12]], [[13, 14], [15, 16]]])
+t0 = tensors.ten([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
+t1 = tensors.ten([[[9, 10], [11, 12]], [[13, 14], [15, 16]]])
 print(t0)
 print(t1)
 print(t0 + t1)
@@ -935,33 +969,33 @@ print(t0 @ t1)
 """
 
 string = "PyPyNum"
-encrypted = cipher.caesar(string, 10)
+encrypted = ciphers.caesar(string, 10)
 print(string)
 print(encrypted)
-print(cipher.caesar(encrypted, 10, decrypt=True))
-encrypted = cipher.vigenere(string, "cipher")
+print(ciphers.caesar(encrypted, 10, decrypt=True))
+encrypted = ciphers.vigenere(string, "ciphers")
 print(string)
 print(encrypted)
-print(cipher.vigenere(encrypted, "cipher", decrypt=True))
-encrypted = cipher.morse(string)
+print(ciphers.vigenere(encrypted, "ciphers", decrypt=True))
+encrypted = ciphers.morse(string)
 print(string)
 print(encrypted)
-print(cipher.morse(encrypted, decrypt=True))
+print(ciphers.morse(encrypted, decrypt=True))
 
 """
 PyPyNum
 ZiZiXew
 PyPyNum
 PyPyNum
-RgEfRlo
+RgEfRle
 PyPyNum
 PyPyNum
 .--. -.-- .--. -.-- -. ..- --
 PYPYNUM
 """
 
-v0 = Vector.vec([1, 2, 3, 4])
-v1 = Vector.vec([5, 6, 7, 8])
+v0 = vectors.vec([1, 2, 3, 4])
+v1 = vectors.vec([5, 6, 7, 8])
 print(v0)
 print(v1)
 print(v0 + v1)
@@ -978,12 +1012,12 @@ print(v1.angles())
 [1.1820279130506308, 1.0985826410133916, 1.0114070854293842, 0.9191723423169716]
 """
 
-print(constants.TB)
-print(constants.e)
-print(constants.h)
-print(constants.phi)
-print(constants.pi)
-print(constants.tera)
+print(consts.TB)
+print(consts.e)
+print(consts.h)
+print(consts.phi)
+print(consts.pi)
+print(consts.tera)
 
 """
 1099511627776
@@ -1011,7 +1045,7 @@ print(equations.lin_eq(*m))
 [1.6666666666666665, -0.6666666666666666, -0.4444444444444444]
 """
 
-print(maths.cot(constants.pi / 3))
+print(maths.cot(consts.pi / 3))
 print(maths.gamma(1.5))
 print(maths.pi(1, 10, lambda x: x ** 2))
 print(maths.product([2, 3, 5, 7, 11, 13, 17, 19, 23, 29]))
@@ -1108,15 +1142,15 @@ print(random.randint(0, 9, [2, 3, 4]))
 print(random.uniform(0, 9, [2, 3, 4]))
 
 """
-[[[0.015128082827448793, -0.731558889632968, -0.23379102528494308, 0.5923285646572862], [0.6389462900078073, -1.6347914510943111, 2.3694029836271726, -0.568526047386569], [-1.4229328154353735, 0.45185125607678145, -0.4003256267251042, -1.1425679894907612]], [[1.2876668616276734, 0.934232416262927, -1.4096609242818299, 0.2683613962988281], [0.3503627719719857, 1.9613965063102903, -2.0790609695353077, -0.10339725500993839], [-0.9334087233797456, 1.1394611182611, 1.3341558691128073, -0.3838574172857678]]]
-[[[0.8274205130045614, 0.27524584776494854, 0.715710895889572, 0.5807271906102146], [0.21742840470887725, 0.04577819370109826, 0.873689463957162, 0.04119770233167375], [0.554823367037196, 0.5901404246422433, 0.21342393541488192, 0.2979716283166385]], [[0.6045948602408673, 0.265586003384665, 0.9646655285283718, 0.9873208424367568], [0.16916505841642293, 0.15942804932580645, 0.679004396069304, 0.4586819952716237], [0.6058239213086706, 0.37021967026096103, 0.0015603885735545608, 0.8432925281217005]]]
-[[[7, 2, 9, 7], [0, 5, 1, 3], [9, 1, 0, 2]], [[1, 2, 7, 5], [5, 7, 4, 1], [2, 5, 7, 9]]]
-[[[1.6682230173222767, 0.5174279535822173, 6.202024157209834, 5.097176032335483], [3.44538825088208, 3.7119354081208025, 4.584800897579607, 8.294514147889751], [7.201908571787272, 4.96544760729807, 5.896259095293225, 3.215472062129558]], [[6.352678024277219, 6.894646335413341, 2.0445980257056333, 1.5835361381716893], [6.363077167625872, 8.831103031792672, 6.229821243776864, 0.5639371628314593], [7.639545178199688, 8.079077083978365, 8.063058392021144, 8.673394953496695]]]
+[[[0.825882516672574, 1.3725886771525058, 1.0633834034457958, -0.9653681933485563], [-0.26676981942597733, -0.8111218278822722, -2.0334645819975408, -0.6920477799264579], [0.219847607640343, -0.11124595869774408, 0.3959826652933697, 0.44979678957252417]], [[-0.32870040193220884, 0.02332530718848737, -0.11463753179571698, 0.76497128138739], [0.5471632308210022, -1.208683530864806, 0.6609856809302458, -1.0172095093996394], [-0.4239944693396323, -0.9895869506909234, 0.3151444331927837, -1.0952382690567983]]]
+[[[0.7391048706507907, 0.8914203442107109, 0.7810881208477741, 0.42396350784517345], [0.44782953354925625, 0.14060494681841362, 0.36645338622864543, 0.8792327342896561], [0.8328977875499322, 0.7597606669429515, 0.7309414657218207, 0.39511825984097715]], [[0.4224440661015312, 0.2817063735017259, 0.11204741761562653, 0.7932546033111754], [0.6230861699889618, 0.16789479246904482, 0.4452307316686511, 0.7298193538352331], [0.879038899493412, 0.14646565947090828, 0.6904668348145003, 0.8027750348973339]]]
+[[[5, 6, 4, 0], [5, 0, 4, 1], [2, 3, 5, 4]], [[4, 2, 3, 8], [3, 0, 0, 8], [9, 9, 4, 8]]]
+[[[5.350800115670108, 5.835203389972244, 8.668571640348379, 6.784139317082117], [7.838141284015925, 0.46256545431156715, 2.8571047765183932, 0.0660157726117514], [5.587670205493748, 3.567592961539832, 2.9956823476061682, 7.924798867767713]], [[1.5388683451612495, 8.64453573809756, 1.4500691204596237, 6.551614999615261], [6.95157556639829, 4.179288210881939, 6.281664642870586, 1.0867107163432608], [0.18490809809604403, 1.9708027978691627, 0.23346492301822674, 0.935059580008676]]]
 """
 
-print(regression.lin_reg(list(range(5)), [2, 4, 6, 7, 8]))
-print(regression.par_reg(list(range(5)), [2, 4, 6, 7, 8]))
-print(regression.poly_reg(list(range(5)), [2, 4, 6, 7, 8], 4))
+print(regs.lin_reg(list(range(5)), [2, 4, 6, 7, 8]))
+print(regs.par_reg(list(range(5)), [2, 4, 6, 7, 8]))
+print(regs.poly_reg(list(range(5)), [2, 4, 6, 7, 8], 4))
 
 """
 [1.5, 2.4000000000000004]
