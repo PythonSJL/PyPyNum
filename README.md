@@ -20,7 +20,7 @@ processing.</font><font color = red>[Python>=3.4]</font>
 [![Downloads](https://static.pepy.tech/badge/pypynum/month)](https://pepy.tech/project/pypynum)
 [![Downloads](https://static.pepy.tech/badge/pypynum/week)](https://pepy.tech/project/pypynum)
 
-## Version -> 1.15.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
+## Version -> 1.15.1 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
 
 ![](pypynum/PyPyNum.png)
 
@@ -38,7 +38,6 @@ The logo cannot be displayed on PyPI, it can be viewed in Gitee or GitHub.
 |   Submodule Name    |                       Function Introduction                        |
 |:-------------------:|:------------------------------------------------------------------:|
 |  `pypynum.arrays`   | Provides operations and calculations for multi-dimensional arrays. |
-|  `pypynum.bessel`   |           Implements calculations for Bessel functions.            |
 |   `pypynum.chars`   |       Contains a variety of special mathematical characters.       |
 |  `pypynum.ciphers`  |      Implements various encryption and decryption algorithms.      |
 |  `pypynum.consts`   |           Contains mathematical and physical constants.            |
@@ -67,6 +66,7 @@ The logo cannot be displayed on PyPI, it can be viewed in Gitee or GitHub.
 |  `pypynum.random`   |                Generates arrays of random numbers.                 |
 |   `pypynum.regs`    |               Regression analysis and model fitting.               |
 |   `pypynum.seqs`    |              Computes various mathematical sequences.              |
+|  `pypynum.special`  | Provides advanced special functions for mathematical computations. |
 | `pypynum.stattest`  |                Statistical tests and data analysis.                |
 |  `pypynum.symbols`  |         Symbolic computation and expression manipulation.          |
 |  `pypynum.tensors`  |                Tensor operations and calculations.                 |
@@ -113,55 +113,41 @@ Python interpreter and run it!
 ```
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-Renamed most of the submodules,
-please refer to the
-"Name and Function Introduction of Submodules"
+Fixed most of the known issues,
 
+especially modified the stopping
 
-MultiTreeNode renamed as MTNode
+conditions for multi precision
 
-
-Fixed all known issues in trees and graphs,
-and added some new features.
+computation iterations.
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-<<< Newly added functions and classes >>>
+The printout in
 
-PyPyNum
-├── kernels
-│   └── FUNCTION
-│       ├── det2x2kernel(a: typing.Union[list, tuple]) -> float
-│       ├── det3x3kernel(a: typing.Union[list, tuple]) -> float
-│       ├── det4x4kernel(a: typing.Union[list, tuple]) -> float
-│       ├── eigen2x2kernel(a: typing.Union[list, tuple]) -> tuple
-│       ├── inv2x2kernel(a: typing.Union[list, tuple]) -> list
-│       ├── inv3x3kernel(a: typing.Union[list, tuple]) -> list
-│       ├── inv4x4kernel(a: typing.Union[list, tuple]) -> list
-│       ├── lu2x2kernel(a: typing.Union[list, tuple]) -> tuple
-│       ├── lu3x3kernel(a: typing.Union[list, tuple]) -> tuple
-│       ├── lu4x4kernel(a: typing.Union[list, tuple]) -> tuple
-│       ├── matexp2x2kernel(a: typing.Union[list, tuple]) -> list
-│       ├── matmul2x2kernel(a: typing.Union[list, tuple], b: typing.Union[list, tuple]) -> list
-│       ├── matmul3x3kernel(a: typing.Union[list, tuple], b: typing.Union[list, tuple]) -> list
-│       ├── matmul4x4kernel(a: typing.Union[list, tuple], b: typing.Union[list, tuple]) -> list
-│       └── matpow2x2kernel(a: typing.Union[list, tuple], n: typing.Union[int, float, complex]) -> list
-├── seqs
-│   └── FUNCTION
-│       ├── lucas(n: int, single: bool) -> typing.Union[int, list]
-│       ├── pell(n: int, single: bool) -> typing.Union[int, list]
-│       ├── tetranacci(n: int, single: bool) -> typing.Union[int, list]
-│       └── tribonacci(n: int, single: bool) -> typing.Union[int, list]
-├── tools
-│   └── FUNCTION
-│       ├── fast_pow(a: typing.Any, n: int, init: typing.Any, mul: typing.Callable) -> typing.Any
-├── trees
-│   ├── CLASS
-│   │   ├── BTNode(object)/__init__(self: Any, data: Any) -> Any
-│   │   ├── BinaryTree(object)/__init__(self: Any, root: Any) -> Any
-│   │   ├── RBTNode(object)/__init__(self: Any, data: Any, color: Any) -> Any
-│   │   └── RedBlackTree(object)/__init__(self: Any) -> Any
+"trees.BinaryTree.count_nodes()"
 
+was deleted, which is the trace
+
+left by previous debugging.
+
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+
+Rename the "Bessel" submodule to
+
+"Special" and add some
+
+hypergeometric functions in the
+
+form of "hyp * f *".
+
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+
+在“zh_cn”子模块中，把“多精度欧拉数”
+
+改名为“多精度自然常数”，并且增加了
+
+“多精度欧拉伽马”。
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 ```
@@ -208,15 +194,6 @@ PyPyNum
 │       ├── ones_like(a: Any, rtype: Any) -> Any
 │       ├── zeros(shape: Any, rtype: Any) -> Any
 │       └── zeros_like(a: Any, rtype: Any) -> Any
-├── bessel
-│   ├── CLASS
-│   └── FUNCTION
-│       ├── bessel_i0(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
-│       ├── bessel_i1(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
-│       ├── bessel_iv(v: typing.Union[int, float], x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
-│       ├── bessel_j0(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
-│       ├── bessel_j1(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
-│       └── bessel_jv(v: typing.Union[int, float], x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
 ├── chars
 │   ├── CLASS
 │   └── FUNCTION
@@ -560,7 +537,7 @@ PyPyNum
 │   │   ├── Euler(object)/__init__(self: Any, y: typing.Union[int, float], p: typing.Union[int, float], r: typing.Union[int, float]) -> Any
 │   │   └── Quaternion(object)/__init__(self: Any, w: typing.Union[int, float], x: typing.Union[int, float], y: typing.Union[int, float], z: typing.Union[int, float]) -> Any
 │   └── FUNCTION
-│       ├── change(data: typing.Union[pypynum.quats.Quaternion, pypynum.matrices.Matrix, pypynum.quats.Euler], to: str) -> typing.Union[pypynum.quats.Quaternion, pypynum.matrices.Matrix, pypynum.quats.Euler]
+│       ├── convert(data: typing.Union[pypynum.quats.Quaternion, pypynum.matrices.Matrix, pypynum.quats.Euler], to: str) -> typing.Union[pypynum.quats.Quaternion, pypynum.matrices.Matrix, pypynum.quats.Euler]
 │       ├── euler(yaw: typing.Union[int, float], pitch: typing.Union[int, float], roll: typing.Union[int, float]) -> pypynum.quats.Euler
 │       └── quat(w: typing.Union[int, float], x: typing.Union[int, float], y: typing.Union[int, float], z: typing.Union[int, float]) -> pypynum.quats.Quaternion
 ├── random
@@ -597,6 +574,19 @@ PyPyNum
 │       ├── stirling2(n: int) -> list
 │       ├── tetranacci(n: int, single: bool) -> typing.Union[int, list]
 │       └── tribonacci(n: int, single: bool) -> typing.Union[int, list]
+├── special
+│   ├── CLASS
+│   └── FUNCTION
+│       ├── bessel_i0(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── bessel_i1(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── bessel_iv(v: typing.Union[int, float], x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── bessel_j0(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── bessel_j1(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── bessel_jv(v: typing.Union[int, float], x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── hyp0f1(b0: typing.Union[int, float, complex], z: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── hyp1f1(a0: typing.Union[int, float, complex], b0: typing.Union[int, float, complex], z: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── hyp2f1(a0: typing.Union[int, float, complex], a1: typing.Union[int, float, complex], b0: typing.Union[int, float, complex], z: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       └── hyppfq(a: typing.Union[list, tuple], b: typing.Union[list, tuple], z: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
 ├── stattest
 │   ├── CLASS
 │   └── FUNCTION
@@ -756,9 +746,10 @@ PyPyNum
         ├── 多精度复数(实部: typing.Union[int, float, str, decimal.Decimal], 虚部: typing.Union[int, float, str, decimal.Decimal], 有效位数: int) -> pypynum.multiprec.MPComplex
         ├── 多精度对数(真数: typing.Union[int, float], 底数: typing.Union[int, float], 有效位数: int, 使用内置方法: bool) -> decimal.Decimal
         ├── 多精度方位角(y: typing.Union[int, float], x: typing.Union[int, float], 有效位数: int) -> decimal.Decimal
-        ├── 多精度欧拉数(有效位数: int, 方法: str) -> decimal.Decimal
+        ├── 多精度欧拉伽马(有效位数: int) -> decimal.Decimal
         ├── 多精度正弦(x: typing.Union[int, float], 有效位数: int) -> decimal.Decimal
         ├── 多精度自然对数(真数: typing.Union[int, float], 有效位数: int, 使用内置方法: bool) -> decimal.Decimal
+        ├── 多精度自然常数(有效位数: int, 方法: str) -> decimal.Decimal
         ├── 多精度自然指数(指数: typing.Union[int, float], 有效位数: int, 使用内置方法: bool) -> decimal.Decimal
         ├── 多精度菲涅耳余弦积分(x: typing.Union[int, float], 有效位数: int) -> decimal.Decimal
         ├── 多精度菲涅耳正弦积分(x: typing.Union[int, float], 有效位数: int) -> decimal.Decimal
