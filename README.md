@@ -20,9 +20,9 @@ processing.</font><font color = red>[Python>=3.4]</font>
 [![Downloads](https://static.pepy.tech/badge/pypynum/month)](https://pepy.tech/project/pypynum)
 [![Downloads](https://static.pepy.tech/badge/pypynum/week)](https://pepy.tech/project/pypynum)
 
-## Version -> 1.15.1 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
+## Version -> 1.16.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
 
-![](pypynum/PyPyNum.png)
+![LOGO](pypynum/PyPyNum.png)
 
 The logo cannot be displayed on PyPI, it can be viewed in Gitee or GitHub.
 
@@ -113,41 +113,81 @@ Python interpreter and run it!
 ```
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-Fixed most of the known issues,
+The submodule 'consts' has added
+a large number of mathematical
+and scientific constants,
+currently totaling 128.
 
-especially modified the stopping
+This module defines a collection
+of constants representing
+various physical, mathematical,
+and unit conversion factors.
 
-conditions for multi precision
+These constants are commonly
+used in scientific and
+engineering calculations.
 
-computation iterations.
-
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
-The printout in
-
-"trees.BinaryTree.count_nodes()"
-
-was deleted, which is the trace
-
-left by previous debugging.
-
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
-Rename the "Bessel" submodule to
-
-"Special" and add some
-
-hypergeometric functions in the
-
-form of "hyp * f *".
+If you want to know information
+about each constant, you can
+execute 'help(consts)' to
+obtain it.
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-在“zh_cn”子模块中，把“多精度欧拉数”
 
-改名为“多精度自然常数”，并且增加了
+<<< Here are the newly added functions >>>
 
-“多精度欧拉伽马”。
+
+PyPyNum
+├── special
+│   └── FUNCTION
+│       ├── qbinomial(n: typing.Union[int, float, complex], m: typing.Union[int, float, complex], q: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       │   # Calculate the q-binomial coefficient of n and m with parameter q.
+│       ├── qfactorial(n: typing.Union[int, float, complex], q: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       │   # Compute the q-factorial of n with parameter q.
+│       ├── qgamma(n: typing.Union[int, float, complex], q: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       │   # Calculate the q-gamma function of n with parameter q.
+│       └── qpochhammer(a: typing.Union[int, float, complex], q: typing.Union[int, float, complex], n: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│           # Compute the q-Pochhammer symbol for given a, q, and n.
+├── multiprec
+│   └── FUNCTION
+│       ├── mp_catalan(sigfigs: int) -> decimal.Decimal
+│           # Calculate the Catalan's constant with a specified number of significant figures using multiprecision arithmetic.
+├── seqs
+│   └── FUNCTION
+│       ├── padovan(n: int, single: bool) -> typing.Union[int, list]
+│       │   # Generate the Padovan sequence up to the nth term.
+│       ├── pelllucas(n: int, single: bool) -> typing.Union[int, list]
+│       │   # Generate the Pell-Lucas sequence up to the nth term.
+│       ├── perrin(n: int, single: bool) -> typing.Union[int, list]
+│       │   # Generate the Perrin sequence up to the nth term.
+│       └── sylvester(n: int, single: bool) -> typing.Union[int, list]
+│           # Generate the Sylvester sequence up to the nth term.
+├── tools
+│   └── FUNCTION
+│       ├── lcsubseq(x: typing.Union[list, tuple, str], y: typing.Union[list, tuple, str]) -> list
+│       │   # Find the longest common subsequence between two sequences x and y.
+│       └── lcsubstr(x: typing.Union[list, tuple, str], y: typing.Union[list, tuple, str]) -> list
+│           # Find the longest common substring between two sequences x and y.
+├── matrices
+│   ├── CLASS
+│   │   └── Matrix(pypynum.arrays.Array)/__init__(self: Any, data: Any, check: Any) -> Any
+│   │       # Initialize a Matrix object from a given data array.
+│   └── FUNCTION
+│       ├── perm_mat(num_rows: int, num_cols: int, row_swaps: typing.Union[list, tuple], col_swaps: typing.Union[list, tuple], rtype: typing.Callable) -> typing.Any
+│       │   # Create a permutation matrix based on specified row and column swaps.
+│       └── perm_mat_indices(num_rows: int, num_cols: int, row_swaps: typing.Union[list, tuple], col_swaps: typing.Union[list, tuple]) -> tuple
+│           # Compute the indices for a permutation matrix based on specified row and column swaps.
+
+
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+
+Other functions and classes have
+also undergone certain
+modifications, such as adding a
+"reduce" parameter to the "qr"
+function to determine whether to
+crop the matrix.
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 ```
@@ -454,13 +494,15 @@ PyPyNum
 │   ├── CLASS
 │   │   └── Matrix(pypynum.arrays.Array)/__init__(self: Any, data: Any, check: Any) -> Any
 │   └── FUNCTION
-│       ├── cholesky(matrix: Any, hermitian: Any) -> Any
+│       ├── cholesky(matrix: pypynum.matrices.Matrix, hermitian: bool) -> pypynum.matrices.Matrix
 │       ├── eigen(matrix: pypynum.matrices.Matrix) -> tuple
 │       ├── hessenberg(matrix: pypynum.matrices.Matrix) -> tuple
-│       ├── identity(n: int) -> pypynum.matrices.Matrix
+│       ├── identity(n: int, m: int) -> pypynum.matrices.Matrix
 │       ├── lu(matrix: pypynum.matrices.Matrix) -> tuple
 │       ├── mat(data: Any) -> Any
-│       ├── qr(matrix: pypynum.matrices.Matrix) -> tuple
+│       ├── perm_mat(num_rows: int, num_cols: int, row_swaps: typing.Union[list, tuple], col_swaps: typing.Union[list, tuple], rtype: typing.Callable) -> typing.Any
+│       ├── perm_mat_indices(num_rows: int, num_cols: int, row_swaps: typing.Union[list, tuple], col_swaps: typing.Union[list, tuple]) -> tuple
+│       ├── qr(matrix: pypynum.matrices.Matrix, reduce: bool) -> tuple
 │       ├── rank_decomp(matrix: pypynum.matrices.Matrix) -> tuple
 │       ├── rotate90(matrix: pypynum.matrices.Matrix, times: int) -> pypynum.matrices.Matrix
 │       ├── svd(matrix: pypynum.matrices.Matrix) -> tuple
@@ -478,6 +520,7 @@ PyPyNum
 │       ├── mp_asin(x: typing.Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
 │       ├── mp_atan(x: typing.Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
 │       ├── mp_atan2(y: typing.Union[int, float, str, decimal.Decimal], x: typing.Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
+│       ├── mp_catalan(sigfigs: int) -> decimal.Decimal
 │       ├── mp_cos(x: typing.Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
 │       ├── mp_cosh(x: typing.Union[int, float, str, decimal.Decimal], sigfigs: int) -> decimal.Decimal
 │       ├── mp_e(sigfigs: int, method: str) -> decimal.Decimal
@@ -561,32 +604,40 @@ PyPyNum
 │   └── FUNCTION
 │       ├── arithmetic_sequence(a1: typing.Union[int, float], an: typing.Union[int, float], d: typing.Union[int, float], n: typing.Union[int, float], s: typing.Union[int, float]) -> dict
 │       ├── bell_triangle(n: int) -> list
-│       ├── bernoulli(n: int, single: bool) -> list
+│       ├── bernoulli(n: int, single: bool) -> typing.Union[list, tuple]
 │       ├── catalan(n: int, single: bool) -> typing.Union[int, list]
 │       ├── farey(n: int) -> list
 │       ├── fibonacci(n: int, single: bool) -> typing.Union[int, list]
 │       ├── geometric_sequence(a1: typing.Union[int, float], an: typing.Union[int, float], r: typing.Union[int, float], n: typing.Union[int, float], s: typing.Union[int, float]) -> dict
 │       ├── lucas(n: int, single: bool) -> typing.Union[int, list]
+│       ├── padovan(n: int, single: bool) -> typing.Union[int, list]
 │       ├── pascal_triangle(n: int) -> list
 │       ├── pell(n: int, single: bool) -> typing.Union[int, list]
+│       ├── pelllucas(n: int, single: bool) -> typing.Union[int, list]
+│       ├── perrin(n: int, single: bool) -> typing.Union[int, list]
 │       ├── recaman(n: int, single: bool) -> typing.Union[int, list]
 │       ├── stirling1(n: int) -> list
 │       ├── stirling2(n: int) -> list
+│       ├── sylvester(n: int, single: bool) -> typing.Union[int, list]
 │       ├── tetranacci(n: int, single: bool) -> typing.Union[int, list]
 │       └── tribonacci(n: int, single: bool) -> typing.Union[int, list]
 ├── special
 │   ├── CLASS
 │   └── FUNCTION
-│       ├── bessel_i0(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
-│       ├── bessel_i1(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
-│       ├── bessel_iv(v: typing.Union[int, float], x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
-│       ├── bessel_j0(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
-│       ├── bessel_j1(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
-│       ├── bessel_jv(v: typing.Union[int, float], x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── besseli0(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── besseli1(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── besseliv(v: typing.Union[int, float], x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── besselj0(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── besselj1(x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── besseljv(v: typing.Union[int, float], x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
 │       ├── hyp0f1(b0: typing.Union[int, float, complex], z: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
 │       ├── hyp1f1(a0: typing.Union[int, float, complex], b0: typing.Union[int, float, complex], z: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
 │       ├── hyp2f1(a0: typing.Union[int, float, complex], a1: typing.Union[int, float, complex], b0: typing.Union[int, float, complex], z: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
-│       └── hyppfq(a: typing.Union[list, tuple], b: typing.Union[list, tuple], z: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── hyppfq(a: typing.Union[list, tuple], b: typing.Union[list, tuple], z: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── qbinomial(n: typing.Union[int, float, complex], m: typing.Union[int, float, complex], q: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── qfactorial(n: typing.Union[int, float, complex], q: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── qgamma(n: typing.Union[int, float, complex], q: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       └── qpochhammer(a: typing.Union[int, float, complex], q: typing.Union[int, float, complex], n: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
 ├── stattest
 │   ├── CLASS
 │   └── FUNCTION
@@ -621,7 +672,9 @@ PyPyNum
 │       ├── fast_pow(a: typing.Any, n: int, init: typing.Any, mul: typing.Callable) -> typing.Any
 │       ├── frange(start: typing.Union[int, float], stop: typing.Union[int, float], step: float) -> list
 │       ├── geomspace(start: typing.Union[int, float], stop: typing.Union[int, float], number: int) -> list
-│       ├── levenshtein_distance(s1: str, s2: str) -> int
+│       ├── lcsubseq(x: typing.Union[list, tuple, str], y: typing.Union[list, tuple, str]) -> list
+│       ├── lcsubstr(x: typing.Union[list, tuple, str], y: typing.Union[list, tuple, str]) -> list
+│       ├── levenshtein(x: typing.Union[list, tuple, str], y: typing.Union[list, tuple, str]) -> int
 │       ├── linspace(start: typing.Union[int, float], stop: typing.Union[int, float], number: int) -> list
 │       ├── magic_square(n: int) -> list
 │       ├── primality(n: int, iter_num: int) -> bool
