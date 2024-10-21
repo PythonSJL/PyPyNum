@@ -1,4 +1,4 @@
-﻿# <font color = blue>PyPyNum</font>
+# <font color = blue>PyPyNum</font>
 
 <font color = gree>PyPyNum is a Python library for math & science computations, covering algebra, calculus, stats, with
 data structures like matrices, vectors, tensors. It offers numerical tools, programs, and supports computational ops,
@@ -20,9 +20,9 @@ processing.</font><font color = red>[Python>=3.4]</font>
 [![Downloads](https://static.pepy.tech/badge/pypynum/month)](https://pepy.tech/project/pypynum)
 [![Downloads](https://static.pepy.tech/badge/pypynum/week)](https://pepy.tech/project/pypynum)
 
-## Version -> 1.16.0 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
+## PyPyNum | Version -> 1.16.1 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
 
-![LOGO](pypynum/PyPyNum.png)
+![LOGO](PyPyNum.png)
 
 The logo cannot be displayed on PyPI, it can be viewed in Gitee or GitHub.
 
@@ -113,72 +113,70 @@ Python interpreter and run it!
 ```
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-The submodule 'consts' has added
-a large number of mathematical
-and scientific constants,
-currently totaling 128.
-
-This module defines a collection
-of constants representing
-various physical, mathematical,
-and unit conversion factors.
-
-These constants are commonly
-used in scientific and
-engineering calculations.
-
-If you want to know information
-about each constant, you can
-execute 'help(consts)' to
-obtain it.
+Fixed and improved the basic
+operation function of 'Array'.
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
+We will remove 'Tensor' in
+future versions. Because its
+computational functions have
+already been implemented in
+'Array'. The current version
+will throw 'FutureWarning' as a
+warning.
+
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
+
+Fixed the calculation error of
+'mp_euler_gamma', which was
+caused when modifying the
+iteration stop condition
+previously.
+
+!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
 <<< Here are the newly added functions >>>
 
 
-PyPyNum
-├── special
-│   └── FUNCTION
-│       ├── qbinomial(n: typing.Union[int, float, complex], m: typing.Union[int, float, complex], q: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
-│       │   # Calculate the q-binomial coefficient of n and m with parameter q.
-│       ├── qfactorial(n: typing.Union[int, float, complex], q: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
-│       │   # Compute the q-factorial of n with parameter q.
-│       ├── qgamma(n: typing.Union[int, float, complex], q: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
-│       │   # Calculate the q-gamma function of n with parameter q.
-│       └── qpochhammer(a: typing.Union[int, float, complex], q: typing.Union[int, float, complex], n: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
-│           # Compute the q-Pochhammer symbol for given a, q, and n.
-├── multiprec
-│   └── FUNCTION
-│       ├── mp_catalan(sigfigs: int) -> decimal.Decimal
-│           # Calculate the Catalan's constant with a specified number of significant figures using multiprecision arithmetic.
-├── seqs
-│   └── FUNCTION
-│       ├── padovan(n: int, single: bool) -> typing.Union[int, list]
-│       │   # Generate the Padovan sequence up to the nth term.
-│       ├── pelllucas(n: int, single: bool) -> typing.Union[int, list]
-│       │   # Generate the Pell-Lucas sequence up to the nth term.
-│       ├── perrin(n: int, single: bool) -> typing.Union[int, list]
-│       │   # Generate the Perrin sequence up to the nth term.
-│       └── sylvester(n: int, single: bool) -> typing.Union[int, list]
-│           # Generate the Sylvester sequence up to the nth term.
-├── tools
-│   └── FUNCTION
-│       ├── lcsubseq(x: typing.Union[list, tuple, str], y: typing.Union[list, tuple, str]) -> list
-│       │   # Find the longest common subsequence between two sequences x and y.
-│       └── lcsubstr(x: typing.Union[list, tuple, str], y: typing.Union[list, tuple, str]) -> list
-│           # Find the longest common substring between two sequences x and y.
-├── matrices
-│   ├── CLASS
-│   │   └── Matrix(pypynum.arrays.Array)/__init__(self: Any, data: Any, check: Any) -> Any
-│   │       # Initialize a Matrix object from a given data array.
-│   └── FUNCTION
-│       ├── perm_mat(num_rows: int, num_cols: int, row_swaps: typing.Union[list, tuple], col_swaps: typing.Union[list, tuple], rtype: typing.Callable) -> typing.Any
-│       │   # Create a permutation matrix based on specified row and column swaps.
-│       └── perm_mat_indices(num_rows: int, num_cols: int, row_swaps: typing.Union[list, tuple], col_swaps: typing.Union[list, tuple]) -> tuple
-│           # Compute the indices for a permutation matrix based on specified row and column swaps.
+cos_sim(seq1: Union[list, tuple, str], seq2: Union[list, tuple, str], is_vector: bool = False) -> float
+    Introduction
+    ==========
+    Calculate the cosine similarity between two sequences.
 
+    The cosine similarity is a measure of similarity between two non-zero vectors. It is defined as the cosine of the
+    angle between them, which is computed as the dot product of the vectors divided by the product of their magnitudes.
+    This function supports both numerical vectors and frequency distributions of sequences.
+
+    Example
+    ==========
+    >>> cos_sim("hello world", "world hello")
+    0.9999999999999998
+    >>>
+    :param seq1: First sequence to compare.
+    :param seq2: Second sequence to compare.
+    :param is_vector: A boolean indicating whether the input sequences are numerical vectors. Default is False.
+    :return: The cosine similarity between the two sequences, ranging from -1 to 1.
+
+
+replace(seq: Union[list, tuple], old: Union[list, tuple], new: Union[list, tuple], count: int = -1) -> Union[list, tuple]
+    Introduction
+    ==========
+    Replace occurrences of the subsequence 'old' in 'seq' with 'new'.
+
+    This function is designed to handle sequences such as lists or tuples and replace specified subsequences
+    with new ones. It also allows limiting the number of replacements.
+
+    Example
+    ==========
+    >>> replace([1, 2, 3, 4, 2, 3], [2, 3], [5, 6])
+    [1, 5, 6, 4, 5, 6]
+    >>>
+    :param seq: The sequence in which to replace the subsequence.
+    :param old: The subsequence to be replaced.
+    :param new: The subsequence to replace with.
+    :param count: The maximum number of replacements to perform. Default is -1 (unlimited).
+    :return: The modified sequence with replacements.
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
@@ -225,15 +223,16 @@ PyPyNum
 │       ├── asarray(data: Any) -> Any
 │       ├── aslist(data: Any) -> Any
 │       ├── boolarray(data: Any) -> Any
-│       ├── fill(shape: Any, sequence: Any, repeat: Any, pad: Any, rtype: Any) -> Any
-│       ├── full(shape: Any, fill_value: Any, rtype: Any) -> Any
-│       ├── full_like(a: Any, fill_value: Any, rtype: Any) -> Any
+│       ├── fill(shape: typing.Union[list, tuple], sequence: typing.Union[list, tuple], repeat: bool, pad: typing.Any, rtype: typing.Callable) -> typing.Any
+│       ├── full(shape: typing.Union[list, tuple], fill_value: typing.Any, rtype: typing.Callable) -> typing.Any
+│       ├── full_like(a: typing.Any, fill_value: typing.Any, rtype: typing.Callable) -> typing.Any
 │       ├── get_shape(data: Any) -> Any
 │       ├── is_valid_array(_array: Any, _shape: Any) -> Any
-│       ├── ones(shape: Any, rtype: Any) -> Any
-│       ├── ones_like(a: Any, rtype: Any) -> Any
-│       ├── zeros(shape: Any, rtype: Any) -> Any
-│       └── zeros_like(a: Any, rtype: Any) -> Any
+│       ├── ones(shape: typing.Union[list, tuple], rtype: typing.Callable) -> typing.Any
+│       ├── ones_like(a: typing.Any, rtype: typing.Callable) -> typing.Any
+│       ├── tensorproduct(tensors: pypynum.arrays.Array) -> pypynum.arrays.Array
+│       ├── zeros(shape: typing.Union[list, tuple], rtype: typing.Callable) -> typing.Any
+│       └── zeros_like(a: typing.Any, rtype: typing.Callable) -> typing.Any
 ├── chars
 │   ├── CLASS
 │   └── FUNCTION
@@ -656,8 +655,7 @@ PyPyNum
 │   │   └── Tensor(pypynum.arrays.Array)/__init__(self: Any, data: Any, check: Any) -> Any
 │   └── FUNCTION
 │       ├── ten(data: list) -> pypynum.tensors.Tensor
-│       ├── tensor_and_number(tensor: Any, operator: Any, number: Any) -> Any
-│       └── tensorproduct(tensors: pypynum.tensors.Tensor) -> pypynum.tensors.Tensor
+│       └── tensor_and_number(tensor: Any, operator: Any, number: Any) -> Any
 ├── test
 │   ├── CLASS
 │   └── FUNCTION
@@ -668,6 +666,7 @@ PyPyNum
 │   ├── CLASS
 │   └── FUNCTION
 │       ├── classify(array: typing.Union[list, tuple]) -> dict
+│       ├── cos_sim(seq1: typing.Union[list, tuple, str], seq2: typing.Union[list, tuple, str], is_vector: bool) -> float
 │       ├── dedup(iterable: typing.Union[list, tuple, str]) -> typing.Union[list, tuple, str]
 │       ├── fast_pow(a: typing.Any, n: int, init: typing.Any, mul: typing.Callable) -> typing.Any
 │       ├── frange(start: typing.Union[int, float], stop: typing.Union[int, float], step: float) -> list
@@ -680,6 +679,7 @@ PyPyNum
 │       ├── primality(n: int, iter_num: int) -> bool
 │       ├── prime_factors(integer: int, dictionary: bool, pollard_rho: bool) -> typing.Union[list, dict]
 │       ├── primes(limit: int) -> list
+│       ├── replace(seq: typing.Union[list, tuple], old: typing.Union[list, tuple], new: typing.Union[list, tuple], count: int) -> typing.Union[list, tuple]
 │       ├── semiprimes(limit: int) -> list
 │       ├── split(iterable: typing.Union[list, tuple, str], key: typing.Union[list, tuple], retain: bool) -> list
 │       └── twinprimes(limit: int) -> list
