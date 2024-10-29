@@ -20,7 +20,7 @@ processing.</font><font color = red>[Python>=3.4]</font>
 [![Downloads](https://static.pepy.tech/badge/pypynum/month)](https://pepy.tech/project/pypynum)
 [![Downloads](https://static.pepy.tech/badge/pypynum/week)](https://pepy.tech/project/pypynum)
 
-## PyPyNum | Version -> 1.16.1 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
+## Version -> 1.16.2 | PyPI -> https://pypi.org/project/PyPyNum/ | Gitee -> https://www.gitee.com/PythonSJL/PyPyNum | GitHub -> https://github.com/PythonSJL/PyPyNum
 
 ![LOGO](PyPyNum.png)
 
@@ -32,6 +32,15 @@ The logo cannot be displayed on PyPI, it can be viewed in Gitee or GitHub.
   supports other types of Python interpreters
 + Update versions periodically to add more practical features
 + If you need to contact, please add QQ number 2261748025 (Py𝙿𝚢𝚝𝚑𝚘𝚗-水晶兰), or through my email 2261748025@qq.com
+
+```
++++++++++++++++++++++++++++++++++++++++++
++ Tip:                                  +
++ Have suggestions or feature requests? +
++ Feel free to share them with us.      +
++ Your feedback is highly appreciated!  +
++++++++++++++++++++++++++++++++++++++++++
+```
 
 ### Name and Function Introduction of Submodules
 
@@ -113,79 +122,69 @@ Python interpreter and run it!
 ```
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-Fixed and improved the basic
-operation function of 'Array'.
-
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
-We will remove 'Tensor' in
-future versions. Because its
-computational functions have
-already been implemented in
-'Array'. The current version
-will throw 'FutureWarning' as a
-warning.
-
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
-Fixed the calculation error of
-'mp_euler_gamma', which was
-caused when modifying the
-iteration stop condition
-previously.
-
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
-
 <<< Here are the newly added functions >>>
 
 
-cos_sim(seq1: Union[list, tuple, str], seq2: Union[list, tuple, str], is_vector: bool = False) -> float
+kmp_table(pattern: Union[list, tuple, str]) -> list
     Introduction
     ==========
-    Calculate the cosine similarity between two sequences.
+    Generate the KMP (Knuth-Morris-Pratt) table for a given pattern.
 
-    The cosine similarity is a measure of similarity between two non-zero vectors. It is defined as the cosine of the
-    angle between them, which is computed as the dot product of the vectors divided by the product of their magnitudes.
-    This function supports both numerical vectors and frequency distributions of sequences.
+    The KMP table is used to efficiently find occurrences of a pattern within a sequence by avoiding unnecessary
+    comparisons after a mismatch. This table determines how many characters can be skipped after a mismatch.
 
     Example
-    ==========
-    >>> cos_sim("hello world", "world hello")
-    0.9999999999999998
+    ========
+    >>> kmp_table("AGCTGATCGTACGTAAGCTAGCTA")
+    [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 3, 4, 1, 2, 3, 4, 1]
     >>>
-    :param seq1: First sequence to compare.
-    :param seq2: Second sequence to compare.
-    :param is_vector: A boolean indicating whether the input sequences are numerical vectors. Default is False.
-    :return: The cosine similarity between the two sequences, ranging from -1 to 1.
+    :param pattern: The pattern for which to generate the KMP table.
+    :return: A list representing the KMP table for the given pattern.
 
 
-replace(seq: Union[list, tuple], old: Union[list, tuple], new: Union[list, tuple], count: int = -1) -> Union[list, tuple]
+findall(seq: Union[list, tuple, str], pat: Union[list, tuple, str]) -> list
     Introduction
     ==========
-    Replace occurrences of the subsequence 'old' in 'seq' with 'new'.
+    Find all indices of the subsequence 'pat' in 'seq'.
 
-    This function is designed to handle sequences such as lists or tuples and replace specified subsequences
-    with new ones. It also allows limiting the number of replacements.
+    This function is designed to handle sequences such as lists, tuples, or strings and find all indices
+    of specified subsequences. It allows overlapping matches.
 
     Example
-    ==========
-    >>> replace([1, 2, 3, 4, 2, 3], [2, 3], [5, 6])
-    [1, 5, 6, 4, 5, 6]
+    ========
+    >>> findall([2, 1, 2, 1, 2, 1, 2, 1], [1, 2, 1, 2])
+    [1, 3]
     >>>
-    :param seq: The sequence in which to replace the subsequence.
-    :param old: The subsequence to be replaced.
-    :param new: The subsequence to replace with.
-    :param count: The maximum number of replacements to perform. Default is -1 (unlimited).
-    :return: The modified sequence with replacements.
+    :param seq: The sequence in which to find the subsequence.
+    :param pat: The subsequence to be found.
+    :return: A list of starting indices where the subsequence is found.
 
-!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 
-Other functions and classes have
-also undergone certain
-modifications, such as adding a
-"reduce" parameter to the "qr"
-function to determine whether to
-crop the matrix.
+---------------------------------------------------------------------------------------
+| q-functions generalize classical math functions by introducing parameter q.         |
+| They are key in combinatorics and special functions, widely applied.                |
+| As q approaches 1, they revert to classical forms.                                  |
+| Examples include q-factorials, q-binomial coefficients, Jackson q-Bessel functions. |
+| These functions are crucial in fractals, chaotic systems, quantum groups.           |
+| They provide tools for solving complex mathematical challenges effectively.         |
+---------------------------------------------------------------------------------------
+
+
+Here are the 12 new q-functions added in the current version (adding the previous 4 makes a total of 16):
+
+
+qbeta(a: Union[int, float, complex], b: Union[int, float, complex], q: Union[int, float, complex]) -> Union[int, float, complex]
+qcos_large(x: Union[int, float, complex], q: Union[int, float, complex]) -> Union[int, float, complex]
+qcos_small(x: Union[int, float, complex], q: Union[int, float, complex]) -> Union[int, float, complex]
+qcosh_large(x: Union[int, float, complex], q: Union[int, float, complex]) -> Union[int, float, complex]
+qcosh_small(x: Union[int, float, complex], q: Union[int, float, complex]) -> Union[int, float, complex]
+qexp_large(z: Union[int, float, complex], q: Union[int, float, complex]) -> Union[int, float, complex]
+qexp_small(z: Union[int, float, complex], q: Union[int, float, complex]) -> Union[int, float, complex]
+qpi(q: Union[int, float, complex]) -> Union[int, float, complex]
+qsin_large(x: Union[int, float, complex], q: Union[int, float, complex]) -> Union[int, float, complex]
+qsin_small(x: Union[int, float, complex], q: Union[int, float, complex]) -> Union[int, float, complex]
+qsinh_large(x: Union[int, float, complex], q: Union[int, float, complex]) -> Union[int, float, complex]
+qsinh_small(x: Union[int, float, complex], q: Union[int, float, complex]) -> Union[int, float, complex]
 
 !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=
 ```
@@ -286,7 +285,7 @@ PyPyNum
 │       ├── gamma_pdf(x: Any, shape: Any, scale: Any) -> Any
 │       ├── geometric_pmf(k: Any, p: Any) -> Any
 │       ├── hypergeom_pmf(k: Any, mg: Any, n: Any, nt: Any) -> Any
-│       ├── inv_gauss_pdf(x: Any, mu: Any, lambda_: Any, alpha: Any) -> Any
+│       ├── invgauss_pdf(x: Any, mu: Any, lambda_: Any, alpha: Any) -> Any
 │       ├── levy_pdf(x: Any, c: Any) -> Any
 │       ├── log_logistic_cdf(x: Any, alpha: Any, beta: Any) -> Any
 │       ├── log_logistic_pdf(x: Any, alpha: Any, beta: Any) -> Any
@@ -432,7 +431,7 @@ PyPyNum
 │       ├── cosh(x: typing.Union[int, float]) -> typing.Union[int, float]
 │       ├── cot(x: typing.Union[int, float]) -> typing.Union[int, float]
 │       ├── coth(x: typing.Union[int, float]) -> typing.Union[int, float]
-│       ├── cov(x: typing.Union[list, tuple], y: typing.Union[list, tuple], dof: int) -> typing.Union[int, float, complex]
+│       ├── cov(x: typing.Union[list, tuple], y: typing.Union[list, tuple], ddof: int) -> typing.Union[int, float, complex]
 │       ├── crt(n: typing.Union[list, tuple], a: typing.Union[list, tuple]) -> int
 │       ├── csc(x: typing.Union[int, float]) -> typing.Union[int, float]
 │       ├── csch(x: typing.Union[int, float]) -> typing.Union[int, float]
@@ -480,13 +479,13 @@ PyPyNum
 │       ├── sinh(x: typing.Union[int, float]) -> typing.Union[int, float]
 │       ├── skew(data: typing.Union[list, tuple]) -> float
 │       ├── square_mean(numbers: typing.Union[list, tuple]) -> typing.Union[int, float, complex]
-│       ├── std(numbers: typing.Union[list, tuple], dof: int) -> typing.Union[int, float, complex]
+│       ├── std(numbers: typing.Union[list, tuple], ddof: int) -> typing.Union[int, float, complex]
 │       ├── sumprod(arrays: typing.Union[list, tuple]) -> typing.Union[int, float, complex]
 │       ├── tan(x: typing.Union[int, float]) -> typing.Union[int, float]
 │       ├── tanh(x: typing.Union[int, float]) -> typing.Union[int, float]
 │       ├── totient(n: int) -> int
 │       ├── upper_gamma(s: typing.Union[int, float, complex], x: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
-│       ├── var(numbers: typing.Union[list, tuple], dof: int) -> typing.Union[int, float, complex]
+│       ├── var(numbers: typing.Union[list, tuple], ddof: int) -> typing.Union[int, float, complex]
 │       ├── xlogy(x: typing.Union[int, float, complex], y: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
 │       └── zeta(alpha: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
 ├── matrices
@@ -633,10 +632,22 @@ PyPyNum
 │       ├── hyp1f1(a0: typing.Union[int, float, complex], b0: typing.Union[int, float, complex], z: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
 │       ├── hyp2f1(a0: typing.Union[int, float, complex], a1: typing.Union[int, float, complex], b0: typing.Union[int, float, complex], z: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
 │       ├── hyppfq(a: typing.Union[list, tuple], b: typing.Union[list, tuple], z: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── qbeta(a: typing.Union[int, float, complex], b: typing.Union[int, float, complex], q: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
 │       ├── qbinomial(n: typing.Union[int, float, complex], m: typing.Union[int, float, complex], q: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── qcos_large(x: typing.Union[int, float, complex], q: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── qcos_small(x: typing.Union[int, float, complex], q: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── qcosh_large(x: typing.Union[int, float, complex], q: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── qcosh_small(x: typing.Union[int, float, complex], q: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── qexp_large(z: typing.Union[int, float, complex], q: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── qexp_small(z: typing.Union[int, float, complex], q: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
 │       ├── qfactorial(n: typing.Union[int, float, complex], q: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
 │       ├── qgamma(n: typing.Union[int, float, complex], q: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
-│       └── qpochhammer(a: typing.Union[int, float, complex], q: typing.Union[int, float, complex], n: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── qpi(q: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── qpochhammer(a: typing.Union[int, float, complex], q: typing.Union[int, float, complex], n: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── qsin_large(x: typing.Union[int, float, complex], q: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── qsin_small(x: typing.Union[int, float, complex], q: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       ├── qsinh_large(x: typing.Union[int, float, complex], q: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
+│       └── qsinh_small(x: typing.Union[int, float, complex], q: typing.Union[int, float, complex]) -> typing.Union[int, float, complex]
 ├── stattest
 │   ├── CLASS
 │   └── FUNCTION
@@ -669,8 +680,10 @@ PyPyNum
 │       ├── cos_sim(seq1: typing.Union[list, tuple, str], seq2: typing.Union[list, tuple, str], is_vector: bool) -> float
 │       ├── dedup(iterable: typing.Union[list, tuple, str]) -> typing.Union[list, tuple, str]
 │       ├── fast_pow(a: typing.Any, n: int, init: typing.Any, mul: typing.Callable) -> typing.Any
+│       ├── findall(seq: typing.Union[list, tuple, str], pat: typing.Union[list, tuple, str]) -> list
 │       ├── frange(start: typing.Union[int, float], stop: typing.Union[int, float], step: float) -> list
 │       ├── geomspace(start: typing.Union[int, float], stop: typing.Union[int, float], number: int) -> list
+│       ├── kmp_table(pattern: typing.Union[list, tuple, str]) -> list
 │       ├── lcsubseq(x: typing.Union[list, tuple, str], y: typing.Union[list, tuple, str]) -> list
 │       ├── lcsubstr(x: typing.Union[list, tuple, str], y: typing.Union[list, tuple, str]) -> list
 │       ├── levenshtein(x: typing.Union[list, tuple, str], y: typing.Union[list, tuple, str]) -> int
