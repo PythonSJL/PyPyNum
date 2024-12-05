@@ -4,4 +4,4 @@ branch: "main"
 use_directory: "."
 index: "README.md"
 build:
-    os: "windows"
+    os: "ubuntu-lts-latest"
