@@ -7,3 +7,4 @@ index: "README.html"
 build:
     os: "ubuntu-lts-latest"
     python: "3.x"
+    commands: []
