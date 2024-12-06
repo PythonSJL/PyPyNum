@@ -2,6 +2,4 @@ project_name: "PyPyNum"
 github_project: "PythonSJL/PyPyNum"
 branch: "main"
 use_directory: "."
-index: "README.md"
-build:
-    os: "ubuntu-lts-latest"
+index: "README.html"
