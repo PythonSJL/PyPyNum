@@ -1,6 +1,5 @@
 version: 2
 build:
     os: "ubuntu-lts-latest"
-    python: "3.x"
     commands:
         - echo "No build commands required"
