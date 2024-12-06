@@ -1,5 +1,4 @@
 version: 2
-use_directory: "."
 index: "README.html"
 build:
     os: "ubuntu-lts-latest"
