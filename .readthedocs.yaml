@@ -1,5 +1,9 @@
+version: 2
 project_name: "PyPyNum"
 github_project: "PythonSJL/PyPyNum"
 branch: "main"
 use_directory: "."
 index: "README.html"
+build:
+    os: "linux"
+    python: "3.x"
