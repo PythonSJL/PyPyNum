@@ -5,5 +5,5 @@ branch: "main"
 use_directory: "."
 index: "README.html"
 build:
-    os: "linux"
+    os: "ubuntu-lts-latest"
     python: "3.x"
