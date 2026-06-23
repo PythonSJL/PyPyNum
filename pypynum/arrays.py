@@ -1,0 +1,534 @@
+from .types import Any, Callable, Sequence, ShapeError
+
+ArrayError = ShapeError("The shape of the array is invalid")
+MatchError = ShapeError("The shapes of the two arrays do not match")
+
+
+class Array:
+    """
+    It is the base class of vectors and matrices, supporting operations and many statistical functions.
+    :param data: An array in the form of a list
+    :param check: Check the rationality of the input array
+    :param dtype: The data type of the elements in the array, default is object
+    """
+
+    def __init__(self, data=None, check=True, dtype=object):
+        if data is None:
+            data = []
+        self.dtype = dtype
+
+        def _convert_list(data, dtype):
+            if isinstance(data, list):
+                return [_convert_list(item, dtype) for item in data]
+            else:
+                try:
+                    return dtype(data)
+                except (ValueError, TypeError):
+                    return data
+
+        if dtype is not object:
+            if isinstance(data, list):
+                data = _convert_list(data, dtype)
+            else:
+                try:
+                    data = dtype(data)
+                except (ValueError, TypeError):
+                    pass
+        self.shape = () if data == [] else get_shape(data)
+        if check and self.shape and not isinstance(data, (int, float, complex)):
+            is_valid_array(data, self.shape)
+        self.data = data
+
+    def __repr__(self):
+        return "{}({})".format(self.__class__.__name__, self.data)
+
+    def __str__(self):
+        if not self.data:
+            return "[]"
+
+        def _format(_nested_list, _max_length):
+            if isinstance(_nested_list, list):
+                _copy = []
+                for item in _nested_list:
+                    _copy.append(_format(item, _max_length))
+                return _copy
+            else:
+                _item = repr(_nested_list)
+                return " " * (_max_length - len(_item)) + _item
+
+        _max = len(max(str(self.data).replace("[", "").replace("]", "").replace(",", "").split(), key=len))
+        _then = str(_format(self.data, _max)).replace("], ", "]\n").replace(",", "").replace("'", "").split("\n")
+        _max = max([_.count("[") for _ in _then])
+        return "\n".join([(_max - _.count("[")) * " " + _ + "\n" * (_.count("]") - 1) for _ in _then]).strip()
+
+    def __getitem__(self, item):
+        def get_array(data):
+            if not isinstance(data, list):
+                return data
+            temp_arr = Array(data, check=False, dtype=self.dtype)
+            if len(temp_arr.shape) == len(self.shape):
+                return type(self)(data, check=False, dtype=self.dtype)
+            return temp_arr
+
+        def get_item_recursive(result, indices):
+            if indices == ():
+                return result
+            index = indices[0]
+            if isinstance(index, int):
+                return get_item_recursive(result[index], indices[1:])
+            elif isinstance(index, (slice, list, tuple, range)):
+                if isinstance(index, slice):
+                    start = index.start
+                    stop = index.stop
+                    step = index.step
+                    if step is None or step > 0:
+                        start = 0 if start is None else start
+                        stop = len(result) if stop is None else stop
+                    else:
+                        start = len(result) - 1 if start is None else start
+                        stop = -1 if stop is None else stop
+                    try:
+                        index = range(start, stop, step if step is not None else 1)
+                    except TypeError:
+                        raise TypeError("Slice indices must be integers or None or have an __index__ method")
+                return [get_item_recursive(result[i], indices[1:]) for i in index]
+            else:
+                raise TypeError("Valid indices are integers, slices (`:`), lists, tuples, ranges, and BoolArray")
+
+        if isinstance(item, int):
+            if len(self.shape) <= 1:
+                return self.data[item]
+            else:
+                return get_array(self.data[item])
+        elif isinstance(item, slice):
+            return get_array(self.data[item])
+        if isinstance(item, tuple):
+            if len(item) > len(self.shape):
+                raise IndexError("Too many indices for array: array is {}-dimensional, but {} were indexed".format(
+                    len(self.shape), len(item)))
+            else:
+                result = get_item_recursive(self.data, item)
+                if isinstance(result, list):
+                    return get_array(result)
+                return result
+        if isinstance(item, list):
+            if all([isinstance(idx, int) for idx in item]):
+                try:
+                    return [self.data[idx] for idx in item]
+                except IndexError:
+                    raise IndexError("Valid indices are from -{} to {}".format(len(self.data), len(self.data) - 1))
+            result = get_item_recursive(self.data, (item,))
+            if isinstance(result, list):
+                return get_array(result)
+            return result
+        if isinstance(item, BoolArray):
+            if self.shape != item.shape:
+                raise MatchError
+            return [value for value, flag in zip(self.flatten(), item.flatten()) if flag]
+        raise TypeError("Valid indices are integers, slices (`:`), lists, tuples, ranges, and BoolArray")
+
+    def __setitem__(self, key, value):
+        raise NotImplementedError
+
+    def __round__(self, n=None):
+        from .ufuncs import base_ufunc
+        return base_ufunc(self, func=lambda number, digits: round(number.real, digits) + round(
+            number.imag, digits) * 1j if isinstance(number, complex) else round(number, digits), args=[n])
+
+    def __hash__(self):
+        return hash(repr(self.data))
+
+    def __add__(self, other):
+        if isinstance(other, Array):
+            if self.shape != other.shape:
+                raise MatchError
+            return fill(self.shape, [t1 + t2 for t1, t2 in zip(self.flatten(), other.flatten())],
+                        rtype=type(self), dtype=self.dtype)
+        elif isinstance(other, (int, float, complex)):
+            from .ufuncs import add
+            return add(self, other)
+        else:
+            raise ValueError("Another must be an array or number")
+
+    def __sub__(self, other):
+        if isinstance(other, Array):
+            if self.shape != other.shape:
+                raise MatchError
+            return fill(self.shape, [t1 - t2 for t1, t2 in zip(self.flatten(), other.flatten())],
+                        rtype=type(self), dtype=self.dtype)
+        elif isinstance(other, (int, float, complex)):
+            from .ufuncs import subtract
+            return subtract(self, other)
+        else:
+            raise ValueError("Another must be an array or number")
+
+    def __mul__(self, other):
+        if isinstance(other, Array):
+            if self.shape != other.shape:
+                raise MatchError
+            return fill(self.shape, [t1 * t2 for t1, t2 in zip(self.flatten(), other.flatten())],
+                        rtype=type(self), dtype=self.dtype)
+        elif isinstance(other, (int, float, complex)):
+            from .ufuncs import multiply
+            return multiply(self, other)
+        else:
+            raise ValueError("Another must be an array or number")
+
+    def __truediv__(self, other):
+        if isinstance(other, Array):
+            if self.shape != other.shape:
+                raise MatchError
+            return fill(self.shape, [t1 / t2 for t1, t2 in zip(self.flatten(), other.flatten())],
+                        rtype=type(self), dtype=self.dtype)
+        elif isinstance(other, (int, float, complex)):
+            from .ufuncs import divide
+            return divide(self, other)
+        else:
+            raise ValueError("Another must be an array or number")
+
+    def __floordiv__(self, other):
+        if isinstance(other, Array):
+            if self.shape != other.shape:
+                raise MatchError
+            return fill(self.shape, [t1 // t2 for t1, t2 in zip(self.flatten(), other.flatten())],
+                        rtype=type(self), dtype=self.dtype)
+        elif isinstance(other, (int, float, complex)):
+            from .ufuncs import floor_divide
+            return floor_divide(self, other)
+        else:
+            raise ValueError("Another must be an array or number")
+
+    def __mod__(self, other):
+        if isinstance(other, Array):
+            if self.shape != other.shape:
+                raise MatchError
+            return fill(self.shape, [t1 % t2 for t1, t2 in zip(self.flatten(), other.flatten())],
+                        rtype=type(self), dtype=self.dtype)
+        elif isinstance(other, (int, float, complex)):
+            from .ufuncs import modulo
+            return modulo(self, other)
+        else:
+            raise ValueError("Another must be an array or number")
+
+    def __pow__(self, _exp, _mod=None):
+        if isinstance(_exp, (int, float, complex, Array)) and isinstance(
+                _mod, (int, float, complex, Array, type(None))):
+            from .ufuncs import power
+            return power(self, _exp, _mod)
+        else:
+            raise ValueError("Exponential and modulus must both be arrays or numbers")
+
+    __radd__ = __add__
+    __rmul__ = __mul__
+
+    def __rsub__(self, other):
+        if isinstance(other, (int, float, complex)):
+            return fill(self.shape, [other - t for t in self.flatten()], rtype=type(self), dtype=self.dtype)
+        else:
+            raise ValueError("Another must be an array or number")
+
+    def __rtruediv__(self, other):
+        if isinstance(other, (int, float, complex)):
+            return fill(self.shape, [other / t for t in self.flatten()], rtype=type(self), dtype=self.dtype)
+        else:
+            raise ValueError("Another must be an array or number")
+
+    def __rfloordiv__(self, other):
+        if isinstance(other, (int, float, complex)):
+            return fill(self.shape, [other // t for t in self.flatten()], rtype=type(self), dtype=self.dtype)
+        else:
+            raise ValueError("Another must be an array or number")
+
+    def __rmod__(self, other):
+        if isinstance(other, (int, float, complex)):
+            return fill(self.shape, [other % t for t in self.flatten()], rtype=type(self), dtype=self.dtype)
+        else:
+            raise ValueError("Another must be an array or number")
+
+    def __rpow__(self, other):
+        if isinstance(other, (int, float, complex)):
+            return fill(self.shape, [other ** t for t in self.flatten()], rtype=type(self), dtype=self.dtype)
+        else:
+            raise ValueError("Exponential must be an array or number")
+
+    def __gt__(self, other):
+        return self.comparison(other, lambda x, y: x > y)
+
+    def __ge__(self, other):
+        return self.comparison(other, lambda x, y: x >= y)
+
+    def __eq__(self, other):
+        return self.comparison(other, lambda x, y: x == y)
+
+    def __le__(self, other):
+        return self.comparison(other, lambda x, y: x <= y)
+
+    def __lt__(self, other):
+        return self.comparison(other, lambda x, y: x < y)
+
+    def __ne__(self, other):
+        return self.comparison(other, lambda x, y: x != y)
+
+    def comparison(self, other, func):
+        from .ufuncs import apply, base_ufunc
+        if isinstance(other, Array):
+            if self.shape != other.shape:
+                raise ValueError("Shapes must be equal for element-wise comparison")
+            return base_ufunc(self, other, func=func, rtype=BoolArray)
+        elif isinstance(other, (int, float, complex)):
+            return apply(self, lambda x: func(x, other), BoolArray)
+        else:
+            raise TypeError("Unsupported operand type(s) for comparison: '{}' and '{}'".format(type(self), type(other)))
+
+    def apply(self, func):
+        from .ufuncs import apply
+        return apply(self, func)
+
+    def flatten(self):
+        data = self.data
+        if not isinstance(data, list):
+            return [data]
+        if not data:
+            return []
+        while isinstance(data[0], list):
+            data = sum(data, [])
+        return data
+
+    def reshape(self, shape, repeat=True, pad=0):
+        return fill(shape, self.flatten(), repeat, pad, type(self), dtype=self.dtype)
+
+    def copy(self):
+        from copy import deepcopy
+        return deepcopy(self)
+
+    def basic(self, func, axis=None, dtype=None):
+        dtype = dtype or self.dtype
+        if axis is None:
+            result = func(self.flatten())
+            if dtype is object:
+                return result
+            return dtype(result)
+
+        def inner(a, flag):
+            if flag:
+                return [inner(_, flag - 1) for _ in a]
+            elif all([isinstance(_, (int, float, complex)) for _ in a]):
+                return func(a)
+            else:
+                return [inner(list(_), 0) for _ in zip(*a)]
+
+        result = inner(self.data, axis)
+        return type(self)(result, dtype=dtype)
+
+    def sum(self, axis=None):
+        return self.basic(sum, axis)
+
+    def max(self, axis=None):
+        if self.dtype is complex:
+            return self.basic(lambda a: max(a, key=lambda x: (x.real, x.imag)), axis)
+        return self.basic(max, axis)
+
+    def min(self, axis=None):
+        if self.dtype is complex:
+            return self.basic(lambda a: min(a, key=lambda x: (x.real, x.imag)), axis)
+        return self.basic(min, axis)
+
+    def argmax(self, axis=None):
+        _max_func = (lambda a: max(a, key=lambda x: (x.real, x.imag))) if self.dtype is complex else max
+        if axis is None:
+            return self.flatten().index(_max_func(self.flatten()))
+        return self.basic(lambda a: a.index(_max_func(a)), axis, dtype=int)
+
+    def argmin(self, axis=None):
+        _min_func = (lambda a: min(a, key=lambda x: (x.real, x.imag))) if self.dtype is complex else min
+        if axis is None:
+            return self.flatten().index(_min_func(self.flatten()))
+        return self.basic(lambda a: a.index(_min_func(a)), axis, dtype=int)
+
+    def mean(self, axis=None):
+        from .maths import mean
+        return self.basic(mean, axis)
+
+    def var(self, axis=None):
+        from .maths import var
+        return self.basic(var, axis)
+
+    def std(self, axis=None):
+        from .maths import std
+        return self.basic(std, axis)
+
+    def ptp(self, axis=None):
+        from .maths import ptp
+        return self.basic(ptp, axis)
+
+    def median(self, axis=None):
+        from .maths import median
+        return self.basic(median, axis)
+
+    def mode(self, axis=None):
+        from .maths import mode
+        return self.basic(mode, axis)
+
+    def product(self, axis=None):
+        from .maths import product
+        return self.basic(product, axis)
+
+
+def get_shape(data):
+    _shape = []
+    _sub = data
+    while isinstance(_sub, list):
+        _shape.append(len(_sub))
+        _sub = _sub[0]
+    return tuple(_shape)
+
+
+def is_valid_array(_array, _shape):
+    def inner(a, s, al, sl):
+        if sl == 1:
+            if not isinstance(a, list) or al != s[0]:
+                raise ArrayError
+        elif al == s[0]:
+            for i in a:
+                if not isinstance(i, list):
+                    raise ArrayError
+                inner(i, s[1:], len(i), sl - 1)
+        else:
+            raise ArrayError
+
+    shape_len = len(_shape)
+    if shape_len != 1 and not isinstance(_array, list):
+        raise ArrayError
+    inner(_array, _shape, len(_array), shape_len)
+
+
+def array(data=None, dtype=object):
+    return Array(data, dtype=dtype)
+
+
+def full(shape: Sequence, fill_value: Any, rtype: Callable = Array, dtype: type = object) -> Any:
+    def inner(data, length):
+        return fill_value if length == 0 else [inner(data[1:], length - 1) for _ in range(data[0])]
+
+    if isinstance(fill_value, list):
+        raise TypeError("The filled value cannot be a list")
+    if dtype is not object:
+        try:
+            fill_value = dtype(fill_value)
+        except (ValueError, TypeError):
+            pass
+    result = inner(shape, len(shape))
+    return result if rtype is list else rtype(result, dtype=dtype)
+
+
+def full_like(a: Any, fill_value: Any, rtype: Callable = Array, dtype: type = None) -> Any:
+    def inner(data):
+        return [inner(item) for item in data] if isinstance(data, list) else fill_value
+
+    if isinstance(fill_value, list):
+        raise TypeError("The filled value cannot be a list")
+    if dtype is None:
+        if isinstance(a, Array):
+            dtype = a.dtype
+        else:
+            dtype = object
+    if isinstance(a, Array):
+        a = a.data
+    if dtype is not object:
+        try:
+            fill_value = dtype(fill_value)
+        except (ValueError, TypeError):
+            pass
+    result = inner(a)
+    return result if rtype is list else rtype(result, dtype=dtype)
+
+
+def zeros(shape: Sequence, rtype: Callable = Array, dtype: type = object) -> Any:
+    return full(shape, 0, rtype, dtype)
+
+
+def zeros_like(a: Any, rtype: Callable = Array, dtype: type = None) -> Any:
+    return full_like(a, 0, rtype, dtype)
+
+
+def ones(shape: Sequence, rtype: Callable = Array, dtype: type = object) -> Any:
+    return full(shape, 1, rtype, dtype)
+
+
+def ones_like(a: Any, rtype: Callable = Array, dtype: type = None) -> Any:
+    return full_like(a, 1, rtype, dtype)
+
+
+def fill(shape: Sequence, sequence: Sequence = None, repeat: bool = True, pad: Any = 0,
+         rtype: Callable = Array, dtype: type = object) -> Any:
+    pointer = -1
+    length = 1
+    for item in shape:
+        length *= item
+    if sequence is None:
+        sequence = tuple(range(length))
+    total = len(sequence)
+    last = total - 1
+
+    def inner(_shape, depth):
+        nonlocal pointer
+        if depth == 0:
+            if pointer == last and not repeat:
+                return pad
+            pointer += 1
+            return sequence[pointer % total]
+        else:
+            return [inner(_shape[1:], depth - 1) for _ in range(_shape[0])]
+
+    result = inner(shape, len(shape))
+    if rtype is list:
+        return result
+    return rtype(result, dtype=dtype)
+
+
+def tensorproduct(*tensors: Array) -> Array:
+    if not all([isinstance(tensor, Array) for tensor in tensors]):
+        raise TypeError("All inputs must be tensors")
+    if len(tensors) == 1:
+        return tensors[0].copy()
+
+    def mul(a, b):
+        flattened_a = a.flatten()
+        flattened_b = b.flatten()
+        res_dtype = a.dtype if a.dtype is not object else b.dtype
+        data = fill(a.shape + b.shape, [i * j for i in flattened_a for j in flattened_b], rtype=list)
+        return Array(data, check=False, dtype=res_dtype)
+
+    first = tensors[0]
+    for second in tensors[1:]:
+        first = mul(first, second)
+    return first
+
+
+class BoolArray(Array):
+    def __init__(self, data=None, check=True, dtype=bool):
+        if dtype != bool:
+            dtype = bool
+        super().__init__(data, check, dtype=dtype)
+
+    def logic_op(self, other, func):
+        from .ufuncs import ufunc_helper
+        if isinstance(other, Array) and not isinstance(other, BoolArray) and not isinstance(other, bool):
+            raise TypeError("Other must be a BoolArray or a scalar boolean value")
+        return ufunc_helper(self, other, func)
+
+    def __and__(self, other):
+        return self.logic_op(other, lambda a, b: a and b)
+
+    def __or__(self, other):
+        return self.logic_op(other, lambda a, b: a or b)
+
+    def __xor__(self, other):
+        return self.logic_op(other, lambda a, b: a != b)
+
+    def __invert__(self):
+        return self.apply(lambda x: not x)
+
+
+def boolarray(data=None):
+    return BoolArray(data)
